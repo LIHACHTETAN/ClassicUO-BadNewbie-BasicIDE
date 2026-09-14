@@ -18,7 +18,7 @@ Scale(3, 4)
 
 ## Parameter
 
-- `name / As type` — name / As type: Parametername und optionale Typumwandlung beim Eintritt. Argumente werden nach Position übergeben; Modifizierer stehen in der Deklaration.
+- `name / As type` — name / As type: Parametername und optionale Eingabekonvertierung mit As. Argumente binden nach Position oder name:=value; Modifizierer gehören in die Deklaration. Siehe Basic.NamedArguments.
 - `ByRef` — ByRef: beschreibbare Variable oder vorhandenes indiziertes Element. Ohne ByVal schreibt diese Engine ebenfalls zurück, anders als der VB.NET-Standard. Literale, Konstanten und berechnete Ausdrücke sind temporär.
 - `ByVal` — ByVal: lokale Wertkopie. Zuweisung an den Parameter ersetzt die Aufrufervariable nicht. Arrays und Objekte teilen weiterhin Referenzen; es erfolgt keine tiefe Kopie.
 - `Optional / defaultValue` — Optional / defaultValue: ein ausgelassenes letztes Argument wertet den Ausdruck nach = aus. Einen ausdrücklichen Standardwert angeben; andernfalls erhält der ausgelassene Parameter nicht initialisiertes Unit.
@@ -33,9 +33,10 @@ Modifizierer geben keinen Wert zurück. RETURN legt das Funktionsergebnis separa
 - Argumente werden einmal von links nach rechts ausgewertet. Indiziertes ByRef erfasst Container und Index/Schlüssel; ein anderes Argument kann die Rückschreibstelle nicht durch Neuzuweisung der Containervariablen umleiten.
 - Beim Eintritt entstehen lokale Parameter. Beim Verlassen werden ByRef-Werte nach inneren FINALLY-Blöcken in Parameterreihenfolge zurückgeschrieben, auch bei Fehlern im Rumpf. Zwei Parameter derselben Variablen sind nicht unmittelbar gekoppelt: die letzte Rückschreibung gewinnt.
 - ByVal verhindert den Austausch der Aufrufervariablen, aber keine Änderungen im gemeinsamen Array oder Objekt. ReDim erzeugt eine neue lokale Referenz. Unabhängige Daten erfordern eine ausdrückliche Kopie.
-- Optional-Argumente vom Ende her auslassen; leere Positionen zwischen Kommas sind nicht unterstützt. Standardausdrücke werden bei jeder Auslassung ausgewertet und müssen keine VB.NET-Konstanten sein.
+- Bei positionalen Aufrufen: Optional-Argumente vom Ende her auslassen; leere Positionen zwischen Kommas sind nicht unterstützt. Standardausdrücke werden bei jeder Auslassung ausgewertet und müssen keine VB.NET-Konstanten sein. Positionale Argumente stehen zuerst, danach ausschließlich benannte. Pflichtparameter dürfen nicht fehlen. Ausgelassene Optional-Parameter einer Skriptprozedur erhalten ihre deklarierten Vorgaben, ausgewertet in Deklarationsreihenfolge nach den übergebenen Ausdrücken. Native Überladungen haben nur registrierte Namen und Anzahlen, keine hinzugefügten Vorgaben.
 - ParamArray schreibt gepackte Skalare nicht zurück. Änderungen an einem ausdrücklich übergebenen Array sind beim Aufrufer sichtbar. Weitergabe an ein weiteres ParamArray fügt keine Verschachtelung hinzu.
 - ByRef und ByVal ausdrücklich angeben. Diese Regeln gelten für Skriptaufrufe eigener Prozeduren; integrierte Befehle sind separat beschrieben.
+- ParamArray kann nicht benannt belegt werden. Bei benannten Aufrufen darf es leer bleiben; seine Werte erfordern rein positionale Aufrufe. Leere Kommapositionen werden nicht unterstützt. Es gilt die Regel positional zuerst, nicht die freiere Mischung neuer VB.NET-Versionen. Keine zusätzlichen Threads oder geänderten Spielverzögerungen.
 
 ## Beispiele
 

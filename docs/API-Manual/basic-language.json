@@ -1203,6 +1203,30 @@
         "Option Explicit On\nFunction ReadLength(ByVal stream) As Integer\n    Using stream\n        Return stream.Length()\n    End Using\nEnd Function\n\nSub Main()\n    Dim stream = MemoryStream()\n    Dim size = ReadLength(stream)\n    Dim closed = False\n    Try\n        Dim after = stream.Length()\n    Catch problem\n        closed = True\n    End Try\n    Return CStr(size) & \":\" & CStr(closed)\nEnd Sub\n",
         "Option Explicit On\nFunction IsClosed(ByVal stream) As Boolean\n    Try\n        Dim size = stream.Length()\n        Return False\n    Catch closed\n        Return True\n    End Try\nEnd Function\n\nSub Main()\n    Dim outer = MemoryStream()\n    Dim inner = MemoryStream()\n    Dim message = \"\"\n    Try\n        Using outer\n            Using inner\n                Throw \"demo\"\n            End Using\n        End Using\n    Catch problem\n        message = problem\n    End Try\n    Return message & \":\" & CStr(IsClosed(outer) + IsClosed(inner))\nEnd Sub\n"
       ]
+    },
+    {
+      "id": "Basic.NamedArguments",
+      "name": "Named arguments / :=",
+      "signatures": [
+        "FunctionName(parameterName:=expression, otherName:=expression)\nFunctionName(positionalExpression, optionalName:=expression)\nFunctionName([reservedName]:=expression)"
+      ],
+      "descriptions": {
+        "en": "Named arguments bind values to declared parameter names, so their order can differ from the declaration. They work for script procedures/functions, qualified module calls, registered Basic/UO functions and native object methods.",
+        "ru": "Именованные аргументы связывают значения с именами параметров, поэтому порядок записи может отличаться от объявления. Поддерживаются процедуры и функции скрипта, вызовы модулей, зарегистрированные функции Basic/UO и методы нативных объектов.",
+        "uk": "Іменовані аргументи пов’язують значення з назвами параметрів незалежно від порядку оголошення. Працюють для процедур і функцій скрипту, модулів, зареєстрованих функцій Basic/UO та методів нативних об’єктів.",
+        "fr": "Les arguments nommés associent les valeurs aux paramètres déclarés, indépendamment de leur ordre. Ils fonctionnent avec les procédures et fonctions du script, les modules, les fonctions Basic/UO enregistrées et les méthodes natives.",
+        "de": "Benannte Argumente ordnen Werte deklarierten Parametern zu, unabhängig von deren Reihenfolge. Unterstützt werden Skriptprozeduren, Funktionen, Module, registrierte Basic/UO-Funktionen und native Objektmethoden.",
+        "it": "Gli argomenti nominati associano valori ai nomi dichiarati, indipendentemente dall’ordine. Sono supportati per procedure e funzioni dello script, moduli, funzioni Basic/UO registrate e metodi nativi.",
+        "es": "Los argumentos con nombre asignan valores a parámetros declarados sin depender de su orden. Funcionan con procedimientos, funciones, módulos, funciones Basic/UO registradas y métodos de objetos nativos.",
+        "zh-tw": "具名引數依宣告的參數名稱傳值，書寫順序不必與宣告相同。支援腳本程序、函式、模組、已註冊的 Basic/UO 函式及原生物件方法。",
+        "ja": "名前付き引数は宣言されたパラメーター名に値を対応させるため、宣言と異なる順序で記述できます。スクリプトの手続き、関数、モジュール、登録済み Basic/UO 関数、ネイティブオブジェクトのメソッドに対応します。",
+        "ko": "이름 있는 인수는 선언된 매개변수 이름에 값을 연결하므로 선언 순서와 다르게 쓸 수 있습니다. 스크립트 프로시저, 함수, 모듈, 등록된 Basic/UO 함수와 네이티브 객체 메서드를 지원합니다."
+      },
+      "examples": [
+        "Option Explicit On\nFunction Encode(ByVal x, Optional ByVal y=2, Optional ByVal z=3) As Integer\n    Return x*100 + y*10 + z\nEnd Function\n\nSub Main()\n    Dim encoded = Encode(z:=9, x:=1)\n    Return encoded\nEnd Sub\n",
+        "Option Explicit On\nSub Change(ByRef left, ByRef right)\n    left += 10\n    right += 20\nEnd Sub\n\nSub Main()\n    Dim a = 1\n    Dim b = 2\n    Change(right:=a, left:=b)\n    Return CStr(a) & \":\" & CStr(b)\nEnd Sub\n",
+        "Option Explicit On\nSub Main()\n    Dim items = List()\n    items.Add(value:=10)\n    items.Insert(value:=20, index:=0)\n    Dim first = items.Item(index:=0)\n    Dim second = items.Item(index:=1)\n    Return CStr(first) & \":\" & CStr(second) & \":\" & CStr(items.Count())\nEnd Sub\n"
+      ]
     }
   ]
 }

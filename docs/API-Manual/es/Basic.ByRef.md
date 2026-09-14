@@ -19,7 +19,7 @@ Function name(ByRef value As type)
 
 ## Parámetros
 
-- `name / As type` — name / As type: nombre y conversión opcional del tipo al entrar. Los argumentos son posicionales; los modificadores se escriben en la declaración.
+- `name / As type` — name / As type: Nombre del parámetro y conversión opcional de entrada con As. Argumentos por posición o name:=value; los modificadores van en la declaración. Véase Basic.NamedArguments.
 - `ByRef` — ByRef: variable modificable o elemento indexado existente. Sin ByVal este motor también escribe de vuelta, a diferencia del valor predeterminado de VB.NET. Literales, constantes y expresiones calculadas son temporales.
 - `ByVal` — ByVal: copia local del valor. Asignar al parámetro no reemplaza la variable del llamador. Matrices y objetos siguen compartiendo referencias; no es una copia profunda.
 - `Optional / defaultValue` — Optional / defaultValue: omitir un argumento final evalúa su expresión tras =. Indique un valor explícito; sin él, el parámetro omitido recibe Unit sin inicializar.
@@ -34,9 +34,10 @@ Los modificadores no devuelven valores. RETURN establece el resultado por separa
 - Los argumentos se evalúan una vez, de izquierda a derecha. ByRef indexado captura contenedor e índice/clave; reasignar la variable del contenedor desde otro argumento no redirige la escritura.
 - Al entrar se crean parámetros locales. Al salir, después de los FINALLY internos, ByRef escribe en orden de parámetros, también si un error sale del cuerpo. Dos parámetros de una misma variable no son alias vivos: prevalece la última escritura.
 - ByVal impide reemplazar la variable del llamador, pero permite modificar la matriz u objeto compartido. ReDim crea una nueva referencia local. Los datos independientes requieren una copia explícita.
-- Omita argumentos Optional desde el final; no se admiten posiciones vacías entre comas. Los valores predeterminados pueden ser expresiones del motor evaluadas en cada omisión, no necesariamente constantes VB.NET.
+- En llamadas posicionales: Omita argumentos Optional desde el final; no se admiten posiciones vacías entre comas. Los valores predeterminados pueden ser expresiones del motor evaluadas en cada omisión, no necesariamente constantes VB.NET. Primero van los argumentos posicionales; después del primer argumento con nombre, todos deben tener nombre. No omita parámetros obligatorios. Los Optional omitidos del script usan sus valores declarados, evaluados en orden de declaración después de las expresiones suministradas. Las sobrecargas nativas solo admiten sus nombres y aridad registrados, sin valores predeterminados inventados.
 - ParamArray no escribe los escalares agrupados en sus variables originales. Modificar una matriz suministrada explícitamente sí es visible al llamador. Pasarla a otro ParamArray no añade anidamiento.
 - Escriba ByRef y ByVal explícitamente. Estas reglas describen procedimientos del usuario llamados desde el script; los comandos integrados tienen fichas propias.
+- ParamArray no admite nombre. Puede quedar vacío en llamadas con nombres; sus valores requieren una llamada totalmente posicional. No se admiten posiciones vacías entre comas. Este subconjunto exige posicionales primero, sin la mezcla libre de VB.NET recientes. No crea hilos ni modifica las demoras del juego.
 
 ## Ejemplos
 

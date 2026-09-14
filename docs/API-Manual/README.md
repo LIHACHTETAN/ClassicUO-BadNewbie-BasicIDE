@@ -52,6 +52,7 @@
 - [Wait Until / Timeout](Basic.WaitUntil.md)
 - [Enum / End Enum](Basic.Enum.md)
 - [Using / End Using](Basic.Using.md)
+- [Named arguments / :=](Basic.NamedArguments.md)
 
 ### Встроенные функции Basic
 
