@@ -3427,7 +3427,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "fc8054d0ab3cc6b7fbdaf07ae0048b9e24858f8090e9fc007b737b7f4925144f"
+      "sha256": "f53c03015030e160910883f71ca59c0e9b3fc6630036fb1d020b1eea1e0dbebe"
     },
     {
       "path": "InStr.md",
@@ -7327,7 +7327,7 @@
     },
     {
       "path": "ru/UO.MassMove.md",
-      "sha256": "00de0fe5f0edcbe963edbee458a72124b406a761ce1183e0969f996b342ccf6d"
+      "sha256": "5e989adce736136bb7ffeee1356bafd5cff5cd41636b99fccd5c8fb4740d2a40"
     },
     {
       "path": "ru/UO.MassPriceMove.md",
@@ -7383,7 +7383,7 @@
     },
     {
       "path": "ru/UO.MoveItem.md",
-      "sha256": "27e919d29aa83fffdaa3fabe14ceeb5423d3bac3ee921b68c763793629eaf42e"
+      "sha256": "bf63151c37a69b2c2e5f16abbc132646565e751aeea775952efc045c8b3855e2"
     },
     {
       "path": "ru/UO.MoveOff.md",
@@ -10499,7 +10499,7 @@
     },
     {
       "path": "UO.MassMove.md",
-      "sha256": "fd0e03a4b8d59982c534de089b22929d55330e42017172ec51ad21fd3cea154e"
+      "sha256": "9887788092046d000b3c480c41576233cdb2376964375c859ff24b0ee1816569"
     },
     {
       "path": "UO.MassPriceMove.md",
@@ -10579,7 +10579,7 @@
     },
     {
       "path": "UO.MoveItem.md",
-      "sha256": "3f986e3b619a386df3643640f65c87301a3aaee5ec39ed59421e0ac3138f5745"
+      "sha256": "9c0a1dbea0259e3eb421863399404723439230d6ea2b47b0feed3f232b64e8e3"
     },
     {
       "path": "UO.MoveItems.md",
