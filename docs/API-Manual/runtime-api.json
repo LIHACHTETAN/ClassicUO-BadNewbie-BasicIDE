@@ -11569,7 +11569,7 @@
     {
       "name": "UO.FindDistance",
       "parameters": [],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"FindDistance\"]",
@@ -11588,7 +11588,7 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "Unit",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"FindDistance\"]",
@@ -13094,7 +13094,7 @@
     {
       "name": "UO.FindVertical",
       "parameters": [],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"FindVertical\"]",
@@ -13113,7 +13113,7 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "Unit",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"FindVertical\"]",

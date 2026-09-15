@@ -666,6 +666,10 @@
       "sha256": "743f6cb12b6d60463b8570bed4657bd07bf46f9add010359d96459684932a8b6"
     },
     {
+      "path": "de/UO.FindDistance.md",
+      "sha256": "435a1622e227fd1cfd225082567e45283442bf28173a605aab25cefc9fe5ce29"
+    },
+    {
       "path": "de/UO.FindFullQuantity.md",
       "sha256": "2c1ff99aa41e8170376c67813062e26ee046640fd269a8f45654b343c1ec700b"
     },
@@ -676,6 +680,10 @@
     {
       "path": "de/UO.FindQuantity.md",
       "sha256": "1dc1dad2d766a508207fc457fd0521447f7771b1a89c4b857f9b10b25e13fd75"
+    },
+    {
+      "path": "de/UO.FindVertical.md",
+      "sha256": "34348c1d4607583d3624f38d5754d4c6d0dd884b9ddb383e3cb72da2265cd94f"
     },
     {
       "path": "de/UO.FireResist.md",
@@ -1550,6 +1558,10 @@
       "sha256": "f9ebd81037675934a54bf2c569bc120a1cfc981bc88084134eb2940a95d74f9f"
     },
     {
+      "path": "en/UO.FindDistance.md",
+      "sha256": "9a24abd9e4a6a1bf5706606c961f364eae5cde9f312a2021498f52f2b8307187"
+    },
+    {
       "path": "en/UO.FindFullQuantity.md",
       "sha256": "edb10d9e794b022692ea3576701a5335272c83ca8e65f391fa13267413c57e38"
     },
@@ -1560,6 +1572,10 @@
     {
       "path": "en/UO.FindQuantity.md",
       "sha256": "78cb9cac24422c5049e57eec16d3c9d9a23cceac6a75c5dec1f6ba4584f22fd9"
+    },
+    {
+      "path": "en/UO.FindVertical.md",
+      "sha256": "d3c6aa07a06d1a91c5d61efb7b3bf69060fed9270c5d5f12b490364715338006"
     },
     {
       "path": "en/UO.FireResist.md",
@@ -2414,6 +2430,10 @@
       "sha256": "cb13e7c81587487b975ee5a3a5c7afc451dc19cf121193de4dd724b0cd85bd1a"
     },
     {
+      "path": "es/UO.FindDistance.md",
+      "sha256": "73ba21a15df849212c1502f9ac2bd91f5f0086618e4150f85adb67c865728fd6"
+    },
+    {
       "path": "es/UO.FindFullQuantity.md",
       "sha256": "6a26fdefc0e39d4beed5123e1593301e5208f2df8b7501cd1a120ee058aab145"
     },
@@ -2424,6 +2444,10 @@
     {
       "path": "es/UO.FindQuantity.md",
       "sha256": "82a635c7cb72134aaf34dfef0bdec65e36b4e4bfb7b9c454af3801ae2e519386"
+    },
+    {
+      "path": "es/UO.FindVertical.md",
+      "sha256": "1cef46fa3e0068847786ebb0c27eb2f84e8dc0ec0bf702540658d70677e59ac8"
     },
     {
       "path": "es/UO.FireResist.md",
@@ -3382,6 +3406,10 @@
       "sha256": "c90b8157665509ae76fc307236302719851ec063756403607a84675c47741a3a"
     },
     {
+      "path": "fr/UO.FindDistance.md",
+      "sha256": "65e90489f37fab1b61b584e3755c9077abe1d975fcebc35e00b0adf6e5527e98"
+    },
+    {
       "path": "fr/UO.FindFullQuantity.md",
       "sha256": "b3c8b6e687b897f5886b15d1571e699d2d918cdb952170fddc96d623cd30bfcd"
     },
@@ -3392,6 +3420,10 @@
     {
       "path": "fr/UO.FindQuantity.md",
       "sha256": "2bd13e57508e32f1534016ac5000d84b2abd1d1edf6471507ed3eb6d6a67bb5b"
+    },
+    {
+      "path": "fr/UO.FindVertical.md",
+      "sha256": "47caa110e4d53bd0fe4c61e9efbbcafa6553d235c89a73a1bea378e5a4684020"
     },
     {
       "path": "fr/UO.FireResist.md",
@@ -3943,7 +3975,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "74a3e27b212cce04dce99ad703c9373071d33d86bad9c200f2e69cc20a1a96d2"
+      "sha256": "a5536ffd607f558fa8fe8f682813cad44036032dbf9b9e3c9c44bd6d529eb328"
     },
     {
       "path": "InStr.md",
@@ -4310,6 +4342,10 @@
       "sha256": "ccfaabbf4bf76a946ac54b9a62043e643e42078094b567181b173b2f2ceccd53"
     },
     {
+      "path": "it/UO.FindDistance.md",
+      "sha256": "f6a64efc15372f9e8a8fab3d4fce9b9cdbadf2493798250baec474aa8a5f240a"
+    },
+    {
       "path": "it/UO.FindFullQuantity.md",
       "sha256": "528a24ed9ad9a715ac7165484aa4ad3b12ac3202f202e0590a62d587aefa03c3"
     },
@@ -4320,6 +4356,10 @@
     {
       "path": "it/UO.FindQuantity.md",
       "sha256": "d91fe276719e810b3d3e151da34a9fd774c86e5a0f2dbe46fd763615b23e5990"
+    },
+    {
+      "path": "it/UO.FindVertical.md",
+      "sha256": "2ca80546abb033084be99a0bfec196d3fde6939924f2bf6e5998bffd479a1e60"
     },
     {
       "path": "it/UO.FireResist.md",
@@ -5174,6 +5214,10 @@
       "sha256": "ae29923e740b8e63a3a74b8b004a154fbf829e09469067dd979428e6a98ce0d1"
     },
     {
+      "path": "ja/UO.FindDistance.md",
+      "sha256": "eebc27b58a715d18a3e31aa3e6167cdc029903602286ac22d0e119faabcc789f"
+    },
+    {
       "path": "ja/UO.FindFullQuantity.md",
       "sha256": "8f97ea78448abe67ea3b31052a4ad5cacff0ac32fb06368af4cae2a104226e51"
     },
@@ -5184,6 +5228,10 @@
     {
       "path": "ja/UO.FindQuantity.md",
       "sha256": "16f36fbd5f9bb14d9374d286ed5c687f9cc8de9562697adf13a1418bbacbad1f"
+    },
+    {
+      "path": "ja/UO.FindVertical.md",
+      "sha256": "90b29f238b9a2a3a28be78a75ee19dcdaf20f41d291805e406fd0d9825e2943d"
     },
     {
       "path": "ja/UO.FireResist.md",
@@ -6066,6 +6114,10 @@
       "sha256": "f9dcde8d00851b9877852add64380fd521fcd371d437bb0559c0535889835eaf"
     },
     {
+      "path": "ko/UO.FindDistance.md",
+      "sha256": "653e2e69a816c83d3c676e3a8cf3bb00459eb0b2cc99c062cc55aa0500951fa5"
+    },
+    {
       "path": "ko/UO.FindFullQuantity.md",
       "sha256": "2f2e31957e744d9f4e76f955065398ea2bb66a33ae5e4b423e3f81c2cd721ca9"
     },
@@ -6076,6 +6128,10 @@
     {
       "path": "ko/UO.FindQuantity.md",
       "sha256": "e376c3c205667d52e8268ce878d68146b64eb7e900d3ff258e773938dee786b7"
+    },
+    {
+      "path": "ko/UO.FindVertical.md",
+      "sha256": "8612fdcc89b1ccf2b4de41bb9c9e5bad72c58bf34427a4f1b1b1a25afd489517"
     },
     {
       "path": "ko/UO.FireResist.md",
@@ -7386,6 +7442,10 @@
       "sha256": "d5ac023dd08082af4bc68fe195ae925c38cbce28d537bf732d95f0df85e816d3"
     },
     {
+      "path": "ru/UO.FindDistance.md",
+      "sha256": "859e7ce7785ce8ae8446b09d9c8901aa9e46305389dac2a829a798a326f51721"
+    },
+    {
       "path": "ru/UO.FindFullQuantity.md",
       "sha256": "a2d81ff5ac9d1265f516484db24897ad3f47a19039adf432cb9f8a3e91019952"
     },
@@ -7400,6 +7460,10 @@
     {
       "path": "ru/UO.FindType.md",
       "sha256": "d94966a1b7d97da92472cadb97a5f0beb3e7b29e87416e9c30da1b93f4475c00"
+    },
+    {
+      "path": "ru/UO.FindVertical.md",
+      "sha256": "850dc8b180ee64d9b22976b4a4eaa07ee567837b8a9412163ab6659a20f6f723"
     },
     {
       "path": "ru/UO.FireResist.md",
@@ -8671,7 +8735,7 @@
     },
     {
       "path": "runtime-api.json",
-      "sha256": "755b85ca2a53e5c6da7e5e407a89b65d5feffef4f830b4a466b7afec27f938e5"
+      "sha256": "4099a2dd8d9ca68b523713eff5d522757e01f0b88c4cd36634d2eea05416dce7"
     },
     {
       "path": "self.md",
@@ -9122,6 +9186,10 @@
       "sha256": "8a5fd42b4bb20bec734317d1d3d5fda5ca22df2c4df527c7a6d76e929d042f2b"
     },
     {
+      "path": "uk/UO.FindDistance.md",
+      "sha256": "7753747bac91fa56ee419d0b490b9d6c9562db71f9ab32849fdfaf7cf64a0b1a"
+    },
+    {
       "path": "uk/UO.FindFullQuantity.md",
       "sha256": "aa29d69c0bb921135ddfc4b472de5bc6c8740c97c62f8193af97abc468a6df5e"
     },
@@ -9132,6 +9200,10 @@
     {
       "path": "uk/UO.FindQuantity.md",
       "sha256": "c5f481d6f388f6df8963fbd575891a9dbada64dd4685a9bdcd93e63c374b361d"
+    },
+    {
+      "path": "uk/UO.FindVertical.md",
+      "sha256": "f76a668c972b39bf2a80142e59476d3d173dc77c947b14fc5bf6655025611fa2"
     },
     {
       "path": "uk/UO.FireResist.md",
@@ -10291,7 +10363,7 @@
     },
     {
       "path": "UO.FindDistance.md",
-      "sha256": "249b1c9178c344d0001f1a4026ecc25918f305ebe81af430f26dc803224f3b36"
+      "sha256": "01028326b51070ebadcd0ba289a71202b72286f19cd24a9288d005f1ff8fac9d"
     },
     {
       "path": "UO.FindFullQuantity.md",
@@ -10335,7 +10407,7 @@
     },
     {
       "path": "UO.FindVertical.md",
-      "sha256": "cdff68c16d12ce167459d5df5d2a0dcc60bc3337f0306b60de5ed19fb421c324"
+      "sha256": "ed5720092d1746a0e8c3bc5ad376b350b79d7bc4beb3b3f5075a3d2857bfbf72"
     },
     {
       "path": "UO.FireResist.md",
@@ -12974,6 +13046,10 @@
       "sha256": "b1eb0aa70d5fca875c6f56485573a9e81b653a2502233c77d72e795928505d4b"
     },
     {
+      "path": "zh-tw/UO.FindDistance.md",
+      "sha256": "baebff886294a104221a3ed9608e535f1b7ea42655351105355046e5410ac6ce"
+    },
+    {
       "path": "zh-tw/UO.FindFullQuantity.md",
       "sha256": "39761581b0224d0f80219bd8fc984323ed1c8f73340f6165e31c81a54c96eb88"
     },
@@ -12984,6 +13060,10 @@
     {
       "path": "zh-tw/UO.FindQuantity.md",
       "sha256": "cb50bcf434f1432a0de819e482b4f69ecb152a6274a5e21798bd640dd7ba8a27"
+    },
+    {
+      "path": "zh-tw/UO.FindVertical.md",
+      "sha256": "5108c2ecbba5bf8a561acded3d33993e30adf1c294147c0ac7431bfeb8174c46"
     },
     {
       "path": "zh-tw/UO.FireResist.md",

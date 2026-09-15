@@ -1,118 +1,192 @@
 # UO.FindDistance
 
-ClassicUO • Runtime API • `UO.FindDistance.md`
+ClassicUO • Runtime API
 
-## Точный синтаксис / Registered signatures
+<!-- yoko-manual: 1 -->
+
+Читает или изменяет горизонтальный радиус поиска по умолчанию.
+
+## Точный синтаксис
 
 ```text
-UO.FindDistance() -> Any
-UO.FindDistance(value:Any) -> Any
+UO.FindDistance() -> Integer
+UO.FindDistance(value:Any) -> Unit
 ```
 
-Порядок аргументов соответствует строкам выше. `Unit` означает отсутствие возвращаемого значения. `Any` — значение BASIC с преобразованием при вызове. Имена нечувствительны к регистру.
+Выберите одну из зарегистрированных форм. Параметры передаются позиционно. Any означает значение BASIC с преобразованием внутри команды; Unit — отсутствие возвращаемого значения.
 
-## `UO.FindDistance`
+## Параметры
 
-### Compatibility description
+- `value` — Необязательный Integer. Без аргумента — чтение; value — установка. Значение ограничивается диапазоном 0..255; отрицательное становится 0, а не безлимитом. В новом runtime: 18; восстановленное состояние может содержать другое значение. Дробное число усекается к нулю; допустимы также числовые строки decimal/0x. Используйте Integer, чтобы избежать неявного преобразования.
 
-> Historical Stealth/Pascal reference text. Current Basic signatures and return contracts below are authoritative when behavior differs.
+## Возвращает
 
-Задаёт горизонтальный радиус поиска (в тайлах) для поиска на земле методами FindType , FindTypeEx , FindTypesArrayEx и связанными. Значение по умолчанию: 2 . Максимальное значение: 90 — значения выше 90 обрезаются. Влияет только на поиск с контейнером Ground ( $FFFFFFFF ). Не влияет на поиск в контейнерах или рюкзаке. В Python используйте GetFindDistance() / SetFindDistance(value) .
+Без аргументов: Integer — текущий предел (расстояние в клетках), не найденный ID, количество объектов или Boolean. 0 означает нулевой предел, а не неудачу. С value: Unit — значения нет; это не TRUE/FALSE и не прежняя настройка. После установки прочитайте FindDistance(), чтобы узнать сохранённое значение.
 
-### Current Basic signatures / Return
+## Поведение
 
-- `UO.FindDistance() -> Integer`
-  - **Return type:** `Integer`
-  - **Return contract:** Integer result from the registered runtime implementation; command-specific zero/-1 sentinels are described in Behavior/Notes.
-  - **Runtime route:** `DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility["FindDistance"]` → `BRIDGE CONTRACT -> IApiBridge.GetFindDistance` → `BRIDGE CONTRACT -> IApiBridge.SetFindDistance`
-- `UO.FindDistance(value:Integer) -> Unit`
-  - **Return type:** `Unit`
-  - **Return contract:** No value. The command performs its registered action; verify server-dependent effects through a getter/state check when required.
-  - **Runtime route:** `DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility["FindDistance"]` → `BRIDGE CONTRACT -> IApiBridge.GetFindDistance` → `BRIDGE CONTRACT -> IApiBridge.SetFindDistance`
+- Расстояние: max(abs(dx), abs(dy)) от текущей точки отсчёта дальности клиента; диагональная клетка считается за одну. Граница включается. При 0 подходят только объекты на тех же X/Y. Для движущихся Mobile расстояние учитывает конечную позицию очереди шагов.
+- Настройка хранится в runtime текущего скрипта; его процедуры используют одно значение. У независимых runtime настройки отдельные. Чтение и запись не запускают поиск, не очищают FindItem/FindCount/GetFoundItems, не отправляют пакет, не двигают персонажа и не загружают дальние объекты.
+- FindTypeEx и FindTypesArrayEx используют эти пределы при поиске на земле, но не внутри контейнера. Остаются фильтры type, hue, Ignore и наличие загруженного объекта. FindAtCoord игнорирует оба предела. В расширенных командах явные distance/maxZ могут заменить настройки; -1 в таких параметрах означает взять настройку, в отличие от установки самой настройки в -1. FindList также фильтрует Z при поиске в контейнерах; указанное исключение контейнеров на него не распространяется.
+- Перед временным поиском сохраните значение и восстановите его в Finally. Установка автоматически не отменяется. Finally работает при обычном завершении и перехватываемой ошибке скрипта; аварийную остановку нельзя использовать как механизм очистки.
+- Источник: [Stealth FindDistance](https://stealth.od.ua/api/FindDistance/). В этом клиенте сохранены собственные исходные значения и диапазоны: FindDistance 18 / 0..255; FindVertical 2 / 0..120. Синтаксис Basic и расширенные фильтры выше описывают наш проект.
 
-**Pascal compatibility signature:** `var FindDistance: Cardinal;`
+### Внутренние функции: от вызова до результата
 
-### Parameters
+Ниже реальные внутренние этапы. CountGroundInRange — полная пользовательская функция, а не скрытая встроенная команда.
 
-- `value` — Integer value. The concrete accepted domain is command-specific and is stated in Behavior/Notes; do not assume String conversion when the overload is numeric.
+#### 1. ExecuteStealthCompatibility
 
-### Accepted values / constants
+Перегрузка без аргумента выбирает чтение, с одним аргументом — преобразование value и запись. Метаданные отличают Integer от Unit.
 
-- `value` — Numeric BASIC value. Exact range/clamping/sentinel values are stated in this card's parameter text and Behavior/Notes.
+Без аргументов: Integer — текущий предел (расстояние в клетках), не найденный ID, количество объектов или Boolean. 0 означает нулевой предел, а не неудачу. С value: Unit — значения нет; это не TRUE/FALSE и не прежняя настройка. После установки прочитайте FindDistance(), чтобы узнать сохранённое значение.
 
-### Defaults / omitted arguments
+Исходник проекта: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; функция `ExecuteStealthCompatibility`.
 
-The compatibility search-distance state historically defaults to 2; explicit distance arguments on search overloads override shared state for that call.
+#### 2. GetFindDistance
 
-### Behavior
+Bridge читает настройку runtime либо ограничивает и записывает целое число. Мир здесь не сканируется.
 
-Reads or searches the currently loaded ClassicUO world/runtime state using the registered positional overload and its documented filters.
+Без аргументов: Integer — текущий предел (расстояние в клетках), не найденный ID, количество объектов или Boolean. 0 означает нулевой предел, а не неудачу. С value: Unit — значения нет; это не TRUE/FALSE и не прежняя настройка. После установки прочитайте FindDistance(), чтобы узнать сохранённое значение.
 
-### Notes / limitations
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `GetFindDistance`.
 
-Use the exact registered overload and positional argument order. Server/world-dependent effects may complete asynchronously; validate state when the script depends on confirmation.
+#### 3. SetFindDistance
 
-### Examples
+Bridge читает настройку runtime либо ограничивает и записывает целое число. Мир здесь не сканируется.
 
-```basic
-SUB Main()
-    VAR result = UO.FindDistance()
-END SUB
-```
+Необязательный Integer. Без аргумента — чтение; value — установка. Значение ограничивается диапазоном 0..255; отрицательное становится 0, а не безлимитом. В новом runtime: 18; восстановленное состояние может содержать другое значение. Дробное число усекается к нулю; допустимы также числовые строки decimal/0x. Используйте Integer, чтобы избежать неявного преобразования.
 
-```basic
-SUB Main()
-    UO.FindDistance(0)
-END SUB
-```
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `SetFindDistance`.
 
----
+#### 4. FindType
 
-## Варианты использования
+Следующий поиск читает настройку, если нет явного переопределения. Наземные Item и Mobile проходят соответствующие фильтры расстояния и высоты.
 
-Это отдельные сценарии. Подставьте свои serial, пути и координаты; серверные действия зависят от текущего состояния игры.
+FindTypeEx и FindTypesArrayEx используют эти пределы при поиске на земле, но не внутри контейнера. Остаются фильтры type, hue, Ignore и наличие загруженного объекта. FindAtCoord игнорирует оба предела. В расширенных командах явные distance/maxZ могут заменить настройки; -1 в таких параметрах означает взять настройку, в отличие от установки самой настройки в -1. FindList также фильтрует Z при поиске в контейнерах; указанное исключение контейнеров на него не распространяется.
 
-### Прямой вызов
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `FindType`.
+
+#### 5. FindList
+
+Следующий поиск читает настройку, если нет явного переопределения. Наземные Item и Mobile проходят соответствующие фильтры расстояния и высоты.
+
+FindTypeEx и FindTypesArrayEx используют эти пределы при поиске на земле, но не внутри контейнера. Остаются фильтры type, hue, Ignore и наличие загруженного объекта. FindAtCoord игнорирует оба предела. В расширенных командах явные distance/maxZ могут заменить настройки; -1 в таких параметрах означает взять настройку, в отличие от установки самой настройки в -1. FindList также фильтрует Z при поиске в контейнерах; указанное исключение контейнеров на него не распространяется.
+
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `FindList`.
+
+Настройка хранится в runtime текущего скрипта; его процедуры используют одно значение. У независимых runtime настройки отдельные. Чтение и запись не запускают поиск, не очищают FindItem/FindCount/GetFoundItems, не отправляют пакет, не двигают персонажа и не загружают дальние объекты.
+
+
+## Примеры
+
+### Пример 1. Чтение, установка и ограничение диапазона
 
 ```vb
+# Чтение, установка и ограничение диапазона
+#
+# Читает или изменяет горизонтальный радиус поиска по умолчанию.
+#
+# Без аргументов: Integer — текущий предел (расстояние в клетках), не найденный ID, количество
+# объектов или Boolean. 0 означает нулевой предел, а не неудачу. С value: Unit — значения нет;
+# это не TRUE/FALSE и не прежняя настройка. После установки прочитайте FindDistance(), чтобы
+# узнать сохранённое значение.
+
 SUB Main()
-    VAR result = UO.FindDistance()
-    UO.Print(CStr(result))
+    # previous сохраняет фактическую настройку. value:=5 задаёт обычный предел; 1000 показывает
+    # ограничение до 255. Print читает результат отдельным вызовом без аргумента. Finally
+    # восстанавливает previous.
+
+    VAR previous = UO.FindDistance()
+    TRY
+        UO.FindDistance(value:=5)
+        UO.Print(CStr(UO.FindDistance()))
+        UO.FindDistance(1000)
+        UO.Print(CStr(UO.FindDistance()))
+    FINALLY
+        UO.FindDistance(previous)
+    END TRY
 END SUB
 ```
 
-### Расширенная перегрузка: 1 аргументов
+**Разбор параметров и выполнения:**
+
+- previous сохраняет фактическую настройку. value:=5 задаёт обычный предел; 1000 показывает ограничение до 255. Print читает результат отдельным вызовом без аргумента. Finally восстанавливает previous.
+
+### Пример 2. Временный поиск на земле
 
 ```vb
+# Временный поиск на земле
+#
+# Читает или изменяет горизонтальный радиус поиска по умолчанию.
+#
+# Без аргументов: Integer — текущий предел (расстояние в клетках), не найденный ID, количество
+# объектов или Boolean. 0 означает нулевой предел, а не неудачу. С value: Unit — значения нет;
+# это не TRUE/FALSE и не прежняя настройка. После установки прочитайте FindDistance(), чтобы
+# узнать сохранённое значение.
+
 SUB Main()
-    VAR arg1 = 1 # value
-    VAR result = UO.FindDistance(arg1)
-    UO.Print(CStr(result))
+    # previous сохраняет настройку вызывающего кода. 5 меняет только FindDistance; второй предел
+    # остаётся прежним. 0x0EED — графика золота, -1 — любой hue, Container=-1 — мир, FALSE — без
+    # рекурсии контейнеров. id — один serial; <> 0 проверяет наличие. FindCount считает целые
+    # объекты/стопки. Finally восстанавливает настройку, а не список результатов.
+
+    VAR previous = UO.FindDistance()
+    TRY
+        UO.FindDistance(5)
+        VAR id = UO.FindTypeEx(0x0EED, -1, -1, FALSE)
+        IF id <> 0 THEN
+            UO.Print(HEX(id) + ':' + CStr(UO.FindCount()))
+        ELSE
+            UO.Print('0')
+        END IF
+    FINALLY
+        UO.FindDistance(previous)
+    END TRY
 END SUB
 ```
 
-### Явные аргументы и сохранение результата
+**Разбор параметров и выполнения:**
+
+- previous сохраняет настройку вызывающего кода. 5 меняет только FindDistance; второй предел остаётся прежним. 0x0EED — графика золота, -1 — любой hue, Container=-1 — мир, FALSE — без рекурсии контейнеров. id — один serial; <> 0 проверяет наличие. FindCount считает целые объекты/стопки. Finally восстанавливает настройку, а не список результатов.
+
+### Пример 3. Полная функция CountGroundInRange
 
 ```vb
-SUB Main()
-    VAR result = UO.FindDistance()
-    UO.Print(CStr(result))
-END SUB
-```
-
-### Получение результата внутри процедуры
-
-```vb
-SUB ReadResult()
-    VAR result = UO.FindDistance()
-    UO.Print(CStr(result))
-END SUB
+# Полная функция CountGroundInRange
+#
+# Читает или изменяет горизонтальный радиус поиска по умолчанию.
+#
+# Без аргументов: Integer — текущий предел (расстояние в клетках), не найденный ID, количество
+# объектов или Boolean. 0 означает нулевой предел, а не неудачу. С value: Unit — значения нет;
+# это не TRUE/FALSE и не прежняя настройка. После установки прочитайте FindDistance(), чтобы
+# узнать сохранённое значение.
 
 SUB Main()
-    ReadResult()
+    # CountGroundInRange(graphic, radius, height) сохраняет оба предела, задаёт radius=5 и
+    # height=10, ищет graphic=0x0EED и возвращает FindCount(). Стопка считается одним объектом.
+    # Полная функция приведена после Main. Finally восстанавливает оба предела даже при выходе через
+    # Return; результат поиска остаётся доступен.
+
+    VAR count = CountGroundInRange(0x0EED, 5, 10)
+    UO.Print(CStr(count))
 END SUB
+
+FUNCTION CountGroundInRange(graphic, radius, height)
+    VAR oldDistance = UO.FindDistance()
+    VAR oldVertical = UO.FindVertical()
+    TRY
+        UO.FindDistance(radius)
+        UO.FindVertical(height)
+        UO.FindTypeEx(graphic, -1, -1, FALSE)
+        RETURN UO.FindCount()
+    FINALLY
+        UO.FindDistance(oldDistance)
+        UO.FindVertical(oldVertical)
+    END TRY
+END FUNCTION
 ```
 
-## Реализация для проверки поведения
+**Разбор параметров и выполнения:**
 
-- `InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0`
+- CountGroundInRange(graphic, radius, height) сохраняет оба предела, задаёт radius=5 и height=10, ищет graphic=0x0EED и возвращает FindCount(). Стопка считается одним объектом. Полная функция приведена после Main. Finally восстанавливает оба предела даже при выходе через Return; результат поиска остаётся доступен.
