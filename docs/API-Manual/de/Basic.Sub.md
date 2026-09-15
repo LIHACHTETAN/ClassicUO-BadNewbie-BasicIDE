@@ -40,6 +40,7 @@ End Sub, Exit Sub und leeres Return liefern Unit, also keinen aussagekräftigen 
 - Die Vorbereitung normalisiert kompatible Köpfe und Call-Formen, prüft den Block und löst Namen auf. Vor Eintritt werden Argumente ausgewertet und gebunden. Aufrufe verwenden vorbereitete Anweisungen wieder, teilen aber keine lokalen Werte.
 - Der Interpreter erzeugt den Aufrufbereich, führt den Rumpf aus und setzt hinter dem Aufruf fort. Normales Ende und Exit Sub führen verlassene Finally-Blöcke vor dem abgeschlossenen Rückschreiben aus. Ausnahmen gehen an den aktiven Fehlerbehandler; ein fehlgeschlagener Aufruf bedeutet keinen Erfolg.
 - Pause- und Stoppprüfungen bleiben aktiv. Es entstehen kein neuer Thread, keine automatische Wartezeit und kein Timeout. Rekursion benötigt einen Endfall. Eine Zuweisung an den Namen eines Sub definiert kein Ergebnis: dafür Function verwenden.
+- Verschachtelte Skriptprozeduraufrufe sind einschließlich Callbacks und Ereignishandlern auf 32 Rahmen begrenzt. Überschreitung erzeugt einen abfangbaren Skriptfehler; für tiefe Verarbeitung Schleifen verwenden. Rückkehr oder Fehler gibt den Rahmen für spätere Aufrufe frei.
 
 ## Beispiele
 

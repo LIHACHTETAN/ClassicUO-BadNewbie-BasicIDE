@@ -34,6 +34,7 @@ AddressOf restituisce un riferimento Object, non un ID, un indirizzo, un Boolean
 - La preparazione controlla nome e accesso. L’interprete conserva un riferimento immutabile per posizione AddressOf. Ogni chiamata legge la variabile attuale, controlla la firma, valuta una volta gli argomenti nell’ordine scritto ed entra in un normale contesto di procedura. ByRef ed eccezioni seguono le chiamate dirette.
 - Non crea thread o timer. Pausa e annullamento usano i normali punti di controllo, anche nei cicli del callback. Gli errori raggiungono Catch/Finally del chiamante; Catch non assorbe l’arresto d’emergenza. Le chiamate native bloccanti mantengono i propri limiti di annullamento.
 - Qui non sono supportati dichiarazioni Delegate, lambda, puntatori DLL o riferimenti a overload. AddressOf non usa UO.; i comandi di gioco nella funzione intermedia conservano UO.
+- Le chiamate annidate sono limitate a 32 frame, inclusi callback e gestori di eventi. Il superamento genera un errore intercettabile; usare cicli per elaborazioni profonde. Ritorno o errore liberano il frame per le chiamate successive.
 
 ## Esempi
 

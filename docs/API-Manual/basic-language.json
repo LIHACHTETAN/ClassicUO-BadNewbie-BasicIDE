@@ -1240,6 +1240,36 @@
       ]
     },
     {
+      "id": "Basic.Events",
+      "name": "Event / AddHandler / RemoveHandler / RaiseEvent",
+      "signatures": [
+        "Event Changed(ByVal value As Integer)",
+        "Public Event Adjust(ByRef value As Integer)",
+        "Private Event Completed()",
+        "AddHandler EventName, AddressOf Handler",
+        "AddHandler Module.EventName, callback",
+        "RemoveHandler EventName, AddressOf Handler",
+        "RaiseEvent EventName(arguments)"
+      ],
+      "descriptions": {
+        "en": "Event declares a script notification. AddHandler connects a Sub, RemoveHandler disconnects it, and RaiseEvent calls the current handlers synchronously in subscription order.",
+        "ru": "Event объявляет событие скрипта. AddHandler подключает Sub, RemoveHandler отключает её, а RaiseEvent синхронно вызывает обработчики в порядке подключения.",
+        "uk": "Event оголошує подію скрипту. AddHandler підключає Sub, RemoveHandler відключає її, а RaiseEvent синхронно викликає обробники в порядку підключення.",
+        "fr": "Event déclare un événement du script. AddHandler relie une Sub, RemoveHandler la retire et RaiseEvent appelle les gestionnaires de façon synchrone, dans leur ordre d’inscription.",
+        "de": "Event deklariert ein Skriptereignis. AddHandler verbindet eine Sub, RemoveHandler trennt sie, und RaiseEvent ruft die Handler synchron in Anmeldereihenfolge auf.",
+        "it": "Event dichiara un evento dello script. AddHandler collega una Sub, RemoveHandler la scollega e RaiseEvent chiama i gestori in modo sincrono nell’ordine di iscrizione.",
+        "es": "Event declara un evento del script. AddHandler conecta una Sub, RemoveHandler la desconecta y RaiseEvent llama a los controladores de forma síncrona y en orden de suscripción.",
+        "zh-tw": "Event 宣告腳本事件。AddHandler 註冊 Sub，RemoveHandler 取消註冊，RaiseEvent 依註冊順序同步呼叫處理程序。",
+        "ja": "Event はスクリプトのイベントを宣言します。AddHandler で Sub を登録し、RemoveHandler で解除します。RaiseEvent は登録順にハンドラーを同期実行します。",
+        "ko": "Event는 스크립트 이벤트를 선언합니다. AddHandler는 Sub를 등록하고 RemoveHandler는 해제하며, RaiseEvent는 등록 순서대로 처리기를 동기 실행합니다."
+      },
+      "examples": [
+        "Option Explicit On\nModule Feed\n    Public Event Message(ByVal text As String)\n    Public Sub Publish(ByVal text As String)\n        RaiseEvent Message(text)\n    End Sub\nEnd Module\n\nModule State\n    Public Dim log As String = \"\"\nEnd Module\n\nSub Record(ByVal text As String)\n    State.log = State.log & text\nEnd Sub\n\nSub Main()\n    Dim handler = AddressOf Record\n    AddHandler Feed.Message, handler\n    Feed.Publish(\"ready\")\n    RemoveHandler Feed.Message, AddressOf Record\n    Feed.Publish(\"ignored\")\n    Return State.log\nEnd Sub\n",
+        "Option Explicit On\nEvent Adjust(ByRef total As Integer)\n\nSub Increment(ByRef total As Integer)\n    total += 1\nEnd Sub\n\nSub DoubleValue(ByRef total As Integer)\n    total *= 2\nEnd Sub\n\nSub Main()\n    Dim total As Integer = 3\n    AddHandler Adjust, AddressOf Increment\n    AddHandler Adjust, AddressOf DoubleValue\n    RaiseEvent Adjust(total)\n    RemoveHandler Adjust, AddressOf Increment\n    RemoveHandler Adjust, AddressOf DoubleValue\n    Return total\nEnd Sub\n",
+        "Option Explicit On\nEvent Ready()\nModule State\n    Public Dim log As String = \"\"\nEnd Module\n\nSub First()\n    State.log = State.log & \"A\"\nEnd Sub\n\nSub Failing()\n    State.log = State.log & \"B\"\n    Throw \"handler failed\"\nEnd Sub\n\nSub Last()\n    State.log = State.log & \"C\"\nEnd Sub\n\nSub Main()\n    Dim message As String = \"\"\n    AddHandler Ready, AddressOf First\n    AddHandler Ready, AddressOf Failing\n    AddHandler Ready, AddressOf Last\n    Try\n        RaiseEvent Ready()\n    Catch problem\n        message = problem\n    Finally\n        RemoveHandler Ready, AddressOf Failing\n    End Try\n    RaiseEvent Ready()\n    Return State.log & \":\" & message\nEnd Sub\n"
+      ]
+    },
+    {
       "id": "Basic.NamedArguments",
       "name": "Named arguments / :=",
       "signatures": [

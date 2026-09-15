@@ -39,6 +39,7 @@ The current result is returned after normal Finally cleanup. Initial defaults: I
 - Preparation retains a real Function definition, validates return type and exits, binds the implicit result as a local, and prepares the body once. On each invocation the interpreter binds arguments and initializes a fresh typed result. Function name assignment uses ordinary typed-variable conversion.
 - Return records the result and unwinds active Finally blocks from inner to outer. Finally can update the result before it reaches the caller. ByRef copy-back occurs after successful completion. An unhandled error propagates instead of returning a success value; a bad result conversion is an error.
 - A recursive call has its own parameters, locals and result, so Factorial(n-1) cannot overwrite the caller’s Factorial variable. Supply a base case and avoid unbounded recursion. Calls add no automatic delay, thread or timeout; runtime pause/stop checks still apply.
+- Nested script procedure calls are limited to 32 frames, including callbacks and event handlers. Exceeding the limit raises a catchable script error; use a loop for deep processing. Returning or failing releases the frame, so later calls can proceed.
 
 ## Examples
 

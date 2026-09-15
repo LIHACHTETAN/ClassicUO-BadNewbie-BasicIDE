@@ -51,7 +51,7 @@
     },
     {
       "path": "basic-language.json",
-      "sha256": "47b582d825d69aaf702b95c101b374e62b98cc28ce4489ca9b379096a0104ec1"
+      "sha256": "f823ad93edf8dc2dd033fce09826ab6936c54b0a79c37e8fa5aa40bd8df7894e"
     },
     {
       "path": "Basic.ApiNames.md",
@@ -75,7 +75,7 @@
     },
     {
       "path": "Basic.Callbacks.md",
-      "sha256": "460b5f19023166aedf6560cd0a6d37850a1f3146763b9afe98e54b414ef785ac"
+      "sha256": "567884830a18c8f742ce66ed305ad282d0ee287831babf44bf6291f6d542bc3b"
     },
     {
       "path": "Basic.Comparison.md",
@@ -114,6 +114,10 @@
       "sha256": "4240a287946f95cdb9932df04a240fbac49db30380aee83b3644c9c2265fa6b8"
     },
     {
+      "path": "Basic.Events.md",
+      "sha256": "ec5e061d81a9d9ab1a9e643da0b2a6a935533565048f40eacd476bca59d7f10b"
+    },
+    {
       "path": "Basic.For.md",
       "sha256": "763b3e4994cd1225befbb041d817a18673c229231459df209bd1994e890bc7e1"
     },
@@ -123,7 +127,7 @@
     },
     {
       "path": "Basic.Function.md",
-      "sha256": "68734491eae155e8a89325d2468e8768279bb9525fea3975bfa60aab676f70e5"
+      "sha256": "72f406d08dfbcf371fd06e8d3b8d5594e12bcb63a03c22ae8dccf625c29525d2"
     },
     {
       "path": "Basic.Goto.md",
@@ -191,7 +195,7 @@
     },
     {
       "path": "Basic.Sub.md",
-      "sha256": "123892c1d8e7295e64724a3df8dcd2eb32ef2de6426e29fbe1f7fc2d295b7d53"
+      "sha256": "a809024647ca0200e2283941449fe59d8ba88dbdff99c39c8cd255036f979d37"
     },
     {
       "path": "Basic.Try.md",
@@ -323,7 +327,7 @@
     },
     {
       "path": "de/Basic.Callbacks.md",
-      "sha256": "2d5fc3b915714f5c03da0c03cffb145b588f928a0d03bd3e42e6c1e4444fecf9"
+      "sha256": "295a65fbe97f1e205f7fa84fc7bae04e6f1d8832f914bfdba15ed82774ab2057"
     },
     {
       "path": "de/Basic.Comparison.md",
@@ -362,6 +366,10 @@
       "sha256": "fd5f0de166f44f7b3502bd936353d4b32f5c74745e7c58ab0a7188c690e14665"
     },
     {
+      "path": "de/Basic.Events.md",
+      "sha256": "27c6d8b0eb3b3e5dc5659deb78ab9f5b9a2bff6f6034261ab540852688c4a3a9"
+    },
+    {
       "path": "de/Basic.For.md",
       "sha256": "1780871864e847f7ce8bf176d5d91496f47c2a6bd3ca33192a4f8f301e15c848"
     },
@@ -371,7 +379,7 @@
     },
     {
       "path": "de/Basic.Function.md",
-      "sha256": "e51584dd3386b1616b0ba01bdde5c66afc10e01077f03aeee4152931b574eebe"
+      "sha256": "a89d1c8d824253fbe54195d44a14e313c209613e3de1d0e2e2a02822e94e203b"
     },
     {
       "path": "de/Basic.Goto.md",
@@ -439,7 +447,7 @@
     },
     {
       "path": "de/Basic.Sub.md",
-      "sha256": "4967cbd1297b7b486543d5672da9059d7adb7e42b75e0d3b81822f43dbbf008f"
+      "sha256": "b6a83b09f5d69adfad117a17fd78a382762635e26d9d7a0766b69653f9702551"
     },
     {
       "path": "de/Basic.Try.md",
@@ -1175,7 +1183,7 @@
     },
     {
       "path": "en/Basic.Callbacks.md",
-      "sha256": "c632d2e7d3a44f0af4694d463c2faf13870f9c9c4442e2feb9ccb7b386dcb8d0"
+      "sha256": "e6ef6b68b6beea4d9eb5edc7f6a207d0421c04404e2f95adaae28c26efea796f"
     },
     {
       "path": "en/Basic.Comparison.md",
@@ -1214,6 +1222,10 @@
       "sha256": "2d8ef832642f7d2b598df67312c6aaddc30cea7e1d523fa92fee650fc7460ace"
     },
     {
+      "path": "en/Basic.Events.md",
+      "sha256": "b23a4c4c677857c32c99c4573889954f69ec0e4bdffd5792da2c52f9390f4768"
+    },
+    {
       "path": "en/Basic.For.md",
       "sha256": "a29c5d3db016f5f1a5a230e3c09017509a2b578646a74b5e3e44cb54f784af3f"
     },
@@ -1223,7 +1235,7 @@
     },
     {
       "path": "en/Basic.Function.md",
-      "sha256": "a84ee150f48216891cc88059d3548fd170d7a4c9d9721e4b09cc30610b91b244"
+      "sha256": "359b6e6429e9d05d1094b53ee2216431e1d2a1f9f20021b51f92984d62e225bf"
     },
     {
       "path": "en/Basic.Goto.md",
@@ -1291,7 +1303,7 @@
     },
     {
       "path": "en/Basic.Sub.md",
-      "sha256": "80bfc8d06bb064de46ca70a327af96de3ce463118814188c75aa8ac20754b00d"
+      "sha256": "7ab0230a605e646bb38fa7bcdb7773efae975db4ac339bebc4ac0ec0b3e05ecf"
     },
     {
       "path": "en/Basic.Try.md",
@@ -2007,7 +2019,7 @@
     },
     {
       "path": "es/Basic.Callbacks.md",
-      "sha256": "93c44fa721a3dbb0ecc7296130234eb8f558209d34af1b9dfec016459d7915ba"
+      "sha256": "2f8e5c722e8ddfa7171d6d0f2d844238be458019623b49557f72c0d52eb7c2a7"
     },
     {
       "path": "es/Basic.Comparison.md",
@@ -2046,6 +2058,10 @@
       "sha256": "e30fcf36b131b4384f351ada861cb3223e30c17d3e34824f9ab8e157ad77f94f"
     },
     {
+      "path": "es/Basic.Events.md",
+      "sha256": "267663a90943c2f7510e4b991a05e84134230a8df9fded1f989e10095b24a923"
+    },
+    {
       "path": "es/Basic.For.md",
       "sha256": "a3e5da4d2a4f9946b0f9ddffadbe908db6726aa94507dd2706347b6f613f0031"
     },
@@ -2055,7 +2071,7 @@
     },
     {
       "path": "es/Basic.Function.md",
-      "sha256": "dfe88f7b8ceb8177263a1bc8d5258badedecb09266ae9532cb2bb1179c488f08"
+      "sha256": "245120b363620a44e19067c565fac02f1a64d65fbdb10d81db509446e74007a2"
     },
     {
       "path": "es/Basic.Goto.md",
@@ -2123,7 +2139,7 @@
     },
     {
       "path": "es/Basic.Sub.md",
-      "sha256": "02486f0d63eba4c071fe67587f37bb5ab33d120f0ef56efe2ac05ad52af4ec02"
+      "sha256": "d78c1c039178cfee4e809ff8141c1b0bf463131791096f08858d407bd38ba10f"
     },
     {
       "path": "es/Basic.Try.md",
@@ -2919,7 +2935,7 @@
     },
     {
       "path": "fr/Basic.Callbacks.md",
-      "sha256": "f8304ca263cb7e460299c8137f1e72c6ea4c3136ec5e78e401840f4f2aa82b7d"
+      "sha256": "efc6b87e6358bc8113c1b7aee83587fc22ecdfad0a4cb25d5e122c461881872e"
     },
     {
       "path": "fr/Basic.Comparison.md",
@@ -2958,6 +2974,10 @@
       "sha256": "ce3d63188b9beaa0cea5c30b9a71cedadf0799363b573942f5a9c377a631b915"
     },
     {
+      "path": "fr/Basic.Events.md",
+      "sha256": "b94153c2de41cbcd0e45280adc41b1a0d8aa78476da6205d4e7a49d9c895c164"
+    },
+    {
       "path": "fr/Basic.For.md",
       "sha256": "1407a2de4d1d9d8073abb1f368ae6195201867d17335c00d00ce524524599ac7"
     },
@@ -2967,7 +2987,7 @@
     },
     {
       "path": "fr/Basic.Function.md",
-      "sha256": "29b6a1e583cfa913ec95781aab82f0b5f64bf71f2c8f9d95b1edad1431cd492a"
+      "sha256": "72c1ecc79a08b4f2d7a98ce9f0938f50122a13bcbc89295d73a9307c6a504af5"
     },
     {
       "path": "fr/Basic.Goto.md",
@@ -3035,7 +3055,7 @@
     },
     {
       "path": "fr/Basic.Sub.md",
-      "sha256": "93dc400328e256e6d3d7b58880ccd53552238891bbcc9d209a7aa893d930b32a"
+      "sha256": "219f62f580b19a16e14eed04afdddc8d50a2cf4dfe7a3d8ada6df225b1532869"
     },
     {
       "path": "fr/Basic.Try.md",
@@ -3763,7 +3783,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "95ac4c49d33abefbb19f039e124d476fe28a88f7486bc27e6314a0dbc8c1c167"
+      "sha256": "e730286227f33fc583854f8a3337411c89ef58f5235190836663d5fb890d0573"
     },
     {
       "path": "InStr.md",
@@ -3815,7 +3835,7 @@
     },
     {
       "path": "it/Basic.Callbacks.md",
-      "sha256": "a36ffa941bcdc198f7855eec34134fa8f7182f8d4c89220fa5e7ad21f5bd75af"
+      "sha256": "7c3aa968aaf878f9565fcad8ca7974cf1b737520230cf536e211751ce61d6bb1"
     },
     {
       "path": "it/Basic.Comparison.md",
@@ -3854,6 +3874,10 @@
       "sha256": "8152cad535fedf2f2dd945fdb73997473a46191691eeac1656ac2ee13fa07e7c"
     },
     {
+      "path": "it/Basic.Events.md",
+      "sha256": "5e7e0d5debcce7df2941a15520a16dff038a4eb44b42e7896a6ed1e8ee965aa2"
+    },
+    {
       "path": "it/Basic.For.md",
       "sha256": "a98305236d5f6a02f13916527e70cb83aa5eb84ace95f1d707da2155789bfb4b"
     },
@@ -3863,7 +3887,7 @@
     },
     {
       "path": "it/Basic.Function.md",
-      "sha256": "35b03398cd56a3ed96e7be342cfb7b9bc971eae362e5b053ca97c77476a1cb51"
+      "sha256": "a82de8a10bdf25c52bb8b37fde831a06c3f2bba0399f65906211a7dcf4ea82c6"
     },
     {
       "path": "it/Basic.Goto.md",
@@ -3931,7 +3955,7 @@
     },
     {
       "path": "it/Basic.Sub.md",
-      "sha256": "4b2a6957f2632dc14709114e3ea06ee041fb3fd8cdbb67b7a0b7c29e5db68c36"
+      "sha256": "4496b9af92ba270c7b3ca2b91d9f5dc729e18a7f9e5f2840d1ed2bfa66d7813f"
     },
     {
       "path": "it/Basic.Try.md",
@@ -4647,7 +4671,7 @@
     },
     {
       "path": "ja/Basic.Callbacks.md",
-      "sha256": "6e7175b63218eae815382017287835cec7990ef7d2abb15e92965afbb61a80a3"
+      "sha256": "80b93049d630ea826d1b767b02c878ed2c431846a78dd64372a903a684c951f0"
     },
     {
       "path": "ja/Basic.Comparison.md",
@@ -4686,6 +4710,10 @@
       "sha256": "30cf50716ed0b1cc2be0fb91bc0d37855408ea1d0fada70b06d9c990c178795d"
     },
     {
+      "path": "ja/Basic.Events.md",
+      "sha256": "01441e70b991f7bae42fbc5683c6b6fb132c3ff8d26b8ae435a37017c4040150"
+    },
+    {
       "path": "ja/Basic.For.md",
       "sha256": "a609660c4ce5656038b32f15fddfedd7d366419f78cfac97c87ccfa5ad15f1a8"
     },
@@ -4695,7 +4723,7 @@
     },
     {
       "path": "ja/Basic.Function.md",
-      "sha256": "2a01ea8793ec444544a0d5fab01c32b99c8834c8f16d59015c70ea505fa622ad"
+      "sha256": "4172708b8ad5bd70dd9332c574f4e57cb1697ee9491640855d3d0401f3fdf14f"
     },
     {
       "path": "ja/Basic.Goto.md",
@@ -4763,7 +4791,7 @@
     },
     {
       "path": "ja/Basic.Sub.md",
-      "sha256": "ae24ac630e2e8eca94c61a88efe1b3e8b5df168153b22b08dc38da6aa53d6cae"
+      "sha256": "16e8bb1da0b34fcaccb43617e32c9379ed5c83f517b36bb28fb54400f4564d47"
     },
     {
       "path": "ja/Basic.Try.md",
@@ -5507,7 +5535,7 @@
     },
     {
       "path": "ko/Basic.Callbacks.md",
-      "sha256": "b366159c58c5bf0d689b86aa73bdebcc12906de8b605af7e383d2612c411fdd5"
+      "sha256": "c761f080fdadb84d418a78bfa3cca49a0abc8dc3f7b034745fa85a785a55d075"
     },
     {
       "path": "ko/Basic.Comparison.md",
@@ -5546,6 +5574,10 @@
       "sha256": "7a1528ad73f65bade3f47051e325bd918852cd6d03729e80e18f0bbcfc88cff1"
     },
     {
+      "path": "ko/Basic.Events.md",
+      "sha256": "011b22127b5868d3d8d4907503aa2c9f2fc102215f1a4878d851c3af5edf4fc5"
+    },
+    {
       "path": "ko/Basic.For.md",
       "sha256": "ceecbb8814b76ae83798ab8d33357c4af731355286927fc4dbdf00a64de1f780"
     },
@@ -5555,7 +5587,7 @@
     },
     {
       "path": "ko/Basic.Function.md",
-      "sha256": "cfcae845bd59987a0f0802c13c3e88f02ea6df108719ee38492b35eb4d98a7ae"
+      "sha256": "3848154594c0586e8bd4c479d5b3df88256592ddf7340e73a1351884e134bd41"
     },
     {
       "path": "ko/Basic.Goto.md",
@@ -5623,7 +5655,7 @@
     },
     {
       "path": "ko/Basic.Sub.md",
-      "sha256": "2b91026805c8b2c524cd94a04bc9ae55f2157b2abdb55ee908de1b97d7ff9a30"
+      "sha256": "a908c8018f04e3d867194a66632fa70cd2732826bc3c0c8bc15e8098d2ae8be1"
     },
     {
       "path": "ko/Basic.Try.md",
@@ -6431,7 +6463,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "5ac1c3ce3ed86e6595db7c4ca7e823894fb77428e01f4f740d6b26ecbdf3bcad"
+      "sha256": "3e8b98c7567145d7509e303b0c7f652bb08e4613cb85162e631e783abef436fa"
     },
     {
       "path": "remain.md",
@@ -6519,7 +6551,7 @@
     },
     {
       "path": "ru/Basic.Callbacks.md",
-      "sha256": "460b5f19023166aedf6560cd0a6d37850a1f3146763b9afe98e54b414ef785ac"
+      "sha256": "567884830a18c8f742ce66ed305ad282d0ee287831babf44bf6291f6d542bc3b"
     },
     {
       "path": "ru/Basic.Comparison.md",
@@ -6558,6 +6590,10 @@
       "sha256": "4240a287946f95cdb9932df04a240fbac49db30380aee83b3644c9c2265fa6b8"
     },
     {
+      "path": "ru/Basic.Events.md",
+      "sha256": "ec5e061d81a9d9ab1a9e643da0b2a6a935533565048f40eacd476bca59d7f10b"
+    },
+    {
       "path": "ru/Basic.For.md",
       "sha256": "763b3e4994cd1225befbb041d817a18673c229231459df209bd1994e890bc7e1"
     },
@@ -6567,7 +6603,7 @@
     },
     {
       "path": "ru/Basic.Function.md",
-      "sha256": "68734491eae155e8a89325d2468e8768279bb9525fea3975bfa60aab676f70e5"
+      "sha256": "72f406d08dfbcf371fd06e8d3b8d5594e12bcb63a03c22ae8dccf625c29525d2"
     },
     {
       "path": "ru/Basic.Goto.md",
@@ -6635,7 +6671,7 @@
     },
     {
       "path": "ru/Basic.Sub.md",
-      "sha256": "123892c1d8e7295e64724a3df8dcd2eb32ef2de6426e29fbe1f7fc2d295b7d53"
+      "sha256": "a809024647ca0200e2283941449fe59d8ba88dbdff99c39c8cd255036f979d37"
     },
     {
       "path": "ru/Basic.Try.md",
@@ -8499,7 +8535,7 @@
     },
     {
       "path": "uk/Basic.Callbacks.md",
-      "sha256": "d328c8d32b7aa7b102228b82f36f41d9f227c4784ade48bcb54dc3e700a40e51"
+      "sha256": "f686b1c92b5b3d26cd28a6ef3ff50dbcf118128a6137582f750b50dddc87a402"
     },
     {
       "path": "uk/Basic.Comparison.md",
@@ -8538,6 +8574,10 @@
       "sha256": "5a3c92e69f98d37ec5bdaed94e5b80f680b2cdc28a4a8f5762ed501f47ff806b"
     },
     {
+      "path": "uk/Basic.Events.md",
+      "sha256": "9574f8ae9c477aab4963a4e792d21ed88ff8582061dfe7384441df3cd4223842"
+    },
+    {
       "path": "uk/Basic.For.md",
       "sha256": "31413c8cc44005c06ae30211af108a7e4d4f2b1e001c48c9e706035d1484e3dc"
     },
@@ -8547,7 +8587,7 @@
     },
     {
       "path": "uk/Basic.Function.md",
-      "sha256": "c8da991d4c6f87c877fa50ccba7270fcda3290e7b81a67162d6e0c2fa3e8e4b4"
+      "sha256": "e366a25571ed7f1e83d10474fefdbf7bfb8b376e0b3d9236bf37e077ae3cab40"
     },
     {
       "path": "uk/Basic.Goto.md",
@@ -8615,7 +8655,7 @@
     },
     {
       "path": "uk/Basic.Sub.md",
-      "sha256": "8a571d95efb7eaef462313350d796e0caf7189994824c95134d81cd3334abda8"
+      "sha256": "8eda964be1660e1dac914cce925bbb6ab0cc228348145f4f2db302c2c0708e6e"
     },
     {
       "path": "uk/Basic.Try.md",
@@ -12319,7 +12359,7 @@
     },
     {
       "path": "zh-tw/Basic.Callbacks.md",
-      "sha256": "e0fc6f9521d7adbb78c3f29c9996a579ee602e4cc44e3f289caeda1e6735d6e1"
+      "sha256": "387d37bf4bdc83cff7a59ed009e7451d8f3c1f7d5496f7c4ded7303e73f50a49"
     },
     {
       "path": "zh-tw/Basic.Comparison.md",
@@ -12358,6 +12398,10 @@
       "sha256": "5665cec0c9cc0ef1fcaaf1b189e783916a4fdef4ef9911dd1955518a96e0f721"
     },
     {
+      "path": "zh-tw/Basic.Events.md",
+      "sha256": "2935c92bcf2a663513f9905c924078a9f40718fac93930999e101dc0443d7c36"
+    },
+    {
       "path": "zh-tw/Basic.For.md",
       "sha256": "497f7e56b20d9f3ef1488bd976fb08edf7be01522e8e4d96abe637409d09cbfb"
     },
@@ -12367,7 +12411,7 @@
     },
     {
       "path": "zh-tw/Basic.Function.md",
-      "sha256": "a23a2cf7d10c253ee6dd98a661749076f76fd32dd1a641aed7a2757ac2a424d8"
+      "sha256": "2285764c69889c349f6392c9205be664032744f1b9cfefc69b311706d55a2cad"
     },
     {
       "path": "zh-tw/Basic.Goto.md",
@@ -12435,7 +12479,7 @@
     },
     {
       "path": "zh-tw/Basic.Sub.md",
-      "sha256": "0e2f41730f1188cd6ad7250b826e1008eca13ef98db07d91febb2723a39543e1"
+      "sha256": "bc1dbdbbbea3d22d33f25a58bbeaf149a431581f13a203b4b856a842c1a8652f"
     },
     {
       "path": "zh-tw/Basic.Try.md",

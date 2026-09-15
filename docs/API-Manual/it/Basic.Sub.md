@@ -40,6 +40,7 @@ End Sub, Exit Sub e Return vuoto producono Unit: nessun valore significativo, no
 - La preparazione normalizza intestazioni compatibili e Call, verifica il blocco e risolve i nomi. Gli argomenti vengono valutati e associati prima dell’ingresso. Le chiamate riutilizzano istruzioni preparate, senza condividere i valori locali.
 - L’interprete crea l’ambito, esegue il corpo e riprende dopo la chiamata. L’uscita normale e Exit Sub eseguono i Finally abbandonati prima di completare la riscrittura dei parametri. Un’eccezione segue il gestore attivo; una chiamata fallita non equivale a successo.
 - Restano i controlli di pausa e arresto. Non si crea un thread, un ritardo o un timeout automatico. La ricorsione richiede una condizione finale. Assegnare al nome di Sub non imposta il risultato: usare Function.
+- Le chiamate annidate sono limitate a 32 frame, inclusi callback e gestori di eventi. Il superamento genera un errore intercettabile; usare cicli per elaborazioni profonde. Ritorno o errore liberano il frame per le chiamate successive.
 
 ## Esempi
 

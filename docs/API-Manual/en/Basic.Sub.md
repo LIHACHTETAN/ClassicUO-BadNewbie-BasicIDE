@@ -40,6 +40,7 @@ End Sub, Exit Sub and bare Return yield Unit: no meaningful result, not a succes
 - Preparation normalizes compatible headers and Call forms, validates the block and resolves callable names. Arguments are evaluated and bound before entering the helper; repeated calls reuse prepared instructions, not shared local values.
 - The interpreter creates the invocation scope, executes the body and then returns to the statement after the call. A normal return or Exit Sub runs any active Finally blocks it leaves, then completes parameter copy-back. An exception follows the active error handler; a failing call must not be treated as a successful result.
 - Pause/stop checks remain in the script runtime. A helper adds no thread, automatic delay or timeout. Recursive code needs a terminating condition. Sub result assignment by name is not supported: use Function when writing name=expression.
+- Nested script procedure calls are limited to 32 frames, including callbacks and event handlers. Exceeding the limit raises a catchable script error; use a loop for deep processing. Returning or failing releases the frame, so later calls can proceed.
 
 ## Examples
 

@@ -39,6 +39,7 @@ Le résultat courant est renvoyé après les Finally normaux. Valeurs initiales 
 - La préparation conserve Function, vérifie type et sorties, lie le résultat local et prépare les instructions une fois. Chaque appel reçoit ses arguments et un résultat typé neuf. L’affectation applique les conversions ordinaires des variables typées.
 - Return mémorise le résultat puis traverse les Finally de l’intérieur vers l’extérieur. Ils peuvent encore modifier le résultat. La réécriture ByRef s’achève après une fin réussie. Les erreurs non traitées et les conversions invalides se propagent au lieu de produire un succès.
 - La récursion possède paramètres, variables et résultat indépendants : Factorial(n-1) ne remplace pas le résultat appelant. Prévoyez un cas terminal. Aucun thread, délai ni timeout implicite ; pause et arrêt restent contrôlés.
+- Les appels de procédures imbriqués sont limités à 32 cadres, callbacks et gestionnaires compris. Un dépassement provoque une erreur interceptable ; utilisez une boucle pour les traitements profonds. Un retour ou une erreur libère le cadre pour les appels suivants.
 
 ## Exemples
 

@@ -40,6 +40,7 @@ End Sub, Exit Sub et Return seul donnent Unit : aucun résultat significatif, ni
 - La préparation normalise les en-têtes compatibles et Call, valide le bloc et résout les noms. Les arguments sont évalués et liés avant l’entrée. Les appels réutilisent les instructions préparées, mais pas les valeurs locales.
 - L’interpréteur crée la portée, exécute le corps et revient après l’appel. Une sortie normale ou Exit Sub exécute les Finally quittés avant de terminer la réécriture des paramètres. Une exception suit le gestionnaire actif ; un appel échoué ne signifie pas réussite.
 - Les contrôles de pause et d’arrêt restent actifs. Aucun nouveau thread, délai ou timeout automatique n’est créé. La récursion exige un cas terminal. L’affectation au nom de Sub ne définit pas son résultat : utilisez Function.
+- Les appels de procédures imbriqués sont limités à 32 cadres, callbacks et gestionnaires compris. Un dépassement provoque une erreur interceptable ; utilisez une boucle pour les traitements profonds. Un retour ou une erreur libère le cadre pour les appels suivants.
 
 ## Exemples
 

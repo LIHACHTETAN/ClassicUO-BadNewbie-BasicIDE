@@ -39,6 +39,7 @@ Il risultato corrente viene restituito dopo i normali Finally. Valori iniziali: 
 - La preparazione mantiene Function, controlla tipo e uscite, associa il risultato locale e prepara il corpo una volta. Ogni chiamata riceve argomenti e un nuovo risultato tipizzato. L’assegnazione usa le normali conversioni delle variabili tipizzate.
 - Return memorizza il risultato e attraversa i Finally dall’interno verso l’esterno. Questi possono ancora cambiare il valore restituito. La riscrittura ByRef termina dopo una conclusione riuscita. Errori non gestiti e conversioni invalide si propagano invece di dare successo.
 - La ricorsione ha parametri, locali e risultato indipendenti: Factorial(n-1) non sovrascrive il risultato del chiamante. Serve un caso finale. Nessun thread, ritardo o timeout implicito; pausa e arresto restano controllati.
+- Le chiamate annidate sono limitate a 32 frame, inclusi callback e gestori di eventi. Il superamento genera un errore intercettabile; usare cicli per elaborazioni profonde. Ritorno o errore liberano il frame per le chiamate successive.
 
 ## Esempi
 

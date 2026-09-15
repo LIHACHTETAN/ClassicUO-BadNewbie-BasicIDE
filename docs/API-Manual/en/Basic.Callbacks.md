@@ -34,6 +34,7 @@ AddressOf returns an Object reference, not an ID, pointer, Boolean or the functi
 - Preparation checks name and access. The interpreter caches an immutable handle per AddressOf location, resolves the current callback variable at each call, validates the signature, evaluates arguments once in written order and enters a normal procedure frame. It uses the same ByRef copy-back and exception handling as a direct call.
 - Callbacks create no thread or timer and do not run independently. Pause and cancellation use normal script checkpoints, including loops inside the callback. Errors reach the caller’s Catch/Finally; emergency stop is not swallowed by Catch. Blocking native calls still obey their own cancellation limitations.
 - Delegate type declarations, lambdas, native DLL function pointers and references to overloaded procedures are not supported by this feature. AddressOf is a Basic operator without UO.; game commands inside wrappers retain UO.
+- Nested script procedure calls are limited to 32 frames, including callbacks and event handlers. Exceeding the limit raises a catchable script error; use a loop for deep processing. Returning or failing releases the frame, so later calls can proceed.
 
 ## Examples
 

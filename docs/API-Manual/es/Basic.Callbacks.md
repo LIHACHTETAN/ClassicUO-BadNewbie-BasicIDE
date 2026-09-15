@@ -34,6 +34,7 @@ AddressOf devuelve una referencia Object, no ID, dirección de memoria, Boolean 
 - La preparación comprueba nombre y acceso. El intérprete guarda una referencia inmutable por ubicación AddressOf. Cada llamada lee la variable actual, valida la firma, evalúa una vez los argumentos en orden escrito y entra en un marco normal. ByRef y excepciones siguen las reglas de llamadas directas.
 - No crea un hilo ni un temporizador. Pausa y cancelación usan puntos de control normales, incluso dentro de bucles del callback. Los errores llegan al Catch/Finally del llamante; Catch no absorbe la parada de emergencia. Las llamadas nativas bloqueantes conservan sus límites de cancelación.
 - Esta función no incluye declaraciones Delegate, lambdas, punteros DLL ni referencias a sobrecargas. AddressOf se escribe sin UO.; los comandos de juego en la envolvente mantienen UO.
+- Las llamadas anidadas se limitan a 32 marcos, incluidos callbacks y controladores de eventos. Superarlos produce un error capturable; use bucles para procesamiento profundo. El retorno o error libera el marco y permite llamadas posteriores.
 
 ## Ejemplos
 

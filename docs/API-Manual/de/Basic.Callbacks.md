@@ -34,6 +34,7 @@ AddressOf liefert einen Object-Verweis, keine ID, Speicheradresse, Boolean oder 
 - Die Vorbereitung prüft Name und Zugriff. Der Interpreter speichert pro AddressOf-Stelle einen unveränderlichen Verweis. Jeder Aufruf liest die aktuelle Variable, prüft die Signatur, wertet Argumente einmal in Quellreihenfolge aus und erzeugt einen normalen Prozedurrahmen. ByRef und Fehlerbehandlung entsprechen direkten Aufrufen.
 - Es entsteht kein Thread oder Timer. Pause und Abbruch greifen an normalen Skriptprüfpunkten, auch in Callback-Schleifen. Fehler erreichen Catch/Finally des Aufrufers; Not-Stopp wird nicht durch Catch verschluckt. Blockierende native Aufrufe behalten ihre Abbruchgrenzen.
 - Delegate-Typdeklarationen, Lambdas, DLL-Funktionszeiger und Verweise auf Überladungen sind hier nicht unterstützt. AddressOf hat kein UO.-Präfix; Spielbefehle in der Hülle behalten UO.
+- Verschachtelte Skriptprozeduraufrufe sind einschließlich Callbacks und Ereignishandlern auf 32 Rahmen begrenzt. Überschreitung erzeugt einen abfangbaren Skriptfehler; für tiefe Verarbeitung Schleifen verwenden. Rückkehr oder Fehler gibt den Rahmen für spätere Aufrufe frei.
 
 ## Beispiele
 

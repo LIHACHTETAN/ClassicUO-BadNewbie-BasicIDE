@@ -39,6 +39,7 @@ El resultado actual se devuelve tras los Finally normales. Valores iniciales: In
 - La preparación conserva Function, valida tipo y salidas, vincula el resultado local y prepara el cuerpo una vez. Cada llamada recibe argumentos y un resultado tipado nuevo. La asignación aplica las conversiones normales de variables tipadas.
 - Return guarda el resultado y recorre los Finally de dentro hacia fuera. Estos aún pueden modificarlo. La escritura ByRef termina después de una finalización correcta. Los errores sin manejar y las conversiones inválidas se propagan en lugar de dar éxito.
 - La recursión tiene parámetros, locales y resultado independientes: Factorial(n-1) no sobrescribe el resultado del llamador. Hace falta un caso final. No hay hilo, espera ni timeout implícito; se mantienen pausa y parada.
+- Las llamadas anidadas se limitan a 32 marcos, incluidos callbacks y controladores de eventos. Superarlos produce un error capturable; use bucles para procesamiento profundo. El retorno o error libera el marco y permite llamadas posteriores.
 
 ## Ejemplos
 

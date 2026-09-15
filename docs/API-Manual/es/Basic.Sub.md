@@ -40,6 +40,7 @@ End Sub, Exit Sub y Return vacío producen Unit: ningún resultado significativo
 - La preparación normaliza cabeceras compatibles y Call, valida el bloque y resuelve nombres. Evalúa y enlaza los argumentos antes de entrar. Las llamadas reutilizan instrucciones preparadas, sin compartir valores locales.
 - El intérprete crea el ámbito, ejecuta el cuerpo y continúa tras la llamada. La salida normal y Exit Sub ejecutan los Finally abandonados antes de completar la escritura de parámetros. Las excepciones pasan al manejador activo; una llamada fallida no significa éxito.
 - Se conservan las comprobaciones de pausa y parada. No se crea ningún hilo, espera automática ni timeout. La recursión necesita un caso final. Asignar al nombre de Sub no define su resultado: use Function.
+- Las llamadas anidadas se limitan a 32 marcos, incluidos callbacks y controladores de eventos. Superarlos produce un error capturable; use bucles para procesamiento profundo. El retorno o error libera el marco y permite llamadas posteriores.
 
 ## Ejemplos
 

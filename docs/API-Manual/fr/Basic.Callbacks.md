@@ -34,6 +34,7 @@ AddressOf renvoie une référence Object, ni ID, ni adresse mémoire, ni Boolean
 - La préparation vérifie nom et accès. L’interpréteur mémorise une référence immuable par emplacement AddressOf. Chaque appel lit la variable actuelle, valide la signature, évalue une fois les arguments dans l’ordre écrit et entre dans un cadre de procédure normal. ByRef et exceptions suivent les règles des appels directs.
 - Aucun thread ni minuteur supplémentaire. Pause et annulation utilisent les points de contrôle du script, y compris dans les boucles du rappel. Les erreurs atteignent Catch/Finally de l’appelant ; Catch n’absorbe pas l’arrêt d’urgence. Les appels natifs bloquants gardent leurs propres limites d’annulation.
 - Déclarations de types Delegate, lambdas, pointeurs DLL et références à des surcharges ne sont pas pris en charge ici. AddressOf est sans préfixe UO. ; les commandes de jeu dans la fonction intermédiaire gardent UO.
+- Les appels de procédures imbriqués sont limités à 32 cadres, callbacks et gestionnaires compris. Un dépassement provoque une erreur interceptable ; utilisez une boucle pour les traitements profonds. Un retour ou une erreur libère le cadre pour les appels suivants.
 
 ## Exemples
 

@@ -39,6 +39,7 @@ Der aktuelle Wert wird nach den normalen Finally-Blöcken geliefert. Anfangswert
 - Die Vorbereitung bewahrt Function, prüft Typ und Austritte, bindet das lokale Ergebnis und erstellt die Anweisungen einmal. Jeder Aufruf erhält Argumente und ein frisches typisiertes Ergebnis. Zuweisungen verwenden die üblichen Regeln typisierter Variablen.
 - Return speichert das Ergebnis und durchläuft aktive Finally-Blöcke von innen nach außen. Diese dürfen den Rückgabewert noch ändern. ByRef wird nach erfolgreichem Ende zurückgeschrieben. Unbehandelte Fehler und ungültige Konvertierungen werden weitergegeben, nicht als Erfolg dargestellt.
 - Rekursion hat unabhängige Parameter, lokale Werte und Ergebnisse. Factorial(n-1) überschreibt nicht das Ergebnis des Aufrufers. Ein Endfall ist nötig. Kein automatischer Thread, keine Verzögerung oder Zeitgrenze; Pause/Stopp bleiben wirksam.
+- Verschachtelte Skriptprozeduraufrufe sind einschließlich Callbacks und Ereignishandlern auf 32 Rahmen begrenzt. Überschreitung erzeugt einen abfangbaren Skriptfehler; für tiefe Verarbeitung Schleifen verwenden. Rückkehr oder Fehler gibt den Rahmen für spätere Aufrufe frei.
 
 ## Beispiele
 
