@@ -1212,6 +1212,34 @@
       ]
     },
     {
+      "id": "Basic.Callbacks",
+      "name": "AddressOf / callbacks",
+      "signatures": [
+        "Dim callback = AddressOf ProcedureName",
+        "Dim callback As Object = AddressOf Tools.FunctionName",
+        "callback(arguments)",
+        "callback.Invoke(arguments)",
+        "Process(values, AddressOf Predicate)"
+      ],
+      "descriptions": {
+        "en": "AddressOf stores a reference to a script Sub or Function without calling it. Pass the reference to another procedure, return it from a function or keep it in a collection to select your own processing rule.",
+        "ru": "AddressOf сохраняет ссылку на Sub или Function скрипта, не вызывая её. Ссылку можно передать другой процедуре, вернуть из функции или сохранить в коллекции, чтобы задавать своё правило обработки.",
+        "uk": "AddressOf зберігає посилання на Sub або Function скрипту без виклику. Передавайте його іншій процедурі, повертайте з функції чи зберігайте в колекції, щоб задавати власне правило обробки.",
+        "fr": "AddressOf conserve une référence vers une Sub ou Function du script sans l’appeler. Transmettez cette référence à une procédure, retournez-la depuis une fonction ou stockez-la dans une collection pour choisir une règle de traitement.",
+        "de": "AddressOf speichert einen Verweis auf eine Sub oder Function des Skripts, ohne sie aufzurufen. Der Verweis kann als Parameter übergeben, zurückgegeben oder in einer Sammlung gespeichert werden.",
+        "it": "AddressOf conserva un riferimento a una Sub o Function dello script senza chiamarla. Il riferimento può essere passato, restituito o conservato in una raccolta per scegliere una regola di elaborazione.",
+        "es": "AddressOf guarda una referencia a una Sub o Function del script sin ejecutarla. Puede pasarla a otra rutina, devolverla o guardarla en una colección para elegir una regla de procesamiento.",
+        "zh-tw": "AddressOf 取得指令碼 Sub 或 Function 的參照，不會立即呼叫。可將參照傳入其他程序、從函式傳回或放進集合，以選擇自己的處理規則。",
+        "ja": "AddressOf はスクリプトの Sub または Function への参照を取得します。この時点では呼び出しません。参照を引数として渡す、関数から返す、コレクションに保存することで処理規則を選べます。",
+        "ko": "AddressOf는 스크립트의 Sub 또는 Function 참조를 가져오며 즉시 호출하지 않습니다. 참조를 인수로 전달하거나 함수에서 반환하고 컬렉션에 저장하여 처리 규칙을 선택할 수 있습니다."
+      },
+      "examples": [
+        "Option Explicit On\nFunction IsPositive(ByVal number) As Boolean\n    Return number > 0\nEnd Function\n\nFunction FilterValues(ByVal values, ByVal predicate)\n    Dim result = List()\n    For Each number In values\n        If predicate(number) Then\n            result.Add(number)\n        End If\n    Next\n    Return result\nEnd Function\n\nSub Main()\n    Dim numbers = List()\n    numbers.Add(-2)\n    numbers.Add(4)\n    numbers.Add(7)\n    Dim selected = FilterValues(numbers, AddressOf IsPositive)\n    Return CStr(selected.Count()) & \":\" & CStr(selected[0])\nEnd Sub\n",
+        "Option Explicit On\nSub AddAmount(ByRef total As Integer, Optional ByVal amount = 1)\n    total += amount\nEnd Sub\n\nSub Main()\n    Dim update = AddressOf AddAmount\n    Dim total = 10\n    update(total)\n    update.Invoke(amount:=4, total:=total)\n    Return total\nEnd Sub\n",
+        "Option Explicit On\nModule Rules\n    Private Function CheckedDouble(ByVal number) As Integer\n        If number < 0 Then\n            Throw \"negative\"\n        End If\n        Return number * 2\n    End Function\n\n    Public Function Create()\n        Return AddressOf CheckedDouble\n    End Function\nEnd Module\n\nSub Main()\n    Dim operation = Rules.Create()\n    Dim result = operation(6)\n    Dim message = \"\"\n    Try\n        result = operation(-1)\n    Catch problem\n        message = problem\n    Finally\n        message = message & \":done\"\n    End Try\n    Return CStr(result) & \":\" & message\nEnd Sub\n"
+      ]
+    },
+    {
       "id": "Basic.NamedArguments",
       "name": "Named arguments / :=",
       "signatures": [

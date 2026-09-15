@@ -51,7 +51,7 @@
     },
     {
       "path": "basic-language.json",
-      "sha256": "11b88852ac4867034b1b18addbb92516430fd22db5197209f82392b6c258d0ae"
+      "sha256": "47b582d825d69aaf702b95c101b374e62b98cc28ce4489ca9b379096a0104ec1"
     },
     {
       "path": "Basic.ApiNames.md",
@@ -72,6 +72,10 @@
     {
       "path": "Basic.ByVal.md",
       "sha256": "dcb3c01c09f586f749aa6a57d2c0c7a1a1e04298e51168038ff0444bcc0aef7f"
+    },
+    {
+      "path": "Basic.Callbacks.md",
+      "sha256": "460b5f19023166aedf6560cd0a6d37850a1f3146763b9afe98e54b414ef785ac"
     },
     {
       "path": "Basic.Comparison.md",
@@ -316,6 +320,10 @@
     {
       "path": "de/Basic.ByVal.md",
       "sha256": "c98f20183bf08b4b8ddf215de65bedc041b90838dbfefe51e8755978f831ff9d"
+    },
+    {
+      "path": "de/Basic.Callbacks.md",
+      "sha256": "2d5fc3b915714f5c03da0c03cffb145b588f928a0d03bd3e42e6c1e4444fecf9"
     },
     {
       "path": "de/Basic.Comparison.md",
@@ -1158,6 +1166,10 @@
       "sha256": "937c0cfc248a581441f78d7aa947f835082fe8580bc8edc890b9dc5aa2eb4765"
     },
     {
+      "path": "en/Basic.Callbacks.md",
+      "sha256": "c632d2e7d3a44f0af4694d463c2faf13870f9c9c4442e2feb9ccb7b386dcb8d0"
+    },
+    {
       "path": "en/Basic.Comparison.md",
       "sha256": "976e3ad64228dd9985c644750a47963951f8eb47046c40a3024f43850b4a3d8b"
     },
@@ -1976,6 +1988,10 @@
     {
       "path": "es/Basic.ByVal.md",
       "sha256": "712f3082fa1cc6a5b9a2dded3a619101ab88a78a0774e0f26db6baf367e1f71b"
+    },
+    {
+      "path": "es/Basic.Callbacks.md",
+      "sha256": "93c44fa721a3dbb0ecc7296130234eb8f558209d34af1b9dfec016459d7915ba"
     },
     {
       "path": "es/Basic.Comparison.md",
@@ -2878,6 +2894,10 @@
       "sha256": "08658841908f648b29620bbe9abdd2093823fc7bf532d2630a70e4c565b217c4"
     },
     {
+      "path": "fr/Basic.Callbacks.md",
+      "sha256": "f8304ca263cb7e460299c8137f1e72c6ea4c3136ec5e78e401840f4f2aa82b7d"
+    },
+    {
       "path": "fr/Basic.Comparison.md",
       "sha256": "8446d7def5949529768122b8f7f1e8bad98ae631be819fbd7fc208b526b1839c"
     },
@@ -3711,7 +3731,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "7a3607f3e3da8141d7ceba43c8f9445176b876c4d5ab4adec99dbbf6f346dacd"
+      "sha256": "53993a79d1d8e4c55bbfc755c86661b7db8cef890c9b4b5c4fb768567cda0a02"
     },
     {
       "path": "InStr.md",
@@ -3760,6 +3780,10 @@
     {
       "path": "it/Basic.ByVal.md",
       "sha256": "0fbf03dc1b632e921841f8c341d95d42e81ff028fb8260caf838087da0948ffd"
+    },
+    {
+      "path": "it/Basic.Callbacks.md",
+      "sha256": "a36ffa941bcdc198f7855eec34134fa8f7182f8d4c89220fa5e7ad21f5bd75af"
     },
     {
       "path": "it/Basic.Comparison.md",
@@ -4580,6 +4604,10 @@
     {
       "path": "ja/Basic.ByVal.md",
       "sha256": "b0709f65b488d805fc1c3959e58cc7b6e98dacc32e7f0a1df904aba96429ea62"
+    },
+    {
+      "path": "ja/Basic.Callbacks.md",
+      "sha256": "6e7175b63218eae815382017287835cec7990ef7d2abb15e92965afbb61a80a3"
     },
     {
       "path": "ja/Basic.Comparison.md",
@@ -5428,6 +5456,10 @@
     {
       "path": "ko/Basic.ByVal.md",
       "sha256": "1c32cc164cb1f754cda9501546028ed9c1ccd7c332541748de5688efdd1a4ffb"
+    },
+    {
+      "path": "ko/Basic.Callbacks.md",
+      "sha256": "b366159c58c5bf0d689b86aa73bdebcc12906de8b605af7e383d2612c411fdd5"
     },
     {
       "path": "ko/Basic.Comparison.md",
@@ -6343,7 +6375,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "01dcd9b1470a0a0f5971d12b5747ca6aeb09fd282cf51cd6584ac7574dafdb2f"
+      "sha256": "5ac1c3ce3ed86e6595db7c4ca7e823894fb77428e01f4f740d6b26ecbdf3bcad"
     },
     {
       "path": "remain.md",
@@ -6428,6 +6460,10 @@
     {
       "path": "ru/Basic.ByVal.md",
       "sha256": "dcb3c01c09f586f749aa6a57d2c0c7a1a1e04298e51168038ff0444bcc0aef7f"
+    },
+    {
+      "path": "ru/Basic.Callbacks.md",
+      "sha256": "460b5f19023166aedf6560cd0a6d37850a1f3146763b9afe98e54b414ef785ac"
     },
     {
       "path": "ru/Basic.Comparison.md",
@@ -8396,6 +8432,10 @@
     {
       "path": "uk/Basic.ByVal.md",
       "sha256": "2d4404c9f8fc603d791931acceb18cdacab702a54a410d3189ddb3946f9de951"
+    },
+    {
+      "path": "uk/Basic.Callbacks.md",
+      "sha256": "d328c8d32b7aa7b102228b82f36f41d9f227c4784ade48bcb54dc3e700a40e51"
     },
     {
       "path": "uk/Basic.Comparison.md",
@@ -12204,6 +12244,10 @@
     {
       "path": "zh-tw/Basic.ByVal.md",
       "sha256": "07766b2920df62b14797f54f121b7e07b8e1e89cb8ade9d46236ccf0faf8a50e"
+    },
+    {
+      "path": "zh-tw/Basic.Callbacks.md",
+      "sha256": "e0fc6f9521d7adbb78c3f29c9996a579ee602e4cc44e3f289caeda1e6735d6e1"
     },
     {
       "path": "zh-tw/Basic.Comparison.md",
