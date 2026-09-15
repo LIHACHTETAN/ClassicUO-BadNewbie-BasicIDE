@@ -3615,7 +3615,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "17d948bf548623888f2b3d89ace8cac0f54ec3e64ed5eb216adfd70536a5a460"
+      "sha256": "bc33d798bb60d4c9550e3a2ea822b16e6c8fafdf565b590ede52311ad763aafe"
     },
     {
       "path": "InStr.md",
@@ -6643,7 +6643,7 @@
     },
     {
       "path": "ru/UO.AllPrice.md",
-      "sha256": "2e0fffcb3378d7d9e83ccf09479641704e2f440e8ee07cd4b8744dd3b65f178c"
+      "sha256": "5bf5393be9288158f4ef0a8bed01edd4bbfcebe69ef56c3ec7ae58d6e0d21f68"
     },
     {
       "path": "ru/UO.ApiNameExists.md",
@@ -7671,7 +7671,7 @@
     },
     {
       "path": "ru/UO.MassMove.md",
-      "sha256": "5e989adce736136bb7ffeee1356bafd5cff5cd41636b99fccd5c8fb4740d2a40"
+      "sha256": "8ba8e92c4eda5d039f48f1538c31ad68d41b4c6e665c37f65819b4a91e3640b5"
     },
     {
       "path": "ru/UO.MassPriceMove.md",
@@ -7987,11 +7987,11 @@
     },
     {
       "path": "ru/UO.Terminate.md",
-      "sha256": "39a65c45b18d46eefcee26c6109ee6a6edcb54626cba86d1a270fa91a64af567"
+      "sha256": "eebb0816bf6137e4f4ef8f6bb33ec53caa25b9abd6cd319068f4c0724a43d932"
     },
     {
       "path": "ru/UO.TerminateAll.md",
-      "sha256": "3ab49c50256d9898dea68adf58f12fc4abf5b1f91f4cbe1634f7228361912344"
+      "sha256": "74cfb5dddd9ffa3bbbbdd264e3538759ba5a271c7eae6b75c5df633a5ad88e42"
     },
     {
       "path": "ru/UO.TicksTarget.md",
@@ -9055,7 +9055,7 @@
     },
     {
       "path": "UO.AllPrice.md",
-      "sha256": "f3028037e3823b97a0313496f4eef4e8c7a1f6024d2667384fe4df78bb441417"
+      "sha256": "74190e6c0da7a8a47c3cc5571f794e49808dfde9a7199d1b099b1464a4583a09"
     },
     {
       "path": "UO.AlwaysRun.md",
@@ -10875,7 +10875,7 @@
     },
     {
       "path": "UO.MassMove.md",
-      "sha256": "9887788092046d000b3c480c41576233cdb2376964375c859ff24b0ee1816569"
+      "sha256": "e09d5acf9faf257aab530be626a28fc8c8c1c56e6709d7c7844109ce8bcfd2b0"
     },
     {
       "path": "UO.MassPriceMove.md",
@@ -11619,11 +11619,11 @@
     },
     {
       "path": "UO.Terminate.md",
-      "sha256": "8e5fc4824dd3ee795305b1e88a76e4d40879f7578ad263bdf8d5cfcb17354559"
+      "sha256": "8dd4267f595c005dd23fce08529eb21cf1fa1478c7d883b1bc001ab464243be7"
     },
     {
       "path": "UO.TerminateAll.md",
-      "sha256": "f781818c2f1ca301dc070d6df20b7a2a294c0c5e6cd380af7fd73304fd11dc46"
+      "sha256": "a26d5d244507c19676a46b8b67ec14000fd697ebcd2d2db041b7340d07dabafa"
     },
     {
       "path": "UO.TextClear.md",
