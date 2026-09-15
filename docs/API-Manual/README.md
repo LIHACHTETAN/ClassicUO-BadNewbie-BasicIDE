@@ -1,6 +1,6 @@
 # API Manual — ClassicUO
 
-802 имён команд; 1219 вариантов имя/число аргументов; 191 runtime-параметров.
+809 имён команд; 1229 вариантов имя/число аргументов; 191 runtime-параметров.
 
 Это внешние редактируемые файлы. Окно клиента читает файл при выборе команды. В Theia повторно откройте API Manual для обновления; файл также можно открыть в обозревателе. Кнопка Source открывает файл выбранной команды. Для изменения самой команды нужна правка исходников и сборка.
 
@@ -53,6 +53,7 @@
 - [Enum / End Enum](Basic.Enum.md)
 - [Using / End Using](Basic.Using.md)
 - [Named arguments / :=](Basic.NamedArguments.md)
+- [JSON / Config.bas](Basic.Config.md)
 
 ### Встроенные функции Basic
 
@@ -83,6 +84,13 @@
 - [InStrRev](InStrRev.md)
 - [Int](Int.md)
 - [IsNumeric](IsNumeric.md)
+- [JsonBoolean](JsonBoolean.md)
+- [JsonKind](JsonKind.md)
+- [JsonLoad](JsonLoad.md)
+- [JsonNull](JsonNull.md)
+- [JsonParse](JsonParse.md)
+- [JsonSave](JsonSave.md)
+- [JsonStringify](JsonStringify.md)
 - [LCase](LCase.md)
 - [left](left.md)
 - [len](len.md)
@@ -173,6 +181,13 @@
 - [Int](Int.md)
 - [Invalid](Invalid.md)
 - [IsNumeric](IsNumeric.md)
+- [JsonBoolean](JsonBoolean.md)
+- [JsonKind](JsonKind.md)
+- [JsonLoad](JsonLoad.md)
+- [JsonNull](JsonNull.md)
+- [JsonParse](JsonParse.md)
+- [JsonSave](JsonSave.md)
+- [JsonStringify](JsonStringify.md)
 - [lastattack](lastattack.md)
 - [lastcorpse](lastcorpse.md)
 - [laststatus](laststatus.md)

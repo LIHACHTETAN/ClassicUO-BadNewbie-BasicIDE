@@ -1,0 +1,107 @@
+[
+  {
+    "command": "JsonParse",
+    "code": "Option Explicit On\nSub Main()\n    Dim d=JsonParse('{\"delay\":350}')\n    Return d['delay']\nEnd Sub\n",
+    "expected": 350
+  },
+  {
+    "command": "JsonParse",
+    "code": "Option Explicit On\nSub Main()\n    Dim a=JsonParse('[true,null,12]')\n    Dim flag=a[0]\n    Return CStr(flag.Value()) & ':' & JsonKind(a[1]) & ':' & CStr(a[2])\nEnd Sub\n",
+    "expected": "1:null:12"
+  },
+  {
+    "command": "JsonParse",
+    "code": "Option Explicit On\nSub Main()\n    Try\n    Dim bad=JsonParse('{\"x\":1,\"x\":2}')\n    Catch problem\n    Return 'duplicate key'\n    End Try\n    Return 'unexpected'\nEnd Sub\n",
+    "expected": "duplicate key"
+  },
+  {
+    "command": "JsonStringify",
+    "code": "Option Explicit On\nSub Main()\n    Dim d=Dictionary()\n    d['name']='ore'\n    d['count']=3\n    Return JsonStringify(d)\nEnd Sub\n",
+    "expected": "{\"name\":\"ore\",\"count\":3}"
+  },
+  {
+    "command": "JsonStringify",
+    "code": "Option Explicit On\nSub Main()\n    Dim d=JsonParse('{\"enabled\":true,\"empty\":null}')\n    Dim text=JsonStringify(value:=d, indented:=True)\n    Dim copy=JsonParse(text)\n    Return JsonKind(copy['enabled']) & ':' & JsonKind(copy['empty'])\nEnd Sub\n",
+    "expected": "boolean:null"
+  },
+  {
+    "command": "JsonStringify",
+    "code": "Option Explicit On\nSub Main()\n    Dim d=List()\n    d.Add(d)\n    Try\n    Dim text=JsonStringify(d)\n    Catch problem\n    Return 'cycle'\n    End Try\n    Return 'unexpected'\nEnd Sub\n",
+    "expected": "cycle"
+  },
+  {
+    "command": "JsonLoad",
+    "code": "Option Explicit On\nSub Main()\n    JsonSave('json-demo.json', JsonParse('{\"delay\":350}'))\n    Dim d=JsonLoad('json-demo.json')\n    Return d['delay']\nEnd Sub\n",
+    "expected": 350
+  },
+  {
+    "command": "JsonLoad",
+    "code": "Option Explicit On\nSub Main()\n    Dim defaults=Dictionary()\n    defaults['delay']=350\n    Dim loaded=JsonLoad('missing-json-demo.json', defaults)\n    loaded['delay']=125\n    Return CStr(loaded['delay']) & ':' & CStr(defaults['delay'])\nEnd Sub\n",
+    "expected": "125:350"
+  },
+  {
+    "command": "JsonLoad",
+    "code": "Option Explicit On\nSub Main()\n    JsonSave('json-demo-list.json', JsonParse('[1,2,3]'))\n    Dim data=JsonLoad(fileName:='json-demo-list.json', defaultValue:=List())\n    Return data.Count()\nEnd Sub\n",
+    "expected": 3
+  },
+  {
+    "command": "JsonSave",
+    "code": "Option Explicit On\nSub Main()\n    Dim d=JsonParse('{\"delay\":350}')\n    JsonSave('json-save-demo.json', d)\n    Dim loaded=JsonLoad('json-save-demo.json')\n    Return loaded['delay']\nEnd Sub\n",
+    "expected": 350
+  },
+  {
+    "command": "JsonSave",
+    "code": "Option Explicit On\nSub Main()\n    JsonSave(indented:=False, value:=JsonParse('[true,null,7]'), fileName:='json-save-array.json')\n    Return JsonStringify(JsonLoad('json-save-array.json'))\nEnd Sub\n",
+    "expected": "[true,null,7]"
+  },
+  {
+    "command": "JsonSave",
+    "code": "Option Explicit On\nSub Main()\n    JsonSave('json-replace-demo.json', 7)\n    Dim cycle=List()\n    cycle.Add(cycle)\n    Try\n    JsonSave('json-replace-demo.json', cycle)\n    Catch problem\n    Return JsonLoad('json-replace-demo.json')\n    End Try\n    Return 0\nEnd Sub\n",
+    "expected": 7
+  },
+  {
+    "command": "JsonKind",
+    "code": "Option Explicit On\nSub Main()\n    Return JsonKind(12) & ':' & JsonKind('12')\nEnd Sub\n",
+    "expected": "number:string"
+  },
+  {
+    "command": "JsonKind",
+    "code": "Option Explicit On\nSub Main()\n    Return JsonKind(JsonParse('[1]')) & ':' & JsonKind(Dictionary())\nEnd Sub\n",
+    "expected": "array:object"
+  },
+  {
+    "command": "JsonKind",
+    "code": "Option Explicit On\nSub Main()\n    Return JsonKind(JsonBoolean(False)) & ':' & JsonKind(JsonNull())\nEnd Sub\n",
+    "expected": "boolean:null"
+  },
+  {
+    "command": "JsonNull",
+    "code": "Option Explicit On\nSub Main()\n    Return JsonStringify(JsonNull())\nEnd Sub\n",
+    "expected": "null"
+  },
+  {
+    "command": "JsonNull",
+    "code": "Option Explicit On\nSub Main()\n    Dim d=Dictionary()\n    d['selected']=JsonNull()\n    Return JsonKind(d['selected'])='null'\nEnd Sub\n",
+    "expected": 1
+  },
+  {
+    "command": "JsonNull",
+    "code": "Option Explicit On\nSub Main()\n    Dim a=List()\n    a.Add(JsonNull())\n    a.Add(0)\n    a.Add('')\n    Return JsonStringify(a)\nEnd Sub\n",
+    "expected": "[null,0,\"\"]"
+  },
+  {
+    "command": "JsonBoolean",
+    "code": "Option Explicit On\nSub Main()\n    Dim flag=JsonBoolean(True)\n    If flag.Value() Then\n    Return 'enabled'\n    End If\n    Return 'disabled'\nEnd Sub\n",
+    "expected": "enabled"
+  },
+  {
+    "command": "JsonBoolean",
+    "code": "Option Explicit On\nSub Main()\n    Dim flag=JsonBoolean(value:=0)\n    Return JsonStringify(flag) & ':' & CStr(flag.Value())\nEnd Sub\n",
+    "expected": "false:0"
+  },
+  {
+    "command": "JsonBoolean",
+    "code": "Option Explicit On\nSub Main()\n    Dim values=List()\n    values.Add(JsonBoolean(-2))\n    values.Add(True)\n    Return JsonStringify(values)\nEnd Sub\n",
+    "expected": "[true,1]"
+  }
+]

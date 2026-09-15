@@ -29,6 +29,13 @@
     "InStrRev",
     "Int",
     "IsNumeric",
+    "JsonBoolean",
+    "JsonKind",
+    "JsonLoad",
+    "JsonNull",
+    "JsonParse",
+    "JsonSave",
+    "JsonStringify",
     "LCase",
     "left",
     "len",
@@ -1226,6 +1233,42 @@
         "Option Explicit On\nFunction Encode(ByVal x, Optional ByVal y=2, Optional ByVal z=3) As Integer\n    Return x*100 + y*10 + z\nEnd Function\n\nSub Main()\n    Dim encoded = Encode(z:=9, x:=1)\n    Return encoded\nEnd Sub\n",
         "Option Explicit On\nSub Change(ByRef left, ByRef right)\n    left += 10\n    right += 20\nEnd Sub\n\nSub Main()\n    Dim a = 1\n    Dim b = 2\n    Change(right:=a, left:=b)\n    Return CStr(a) & \":\" & CStr(b)\nEnd Sub\n",
         "Option Explicit On\nSub Main()\n    Dim items = List()\n    items.Add(value:=10)\n    items.Insert(value:=20, index:=0)\n    Dim first = items.Item(index:=0)\n    Dim second = items.Item(index:=1)\n    Return CStr(first) & \":\" & CStr(second) & \":\" & CStr(items.Count())\nEnd Sub\n"
+      ]
+    },
+    {
+      "id": "Basic.Config",
+      "name": "JSON / Config.bas",
+      "signatures": [
+        "Include \"Config.bas\"",
+        "settings = Config.Load(fileName, defaults)",
+        "Config.Save(fileName, settings)",
+        "enabled = Config.GetFlag(settings, key, fallback=False)",
+        "Config.SetFlag(settings, key, value)",
+        "JsonParse(text) / JsonStringify(value[, indented=0])",
+        "JsonLoad(fileName[, defaultValue]) / JsonSave(fileName, value[, indented=1])",
+        "JsonKind(value) / JsonBoolean(value) / JsonNull() / flag.Value()"
+      ],
+      "descriptions": {
+        "en": "Config.bas is a reusable settings module shipped in Scripts/Include. Keep Include/Config.bas beside your main script and write Include \"Config.bas\". It combines persistent JSON with independent defaults.",
+        "ru": "Config.bas — готовый модуль настроек из Scripts/Include. Положите Include/Config.bas рядом с основным скриптом и напишите Include \"Config.bas\". Модуль объединяет JSON-файл с независимыми настройками по умолчанию.",
+        "uk": "Config.bas — готовий модуль із Scripts/Include. Помістіть Include/Config.bas поруч з основним скриптом та додайте Include \"Config.bas\". Налаштування JSON поєднуються з незалежними типовими значеннями.",
+        "fr": "Config.bas est fourni dans Scripts/Include. Placer Include/Config.bas près du script principal et écrire Include \"Config.bas\". Le module associe JSON persistant et valeurs par défaut indépendantes.",
+        "de": "Config.bas liegt in Scripts/Include. Include/Config.bas neben das Hauptskript legen und Include \"Config.bas\" verwenden. Das Modul verbindet gespeichertes JSON mit unabhängigen Standardwerten.",
+        "it": "Config.bas è incluso in Scripts/Include. Collocare Include/Config.bas accanto allo script principale e usare Include \"Config.bas\". Combina JSON persistente con impostazioni predefinite indipendenti.",
+        "es": "Config.bas está en Scripts/Include. Colocar Include/Config.bas junto al script principal y usar Include \"Config.bas\". Combina JSON persistente con valores predeterminados independientes.",
+        "zh-tw": "Config.bas 位於 Scripts/Include。將 Include/Config.bas 放在主腳本旁並加入 Include \"Config.bas\"。模組結合持久 JSON 與獨立預設值。",
+        "ja": "Config.basはScripts/Includeに含まれます。メインスクリプトの隣にInclude/Config.basを置き、Include \"Config.bas\"を記述します。永続JSONと独立した既定値を組み合わせます。",
+        "ko": "Config.bas는 Scripts/Include에 있습니다. 메인 스크립트 옆에 Include/Config.bas를 두고 Include \"Config.bas\"를 적습니다. 영구 JSON과 독립적인 기본값을 결합합니다."
+      },
+      "examples": [
+        "Option Explicit On\nInclude \"Config.bas\"\nSub Main()\n    Dim defaults=Dictionary()\n    defaults[\"delay\"]=350\n    Dim settings=Config.Load(\"missing-settings.json\", defaults)\n    settings[\"delay\"]=125\n    Return CStr(settings[\"delay\"]) & \":\" & CStr(defaults[\"delay\"])\nEnd Sub\n",
+        "Option Explicit On\nInclude \"Config.bas\"\nSub Main()\n    Dim settings=Dictionary()\n    settings[\"delay\"]=350\n    Config.SetFlag(settings, \"enabled\", True)\n    Config.Save(\"demo-settings.json\", settings)\n    Dim loaded=Config.Load(\"demo-settings.json\", Dictionary())\n    Return CStr(Config.GetFlag(loaded, \"enabled\")) & \":\" & CStr(loaded[\"delay\"])\nEnd Sub\n",
+        "Option Explicit On\nInclude \"Config.bas\"\nSub Main()\n    Dim settings=Dictionary()\n    settings[\"enabled\"]=1\n    Try\n        Dim enabled=Config.GetFlag(settings, \"enabled\")\n    Catch problem\n        Return \"invalid flag\"\n    End Try\n    Return \"unexpected\"\nEnd Sub\n"
+      ],
+      "exampleRoots": [
+        "Examples/Basic.Config/1/Main.bas",
+        "Examples/Basic.Config/2/Main.bas",
+        "Examples/Basic.Config/3/Main.bas"
       ]
     }
   ]
