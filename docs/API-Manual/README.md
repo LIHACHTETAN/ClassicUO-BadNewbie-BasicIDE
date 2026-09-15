@@ -58,6 +58,7 @@
 - [Structure / New / fields](Basic.Structure.md)
 - [Declare / Lib / Alias](Basic.Declare.md)
 - [Windows.bas](Basic.Windows.md)
+- [Class / New / Me / Property](Basic.Class.md)
 - [Named arguments / :=](Basic.NamedArguments.md)
 - [JSON / Config.bas](Basic.Config.md)
 

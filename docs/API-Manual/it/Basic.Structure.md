@@ -194,7 +194,7 @@ Runtime/ObjectTypes/StructureObject.cs: ReadField / WithField / ValueEquals
 Runtime/BasicSyntaxPreprocessor.cs: NormalizeDim
 Runtime/InjectionRuntime.cs: ScriptDeclarations / Load
 Runtime/ScriptBindings.cs: Variable / CheckStructureType / CallName
-Runtime/SemanticScope.cs: TryStructureRoot / SetVar / Coerce
+Runtime/SemanticScope.cs: TryMemberRoot / SetVar / Coerce
 Runtime/Interpreter.cs: VisitNewStructure / CreateArgumentWriter
 https://learn.microsoft.com/en-us/dotnet/visual-basic/language-reference/statements/structure-statement
 https://learn.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/data-types/structure-variables

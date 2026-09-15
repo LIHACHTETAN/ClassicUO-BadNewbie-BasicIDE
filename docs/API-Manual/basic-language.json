@@ -1398,6 +1398,45 @@
       ]
     },
     {
+      "id": "Basic.Class",
+      "name": "Class / New / Me / Property",
+      "signatures": [
+        "[Public | Private] Class TypeName",
+        "    [Public | Private | Dim] field As FieldType",
+        "    Public Sub New([parameters]) ... End Sub",
+        "    [Public | Private] Sub Method([parameters]) ... End Sub",
+        "    [Public | Private] Function Method([parameters]) As ResultType ... End Function",
+        "    [Public | Private] [ReadOnly | WriteOnly] Property Name[()] As ValueType",
+        "        Get ... Return value / Name = value / Exit Property ... End Get",
+        "        Set(ByVal value As ValueType) ... End Set",
+        "    End Property",
+        "    Public Property AutoName As ValueType",
+        "End Class",
+        "Dim instance [As TypeName] = New TypeName(arguments)",
+        "instance.Property = expression",
+        "value = instance.Property",
+        "instance.Method(arguments)",
+        "With instance ... End With"
+      ],
+      "descriptions": {
+        "en": "Class groups per-object state and script methods. New creates a reference object; assigning it to another variable keeps the same object, unlike a Structure value copy. The examples below contain every constructor, method and property accessor they use.",
+        "ru": "Class объединяет состояние отдельного объекта и методы скрипта. New создаёт объект-ссылку: присваивание другой переменной сохраняет тот же объект, в отличие от копирования значения Structure. В примерах полностью приведены все используемые конструкторы, методы и свойства.",
+        "uk": "Class об’єднує стан окремого об’єкта та методи скрипта. New створює об’єкт-посилання: присвоєння іншій змінній зберігає той самий об’єкт, на відміну від копіювання значення Structure. Приклади містять увесь код конструкторів, методів і властивостей.",
+        "fr": "Class regroupe l’état et les méthodes de chaque objet. New crée une référence ; l’affectation à une autre variable conserve le même objet, contrairement à la copie de valeur Structure. Les exemples contiennent tous leurs constructeurs, méthodes et accesseurs.",
+        "de": "Class bündelt Zustand und Skriptmethoden eines Objekts. New erzeugt ein Referenzobjekt; eine Zuweisung teilt dieses Objekt, während Structure einen Wert kopiert. Alle verwendeten Konstruktoren, Methoden und Eigenschaftsblöcke stehen vollständig in den Beispielen.",
+        "it": "Class riunisce stato e metodi di ogni oggetto. New crea un riferimento: assegnarlo a un’altra variabile conserva lo stesso oggetto, diversamente dalla copia di valore Structure. Gli esempi includono tutti i costruttori, metodi e accessori usati.",
+        "es": "Class agrupa el estado y los métodos de cada objeto. New crea una referencia: asignarla a otra variable conserva el mismo objeto, a diferencia de una copia de Structure. Los ejemplos incluyen todos sus constructores, métodos y accesores.",
+        "zh-tw": "Class 將各物件的狀態與指令碼方法放在一起。New 建立參考物件；指定給另一個變數仍指向同一物件，與 Structure 的值複製不同。範例包含所有使用的建構函式、方法及屬性存取程序。",
+        "ja": "Class は各オブジェクトの状態とスクリプトのメソッドをまとめます。New が作るのは参照オブジェクトです。別の変数への代入は同じオブジェクトを参照し、Structure の値コピーとは異なります。使用するコンストラクター、メソッド、プロパティの全コードを例に示します。",
+        "ko": "Class는 객체별 상태와 스크립트 메서드를 묶습니다. New는 참조 객체를 생성합니다. 다른 변수에 대입해도 같은 객체를 가리키며, Structure의 값 복사와 다릅니다. 예제에 사용하는 생성자, 메서드, 속성 접근자를 모두 제시합니다."
+      },
+      "examples": [
+        "Option Explicit On\nClass Counter\n    Private stored As Integer\n    Public Property Label As String\n    Public Sub New(ByVal label As String, ByVal start As Integer)\n        Me.Label = label\n        stored = start\n    End Sub\n    Public Property Value As Integer\n        Get\n            Return stored\n        End Get\n        Set(ByVal value As Integer)\n            If value < 0 Then\n                Throw \"Value must be non-negative\"\n            End If\n            stored = value\n        End Set\n    End Property\n    Public Function Add(ByVal amount As Integer) As Integer\n        Me.Value = stored + amount\n        Return Me.Value\n    End Function\nEnd Class\n\nSub Main()\n    Dim first = New Counter(label:=\"ore\", start:=2)\n    Dim second = New Counter(\"wood\", 2)\n    Dim alias = first\n    alias.Add(amount:=3)\n    Return CStr(first.Value) & \":\" & CStr(second.Value) & \":\" & CStr(alias = first)\nEnd Sub\n",
+        "Option Explicit On\nClass Budget\n    Private amount As Integer\n    Public ReadOnly Property Remaining() As Integer\n        Get\n            Remaining = amount\n            Exit Property\n        End Get\n    End Property\n    Public WriteOnly Property Limit As Integer\n        Set(ByVal value As Integer)\n            If value < 0 Then\n                Throw \"Limit must be non-negative\"\n            End If\n            amount = value\n        End Set\n    End Property\n    Public Function TrySpend(ByVal cost As Integer) As Boolean\n        If cost < 0 Then\n            Throw \"cost must be non-negative\"\n        End If\n        If cost > amount Then\n            Return False\n        End If\n        amount -= cost\n        Return True\n    End Function\nEnd Class\n\nSub Main()\n    Dim budget = New Budget()\n    budget.Limit = 10\n    Dim paid = budget.TrySpend(4)\n    Dim refused = budget.TrySpend(9)\n    Try\n        budget.Limit = -3\n    Catch problem\n        Return CStr(paid) & \":\" & CStr(refused) & \":\" & CStr(budget.Remaining)\n    End Try\n    Return \"unexpected\"\nEnd Sub\n",
+        "Option Explicit On\nModule Jobs\n    Public Class WorkItem\n        Public Property Name As String\n        Public Done As Integer\n        Public Sub New(ByVal name As String)\n            Me.Name = name\n        End Sub\n    End Class\n    Public Sub Tick(ByVal job As WorkItem)\n        job.Done += 1\n        job = New WorkItem(\"local\")\n    End Sub\n    Public Sub Replace(ByRef job As WorkItem, ByVal name As String)\n        job = New WorkItem(name)\n    End Sub\nEnd Module\n\nSub Main()\n    Dim job As Jobs.WorkItem = New Jobs.WorkItem(\"ore\")\n    Dim original = job\n    Jobs.Tick(job)\n    Jobs.Replace(name:=\"replacement\", job:=job)\n    Return original.Name & \":\" & CStr(original.Done) & \":\" & job.Name & \":\" & CStr(job.Done)\nEnd Sub\n"
+      ]
+    },
+    {
       "id": "Basic.NamedArguments",
       "name": "Named arguments / :=",
       "signatures": [
