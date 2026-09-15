@@ -36,6 +36,7 @@ Integer 1 (TRUE) when the comparison holds, otherwise Integer 0 (FALSE). For thi
 - Equality on arrays and native objects compares identity, not contents. Two Unit values are equal; Unit is not numeric zero. Different kinds are unequal except compatible Integer/Decimal pairs. NaN is unequal even to itself and all numeric ordering comparisons with it are false.
 - Arithmetic is evaluated before comparison. Comparison chains run left to right: 1<3<2 means (1<3)<2 and is true. To test a range, write (low<=value) AND (value<=high). Parentheses make the intended grouping explicit.
 - Binary floating-point calculations can round: avoid exact equality for approximate measurements. Compare Abs(actual-expected)<=tolerance with a nonnegative tolerance suitable for the task. This is a script policy, not an automatic tolerance in the operators.
+- This project additionally supports value equality: = compares the same declared type and corresponding fields; <> is its inverse. Reference fields compare identity. This is an engine extension, not a claim that arbitrary VB.NET structures support =. Cached hashes and a visited-pair set prevent repeated expansion of shared nested values.
 
 ## Examples
 

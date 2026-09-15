@@ -32,6 +32,7 @@ AS 本身不回傳值。讀取變數會取得所儲存的種類和值。邏輯�
 - AS Boolean 將原值與數值零比較：非零數字變 1，零變 0。不會辨識單字，連文字 "false" 都變 1。CBool 會先轉成數字。請使用數值/邏輯值，或明確將文字與預期單字比較。
 - AS String 使用引擎的文字表示。AS Double/Single/Decimal 以小數點解析數值文字。數值 AS 把 Array 轉成 0，但對 Object 和無效數值文字產生可由 TRY/CATCH 處理的錯誤。CInt/CLng/CDbl/CSng/CBool 則採用寬鬆讀取：無法辨識的文字、Array、Object 或 Unit 先變成 0。依賴文字轉換前，請先檢查 IsNumeric(value)。
 - 宣告先計算初始值，再套用 AS，最後儲存結果與型別名稱。後續指定重複轉換。浮點值是近似值，不保證精確的十進位金額運算。作用域請見 VAR / DIM，名稱綁定保護請見 CONST。
+- As 也支援已宣告的 Structure 名稱。該型別的 VAR 與 DIM 若無初始設定式，會建立預設欄位。只接受同一宣告型別，不會在不同結構型別間轉換。巢狀值複製與參考欄位詳見 Structure / New。
 
 ## 範例
 

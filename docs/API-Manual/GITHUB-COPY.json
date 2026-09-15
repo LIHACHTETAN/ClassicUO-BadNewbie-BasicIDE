@@ -51,7 +51,7 @@
     },
     {
       "path": "basic-language.json",
-      "sha256": "54da9e4260b0e539df362414667c9791d4e8ae5b7122ea1ed2ef473d664a0d79"
+      "sha256": "4c395e1497f841513b08d764128b46c2d0e0bfc231086c99420ad4817faff867"
     },
     {
       "path": "Basic.ApiNames.md",
@@ -79,7 +79,7 @@
     },
     {
       "path": "Basic.Comparison.md",
-      "sha256": "9036aa7699a740a868073e112fab3bd11bcee29345f64c628eef978fa4cf0d69"
+      "sha256": "6738ce4cb02ba5c129c390914a04f1858a9d1cd8166f541b2659247c941f2cdf"
     },
     {
       "path": "Basic.CompoundAssignment.md",
@@ -194,6 +194,10 @@
       "sha256": "e69dab1308bf35535f7d0fbe18f3f96d687c7a0fe54b44acf34e853ac1e31e03"
     },
     {
+      "path": "Basic.Structure.md",
+      "sha256": "ff1c70fa6c6cfe9f828d2baf321c11c5a8d33a3de4cab63bb1041ce6c2b23e39"
+    },
+    {
       "path": "Basic.Sub.md",
       "sha256": "a809024647ca0200e2283941449fe59d8ba88dbdff99c39c8cd255036f979d37"
     },
@@ -207,7 +211,7 @@
     },
     {
       "path": "Basic.Types.md",
-      "sha256": "07550d4c58d6d3ed0cc6ca98dc3dfffa582b6438963f6d54ab0d9e614377331f"
+      "sha256": "b151f27c0fbaacf23b19aa58fc523b175fb000a7c4b6e4eb1efaa3923a43a1c5"
     },
     {
       "path": "Basic.Using.md",
@@ -339,7 +343,7 @@
     },
     {
       "path": "de/Basic.Comparison.md",
-      "sha256": "0e4d086f7b131bf9584bb7f2d96c4b92bad539b2d2528e3fe57e85cd3616eb4e"
+      "sha256": "a04e2f948252671c168d94aa9709ccf4f11ec85e881e2db6ba2118d983fd80d4"
     },
     {
       "path": "de/Basic.CompoundAssignment.md",
@@ -454,6 +458,10 @@
       "sha256": "e92f05af6f93fa4c9fec8135bf42d5285488cae5bcf3edebbe1ff561c846f28a"
     },
     {
+      "path": "de/Basic.Structure.md",
+      "sha256": "c3dd03a8b809da457e57c326581ccfd41a031b584dfb9b150209dcb91c010802"
+    },
+    {
       "path": "de/Basic.Sub.md",
       "sha256": "b6a83b09f5d69adfad117a17fd78a382762635e26d9d7a0766b69653f9702551"
     },
@@ -467,7 +475,7 @@
     },
     {
       "path": "de/Basic.Types.md",
-      "sha256": "0a6c85b3e85f7b448e8388fd8c1cef2a81baffaea46fe8eb5c39aced18eab8b1"
+      "sha256": "37ae2af9380a5ac3e28bbf53869b49058fe61b0bee48fb3b71adede92f3f2a6a"
     },
     {
       "path": "de/Basic.Using.md",
@@ -1203,7 +1211,7 @@
     },
     {
       "path": "en/Basic.Comparison.md",
-      "sha256": "976e3ad64228dd9985c644750a47963951f8eb47046c40a3024f43850b4a3d8b"
+      "sha256": "8dd5f6c55d14d12679c23e4df44b4f931de003d5a56c97bec6748495161c649f"
     },
     {
       "path": "en/Basic.CompoundAssignment.md",
@@ -1318,6 +1326,10 @@
       "sha256": "d5644346472e83703c344701bbe17c1a11ae37ab349728eee6f44fea1112f785"
     },
     {
+      "path": "en/Basic.Structure.md",
+      "sha256": "4729b308e5ef5b325861d627d3b96dcc8d62f957e276ce37d59e578a76006ef9"
+    },
+    {
       "path": "en/Basic.Sub.md",
       "sha256": "7ab0230a605e646bb38fa7bcdb7773efae975db4ac339bebc4ac0ec0b3e05ecf"
     },
@@ -1331,7 +1343,7 @@
     },
     {
       "path": "en/Basic.Types.md",
-      "sha256": "a8f1da455c61df5667acf4bc43ef8a0a0030b26ebb70ec52b27a8c4ccf31a7c0"
+      "sha256": "570cb13937ff92b7748154dadd83e12fe49806af9bf3323a499330dc35cb0ecb"
     },
     {
       "path": "en/Basic.Using.md",
@@ -2047,7 +2059,7 @@
     },
     {
       "path": "es/Basic.Comparison.md",
-      "sha256": "a891727f408f7e7b5d94bfe817cfc8ab25b5594bc38df46956e276e07ea3bae1"
+      "sha256": "e1f973490e6f385e3bd42f91e149ab820d39e0bbfb466fbd3a6e95eba682c823"
     },
     {
       "path": "es/Basic.CompoundAssignment.md",
@@ -2162,6 +2174,10 @@
       "sha256": "149cd3ac35a53346b545382675695515dda04d428075eb488614ff41637f1b16"
     },
     {
+      "path": "es/Basic.Structure.md",
+      "sha256": "5c3a70de6fec1ee37e7b944bc6d10d93438a6a73d420f92b5e042ab4f273e0d2"
+    },
+    {
       "path": "es/Basic.Sub.md",
       "sha256": "d78c1c039178cfee4e809ff8141c1b0bf463131791096f08858d407bd38ba10f"
     },
@@ -2175,7 +2191,7 @@
     },
     {
       "path": "es/Basic.Types.md",
-      "sha256": "f1b7cdbb58f3d4e6ea806486a81dbb961f9718e1f238dc120e574de17ccc5c89"
+      "sha256": "32be4a24170039469972fc67839db04b1642005b143e60d0386307398309dfcc"
     },
     {
       "path": "es/Basic.Using.md",
@@ -2971,7 +2987,7 @@
     },
     {
       "path": "fr/Basic.Comparison.md",
-      "sha256": "8446d7def5949529768122b8f7f1e8bad98ae631be819fbd7fc208b526b1839c"
+      "sha256": "abe6b1f63fb4853bd2c620cd3e6e38e618ddea9ec04838215c8c498b8e238bee"
     },
     {
       "path": "fr/Basic.CompoundAssignment.md",
@@ -3086,6 +3102,10 @@
       "sha256": "766355f41378ad3db270c401ae2cf08dd7628f628a1adb3e021749922d291a69"
     },
     {
+      "path": "fr/Basic.Structure.md",
+      "sha256": "ac21e200f46e2f88fcc332eca05f019070aab1d8484474796880bf145cad5208"
+    },
+    {
       "path": "fr/Basic.Sub.md",
       "sha256": "219f62f580b19a16e14eed04afdddc8d50a2cf4dfe7a3d8ada6df225b1532869"
     },
@@ -3099,7 +3119,7 @@
     },
     {
       "path": "fr/Basic.Types.md",
-      "sha256": "847c6d7c779d406838355c9f0f60c228dfe4dd9fcc0901d73481069ee378736f"
+      "sha256": "87799b5f50af1c4e4e436718f1de9971d76d74898c68071775ca95c608494ba5"
     },
     {
       "path": "fr/Basic.Using.md",
@@ -3823,7 +3843,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "8adda3e8d5bd71167a8dd6cff8e748decb05a549ab089b3876bc478fdad4344c"
+      "sha256": "8a503735c99ef582f6491aa1bc5e0d866616bbcbab1c816bb00c5270ced3d869"
     },
     {
       "path": "InStr.md",
@@ -3879,7 +3899,7 @@
     },
     {
       "path": "it/Basic.Comparison.md",
-      "sha256": "e2aae786c8cbd58be4a0555fc68b227e4afaefa79988cf80b6eae305f3e47d96"
+      "sha256": "a1110f0814b0f6668e4e0c4e5e214f51cc2c615b27b4928dae5cced780e938de"
     },
     {
       "path": "it/Basic.CompoundAssignment.md",
@@ -3994,6 +4014,10 @@
       "sha256": "5246e84017b6a07e8b7af03b709e4b3654d1152fcbbee92b9384915590ec7e95"
     },
     {
+      "path": "it/Basic.Structure.md",
+      "sha256": "cab2fbdd214364970769d45162405769c4b68f3cce6cde2da24c71e05bfb7464"
+    },
+    {
       "path": "it/Basic.Sub.md",
       "sha256": "4496b9af92ba270c7b3ca2b91d9f5dc729e18a7f9e5f2840d1ed2bfa66d7813f"
     },
@@ -4007,7 +4031,7 @@
     },
     {
       "path": "it/Basic.Types.md",
-      "sha256": "ea72fe164c16acef6de33df5102162e24d6894c06880dd68a92f13df34562cc8"
+      "sha256": "421d60890d88969014bc67f18a09d336fb3b371f50ce265055de5893055757d2"
     },
     {
       "path": "it/Basic.Using.md",
@@ -4723,7 +4747,7 @@
     },
     {
       "path": "ja/Basic.Comparison.md",
-      "sha256": "ba11e032cb2d77c531f626515e9104c49221fe38982c0d7fbf3a17f8aab6823b"
+      "sha256": "bc6e5cd632379645d87902ff3594e71a012798ab65fa1cc76839bc693380ee21"
     },
     {
       "path": "ja/Basic.CompoundAssignment.md",
@@ -4838,6 +4862,10 @@
       "sha256": "615795aaa5ca0109c4604c8fe9b5778cbb5f67c30c9edfce479bc83c175229fd"
     },
     {
+      "path": "ja/Basic.Structure.md",
+      "sha256": "90c8e814ba4f862bdfcd548109586529931bdb6ab2c41a76e323a34e534cc78c"
+    },
+    {
       "path": "ja/Basic.Sub.md",
       "sha256": "16e8bb1da0b34fcaccb43617e32c9379ed5c83f517b36bb28fb54400f4564d47"
     },
@@ -4851,7 +4879,7 @@
     },
     {
       "path": "ja/Basic.Types.md",
-      "sha256": "c6e02ca470ce9331c395442221958009f1d9355444c4a07db5e53e19784e3be1"
+      "sha256": "f3819b3f55466909c7ca7c4069b96fce2b182605fddf491a37518f771a24d935"
     },
     {
       "path": "ja/Basic.Using.md",
@@ -5595,7 +5623,7 @@
     },
     {
       "path": "ko/Basic.Comparison.md",
-      "sha256": "11fb7c12cb49aab927fe0c469d6918a1e15345287a737e919e557c232016701a"
+      "sha256": "072a5f8808e071cecb68857db044bb9035e254d55ab3f404f63c79f38a3f51a4"
     },
     {
       "path": "ko/Basic.CompoundAssignment.md",
@@ -5710,6 +5738,10 @@
       "sha256": "1e168773e6281256b9972116accfd491987357ab0aea7354792983adca1eece1"
     },
     {
+      "path": "ko/Basic.Structure.md",
+      "sha256": "01383cea89c3f7b6a41c33eac3f8ffb1d3b62ed3295ebbf96bbfe7d6ab3f059c"
+    },
+    {
       "path": "ko/Basic.Sub.md",
       "sha256": "a908c8018f04e3d867194a66632fa70cd2732826bc3c0c8bc15e8098d2ae8be1"
     },
@@ -5723,7 +5755,7 @@
     },
     {
       "path": "ko/Basic.Types.md",
-      "sha256": "0a7de90aecbf13d7d49b1ea9cd6b46169597fb4e316348e797ff38f071fe9efa"
+      "sha256": "83909accd9f927a7a9d4b908b813dbd04520025ebbf71ecdf7c0e74dd6f071db"
     },
     {
       "path": "ko/Basic.Using.md",
@@ -6527,7 +6559,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "7b502f38aa63cb0eb53fab35a0a6164c25cc90fbf7e5444cb56215c9827d8f96"
+      "sha256": "a648def072e06298c12335ae1d3d240917d21d2f318534e5f9eabf823d4ed577"
     },
     {
       "path": "remain.md",
@@ -6619,7 +6651,7 @@
     },
     {
       "path": "ru/Basic.Comparison.md",
-      "sha256": "9036aa7699a740a868073e112fab3bd11bcee29345f64c628eef978fa4cf0d69"
+      "sha256": "6738ce4cb02ba5c129c390914a04f1858a9d1cd8166f541b2659247c941f2cdf"
     },
     {
       "path": "ru/Basic.CompoundAssignment.md",
@@ -6734,6 +6766,10 @@
       "sha256": "e69dab1308bf35535f7d0fbe18f3f96d687c7a0fe54b44acf34e853ac1e31e03"
     },
     {
+      "path": "ru/Basic.Structure.md",
+      "sha256": "ff1c70fa6c6cfe9f828d2baf321c11c5a8d33a3de4cab63bb1041ce6c2b23e39"
+    },
+    {
       "path": "ru/Basic.Sub.md",
       "sha256": "a809024647ca0200e2283941449fe59d8ba88dbdff99c39c8cd255036f979d37"
     },
@@ -6747,7 +6783,7 @@
     },
     {
       "path": "ru/Basic.Types.md",
-      "sha256": "07550d4c58d6d3ed0cc6ca98dc3dfffa582b6438963f6d54ab0d9e614377331f"
+      "sha256": "b151f27c0fbaacf23b19aa58fc523b175fb000a7c4b6e4eb1efaa3923a43a1c5"
     },
     {
       "path": "ru/Basic.Using.md",
@@ -8611,7 +8647,7 @@
     },
     {
       "path": "uk/Basic.Comparison.md",
-      "sha256": "03f8cc561018e37ec281dcbbb3ff5936378c10bbd5112870ce2610b406945a82"
+      "sha256": "6c8e7a2d3fcf4ba0f9083a87203971351e45d0c42a6d233bc77928709b81f21c"
     },
     {
       "path": "uk/Basic.CompoundAssignment.md",
@@ -8726,6 +8762,10 @@
       "sha256": "0acd922acd0e9ce2f0c0bb9eb9e7a34ab52ee6abfc29da9cb4ac45f03372f0a0"
     },
     {
+      "path": "uk/Basic.Structure.md",
+      "sha256": "532d31c8fc2b3e4607d6288eb4db5385f5e241ef703503ff965693e612100535"
+    },
+    {
       "path": "uk/Basic.Sub.md",
       "sha256": "8eda964be1660e1dac914cce925bbb6ab0cc228348145f4f2db302c2c0708e6e"
     },
@@ -8739,7 +8779,7 @@
     },
     {
       "path": "uk/Basic.Types.md",
-      "sha256": "63e2a47ab297ef5aa2fc1073bf93ebd5f5b2bb3531f4fe70c8dc1537535444f3"
+      "sha256": "cd800e4d1e1eac0bdfb51d666599818948626e7573b6d4710d9db7a179c0a4a9"
     },
     {
       "path": "uk/Basic.Using.md",
@@ -12443,7 +12483,7 @@
     },
     {
       "path": "zh-tw/Basic.Comparison.md",
-      "sha256": "968dac9dcc9d3c980cc5a4991269c47d4ae9c6598251598faa16e9608064305c"
+      "sha256": "30b47b4a42cd8efe7d019a103464870137d480909af41fa274662b7e51528a6f"
     },
     {
       "path": "zh-tw/Basic.CompoundAssignment.md",
@@ -12558,6 +12598,10 @@
       "sha256": "f2bf9233760023497c20a06097ab25616b4dacdf31b500006fae0daa23e9d365"
     },
     {
+      "path": "zh-tw/Basic.Structure.md",
+      "sha256": "554cdc9d5f78244065cc7836b64d46d39edfbaaef0c6b20bd049edc2bde8501b"
+    },
+    {
       "path": "zh-tw/Basic.Sub.md",
       "sha256": "bc1dbdbbbea3d22d33f25a58bbeaf149a431581f13a203b4b856a842c1a8652f"
     },
@@ -12571,7 +12615,7 @@
     },
     {
       "path": "zh-tw/Basic.Types.md",
-      "sha256": "d6a8e0b815fd4288b2819d1448da2d76a75bf5aa14efea3d983da00017d90c6d"
+      "sha256": "f30ce7481c9fa8ce6563b1b2c7b7d74f6b3ff72210ca6e42c19166c8c12f3e3c"
     },
     {
       "path": "zh-tw/Basic.Using.md",

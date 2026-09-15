@@ -36,6 +36,7 @@ Integer 1 (TRUE) se il confronto è vero, altrimenti Integer 0 (FALSE). Per ques
 - L’uguaglianza tra array e oggetti nativi verifica l’identità, non il contenuto. Due Unit sono uguali, ma Unit non è lo zero numerico. Tipi diversi sono disuguali salvo Integer/Decimal. NaN è diverso anche da sé stesso e tutti i confronti numerici d’ordine con NaN sono falsi.
 - L’aritmetica precede i confronti. Le catene vengono valutate da sinistra a destra: 1<3<2 significa (1<3)<2 ed è vero. Per un intervallo scrivere (low<=value) AND (value<=high). Le parentesi rendono esplicito il raggruppamento.
 - I calcoli binari in virgola mobile possono arrotondare. Per misure approssimate usare Abs(actual-expected)<=tolerance con una tolleranza adeguata non negativa. È una regola dello script, non una tolleranza automatica degli operatori.
+- = confronta lo stesso tipo dichiarato e i campi; <> restituisce l’inverso. I riferimenti si confrontano per identità. È un’estensione del motore, non una regola generale per VB.NET. Hash memorizzati e coppie già visitate evitano ripetute espansioni di valori annidati condivisi.
 
 ## Esempi
 

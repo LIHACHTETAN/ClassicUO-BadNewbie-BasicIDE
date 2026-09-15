@@ -36,6 +36,7 @@ Integer 1 (TRUE) bei erfülltem Vergleich, sonst Integer 0 (FALSE). Hier ist res
 - Gleichheit von Arrays und nativen Objekten prüft Identität, nicht Inhalt. Zwei Unit-Werte sind gleich, Unit ist aber nicht die numerische Null. Verschiedene Wertarten sind ungleich außer Integer/Decimal. NaN ist sogar sich selbst ungleich; alle numerischen Größenvergleiche mit NaN sind falsch.
 - Arithmetik wird vor Vergleichen ausgewertet. Vergleichsketten laufen von links nach rechts: 1<3<2 bedeutet (1<3)<2 und ist wahr. Einen Bereich als (low<=value) AND (value<=high) prüfen. Klammern verdeutlichen die Gruppierung.
 - Binäre Gleitkommarechnungen können runden. Für Näherungswerte Abs(actual-expected)<=tolerance mit passender nichtnegativer Toleranz verwenden. Diese Regel legt das Skript fest; die Operatoren haben keine eingebaute Toleranz.
+- = vergleicht denselben deklarierten Typ und die Felder, <> liefert das Gegenteil. Referenzfelder vergleichen Identität. Dies ist eine Engine-Erweiterung, keine allgemeine Aussage über VB.NET-Strukturen. Gespeicherte Hashwerte und bereits geprüfte Paare begrenzen die Arbeit bei gemeinsam genutzten verschachtelten Werten.
 
 ## Beispiele
 

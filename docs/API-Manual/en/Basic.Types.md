@@ -32,6 +32,7 @@ AS itself returns nothing. A variable read returns its stored kind and value. Nu
 - AS Boolean compares the original value with numeric zero. A nonzero number becomes 1; zero becomes 0. It does not parse words: even the text "false" becomes 1. CBool instead performs numeric conversion first; use numeric/logical values, or explicitly compare text with the expected word.
 - AS String uses the runtime text representation. AS Double/Single/Decimal parses numeric text using a dot decimal separator. Numeric AS conversion maps Array to 0 but rejects Object and invalid numeric text with an error catchable by TRY/CATCH. In contrast, CInt/CLng/CDbl/CSng/CBool use a permissive numeric reader: an unrecognized string, Array, Object or Unit becomes 0 before conversion. Check IsNumeric(value) before relying on text conversion.
 - A declaration evaluates the initializer, chooses the AS conversion and stores the result plus type name. Later assignment repeats the conversion. Floating values are approximate; do not assume exact monetary decimal storage. See VAR / DIM for scope and CONST for binding protection.
+- A declared Structure name is also supported after As. VAR and DIM with that type and no initializer create its default fields. Only that declared structure type is accepted; different structure types are not converted to one another. See Structure / New for nested copies and reference fields.
 
 ## Examples
 

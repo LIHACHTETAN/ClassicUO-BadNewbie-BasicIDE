@@ -55,6 +55,7 @@
 - [AddressOf / callbacks](Basic.Callbacks.md)
 - [Event / AddHandler / RemoveHandler / RaiseEvent](Basic.Events.md)
 - [CreateTimer / script timers](Basic.Timers.md)
+- [Structure / New / fields](Basic.Structure.md)
 - [Named arguments / :=](Basic.NamedArguments.md)
 - [JSON / Config.bas](Basic.Config.md)
 

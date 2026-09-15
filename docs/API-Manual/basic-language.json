@@ -1303,6 +1303,38 @@
       ]
     },
     {
+      "id": "Basic.Structure",
+      "name": "Structure / New / fields",
+      "signatures": [
+        "[Public | Private] Structure TypeName",
+        "    [Public | Dim | VAR] field As FieldType",
+        "End Structure",
+        "Dim value As TypeName",
+        "Dim value = New TypeName()",
+        "copy = value",
+        "value.field = expression",
+        "Sub Change(ByRef value As TypeName)",
+        "Function Copy(ByVal value As TypeName) As TypeName"
+      ],
+      "descriptions": {
+        "en": "Structure groups typed fields, such as X, Y and Z, into one value. This engine supports data structures with value copies; it does not implement the entire VB.NET Structure feature set.",
+        "ru": "Structure объединяет типизированные поля, например X, Y и Z, в одно значение. Движок поддерживает структуры данных с копированием значений; это описанный ниже набор возможностей, а не весь Structure из VB.NET.",
+        "uk": "Structure об’єднує типізовані поля, наприклад X, Y і Z, в одне значення. Рушій підтримує структури даних із копіюванням значень; нижче описано підтримувану частину, а не весь Structure із VB.NET.",
+        "fr": "Structure regroupe des champs typés, par exemple X, Y et Z, en une valeur. Le moteur prend en charge les structures de données copiées par valeur, sans prétendre implémenter tout Structure de VB.NET.",
+        "de": "Structure fasst typisierte Felder wie X, Y und Z zu einem Wert zusammen. Unterstützt werden Datenstrukturen mit Wertkopien; der gesamte VB.NET-Sprachumfang ist damit nicht gemeint.",
+        "it": "Structure riunisce campi tipizzati, come X, Y e Z, in un valore. Il motore supporta strutture dati copiate per valore; non tutte le funzionalità Structure di VB.NET.",
+        "es": "Structure agrupa campos tipados, como X, Y y Z, en un valor. El motor admite estructuras de datos con copias por valor; no todo el conjunto Structure de VB.NET.",
+        "zh-tw": "Structure 將 X、Y、Z 等具型別的欄位組成一個值。本引擎支援以值複製的資料結構，並非完整實作 VB.NET 的所有 Structure 功能。",
+        "ja": "Structure は X、Y、Z などの型付きフィールドを一つの値にまとめます。このエンジンでは値コピーを行うデータ構造を扱います。VB.NET の Structure 全機能を実装したものではありません。",
+        "ko": "Structure는 X, Y, Z 같은 형식 지정 필드를 하나의 값으로 묶습니다. 이 엔진은 값을 복사하는 데이터 구조를 지원하며, VB.NET의 Structure 전체 기능을 구현한 것은 아닙니다."
+      },
+      "examples": [
+        "Option Explicit On\nStructure Position\n    Public X As Integer\n    Public Y As Integer\n    Public Z As Integer\nEnd Structure\n\nSub Main()\n    Dim original As Position\n    original.X = 1445\n    original.Y = 1690\n    Dim copy = original\n    copy.X += 2\n    Dim empty = New Position()\n    Return CStr(original.X) & \":\" & CStr(copy.X) & \":\" & CStr(copy.Y) & \":\" & CStr(empty.Z)\nEnd Sub\n",
+        "Option Explicit On\nStructure Position\n    Public X As Integer\n    Public Y As Integer\nEnd Structure\nStructure Route\n    Public Start As Position\n    Public Finish As Position\nEnd Structure\n\nFunction Shift(ByVal point As Position, ByVal dx As Integer) As Position\n    point.X += dx\n    Return point\nEnd Function\n\nSub Advance(ByRef route As Route, ByVal dx As Integer)\n    route.Finish.X += dx\nEnd Sub\n\nSub Main()\n    Dim route As Route\n    route.Start.X = 10\n    route.Finish.X = 20\n    Dim shifted = Shift(point:=route.Start, dx:=5)\n    Advance(route:=route, dx:=4)\n    Return CStr(route.Start.X) & \":\" & CStr(shifted.X) & \":\" & CStr(route.Finish.X)\nEnd Sub\n",
+        "Option Explicit On\nStructure Position\n    Public X As Integer\nEnd Structure\nStructure Entry\n    Public Point As Position\n    Public Items As Object\nEnd Structure\n\nSub Main()\n    Dim first As Entry\n    first.Point.X = 2\n    first.Items = List()\n    first.Items.Add(\"ore\")\n    Dim snapshots = List()\n    snapshots.Add(first)\n\n    Dim second = first\n    second.Point.X = 4\n    second.Items.Add(\"ingot\")\n    Dim saved = snapshots[0]\n    Return CStr(first.Point.X) & \":\" & CStr(second.Point.X) & \":\" & CStr(saved.Point.X) & \":\" & CStr(first.Items.Count())\nEnd Sub\n"
+      ]
+    },
+    {
       "id": "Basic.NamedArguments",
       "name": "Named arguments / :=",
       "signatures": [

@@ -32,6 +32,7 @@ AS liefert keinen Wert. Variablenlesen liefert gespeicherte Art und Wert. Logisc
 - AS Boolean vergleicht den ursprünglichen Wert mit numerischer null: Zahl ungleich null → 1, null → 0. Wörter werden nicht erkannt: sogar Text "false" ergibt 1. CBool konvertiert zuerst numerisch. Zahlen/logische Werte verwenden oder Text ausdrücklich mit dem erwarteten Wort vergleichen.
 - AS String verwendet die Textdarstellung der Engine. AS Double/Single/Decimal liest Zahltext mit Dezimalpunkt. Numerisches AS konvertiert Array zu 0, weist aber Object und ungültigen Zahltext mit einem durch TRY/CATCH behandelbaren Fehler zurück. CInt/CLng/CDbl/CSng/CBool sind tolerant: unerkannter Text, Array, Object oder Unit werden zunächst 0. Text mit IsNumeric(value) prüfen, bevor man auf die Konvertierung vertraut.
 - Die Deklaration berechnet den Startwert, wendet AS an und speichert Ergebnis und Typnamen. Jede Zuweisung wiederholt dies. Gleitkommawerte sind Näherungen, ohne Garantie exakter dezimaler Geldrechnung. Gültigkeitsbereiche stehen unter VAR / DIM, Bindungsschutz unter CONST.
+- Nach As ist auch ein deklarierter Structure-Name erlaubt. VAR und DIM dieses Typs ohne Initialisierer erzeugen die Standardfelder. Nur derselbe deklarierte Strukturtyp ist kompatibel; unterschiedliche Strukturtypen werden nicht konvertiert. Verschachtelte Kopien und Referenzfelder beschreibt Structure / New.
 
 ## Beispiele
 

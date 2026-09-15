@@ -32,6 +32,7 @@ AS no devuelve nada. Leer la variable devuelve el tipo y valor almacenados. Los 
 - AS Boolean compara el valor original con cero numérico: número no nulo → 1, cero → 0. No interpreta palabras: incluso el texto "false" da 1. CBool convierte primero a número. Use números/valores lógicos o compare explícitamente el texto con la palabra esperada.
 - AS String usa la representación textual del motor. AS Double/Single/Decimal interpreta números con punto decimal. AS numérico convierte Array en 0, pero rechaza Object y texto numérico inválido con un error tratable mediante TRY/CATCH. CInt/CLng/CDbl/CSng/CBool son permisivos: texto no reconocido, Array, Object o Unit pasan primero a 0. Compruebe IsNumeric(value) antes de confiar en la conversión del texto.
 - La declaración evalúa el inicializador, aplica AS y guarda resultado y nombre de tipo. Cada asignación repite la conversión. Los flotantes son aproximados, sin garantía de cálculos monetarios decimales exactos. VAR / DIM describe ámbitos y CONST protege asociaciones.
+- As también acepta el nombre de una Structure declarada. VAR y DIM de ese tipo sin inicializador crean sus campos predeterminados. Solo es compatible el mismo tipo declarado; no se convierten tipos de estructura distintos. Structure / New describe copias anidadas y referencias.
 
 ## Ejemplos
 

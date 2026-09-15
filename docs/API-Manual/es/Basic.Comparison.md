@@ -36,6 +36,7 @@ Integer 1 (TRUE) si se cumple la comparación, o Integer 0 (FALSE). Para este re
 - La igualdad de matrices y objetos nativos compara identidad, no contenido. Dos Unit son iguales, pero Unit no es el cero numérico. Tipos distintos son desiguales salvo Integer/Decimal. NaN no es igual ni a sí mismo y todas sus comparaciones numéricas de orden son falsas.
 - La aritmética se evalúa antes de comparar. Las cadenas van de izquierda a derecha: 1<3<2 significa (1<3)<2 y es verdadero. Para un intervalo escriba (low<=value) AND (value<=high). Los paréntesis aclaran la agrupación.
 - La aritmética flotante binaria puede redondear. Para medidas aproximadas use Abs(actual-expected)<=tolerance con una tolerancia adecuada no negativa. Es una política del script, no una tolerancia automática de los operadores.
+- = compara el mismo tipo declarado y sus campos; <> es el inverso. Los campos de referencia comparan identidad. Es una extensión del motor, no una regla general de VB.NET. Los hashes guardados y las parejas ya visitadas evitan expandir repetidamente valores anidados compartidos.
 
 ## Ejemplos
 

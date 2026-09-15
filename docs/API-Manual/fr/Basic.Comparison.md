@@ -36,6 +36,7 @@ Integer 1 (TRUE) si la comparaison est vraie, sinon Integer 0 (FALSE). Pour ce r
 - L’égalité des tableaux et objets natifs compare leur identité, pas leur contenu. Deux Unit sont égaux, mais Unit n’est pas le zéro numérique. Les types différents sont inégaux sauf la paire numérique Integer/Decimal. NaN est inégal à lui-même et toutes ses comparaisons numériques d’ordre sont fausses.
 - L’arithmétique précède la comparaison. Les chaînes sont évaluées de gauche à droite : 1<3<2 signifie (1<3)<2 et est vrai. Pour un intervalle, écrire (low<=value) AND (value<=high). Les parenthèses rendent le groupement explicite.
 - La virgule flottante binaire peut arrondir. Pour des mesures approchées, utiliser Abs(actual-expected)<=tolerance avec une tolérance non négative appropriée. La tolérance appartient au script, elle n’est pas intégrée aux opérateurs.
+- = compare le même type déclaré et ses champs ; <> donne l’inverse. Les références sont comparées par identité. Il s’agit d’une extension du moteur, pas d’une règle universelle de VB.NET. Les hachages conservés et les paires déjà visitées évitent de développer plusieurs fois les mêmes valeurs imbriquées.
 
 ## Exemples
 
