@@ -574,6 +574,10 @@
       "sha256": "7faa398cc4bcd4a9a7b747f17dd017322b8a76e055b5729f0570363c9a0fe9ae"
     },
     {
+      "path": "de/UO.CalcDir.md",
+      "sha256": "13454823c3046ece788cbb1063f7fd3cc6c853aae0383c6728717f596e4fcc63"
+    },
+    {
       "path": "de/UO.ColdResist.md",
       "sha256": "e762bdb60b80c17c91e1ad307dab989b33e97c247c79cafaa47dee354c828467"
     },
@@ -588,6 +592,10 @@
     {
       "path": "de/UO.Dexterity.md",
       "sha256": "0a255a574620f8a6d8eaecd54f7f81f35053d8794df26cdb42462cea5e0ac72a"
+    },
+    {
+      "path": "de/UO.Dist.md",
+      "sha256": "44daae7a98b410535b978d717b6f8623f5b2d1cd3adcc06cad038380cba7812c"
     },
     {
       "path": "de/UO.EnergyResist.md",
@@ -1418,6 +1426,10 @@
       "sha256": "b0be9346c04617d5030cfed3fb50aa7111a2e41024f0a4a6182620692d4b42b2"
     },
     {
+      "path": "en/UO.CalcDir.md",
+      "sha256": "a80967ee27a12ff0ff0f28447ae99ced12d911467f4d9664531e3a288036a6e0"
+    },
+    {
       "path": "en/UO.ColdResist.md",
       "sha256": "a8a25fd5641170ead8bb95e90cd9910bee3be216f2b65d71aba0782e056d58c0"
     },
@@ -1432,6 +1444,10 @@
     {
       "path": "en/UO.Dexterity.md",
       "sha256": "df992ded6997fe3b547c4b71be81f87056f4de5ccf2c8575f4e196aa232e3971"
+    },
+    {
+      "path": "en/UO.Dist.md",
+      "sha256": "0c38e67b2fed3a7ae9132a261588ca0ff8a80907958484f08fc6637d060e779d"
     },
     {
       "path": "en/UO.EnergyResist.md",
@@ -2242,6 +2258,10 @@
       "sha256": "22ac95bc371f729d84cb43f8d4a05ce4f4905c5af08d7fd76a41c09cee21ab93"
     },
     {
+      "path": "es/UO.CalcDir.md",
+      "sha256": "500eb22e04c43730cac9394489096cf101c4d46750d49c0b613e523cfad3e679"
+    },
+    {
       "path": "es/UO.ColdResist.md",
       "sha256": "b6c10152f2b6238fe3b41bd9043ebaf4620a68b18160974acfb36def181e1827"
     },
@@ -2256,6 +2276,10 @@
     {
       "path": "es/UO.Dexterity.md",
       "sha256": "4f9dbd2b8683b1a568f8485a13ec5abaf1de49f788f31e5c887a1a49db82699f"
+    },
+    {
+      "path": "es/UO.Dist.md",
+      "sha256": "09e637b2d07c0029904d70dfff02c590953f7652605b91528045df82ec3d00db"
     },
     {
       "path": "es/UO.EnergyResist.md",
@@ -3146,6 +3170,10 @@
       "sha256": "feae52f84bce13364a3825af2b7e38f1dca852bccf09f615139857f60a005daa"
     },
     {
+      "path": "fr/UO.CalcDir.md",
+      "sha256": "a6481b5f86cf718042a7551ea61b974982262849a4afcd3ec21a3b1a90e13a39"
+    },
+    {
       "path": "fr/UO.ColdResist.md",
       "sha256": "ae692bd07b66cf1ad3e7697fb7e63d6ca0bbf5f2e28b14b9df22dea69516d330"
     },
@@ -3160,6 +3188,10 @@
     {
       "path": "fr/UO.Dexterity.md",
       "sha256": "e7361d42610b2b67d001822422e67e59384a778510684aaacc49dd18901299cb"
+    },
+    {
+      "path": "fr/UO.Dist.md",
+      "sha256": "eeac660abc5c4542d5cc3cdc42b022cc3bae6a77c7c97ae16fe344806252af04"
     },
     {
       "path": "fr/UO.EnergyResist.md",
@@ -3731,7 +3763,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "53993a79d1d8e4c55bbfc755c86661b7db8cef890c9b4b5c4fb768567cda0a02"
+      "sha256": "95ac4c49d33abefbb19f039e124d476fe28a88f7486bc27e6314a0dbc8c1c167"
     },
     {
       "path": "InStr.md",
@@ -4034,6 +4066,10 @@
       "sha256": "d05a88f1a2de115a5411db6aac50f5f59c89d2e07a98d959f7311dd26b27e764"
     },
     {
+      "path": "it/UO.CalcDir.md",
+      "sha256": "706a6a62ca64275e8438b6383fa555d2cab3ad2a70bc6766635e23a991aecece"
+    },
+    {
       "path": "it/UO.ColdResist.md",
       "sha256": "7ff826fa336d2f4f07f3c92cc61cd265ace5ccfa28945ea2faf65a6b19d86182"
     },
@@ -4048,6 +4084,10 @@
     {
       "path": "it/UO.Dexterity.md",
       "sha256": "cad04f7608d6aacb9337028c8dd4d5c72281a4461b7cb4e20787845d3042ff0c"
+    },
+    {
+      "path": "it/UO.Dist.md",
+      "sha256": "fb3b65174a6732ff4f2630a54ee6addd1dca57096d9bca59112158d8c4e771ce"
     },
     {
       "path": "it/UO.EnergyResist.md",
@@ -4858,6 +4898,10 @@
       "sha256": "f3439fc5a1fb356caa1d40c3a8eb28dc34c49dd845c576d1ec81eb45d117b1ac"
     },
     {
+      "path": "ja/UO.CalcDir.md",
+      "sha256": "9eb8a1771e72879520becc1441ed0a3630179eab70270552deedf8d9acf36859"
+    },
+    {
       "path": "ja/UO.ColdResist.md",
       "sha256": "7a87de6ee399870abb23668d8848b04997a3ac14ff94f8dc50ad656fc75f02cb"
     },
@@ -4872,6 +4916,10 @@
     {
       "path": "ja/UO.Dexterity.md",
       "sha256": "49fd11a2b7d7a8951266858593e151e61cda67bc64d6f037d4c4cc6725294452"
+    },
+    {
+      "path": "ja/UO.Dist.md",
+      "sha256": "4174f0d3198e5c0bd24760df68b2ca850025e7639f1324e2583b50c127464215"
     },
     {
       "path": "ja/UO.EnergyResist.md",
@@ -5710,6 +5758,10 @@
       "sha256": "4b272bd71a4dd17b37acd962400db4253c118f1aa47f313af3c147e6c0bc0cbe"
     },
     {
+      "path": "ko/UO.CalcDir.md",
+      "sha256": "64fa2a20b5ebc77c4df4d9488048485bd29222854f10187cf53bc5f9d7d51a15"
+    },
+    {
       "path": "ko/UO.ColdResist.md",
       "sha256": "13ef70707fe10c26bfc8335bb80798395086cc9e698a671533ab65b243bbddc7"
     },
@@ -5724,6 +5776,10 @@
     {
       "path": "ko/UO.Dexterity.md",
       "sha256": "e3aea0885ce274516bcfda0c413ea3038d7670b42d57dd0c429b423f8e3f1955"
+    },
+    {
+      "path": "ko/UO.Dist.md",
+      "sha256": "fe6ce8a369672ecff37520bff46722ef8ca6c2e7ed4aa0bb37604aca989f066e"
     },
     {
       "path": "ko/UO.EnergyResist.md",
@@ -6870,6 +6926,10 @@
       "sha256": "43bebd38cac78b4ff80e40ba15d49ea560d58a99587973b25c7889d4f110ea61"
     },
     {
+      "path": "ru/UO.CalcDir.md",
+      "sha256": "07aa47d17d230ac8a41a725e789c42e54416aa9b31721137968b75d4db36b020"
+    },
+    {
       "path": "ru/UO.CancelTarget.md",
       "sha256": "f3636fc388251a1c5807a70dcf1a584a2c44fa534f1ce07091919e2b00463e60"
     },
@@ -6976,6 +7036,10 @@
     {
       "path": "ru/UO.Direction.md",
       "sha256": "0370795237654946c814f126192f2e4cf36646d4136f45e7226a74caa5bbe34c"
+    },
+    {
+      "path": "ru/UO.Dist.md",
+      "sha256": "93c621d682bdefc57f7fdd28b58cfc0689d262fc86aa0e155dd49f5aa8665d97"
     },
     {
       "path": "ru/UO.Drag.md",
@@ -8299,7 +8363,7 @@
     },
     {
       "path": "runtime-api.json",
-      "sha256": "0af6b810967b784f5b9fdbc5357d55803a7d7e82672b631ce61d8d0d5af2ac5b"
+      "sha256": "b3497c9e46f5758b99ddb3fb9e1789f171e1dee56062439e416f05f481923468"
     },
     {
       "path": "self.md",
@@ -8686,6 +8750,10 @@
       "sha256": "7c2311a65b00cc86fb2dbacc67ba4709ca66bbc62aec4172763002357010afbe"
     },
     {
+      "path": "uk/UO.CalcDir.md",
+      "sha256": "f82b2113250733ad846b4881f274d972654ff242dacf2b2f659efc048e870b2d"
+    },
+    {
       "path": "uk/UO.ColdResist.md",
       "sha256": "0b58712b2a3234a6f8ac044872f84dad1721e963e8da8de7d07b52735469d83a"
     },
@@ -8700,6 +8768,10 @@
     {
       "path": "uk/UO.Dexterity.md",
       "sha256": "3c575bc20995d4fb9d0cfc7b69203cbc267c555d04a921c878431e6573a7b99c"
+    },
+    {
+      "path": "uk/UO.Dist.md",
+      "sha256": "0fb12eabcd48d9a9dd1d22d45e131e71e5885426cbb484c794659c76269e3880"
     },
     {
       "path": "uk/UO.EnergyResist.md",
@@ -9403,7 +9475,7 @@
     },
     {
       "path": "UO.CalcDir.md",
-      "sha256": "85c46169e77bd62bc19b950674a1e36cd67b23e9c9b48c0a2630aee634064280"
+      "sha256": "670f18ba7c6e9dfe46a1c5264677c960573aae8b975d6ff94aeac1b943bb58ed"
     },
     {
       "path": "UO.CallSub.md",
@@ -9731,7 +9803,7 @@
     },
     {
       "path": "UO.Dist.md",
-      "sha256": "59a26ec870bb48a4ed3a52e0cadc613f2324235a842d5ffdd4ea177e7aebc82b"
+      "sha256": "25f8c1532bee4e2a63a1e57037e7f060ba1a0a54e2044eb1d248b03d2c2fadea"
     },
     {
       "path": "UO.Drag.md",
@@ -12498,6 +12570,10 @@
       "sha256": "4e3a486d2dbc74b59fa38644f0e9ae490f4ce829c12fd82357ae0cd3cbd76b68"
     },
     {
+      "path": "zh-tw/UO.CalcDir.md",
+      "sha256": "320f90790a758f14537fb9fec69f3e6c4d57c2888eb175f61de45437048c70cc"
+    },
+    {
       "path": "zh-tw/UO.ColdResist.md",
       "sha256": "05340265aa2dbe41c4bec15bad8628ad29b456561bca4fb1f2db985edb7f79dd"
     },
@@ -12512,6 +12588,10 @@
     {
       "path": "zh-tw/UO.Dexterity.md",
       "sha256": "0a27e0ec7f87db74a2933024fce66410fd6c3ae0322c24e6d1f6c7f055802772"
+    },
+    {
+      "path": "zh-tw/UO.Dist.md",
+      "sha256": "3efbbc5ee2ddbb8fc23d4e7dee37a2ab823a7665dcec355a5626c9acbf72cbd3"
     },
     {
       "path": "zh-tw/UO.EnergyResist.md",
