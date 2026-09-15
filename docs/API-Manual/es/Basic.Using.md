@@ -22,7 +22,7 @@ End Using
 
 ## Parámetros
 
-- `resourceExpression` — Se evalúa una vez. File(path) y MemoryStream() son válidos; String, números, List y Dictionary producen un error con línea antes del cuerpo. Declare antes la variable: no se admiten declaraciones en la cabecera, As New, listas con comas ni Dispose definidos por el usuario.
+- `resourceExpression` — Se evalúa una vez. File(path), MemoryStream() y CreateTimer(...) son válidos. Liberar un temporizador lo detiene definitivamente (Basic.Timers); String, números, List y Dictionary producen un error con línea antes del cuerpo. Declare antes la variable: no se admiten declaraciones en la cabecera, As New, listas con comas ni Dispose definidos por el usuario.
 - `statements / End Using` — End Using cierra el objeto capturado. La variable sigue visible, pero el recurso está cerrado. Anide bloques para varios recursos. Reasignar la variable no cambia el objeto original que se cerrará.
 
 ## Devuelve

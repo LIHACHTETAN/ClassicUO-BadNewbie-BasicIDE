@@ -22,7 +22,7 @@ End Using
 
 ## 參數
 
-- `resourceExpression` — 進入時只計算一次。可使用 File(path) 與 MemoryStream()。String、數字、List、Dictionary 會在執行區塊前引發含來源行號的錯誤。請先宣告變數；不支援標頭內宣告、As New、逗號資源清單及使用者 Dispose 方法。
+- `resourceExpression` — 進入時只計算一次。可使用 File(path)、MemoryStream() 與 CreateTimer(...)。釋放計時器會永久停止它，請參閱 Basic.Timers。String、數字、List、Dictionary 會在執行區塊前引發含來源行號的錯誤。請先宣告變數；不支援標頭內宣告、As New、逗號資源清單及使用者 Dispose 方法。
 - `statements / End Using` — End Using 關閉已擷取的物件。變數仍可存取，但資源已關閉。多個資源請使用巢狀區塊。重新指派變數不會改變最後要關閉的原始物件。
 
 ## 傳回值

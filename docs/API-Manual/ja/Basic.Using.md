@@ -22,7 +22,7 @@ End Using
 
 ## パラメーター
 
-- `resourceExpression` — 開始時に一度だけ評価します。File(path) と MemoryStream() が対象です。String、数値、List、Dictionary は本体の実行前にソース行付きエラーになります。変数は先に宣言してください。ヘッダー内の宣言、As New、カンマ区切りの資源、ユーザー定義 Dispose は未対応です。
+- `resourceExpression` — 開始時に一度だけ評価します。File(path)、MemoryStream()、CreateTimer(...) が対象です。タイマーの解放は永久停止です。Basic.Timers を参照してください。String、数値、List、Dictionary は本体の実行前にソース行付きエラーになります。変数は先に宣言してください。ヘッダー内の宣言、As New、カンマ区切りの資源、ユーザー定義 Dispose は未対応です。
 - `statements / End Using` — End Using は取得済みのオブジェクトを閉じます。変数は残りますがリソースは閉じています。複数のリソースはブロックを入れ子にします。変数を再代入しても閉じる元のオブジェクトは変わりません。
 
 ## 戻り値

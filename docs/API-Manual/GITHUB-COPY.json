@@ -51,7 +51,7 @@
     },
     {
       "path": "basic-language.json",
-      "sha256": "f823ad93edf8dc2dd033fce09826ab6936c54b0a79c37e8fa5aa40bd8df7894e"
+      "sha256": "54da9e4260b0e539df362414667c9791d4e8ae5b7122ea1ed2ef473d664a0d79"
     },
     {
       "path": "Basic.ApiNames.md",
@@ -198,6 +198,10 @@
       "sha256": "a809024647ca0200e2283941449fe59d8ba88dbdff99c39c8cd255036f979d37"
     },
     {
+      "path": "Basic.Timers.md",
+      "sha256": "cda3c019a1d3c92e250be2d53a13bbd50f8b478ccd845f32dbda728f72d326fc"
+    },
+    {
       "path": "Basic.Try.md",
       "sha256": "72b20588b442960e35042f9aab69b7b768b2e1dad8440ce9b4e11590a3f38d56"
     },
@@ -207,7 +211,7 @@
     },
     {
       "path": "Basic.Using.md",
-      "sha256": "3f787e65877070b5bc2f76e7f012dedc84d9e78d6c96d064412a2ffd63f9fa28"
+      "sha256": "4dc975499fe5f6716944405dca1a6f341eea33235a6d8eb50472d26217ce42c0"
     },
     {
       "path": "Basic.Variables.md",
@@ -288,6 +292,10 @@
     {
       "path": "Cos.md",
       "sha256": "c8bb5c8a782b84be04c147efa762473a61d4fe7dcfe167b593654674d3284bc1"
+    },
+    {
+      "path": "CreateTimer.md",
+      "sha256": "cda3c019a1d3c92e250be2d53a13bbd50f8b478ccd845f32dbda728f72d326fc"
     },
     {
       "path": "CSng.md",
@@ -450,6 +458,10 @@
       "sha256": "b6a83b09f5d69adfad117a17fd78a382762635e26d9d7a0766b69653f9702551"
     },
     {
+      "path": "de/Basic.Timers.md",
+      "sha256": "50386467ac5037bd37b5efc53b776bfd2186896968256e9ba61c8e7349694359"
+    },
+    {
       "path": "de/Basic.Try.md",
       "sha256": "8879c5db5293a668d18f3fc53730d669ca39aa6267a5b30048a52211321c693a"
     },
@@ -459,7 +471,7 @@
     },
     {
       "path": "de/Basic.Using.md",
-      "sha256": "38c5760384bd94fb86c0bee7d147b56154d12d2a0203e1508f90b63e06cad9f0"
+      "sha256": "692079bbc59684bbfd84670f5949f2efbf3437c8235232299b8de691be35bf3d"
     },
     {
       "path": "de/Basic.Variables.md",
@@ -484,6 +496,10 @@
     {
       "path": "de/Cos.md",
       "sha256": "a0d3ae20079cd4e699ae69b190114d9400a1991787439480bbcaf82e5ac4e519"
+    },
+    {
+      "path": "de/CreateTimer.md",
+      "sha256": "50386467ac5037bd37b5efc53b776bfd2186896968256e9ba61c8e7349694359"
     },
     {
       "path": "de/Dictionary.md",
@@ -1306,6 +1322,10 @@
       "sha256": "7ab0230a605e646bb38fa7bcdb7773efae975db4ac339bebc4ac0ec0b3e05ecf"
     },
     {
+      "path": "en/Basic.Timers.md",
+      "sha256": "a2e5e26493404bc82f2288c2845ef8fddcdaf355750102d5f6db00ab486cbe82"
+    },
+    {
       "path": "en/Basic.Try.md",
       "sha256": "740626bbff018fc41e2f3da2d10ad4a8507edcc3c4a8c966ef3f5159e148c2e9"
     },
@@ -1315,7 +1335,7 @@
     },
     {
       "path": "en/Basic.Using.md",
-      "sha256": "de05097c58c4105c06703c94369f95ab085419aa12558a44ba6fde8fe50a6b0b"
+      "sha256": "b39712300737d8e0ab15abf9f6645e5555ad07ac84e33c0f81de5b15142c7faa"
     },
     {
       "path": "en/Basic.Variables.md",
@@ -1340,6 +1360,10 @@
     {
       "path": "en/Cos.md",
       "sha256": "70bd0712830ab9889fb82049bf3836ce963f7b56dbb99052faf740157646dd7a"
+    },
+    {
+      "path": "en/CreateTimer.md",
+      "sha256": "a2e5e26493404bc82f2288c2845ef8fddcdaf355750102d5f6db00ab486cbe82"
     },
     {
       "path": "en/Dictionary.md",
@@ -2142,6 +2166,10 @@
       "sha256": "d78c1c039178cfee4e809ff8141c1b0bf463131791096f08858d407bd38ba10f"
     },
     {
+      "path": "es/Basic.Timers.md",
+      "sha256": "c6f2a9d0f4f1f395a572e8a535c2846ac3d5d4096e84b5ad9da63a86912a7ed4"
+    },
+    {
       "path": "es/Basic.Try.md",
       "sha256": "df5c9a202d3c2bc54ffc24e5e234763ea8212c7421d341fe66b3ffc2fcbe7c7e"
     },
@@ -2151,7 +2179,7 @@
     },
     {
       "path": "es/Basic.Using.md",
-      "sha256": "da71d752ef1a51cfffc73c44ab6c3fb804b4b26429301d742ebdf3b3089cbcc6"
+      "sha256": "b053e43be95af4e53a7da478a7a50e058e5cd3b4f6cd2b67d3f41abb95159d33"
     },
     {
       "path": "es/Basic.Variables.md",
@@ -2176,6 +2204,10 @@
     {
       "path": "es/Cos.md",
       "sha256": "f827f44a7d4b3c0b0cb74621e7ead8d6309c57ef8e0b6a107586075c01d5352a"
+    },
+    {
+      "path": "es/CreateTimer.md",
+      "sha256": "c6f2a9d0f4f1f395a572e8a535c2846ac3d5d4096e84b5ad9da63a86912a7ed4"
     },
     {
       "path": "es/Dictionary.md",
@@ -3058,6 +3090,10 @@
       "sha256": "219f62f580b19a16e14eed04afdddc8d50a2cf4dfe7a3d8ada6df225b1532869"
     },
     {
+      "path": "fr/Basic.Timers.md",
+      "sha256": "f22aea2547261f2e9cf90f8667cf9ad5b7a8ebaf8945c44323c3ba3e04b4687d"
+    },
+    {
       "path": "fr/Basic.Try.md",
       "sha256": "5cca14df77f2d357fd7a8f46a3a548c5831d492c20b29ea90558ac5eece20a7f"
     },
@@ -3067,7 +3103,7 @@
     },
     {
       "path": "fr/Basic.Using.md",
-      "sha256": "11134bf5434d8051bebe1d079254ab1fe921e9e0269967e05643067b5b890f00"
+      "sha256": "4ef34404ff8143d0b82e4530cbe83eddaa38808d12e9ba33ca0987df1ab8420c"
     },
     {
       "path": "fr/Basic.Variables.md",
@@ -3092,6 +3128,10 @@
     {
       "path": "fr/Cos.md",
       "sha256": "bf4b3a796a953263b90aaf5fe7dfb0bda50652450b29889150dea5fab3ec58ae"
+    },
+    {
+      "path": "fr/CreateTimer.md",
+      "sha256": "f22aea2547261f2e9cf90f8667cf9ad5b7a8ebaf8945c44323c3ba3e04b4687d"
     },
     {
       "path": "fr/Dictionary.md",
@@ -3783,7 +3823,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "e730286227f33fc583854f8a3337411c89ef58f5235190836663d5fb890d0573"
+      "sha256": "8adda3e8d5bd71167a8dd6cff8e748decb05a549ab089b3876bc478fdad4344c"
     },
     {
       "path": "InStr.md",
@@ -3958,6 +3998,10 @@
       "sha256": "4496b9af92ba270c7b3ca2b91d9f5dc729e18a7f9e5f2840d1ed2bfa66d7813f"
     },
     {
+      "path": "it/Basic.Timers.md",
+      "sha256": "7dbafe8b32a7da239f3610adcef429eb2d0771cb9ec8d4d18eb1633c1cbb7b61"
+    },
+    {
       "path": "it/Basic.Try.md",
       "sha256": "2e67e50bdb8eed4f865e76b0889f16457958139e590f20d59bb00ff65b857625"
     },
@@ -3967,7 +4011,7 @@
     },
     {
       "path": "it/Basic.Using.md",
-      "sha256": "8e8b420da1877a441140cc292a54b3854fec75d324ab66071012ee48576be1af"
+      "sha256": "9c3c6244b56148d1dc923a576886bc364bc913bd2e219ca3ce84bb64fec2302e"
     },
     {
       "path": "it/Basic.Variables.md",
@@ -3992,6 +4036,10 @@
     {
       "path": "it/Cos.md",
       "sha256": "edb502dc16197cfbfd6ddd0a9758edf7aa1985fcbe64cf2d3598ae4ce0252678"
+    },
+    {
+      "path": "it/CreateTimer.md",
+      "sha256": "7dbafe8b32a7da239f3610adcef429eb2d0771cb9ec8d4d18eb1633c1cbb7b61"
     },
     {
       "path": "it/Dictionary.md",
@@ -4794,6 +4842,10 @@
       "sha256": "16e8bb1da0b34fcaccb43617e32c9379ed5c83f517b36bb28fb54400f4564d47"
     },
     {
+      "path": "ja/Basic.Timers.md",
+      "sha256": "acacb66fb3465e0a55dd8600a0940700fd2b3fdc9756571c738ef199757edccf"
+    },
+    {
       "path": "ja/Basic.Try.md",
       "sha256": "bde7a239c969232aace3be8015909f7d4610795a445118baa9f6d6399a8070c2"
     },
@@ -4803,7 +4855,7 @@
     },
     {
       "path": "ja/Basic.Using.md",
-      "sha256": "f2de8620c33e8fb7a6677cbdba84a636a8c8135c3e806c93ec3563b7951a7ca4"
+      "sha256": "47a38bd041693a5be74691975d1e176862e4842c0fd14ba91878c4f624d39a95"
     },
     {
       "path": "ja/Basic.Variables.md",
@@ -4828,6 +4880,10 @@
     {
       "path": "ja/Cos.md",
       "sha256": "0df7642c993286565b2f1becf68a9856e6fdac65be447a068607dd5ec4653603"
+    },
+    {
+      "path": "ja/CreateTimer.md",
+      "sha256": "acacb66fb3465e0a55dd8600a0940700fd2b3fdc9756571c738ef199757edccf"
     },
     {
       "path": "ja/Dictionary.md",
@@ -5658,6 +5714,10 @@
       "sha256": "a908c8018f04e3d867194a66632fa70cd2732826bc3c0c8bc15e8098d2ae8be1"
     },
     {
+      "path": "ko/Basic.Timers.md",
+      "sha256": "dd5d9c6b74aad23f30c4fd8fef7883d0bd1ba6a0c0d542b2af554fb5b527722f"
+    },
+    {
       "path": "ko/Basic.Try.md",
       "sha256": "57eb5d914b4b45cc001086e25f2a5a8249216c9960a08f0e90c87add3312fcf7"
     },
@@ -5667,7 +5727,7 @@
     },
     {
       "path": "ko/Basic.Using.md",
-      "sha256": "f5fe9f6603054c1f375cfc8326588e66c9b6d7fdc1b7f6f99e30a3da073f08cd"
+      "sha256": "88ffa2d10b8a98dc28b5145d4cff477f38663fe7632229b836a50704db9c27b3"
     },
     {
       "path": "ko/Basic.Variables.md",
@@ -5692,6 +5752,10 @@
     {
       "path": "ko/Cos.md",
       "sha256": "72cc66ba98bab27c143d547f1d95495ff44f751187a25c23ad5ed86fa5233966"
+    },
+    {
+      "path": "ko/CreateTimer.md",
+      "sha256": "dd5d9c6b74aad23f30c4fd8fef7883d0bd1ba6a0c0d542b2af554fb5b527722f"
     },
     {
       "path": "ko/Dictionary.md",
@@ -6463,7 +6527,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "3e8b98c7567145d7509e303b0c7f652bb08e4613cb85162e631e783abef436fa"
+      "sha256": "7b502f38aa63cb0eb53fab35a0a6164c25cc90fbf7e5444cb56215c9827d8f96"
     },
     {
       "path": "remain.md",
@@ -6674,6 +6738,10 @@
       "sha256": "a809024647ca0200e2283941449fe59d8ba88dbdff99c39c8cd255036f979d37"
     },
     {
+      "path": "ru/Basic.Timers.md",
+      "sha256": "cda3c019a1d3c92e250be2d53a13bbd50f8b478ccd845f32dbda728f72d326fc"
+    },
+    {
       "path": "ru/Basic.Try.md",
       "sha256": "72b20588b442960e35042f9aab69b7b768b2e1dad8440ce9b4e11590a3f38d56"
     },
@@ -6683,7 +6751,7 @@
     },
     {
       "path": "ru/Basic.Using.md",
-      "sha256": "3f787e65877070b5bc2f76e7f012dedc84d9e78d6c96d064412a2ffd63f9fa28"
+      "sha256": "4dc975499fe5f6716944405dca1a6f341eea33235a6d8eb50472d26217ce42c0"
     },
     {
       "path": "ru/Basic.Variables.md",
@@ -6740,6 +6808,10 @@
     {
       "path": "ru/Cos.md",
       "sha256": "148856c9f36648f5c992c457963ba98f020412f2a47b83ab240263cc7847ddac"
+    },
+    {
+      "path": "ru/CreateTimer.md",
+      "sha256": "cda3c019a1d3c92e250be2d53a13bbd50f8b478ccd845f32dbda728f72d326fc"
     },
     {
       "path": "ru/CSng.md",
@@ -8399,7 +8471,7 @@
     },
     {
       "path": "runtime-api.json",
-      "sha256": "b3497c9e46f5758b99ddb3fb9e1789f171e1dee56062439e416f05f481923468"
+      "sha256": "7dc02f6ed7bae317bf6725ad62383becb353dbe6eda8b8300682de1f356dafca"
     },
     {
       "path": "self.md",
@@ -8658,6 +8730,10 @@
       "sha256": "8eda964be1660e1dac914cce925bbb6ab0cc228348145f4f2db302c2c0708e6e"
     },
     {
+      "path": "uk/Basic.Timers.md",
+      "sha256": "a57bc4ec114537a54b8ece652c22a5e27a213fef462849553c9a9133569ba5e3"
+    },
+    {
       "path": "uk/Basic.Try.md",
       "sha256": "3ccd95f7afeb0890085d88197f7ea58489478c60c2caceadcf4f5b1b5d37ea36"
     },
@@ -8667,7 +8743,7 @@
     },
     {
       "path": "uk/Basic.Using.md",
-      "sha256": "2cb6fe44ba6dfd8d79ae75482a62713cf064a1f110f60959ba1425c665f27449"
+      "sha256": "8360f85cdde446c5613d50b28924edb38ef3b244246f7d9212994db9226d8bf3"
     },
     {
       "path": "uk/Basic.Variables.md",
@@ -8692,6 +8768,10 @@
     {
       "path": "uk/Cos.md",
       "sha256": "99f0f5925b5bf0ded87fdfa93c94ee5800120d4313c5a4c908be5769faa7dce3"
+    },
+    {
+      "path": "uk/CreateTimer.md",
+      "sha256": "a57bc4ec114537a54b8ece652c22a5e27a213fef462849553c9a9133569ba5e3"
     },
     {
       "path": "uk/Dictionary.md",
@@ -12482,6 +12562,10 @@
       "sha256": "bc1dbdbbbea3d22d33f25a58bbeaf149a431581f13a203b4b856a842c1a8652f"
     },
     {
+      "path": "zh-tw/Basic.Timers.md",
+      "sha256": "e6456ce285c77ae3636010aa4628692be880a49cf3dcf215abf7f437277070b0"
+    },
+    {
       "path": "zh-tw/Basic.Try.md",
       "sha256": "dfe7b87906fe5f04382a53394b46eb77be315205de9e8e40e377b0e0828ad104"
     },
@@ -12491,7 +12575,7 @@
     },
     {
       "path": "zh-tw/Basic.Using.md",
-      "sha256": "7c5bf86d77ea089c178f13583ce140530f8b5da6e2d0948a5c92080da47995ed"
+      "sha256": "8c9429acc2e7bb3d15030b4b21e278ac184f9df180670cd687da69de6c11de96"
     },
     {
       "path": "zh-tw/Basic.Variables.md",
@@ -12516,6 +12600,10 @@
     {
       "path": "zh-tw/Cos.md",
       "sha256": "6ba866f4a889303054a74dd1897fb5b763fe004e66e4aee2e4819d1c05be1749"
+    },
+    {
+      "path": "zh-tw/CreateTimer.md",
+      "sha256": "e6456ce285c77ae3636010aa4628692be880a49cf3dcf215abf7f437277070b0"
     },
     {
       "path": "zh-tw/Dictionary.md",

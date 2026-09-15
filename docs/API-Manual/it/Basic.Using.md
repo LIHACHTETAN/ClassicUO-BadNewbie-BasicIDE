@@ -22,7 +22,7 @@ End Using
 
 ## Parametri
 
-- `resourceExpression` — Valutata una volta. Sono validi File(path) e MemoryStream(); String, numeri, List e Dictionary causano un errore con riga prima del corpo. Dichiarare prima la variabile: dichiarazioni nell’intestazione, As New, elenchi separati da virgole e Dispose utente non sono supportati.
+- `resourceExpression` — Valutata una volta. Sono validi File(path), MemoryStream() e CreateTimer(...). Liberare il timer lo ferma definitivamente (Basic.Timers); String, numeri, List e Dictionary causano un errore con riga prima del corpo. Dichiarare prima la variabile: dichiarazioni nell’intestazione, As New, elenchi separati da virgole e Dispose utente non sono supportati.
 - `statements / End Using` — End Using chiude l’oggetto catturato. La variabile resta visibile ma la risorsa è chiusa. Annidare blocchi per più risorse. Riassegnare la variabile non cambia l’oggetto originale da chiudere.
 
 ## Restituisce

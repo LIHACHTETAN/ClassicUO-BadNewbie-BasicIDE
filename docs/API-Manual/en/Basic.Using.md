@@ -22,7 +22,7 @@ End Using
 
 ## Parameters
 
-- `resourceExpression` — Evaluated once on entry. File(path) and MemoryStream() objects are supported. A String, number, List or Dictionary is not disposable and raises a source-located error before the body runs. Declare variables before Using; declarations inside the header, As New, comma-separated resources and user-defined Dispose methods are not supported.
+- `resourceExpression` — Evaluated once on entry. File(path), MemoryStream() and CreateTimer(...) objects are supported. Disposing a script timer stops it permanently; see Basic.Timers. A String, number, List or Dictionary is not disposable and raises a source-located error before the body runs. Declare variables before Using; declarations inside the header, As New, comma-separated resources and user-defined Dispose methods are not supported.
 - `statements / End Using` — The body uses the captured object. End Using closes it. The original variable is still in scope, but the resource is closed. For several resources, nest Using blocks. Assigning another object to the variable does not change which original object is closed.
 
 ## Returns

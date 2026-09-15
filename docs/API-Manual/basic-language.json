@@ -15,6 +15,7 @@
     "CLng",
     "contains",
     "Cos",
+    "CreateTimer",
     "CSng",
     "CStr",
     "Dictionary",
@@ -1267,6 +1268,38 @@
         "Option Explicit On\nModule Feed\n    Public Event Message(ByVal text As String)\n    Public Sub Publish(ByVal text As String)\n        RaiseEvent Message(text)\n    End Sub\nEnd Module\n\nModule State\n    Public Dim log As String = \"\"\nEnd Module\n\nSub Record(ByVal text As String)\n    State.log = State.log & text\nEnd Sub\n\nSub Main()\n    Dim handler = AddressOf Record\n    AddHandler Feed.Message, handler\n    Feed.Publish(\"ready\")\n    RemoveHandler Feed.Message, AddressOf Record\n    Feed.Publish(\"ignored\")\n    Return State.log\nEnd Sub\n",
         "Option Explicit On\nEvent Adjust(ByRef total As Integer)\n\nSub Increment(ByRef total As Integer)\n    total += 1\nEnd Sub\n\nSub DoubleValue(ByRef total As Integer)\n    total *= 2\nEnd Sub\n\nSub Main()\n    Dim total As Integer = 3\n    AddHandler Adjust, AddressOf Increment\n    AddHandler Adjust, AddressOf DoubleValue\n    RaiseEvent Adjust(total)\n    RemoveHandler Adjust, AddressOf Increment\n    RemoveHandler Adjust, AddressOf DoubleValue\n    Return total\nEnd Sub\n",
         "Option Explicit On\nEvent Ready()\nModule State\n    Public Dim log As String = \"\"\nEnd Module\n\nSub First()\n    State.log = State.log & \"A\"\nEnd Sub\n\nSub Failing()\n    State.log = State.log & \"B\"\n    Throw \"handler failed\"\nEnd Sub\n\nSub Last()\n    State.log = State.log & \"C\"\nEnd Sub\n\nSub Main()\n    Dim message As String = \"\"\n    AddHandler Ready, AddressOf First\n    AddHandler Ready, AddressOf Failing\n    AddHandler Ready, AddressOf Last\n    Try\n        RaiseEvent Ready()\n    Catch problem\n        message = problem\n    Finally\n        RemoveHandler Ready, AddressOf Failing\n    End Try\n    RaiseEvent Ready()\n    Return State.log & \":\" & message\nEnd Sub\n"
+      ]
+    },
+    {
+      "id": "Basic.Timers",
+      "name": "CreateTimer / script timers",
+      "signatures": [
+        "CreateTimer(milliseconds, handler) -> Object (ScriptTimer)",
+        "CreateTimer(milliseconds, handler, repeating) -> Object (ScriptTimer)",
+        "timer.Start() -> Unit",
+        "timer.Stop() -> Unit",
+        "timer.Dispose() -> Unit",
+        "timer.Enabled() -> Integer (0/1)",
+        "timer.Interval() -> Integer (ms)",
+        "timer.SetInterval(milliseconds) -> Unit",
+        "Using timer ... End Using"
+      ],
+      "descriptions": {
+        "en": "CreateTimer creates a stopped callback timer for this script. Start schedules a Sub on the same execution thread. This project extension is separate from Basic Timer(), which reads elapsed seconds.",
+        "ru": "CreateTimer создаёт остановленный таймер обратного вызова. Start планирует выполнение Sub в потоке этого скрипта. Это расширение проекта; Basic Timer() отдельно возвращает прошедшие секунды.",
+        "uk": "CreateTimer створює зупинений таймер зворотного виклику. Start планує Sub у потоці цього скрипту. Це розширення проєкту; Basic Timer() окремо повертає минулі секунди.",
+        "fr": "CreateTimer crée un minuteur de rappel arrêté. Start planifie une Sub sur le thread du script. Cette extension du projet est distincte de Basic Timer(), qui lit les secondes écoulées.",
+        "de": "CreateTimer erzeugt einen angehaltenen Callback-Timer. Start plant eine Sub im Ausführungsthread dieses Skripts. Diese Projekterweiterung ist unabhängig von Basic Timer(), das vergangene Sekunden liest.",
+        "it": "CreateTimer crea un timer di callback fermo. Start pianifica una Sub sul thread dello script. È un’estensione del progetto, separata da Basic Timer(), che legge i secondi trascorsi.",
+        "es": "CreateTimer crea un temporizador de callback detenido. Start programa una Sub en el hilo del script. Es una extensión del proyecto; Basic Timer() lee por separado los segundos transcurridos.",
+        "zh-tw": "CreateTimer 建立停止中的回呼計時器。Start 在同一個指令碼執行緒安排 Sub。這是專案擴充，與讀取經過秒數的 Basic Timer() 分開。",
+        "ja": "CreateTimer は停止状態のコールバックタイマーを作成します。Start は同じスクリプト実行スレッドで Sub を予約します。この独自拡張は、経過秒を読む Basic Timer() とは別です。",
+        "ko": "CreateTimer는 정지한 콜백 타이머를 만듭니다. Start는 같은 스크립트 실행 스레드에서 Sub를 예약합니다. 이 프로젝트 확장은 경과 초를 읽는 Basic Timer()와 별개입니다."
+      },
+      "examples": [
+        "Option Explicit On\nModule State\n    Public Dim count As Integer = 0\n    Public Dim pulse\nEnd Module\n\nSub CountPulse()\n    State.count += 1\n    If State.count >= 3 Then\n        State.pulse.Stop()\n    End If\nEnd Sub\n\nFunction RunThreePulses() As String\n    State.pulse = CreateTimer(20, AddressOf CountPulse)\n    Using State.pulse\n        State.pulse.Start()\n        Wait Until State.count >= 3 Timeout 3000\n        Return CStr(State.count) & \":\" & CStr(State.pulse.Enabled())\n    End Using\nEnd Function\n\nSub Main()\n    Return RunThreePulses()\nEnd Sub\n",
+        "Option Explicit On\nModule State\n    Public Dim message As String = \"\"\nEnd Module\n\nSub SetReady()\n    State.message = \"ready\"\nEnd Sub\n\nFunction GetHandler()\n    Return AddressOf SetReady\nEnd Function\n\nSub Main()\n    Dim callback = GetHandler()\n    Dim notice = CreateTimer(repeating:=False, handler:=callback, milliseconds:=5)\n    Using notice\n        notice.SetInterval(10)\n        notice.Start()\n        Wait Until State.message = \"ready\" Timeout 3000\n        Return State.message & \":\" & CStr(notice.Enabled())\n    End Using\nEnd Sub\n",
+        "Option Explicit On\nSub FailingPulse()\n    Throw \"tick failed\"\nEnd Sub\n\nSub Main()\n    Dim pulse = CreateTimer(5, AddressOf FailingPulse)\n    Dim problemText As String = \"\"\n    Dim enabledAfterError As Boolean = True\n    Try\n        pulse.Start()\n        Wait(2000)\n    Catch problem\n        problemText = problem\n        enabledAfterError = pulse.Enabled()\n    Finally\n        pulse.Dispose()\n    End Try\n    Return problemText & \":\" & CStr(enabledAfterError)\nEnd Sub\n"
       ]
     },
     {

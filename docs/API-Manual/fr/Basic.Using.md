@@ -22,7 +22,7 @@ End Using
 
 ## Paramètres
 
-- `resourceExpression` — Évaluée une fois. File(path) et MemoryStream() conviennent. String, nombre, List et Dictionary provoquent une erreur située dans le source avant le corps. Déclarez la variable avant : déclaration dans l’en-tête, As New, liste séparée par virgules et Dispose utilisateur ne sont pas pris en charge.
+- `resourceExpression` — Évaluée une fois. File(path), MemoryStream() et CreateTimer(...) conviennent. Libérer le minuteur l’arrête définitivement ; voir Basic.Timers. String, nombre, List et Dictionary provoquent une erreur située dans le source avant le corps. Déclarez la variable avant : déclaration dans l’en-tête, As New, liste séparée par virgules et Dispose utilisateur ne sont pas pris en charge.
 - `statements / End Using` — End Using ferme l’objet capturé. La variable reste visible, mais la ressource est fermée. Imbriquez les blocs pour plusieurs ressources. Réaffecter la variable ne change pas l’objet initial qui sera fermé.
 
 ## Retour

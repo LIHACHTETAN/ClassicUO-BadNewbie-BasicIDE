@@ -66,7 +66,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_20",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_22",
       "dependencies": [
         "CALCULATION -> Math.Atan(number), result in radians",
         "ARGUMENT -> position 1 number: tangent value",
@@ -114,7 +114,7 @@
         }
       ],
       "returns": "Integer",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_15",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_17",
       "dependencies": []
     },
     {
@@ -126,7 +126,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_11",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_13",
       "dependencies": [
         "CONVERSION -> value to Double",
         "ARGUMENT -> position 1 value: numeric or numeric text value",
@@ -154,7 +154,7 @@
         }
       ],
       "returns": "Integer",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_10",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_12",
       "dependencies": []
     },
     {
@@ -166,7 +166,7 @@
         }
       ],
       "returns": "Integer",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_13",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_15",
       "dependencies": []
     },
     {
@@ -194,11 +194,51 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_18",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_20",
       "dependencies": [
         "CALCULATION -> Math.Cos(radians)",
         "ARGUMENT -> position 1 radians: angle in radians",
         "RESULT -> cosine as Decimal"
+      ]
+    },
+    {
+      "name": "CreateTimer",
+      "parameters": [
+        {
+          "name": "milliseconds",
+          "kind": "Any"
+        },
+        {
+          "name": "handler",
+          "kind": "Any"
+        }
+      ],
+      "returns": "Object",
+      "implementation": "InjectionScript.Runtime.InjectionApi.<Register>b__13_0",
+      "dependencies": [
+        "Create a stopped repeating script timer; call Start() to schedule its zero-argument Sub callback."
+      ]
+    },
+    {
+      "name": "CreateTimer",
+      "parameters": [
+        {
+          "name": "milliseconds",
+          "kind": "Any"
+        },
+        {
+          "name": "handler",
+          "kind": "Any"
+        },
+        {
+          "name": "repeating",
+          "kind": "Any"
+        }
+      ],
+      "returns": "Object",
+      "implementation": "InjectionScript.Runtime.InjectionApi.<Register>b__13_1",
+      "dependencies": [
+        "Create a stopped script timer; repeat True repeats after completion, False fires once. No additional thread is created."
       ]
     },
     {
@@ -210,7 +250,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_12",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_14",
       "dependencies": [
         "CONVERSION -> value to Single-compatible number",
         "ARGUMENT -> position 1 value: numeric or numeric text value",
@@ -226,7 +266,7 @@
         }
       ],
       "returns": "String",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_14",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_16",
       "dependencies": []
     },
     {
@@ -257,7 +297,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_21",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_23",
       "dependencies": [
         "CALCULATION -> Math.Exp(power)",
         "ARGUMENT -> position 1 power: exponent of Euler's number",
@@ -285,7 +325,7 @@
         }
       ],
       "returns": "Integer",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_9",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_11",
       "dependencies": []
     },
     {
@@ -373,7 +413,7 @@
         }
       ],
       "returns": "String",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_16",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_18",
       "dependencies": []
     },
     {
@@ -437,7 +477,7 @@
         }
       ],
       "returns": "Integer",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_8",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_10",
       "dependencies": []
     },
     {
@@ -508,7 +548,7 @@
       "name": "JsonNull",
       "parameters": [],
       "returns": "Object",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_25",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_27",
       "dependencies": []
     },
     {
@@ -596,7 +636,7 @@
         }
       ],
       "returns": "String",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_0",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_2",
       "dependencies": []
     },
     {
@@ -679,7 +719,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_22",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_24",
       "dependencies": [
         "CALCULATION -> Math.Log(number), number must be positive",
         "ARGUMENT -> position 1 number: positive numeric value",
@@ -695,7 +735,7 @@
         }
       ],
       "returns": "String",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_3",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_5",
       "dependencies": []
     },
     {
@@ -851,7 +891,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi.<Register>b__11_23",
+      "implementation": "InjectionScript.Runtime.InjectionApi.<Register>b__13_25",
       "dependencies": [
         "CALCULATION -> positive: next value; zero: repeat last value; negative: restart a deterministic runtime-local sequence",
         "ARGUMENT -> position 1 seedMode: BASIC-compatible seed/repetition selector",
@@ -883,7 +923,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_7",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_9",
       "dependencies": [
         "CALCULATION -> BasicRound(number, digits)",
         "ARGUMENT -> position 1 number: value to round",
@@ -900,7 +940,7 @@
         }
       ],
       "returns": "String",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_4",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_6",
       "dependencies": []
     },
     {
@@ -924,7 +964,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_17",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_19",
       "dependencies": [
         "CALCULATION -> Math.Sin(radians)",
         "ARGUMENT -> position 1 radians: angle in radians",
@@ -952,7 +992,7 @@
         }
       ],
       "returns": "String",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_5",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_7",
       "dependencies": []
     },
     {
@@ -964,7 +1004,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_6",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_8",
       "dependencies": [
         "CALCULATION -> Math.Sqrt(BasicDouble(number))",
         "ARGUMENT -> position 1 number: non-negative numeric value",
@@ -1064,7 +1104,7 @@
         }
       ],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_19",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_21",
       "dependencies": [
         "CALCULATION -> Math.Tan(radians)",
         "ARGUMENT -> position 1 radians: angle in radians",
@@ -1075,7 +1115,7 @@
       "name": "Timer",
       "parameters": [],
       "returns": "Decimal",
-      "implementation": "InjectionScript.Runtime.InjectionApi.<Register>b__11_24",
+      "implementation": "InjectionScript.Runtime.InjectionApi.<Register>b__13_26",
       "dependencies": []
     },
     {
@@ -1087,7 +1127,7 @@
         }
       ],
       "returns": "String",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_2",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_4",
       "dependencies": []
     },
     {
@@ -1099,7 +1139,7 @@
         }
       ],
       "returns": "String",
-      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__11_1",
+      "implementation": "InjectionScript.Runtime.InjectionApi+<>c.<Register>b__13_3",
       "dependencies": []
     },
     {
@@ -29819,6 +29859,53 @@
           "parameters": [],
           "returns": "Array",
           "implementation": "InjectionScript.Runtime.ObjectTypes.DictionaryObject.Values"
+        }
+      ]
+    },
+    {
+      "name": "ScriptTimer",
+      "factory": "CreateTimer",
+      "members": [
+        {
+          "name": "Dispose",
+          "parameters": [],
+          "returns": "Unit",
+          "implementation": "InjectionScript.Runtime.ObjectTypes.ScriptTimerObject.Dispose"
+        },
+        {
+          "name": "Enabled",
+          "parameters": [],
+          "returns": "Integer",
+          "implementation": "InjectionScript.Runtime.ObjectTypes.ScriptTimerObject.Enabled"
+        },
+        {
+          "name": "Interval",
+          "parameters": [],
+          "returns": "Integer",
+          "implementation": "InjectionScript.Runtime.ObjectTypes.ScriptTimerObject.Interval"
+        },
+        {
+          "name": "SetInterval",
+          "parameters": [
+            {
+              "name": "milliseconds",
+              "kind": "Any"
+            }
+          ],
+          "returns": "Unit",
+          "implementation": "InjectionScript.Runtime.ObjectTypes.ScriptTimerObject.SetInterval"
+        },
+        {
+          "name": "Start",
+          "parameters": [],
+          "returns": "Unit",
+          "implementation": "InjectionScript.Runtime.ObjectTypes.ScriptTimerObject.Start"
+        },
+        {
+          "name": "Stop",
+          "parameters": [],
+          "returns": "Unit",
+          "implementation": "InjectionScript.Runtime.ObjectTypes.ScriptTimerObject.Stop"
         }
       ]
     },

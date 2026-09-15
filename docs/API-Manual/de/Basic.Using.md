@@ -22,7 +22,7 @@ End Using
 
 ## Parameter
 
-- `resourceExpression` — Wird einmal ausgewertet. File(path) und MemoryStream() sind geeignet; String, Zahl, List und Dictionary verursachen vor dem Block einen Fehler mit Quellzeile. Variablen vorher deklarieren: Deklarationen im Kopf, As New, Kommalisten und eigene Dispose-Methoden sind nicht unterstützt.
+- `resourceExpression` — Wird einmal ausgewertet. File(path), MemoryStream() und CreateTimer(...) sind geeignet; Freigabe eines Timers stoppt ihn endgültig (Basic.Timers). String, Zahl, List und Dictionary verursachen vor dem Block einen Fehler mit Quellzeile. Variablen vorher deklarieren: Deklarationen im Kopf, As New, Kommalisten und eigene Dispose-Methoden sind nicht unterstützt.
 - `statements / End Using` — End Using schließt das gespeicherte Objekt. Die Variable bleibt sichtbar, die Ressource ist geschlossen. Mehrere Ressourcen durch verschachtelte Blöcke verwalten. Eine neue Zuweisung ändert nicht das ursprünglich zu schließende Objekt.
 
 ## Rückgabewert

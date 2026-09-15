@@ -22,7 +22,7 @@ End Using
 
 ## 매개변수
 
-- `resourceExpression` — 진입 시 한 번 평가합니다. File(path), MemoryStream()을 사용할 수 있습니다. String, 숫자, List, Dictionary는 본문 실행 전에 소스 행이 포함된 오류를 냅니다. 변수를 먼저 선언하세요. 헤더 내 선언, As New, 쉼표로 나눈 리소스 목록, 사용자 Dispose는 지원하지 않습니다.
+- `resourceExpression` — 진입 시 한 번 평가합니다. File(path), MemoryStream(), CreateTimer(...)을 사용할 수 있습니다. 타이머를 해제하면 영구 정지합니다. Basic.Timers를 참조하세요. String, 숫자, List, Dictionary는 본문 실행 전에 소스 행이 포함된 오류를 냅니다. 변수를 먼저 선언하세요. 헤더 내 선언, As New, 쉼표로 나눈 리소스 목록, 사용자 Dispose는 지원하지 않습니다.
 - `statements / End Using` — End Using은 캡처한 객체를 닫습니다. 변수는 남지만 리소스는 닫힌 상태입니다. 여러 리소스는 블록을 중첩하세요. 변수를 다시 할당해도 닫힐 원래 객체는 바뀌지 않습니다.
 
 ## 반환값
