@@ -1335,6 +1335,69 @@
       ]
     },
     {
+      "id": "Basic.Declare",
+      "name": "Declare / Lib / Alias",
+      "signatures": [
+        "[Public | Private] Declare [Ansi | Unicode | Auto] Function name Lib \"library.dll\" [Alias \"export\"]([ByVal arg As Type, ...]) As ResultType",
+        "[Public | Private] Declare [Ansi | Unicode | Auto] Sub name Lib \"library.dll\" [Alias \"export\"]([ByVal arg As Type, ...])",
+        "name(arguments)",
+        "name(argumentName:=value)",
+        "ModuleName.name(arguments)"
+      ],
+      "descriptions": {
+        "en": "Declare connects a Basic procedure name to an exported function in a native Windows x64 DLL. The supported subset works in the compiled client without generating code at runtime. It is not a complete VB.NET interop layer.",
+        "ru": "Declare связывает имя процедуры Basic с экспортируемой функцией нативной DLL Windows x64. Описанный набор работает в скомпилированном клиенте без генерации кода во время исполнения. Это ограниченный интерфейс DLL, а не вся совместимость VB.NET.",
+        "uk": "Declare пов’язує ім’я процедури Basic з експортованою функцією нативної DLL Windows x64. Описані можливості працюють у скомпільованому клієнті без генерації коду під час виконання; це не повний механізм взаємодії VB.NET.",
+        "fr": "Declare associe un nom de procédure Basic à un export d’une DLL native Windows x64. Ce sous-ensemble fonctionne dans le client compilé sans génération de code à l’exécution ; il ne représente pas toute l’interopérabilité VB.NET.",
+        "de": "Declare verbindet einen Basic-Prozedurnamen mit einem Export einer nativen Windows-x64-DLL. Der beschriebene Umfang funktioniert auch im kompilierten Client ohne Laufzeit-Codegenerierung; vollständiges VB.NET-Interop ist damit nicht gemeint.",
+        "it": "Declare collega un nome Basic a un export di una DLL nativa Windows x64. Il sottoinsieme descritto funziona nel client compilato senza generare codice durante l’esecuzione; non include tutta l’interoperabilità VB.NET.",
+        "es": "Declare vincula un nombre Basic con un export de una DLL nativa Windows x64. Este subconjunto funciona en el cliente compilado sin generar código durante la ejecución; no equivale a toda la interoperabilidad VB.NET.",
+        "zh-tw": "Declare 將 Basic 程序名稱連接到原生 Windows x64 DLL 的匯出函式。這個明確限定的功能集可用於編譯後的客戶端，不需執行期產生程式碼；並非完整 VB.NET 互通層。",
+        "ja": "Declare は Basic の手続き名をネイティブ Windows x64 DLL のエクスポート関数に接続します。対応範囲は以下のとおりで、コンパイル済みクライアントでも実行時コード生成を使いません。VB.NET 相互運用全体には相当しません。",
+        "ko": "Declare는 Basic 프로시저 이름을 네이티브 Windows x64 DLL의 내보낸 함수에 연결합니다. 아래 범위는 실행 중 코드 생성 없이 컴파일된 클라이언트에서도 동작하며, VB.NET 상호 운용 전체를 뜻하지 않습니다."
+      },
+      "examples": [
+        "Option Explicit On\nDeclare Function ClientProcessId Lib \"kernel32.dll\" Alias \"GetCurrentProcessId\"() As Integer\n\nSub Main()\n    Dim processId = ClientProcessId()\n    Return processId > 0\nEnd Sub\n",
+        "Option Explicit On\nDeclare Unicode Function TextLength Lib \"kernel32.dll\" Alias \"lstrlenW\"(ByVal text As String) As Integer\nDeclare Function Power Lib \"ucrtbase.dll\" Alias \"pow\"(ByVal value As Double, ByVal exponent As Double) As Double\n\nFunction Describe(ByVal text As String, ByVal value As Double, ByVal exponent As Double) As String\n    Dim length = TextLength(text:=text)\n    Dim powered = Power(exponent:=exponent, value:=value)\n    Return CStr(length) & \":\" & CStr(powered)\nEnd Function\n\nSub Main()\n    Return Describe(\"ore\", 2, 3)\nEnd Sub\n",
+        "Option Explicit On\nModule NativeDemo\n    Private Declare Function MissingExport Lib \"kernel32.dll\" Alias \"BasicManualMissingExport_71cf\"() As Integer\n    Public Function TryRead() As String\n        Dim status = \"unexpected export\"\n        Dim finished = 0\n        Try\n            MissingExport()\n        Catch problem\n            status = \"missing export\"\n        Finally\n            finished = 1\n        End Try\n        Return status & \":\" & CStr(finished)\n    End Function\nEnd Module\n\nSub Main()\n    Return NativeDemo.TryRead()\nEnd Sub\n"
+      ]
+    },
+    {
+      "id": "Basic.Windows",
+      "name": "Windows.bas",
+      "signatures": [
+        "Include \"Windows.bas\"",
+        "Windows.ProcessId() As Integer",
+        "Windows.Milliseconds() As Double",
+        "Windows.ElapsedMilliseconds(ByVal startMilliseconds As Double) As Double",
+        "Windows.ScreenWidth() As Integer",
+        "Windows.ScreenHeight() As Integer",
+        "Windows.DesktopBounds() As Object"
+      ],
+      "descriptions": {
+        "en": "Windows.bas is an editable Basic source module with six public helpers for process information, short interval measurement and desktop dimensions. Its complete code and private Declare statements are included below; copying only Main without the Include file is insufficient.",
+        "ru": "Windows.bas — редактируемый модуль Basic с шестью публичными функциями: информация о процессе, измерение коротких интервалов и размеры рабочего стола. Ниже приведены весь код и приватные Declare. Для запуска нужен не только Main, но и подключаемый файл.",
+        "uk": "Windows.bas — редагований модуль Basic із шістьма публічними функціями для процесу, коротких інтервалів і розмірів робочого стола. Нижче наведено весь код та приватні Declare. Потрібен і Main, і підключений файл.",
+        "fr": "Windows.bas est un module Basic modifiable avec six fonctions publiques pour le processus, les courts intervalles et la taille du bureau. Tout le code et les Declare privés figurent ci-dessous ; Main seul ne suffit pas.",
+        "de": "Windows.bas ist ein bearbeitbares Basic-Modul mit sechs öffentlichen Helfern für Prozessdaten, kurze Zeitintervalle und Desktopgröße. Vollständiger Quelltext und private Declare-Anweisungen stehen unten; Main allein reicht nicht.",
+        "it": "Windows.bas è un modulo Basic modificabile con sei funzioni pubbliche per processo, brevi intervalli e dimensioni del desktop. Sotto sono mostrati tutto il codice e i Declare privati; Main da solo non basta.",
+        "es": "Windows.bas es un módulo Basic editable con seis funciones públicas para datos del proceso, intervalos cortos y tamaño del escritorio. Abajo aparecen todo el código y los Declare privados; copiar solo Main no basta.",
+        "zh-tw": "Windows.bas 是可編輯的 Basic 原始碼模組，提供六個公開輔助函式，用於程序資訊、短時間測量和桌面尺寸。下方列出完整程式碼與私有 Declare；只複製 Main 不足以執行。",
+        "ja": "Windows.bas は編集可能な Basic モジュールで、プロセス情報、短い時間測定、デスクトップ寸法の6個の公開関数を提供します。全ソースとPrivate Declareを下に示します。Mainだけのコピーでは実行できません。",
+        "ko": "Windows.bas는 프로세스 정보, 짧은 시간 측정, 데스크톱 크기를 위한 공개 함수 6개를 제공하는 편집 가능한 Basic 모듈입니다. 전체 코드와 Private Declare를 아래에 표시합니다. Main만 복사하면 실행되지 않습니다."
+      },
+      "examples": [
+        "Option Explicit On\nInclude \"Windows.bas\"\n\nSub Main()\n    Dim processId = Windows.ProcessId()\n    Dim startedAt = Windows.Milliseconds()\n    Return processId > 0 AndAlso startedAt >= 0 AndAlso startedAt <= 4294967295.0\nEnd Sub\n",
+        "Option Explicit On\nInclude \"Windows.bas\"\n\nFunction MeasureWait(ByVal delayMilliseconds As Integer) As Double\n    If delayMilliseconds < 0 Then\n        Throw \"delayMilliseconds must be non-negative\"\n    End If\n    Dim startedAt = Windows.Milliseconds()\n    Wait(delayMilliseconds)\n    Return Windows.ElapsedMilliseconds(startMilliseconds:=startedAt)\nEnd Function\n\nSub Main()\n    Dim elapsed = MeasureWait(15)\n    Return elapsed >= 0\nEnd Sub\n",
+        "Option Explicit On\nInclude \"Windows.bas\"\n\nSub Main()\n    Dim desktop = Windows.DesktopBounds()\n    Dim left = desktop.Item(\"X\")\n    Dim top = desktop.Item(\"Y\")\n    Dim width = desktop.Item(\"Width\")\n    Dim height = desktop.Item(\"Height\")\n    Dim primaryWidth = Windows.ScreenWidth()\n    Dim primaryHeight = Windows.ScreenHeight()\n    Return width >= primaryWidth AndAlso height >= primaryHeight AndAlso primaryWidth > 0 AndAlso primaryHeight > 0\nEnd Sub\n"
+      ],
+      "exampleRoots": [
+        "Examples/Basic.Windows/1/Main.bas",
+        "Examples/Basic.Windows/2/Main.bas",
+        "Examples/Basic.Windows/3/Main.bas"
+      ]
+    },
+    {
       "id": "Basic.NamedArguments",
       "name": "Named arguments / :=",
       "signatures": [

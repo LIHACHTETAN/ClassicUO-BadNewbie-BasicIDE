@@ -56,6 +56,8 @@
 - [Event / AddHandler / RemoveHandler / RaiseEvent](Basic.Events.md)
 - [CreateTimer / script timers](Basic.Timers.md)
 - [Structure / New / fields](Basic.Structure.md)
+- [Declare / Lib / Alias](Basic.Declare.md)
+- [Windows.bas](Basic.Windows.md)
 - [Named arguments / :=](Basic.NamedArguments.md)
 - [JSON / Config.bas](Basic.Config.md)
 

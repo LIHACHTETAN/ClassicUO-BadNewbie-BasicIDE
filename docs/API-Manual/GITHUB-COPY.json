@@ -51,7 +51,7 @@
     },
     {
       "path": "basic-language.json",
-      "sha256": "4c395e1497f841513b08d764128b46c2d0e0bfc231086c99420ad4817faff867"
+      "sha256": "26a782e59a241340b54d51fa098309c360b5f001701b742d44cafeefb97cb66c"
     },
     {
       "path": "Basic.ApiNames.md",
@@ -100,6 +100,10 @@
     {
       "path": "Basic.Continue.md",
       "sha256": "9b098ea42f6888878a8246517809bd2748680c74dc2fe70f7f9ccf389c4a7a75"
+    },
+    {
+      "path": "Basic.Declare.md",
+      "sha256": "04425f42ba503e63547f855bbe2adacb4a063795d2352b3c5273f29e3de80a89"
     },
     {
       "path": "Basic.Dictionary.md",
@@ -234,6 +238,10 @@
       "sha256": "036ff7f3a5f7486867d91e459f5afef1b4a9e4f746cb737fe87e25facae67b61"
     },
     {
+      "path": "Basic.Windows.md",
+      "sha256": "45dbee01976ef3b5bef09ec033a0199f06113f86abf5d17143d7e36f415889be"
+    },
+    {
       "path": "Basic.With.md",
       "sha256": "51ba88a2b9b0162287282e86771e972ab4883cee953174ff4c29300f31489699"
     },
@@ -366,6 +374,10 @@
       "sha256": "9a240c034442450f00abe8922fb1ddc01cad214af14e5eb7194d4a1c638c96fe"
     },
     {
+      "path": "de/Basic.Declare.md",
+      "sha256": "8d4fd5c212f97b53b996ed1cde1bb30b3f762ab0bd8827a9946aea851710278f"
+    },
+    {
       "path": "de/Basic.Dictionary.md",
       "sha256": "89ed2bb66259c98ff92a08fd22b9e53f0a75e88a56c4870d65c150848dad935a"
     },
@@ -496,6 +508,10 @@
     {
       "path": "de/Basic.While.md",
       "sha256": "616ff33a405b3af595aa71d912e86f864fa531cd8f38d733c175b524e6a4da4a"
+    },
+    {
+      "path": "de/Basic.Windows.md",
+      "sha256": "7e319b06c97e1e6cc38d55a27a987ef2dabf7ee3ac31550da5b256139bd850d5"
     },
     {
       "path": "de/Basic.With.md",
@@ -1234,6 +1250,10 @@
       "sha256": "077e9dfb0fffd8eced10515fdb9474336fb1a9b412c479aacdb5c55ec5c047ef"
     },
     {
+      "path": "en/Basic.Declare.md",
+      "sha256": "5731e619eb444db7d76187f9dae123046b3c81089db14035c62063ac57330a44"
+    },
+    {
       "path": "en/Basic.Dictionary.md",
       "sha256": "37709eea002926a4a6912ba89ab0b95d228abd8dc18b444cf7b89357fffb5e19"
     },
@@ -1364,6 +1384,10 @@
     {
       "path": "en/Basic.While.md",
       "sha256": "478df95c8f70c530fca7ab57d5cc086be5df751c19d12a6db0c6c9a0388cdebf"
+    },
+    {
+      "path": "en/Basic.Windows.md",
+      "sha256": "2194acc530f8ad33e2a975706bedaa21fcb1a70a145ac3f63ce4662fa622286d"
     },
     {
       "path": "en/Basic.With.md",
@@ -2082,6 +2106,10 @@
       "sha256": "7b3f23c49c7fcda0a60f20145f85e703c3e932d5220700eff131cc20868b33e0"
     },
     {
+      "path": "es/Basic.Declare.md",
+      "sha256": "19d55a0eb76fdc4928270b73edec1d00b2a058bca0385e4cfe5cc390096908ae"
+    },
+    {
       "path": "es/Basic.Dictionary.md",
       "sha256": "9917fe21243d843b1b8cd2a04e9404491d876c3741252d7bd1644a820447ee25"
     },
@@ -2212,6 +2240,10 @@
     {
       "path": "es/Basic.While.md",
       "sha256": "5fa234c08eb32108e0a46c3afd3b7febee39d50c8477d7f3702a8c9917a86601"
+    },
+    {
+      "path": "es/Basic.Windows.md",
+      "sha256": "d3cfbc011e22a80a80cb90ed49ed35b696ce3a84219358eed89c933b435c4635"
     },
     {
       "path": "es/Basic.With.md",
@@ -2926,6 +2958,30 @@
       "sha256": "d19c410a730d67120a83982398d92a4b726afa44d0fac8830e45e73c9a58d546"
     },
     {
+      "path": "Examples/Basic.Windows/1/Include/Windows.bas",
+      "sha256": "686a9c5ad7c9a1fc93b7520bcae9f18a0fe979c470ee09a81fac44ebdb590ab5"
+    },
+    {
+      "path": "Examples/Basic.Windows/1/Main.bas",
+      "sha256": "132d1fb27a1b6c954d7862fc66fc5ca9b36d6349bfb78e183cdcdd1bde8d0944"
+    },
+    {
+      "path": "Examples/Basic.Windows/2/Include/Windows.bas",
+      "sha256": "686a9c5ad7c9a1fc93b7520bcae9f18a0fe979c470ee09a81fac44ebdb590ab5"
+    },
+    {
+      "path": "Examples/Basic.Windows/2/Main.bas",
+      "sha256": "282345bfdc4c5474ed8bb02461007da857e06d6d2b2271e8eeabeaab80005ea5"
+    },
+    {
+      "path": "Examples/Basic.Windows/3/Include/Windows.bas",
+      "sha256": "686a9c5ad7c9a1fc93b7520bcae9f18a0fe979c470ee09a81fac44ebdb590ab5"
+    },
+    {
+      "path": "Examples/Basic.Windows/3/Main.bas",
+      "sha256": "2165d791d73154e5a801b73de96435efd038815ab3fad45ef66df8d62b6ae357"
+    },
+    {
       "path": "Exp.md",
       "sha256": "730843883dc68f0d4bf817e32b3fd0a452f9854f6123e6bcd38a74088391be0a"
     },
@@ -3008,6 +3064,10 @@
     {
       "path": "fr/Basic.Continue.md",
       "sha256": "af44ac9a05619e349b3356df4c7a7135f7717e0e697849f31908520354b4800d"
+    },
+    {
+      "path": "fr/Basic.Declare.md",
+      "sha256": "5de3669b4696879d841ca1f1209b585f1e5dc0ef1f447858945ac6ddece6bab4"
     },
     {
       "path": "fr/Basic.Dictionary.md",
@@ -3140,6 +3200,10 @@
     {
       "path": "fr/Basic.While.md",
       "sha256": "d43fae9cf1a96f322b68d0222d538eff095dad3ab1fcb5cb7dc2eb9fe18d052e"
+    },
+    {
+      "path": "fr/Basic.Windows.md",
+      "sha256": "ebcfbba9136af961488e1bf5a6b8b5d8f79483eb713cc1f4b31fbcac6f02fbfa"
     },
     {
       "path": "fr/Basic.With.md",
@@ -3843,7 +3907,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "8a503735c99ef582f6491aa1bc5e0d866616bbcbab1c816bb00c5270ced3d869"
+      "sha256": "a28083547ed17e451d4f768b05b6975ebfac49fc2ed4131fa17ec310f407e61d"
     },
     {
       "path": "InStr.md",
@@ -3920,6 +3984,10 @@
     {
       "path": "it/Basic.Continue.md",
       "sha256": "1e0c0a0459e4c71f15818db5c0040169ce7bfec99b0e8658b7a2427bc4d9b094"
+    },
+    {
+      "path": "it/Basic.Declare.md",
+      "sha256": "2e202fe65ed179598410b485a2da9f6bc1983a8aa74aa33ed3257b7e56511151"
     },
     {
       "path": "it/Basic.Dictionary.md",
@@ -4052,6 +4120,10 @@
     {
       "path": "it/Basic.While.md",
       "sha256": "77f0bb03b62039d70a9dfc01c5375e2137f9d81183e864c75f2af76e323ffafc"
+    },
+    {
+      "path": "it/Basic.Windows.md",
+      "sha256": "c2920f6511eb392e3d42fd0b8697137e73ebcd3dabf67c0dc8d27f797b68805d"
     },
     {
       "path": "it/Basic.With.md",
@@ -4770,6 +4842,10 @@
       "sha256": "0d326fad9519b34aa3e9f0481ace1a8da15921bfd985bf3ae2623942082a38a7"
     },
     {
+      "path": "ja/Basic.Declare.md",
+      "sha256": "16a76f3187845c4991e6ff9dde7c3641b61271659783d55b00eb38709c0d2543"
+    },
+    {
       "path": "ja/Basic.Dictionary.md",
       "sha256": "766f6b5b919cdef647c51e171816df68e0e489b04e1bc59eb0f8e2f2cc827b88"
     },
@@ -4900,6 +4976,10 @@
     {
       "path": "ja/Basic.While.md",
       "sha256": "d1890ebd711bad360bbcb15b8b615a7cb3c586d3ae24ca0eccd3f0d120094283"
+    },
+    {
+      "path": "ja/Basic.Windows.md",
+      "sha256": "e134e96db42c59d1b598ba930646813e653e193b978d0feb33c347691d6a6dee"
     },
     {
       "path": "ja/Basic.With.md",
@@ -5646,6 +5726,10 @@
       "sha256": "5dce24cfa25c39393ea91f6691598f27ad4bd4090eeef70befde2907d74b1c1f"
     },
     {
+      "path": "ko/Basic.Declare.md",
+      "sha256": "21d45ad99fa6706b056b7e36d9ee72b8e366bd88eacc295291153de1cdf8a0c8"
+    },
+    {
       "path": "ko/Basic.Dictionary.md",
       "sha256": "4f84c96b7e544f96b6685e3cc4b6f83499db6cdf93d84919c413f6ac06d3cae0"
     },
@@ -5776,6 +5860,10 @@
     {
       "path": "ko/Basic.While.md",
       "sha256": "3a81031fd4642bcaf09c7a72e4775c39080e3aa2c0bb9dbe8203db12fa903aba"
+    },
+    {
+      "path": "ko/Basic.Windows.md",
+      "sha256": "2fd0b4e6e564f1107cdeaf6e882500db074c313bc6322e858a059b0ca62aea96"
     },
     {
       "path": "ko/Basic.With.md",
@@ -6559,7 +6647,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "a648def072e06298c12335ae1d3d240917d21d2f318534e5f9eabf823d4ed577"
+      "sha256": "93b212a9d039b491d548bff2ec76e32565856a338bf62b655430a89bbf776102"
     },
     {
       "path": "remain.md",
@@ -6672,6 +6760,10 @@
     {
       "path": "ru/Basic.Continue.md",
       "sha256": "9b098ea42f6888878a8246517809bd2748680c74dc2fe70f7f9ccf389c4a7a75"
+    },
+    {
+      "path": "ru/Basic.Declare.md",
+      "sha256": "04425f42ba503e63547f855bbe2adacb4a063795d2352b3c5273f29e3de80a89"
     },
     {
       "path": "ru/Basic.Dictionary.md",
@@ -6804,6 +6896,10 @@
     {
       "path": "ru/Basic.While.md",
       "sha256": "036ff7f3a5f7486867d91e459f5afef1b4a9e4f746cb737fe87e25facae67b61"
+    },
+    {
+      "path": "ru/Basic.Windows.md",
+      "sha256": "45dbee01976ef3b5bef09ec033a0199f06113f86abf5d17143d7e36f415889be"
     },
     {
       "path": "ru/Basic.With.md",
@@ -8670,6 +8766,10 @@
       "sha256": "7933739ed669d8aff7d90277b67edd1b016dbfe2e346b3293e3e194effdf60a3"
     },
     {
+      "path": "uk/Basic.Declare.md",
+      "sha256": "72d6cb5f476d3657fc25fefc58d78ff8307c0d90f002de914d42a3382726386c"
+    },
+    {
       "path": "uk/Basic.Dictionary.md",
       "sha256": "64b885e13a00fdac4456da72d07be668e3b28b166e16d330a04906a27b5004d9"
     },
@@ -8800,6 +8900,10 @@
     {
       "path": "uk/Basic.While.md",
       "sha256": "c62326e7af2f69ab15b43e2372160cffb1be968330bc7e1c1c71bfa013525f40"
+    },
+    {
+      "path": "uk/Basic.Windows.md",
+      "sha256": "55857f07eff313d3e0115cfe45598c904b0e3bfb5cdc4dab05e9677fb9a51f88"
     },
     {
       "path": "uk/Basic.With.md",
@@ -12506,6 +12610,10 @@
       "sha256": "29d224fb218f26fb625146121dd428d427372206fcae070cc296137430a87e86"
     },
     {
+      "path": "zh-tw/Basic.Declare.md",
+      "sha256": "015e74ffee69e4ea4f32ac2f89445c17920bdfc6c4657c44bd0d34e1c11e491f"
+    },
+    {
       "path": "zh-tw/Basic.Dictionary.md",
       "sha256": "08e94e3a7d36d2d142833b5fb4db9e4231711e74213aa0bbc8d0e8ba50d16824"
     },
@@ -12636,6 +12744,10 @@
     {
       "path": "zh-tw/Basic.While.md",
       "sha256": "d10326e9b7d458216a02f2e474108d830743f5b710dada260a0e86eb3637f9e6"
+    },
+    {
+      "path": "zh-tw/Basic.Windows.md",
+      "sha256": "e0204fbcd9bd91fe736d572a9b059acd2aa9d63250f8693902b00aa476d3e65c"
     },
     {
       "path": "zh-tw/Basic.With.md",
