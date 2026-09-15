@@ -1,99 +1,173 @@
 # UO.GetScriptName
 
-ClassicUO • Runtime API • `UO.GetScriptName.md`
+ClassicUO • Runtime API
 
-## Точный синтаксис / Registered signatures
+<!-- yoko-manual: 1 -->
+
+Читает отображаемое имя активного запуска.
+
+## Точный синтаксис
 
 ```text
-UO.GetScriptName(ScriptIndex:Any) -> Any
+UO.GetScriptName(ScriptIndex:Any) -> String
 ```
 
-Порядок аргументов соответствует строкам выше. `Unit` означает отсутствие возвращаемого значения. `Any` — значение BASIC с преобразованием при вызове. Имена нечувствительны к регистру.
+Выберите одну из зарегистрированных форм. Параметры передаются позиционно. Any означает значение BASIC с преобразованием внутри команды; Unit — отсутствие возвращаемого значения.
 
-## `UO.GetScriptName`
+## Параметры
 
-### Compatibility description
+- `ScriptIndex` — Обязательный ScriptIndex — целое число, индекс с нуля из свежего GetScriptsList. Для отрицательного или отсутствующего индекса возвращается описанный пустой/неизвестный результат. Не передавайте serial предмета, имя процедуры или ID запуска из IDE.
 
-> Historical Stealth/Pascal reference text. Current Basic signatures and return contracts below are authoritative when behavior differs.
+## Возвращает
 
-Возвращает имя скрипта с индексом ScriptIndex . Возвращает пустую строку, если скрипт с данным индексом не существует.
+String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может быть явно установлено в пустую строку.
 
-### Current Basic signatures / Return
+## Поведение
 
-- `UO.GetScriptName(ScriptIndex:Integer) -> String`
-  - **Return type:** `String`
-  - **Return contract:** String runtime value. Empty string may be a valid no-data/no-match result.
-  - **Runtime route:** `DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility["GetScriptName"]` → `BRIDGE CONTRACT -> IApiBridge.GetScriptName`
+- Учитываются выполняющиеся и приостановленные запуски; завершённые и получившие запрос отмены исключаются. Работающий скрипт обычно учитывает и себя. Просто загруженная вкладка IDE запуском не считается.
+- Индексы — текущие позиции в порядке запуска. Запуск/остановка скриптов могут сдвинуть позиции. Разные вызовы не образуют общий атомарный снимок; перед последующей командой управления перечитайте список.
+- Закрытие Basic IDE не удаляет активные запуски. Команды относятся к этому клиенту, а не к другим клиентам или процессам Windows.
+- GetScriptsList даёт индексы, GetScriptsCount — количество, GetScriptState — код из трёх состояний. Не подменяйте одно другим и не считайте любой ненулевой результат значением true.
+- ScriptIndex=0 — первый текущий запуск, не обязательно вызывающий скрипт. SetScriptName меняет отображаемое имя, не переименовывая файл.
 
-**Pascal compatibility signature:** `function GetScriptName(ScriptIndex: Word): String;`
+### Внутренние функции: от вызова до результата
 
-### Parameters
+Ниже указаны реальные методы клиента. В примерах Basic приведены полные вызываемые функции; имена внутренних методов C# не являются дополнительными командами скрипта.
 
-- `ScriptIndex` — Integer control/count/index value (runtime value); exact zero/sentinel meaning is documented by this command.
+#### 1. ExecuteStealthCompatibility
 
-### Accepted values / constants
+Runtime вызывает зарегистрированную UO-команду и упаковывает ответ моста как Integer, String или Array.
 
-- `ScriptIndex` — Numeric BASIC value. Exact range/clamping/sentinel values are stated in this card's parameter text and Behavior/Notes.
+String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может быть явно установлено в пустую строку.
 
-### Defaults / omitted arguments
+Исходник проекта: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; функция `ExecuteStealthCompatibility`.
 
-No parameters are optional unless the signature/Behavior explicitly states otherwise.
+#### 2. GetScriptName
 
-### Behavior
+Мост обращается к менеджеру запусков именно этого клиента.
 
-Operates on the active Basic/ClassicUO runtime, network or profile state through the registered implementation route.
+ScriptIndex=0 — первый текущий запуск, не обязательно вызывающий скрипт. SetScriptName меняет отображаемое имя, не переименовывая файл.
 
-### Notes / limitations
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `GetScriptName`.
 
-Use the exact registered overload and positional argument order. Server/world-dependent effects may complete asynchronously; validate state when the script depends on confirmation.
+#### 3. GetScriptName
 
-### Examples
+`ElementAt(RunningScripts(), index)?.Name ?? string.Empty`
 
-```basic
-SUB Main()
-    VAR result = UO.GetScriptName(0)
-END SUB
-```
+Индексы — текущие позиции в порядке запуска. Запуск/остановка скриптов могут сдвинуть позиции. Разные вызовы не образуют общий атомарный снимок; перед последующей командой управления перечитайте список.
 
----
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/YokoInjectionManager.cs`; функция `GetScriptName`.
 
-## Варианты использования
+Закрытие Basic IDE не удаляет активные запуски. Команды относятся к этому клиенту, а не к другим клиентам или процессам Windows.
 
-Это отдельные сценарии. Подставьте свои serial, пути и координаты; серверные действия зависят от текущего состояния игры.
 
-### Прямой вызов
+## Примеры
+
+### Пример 1. Первый вызов и результат
 
 ```vb
+# Первый вызов и результат
+#
+# Читает отображаемое имя активного запуска.
+#
+# String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может
+# быть явно установлено в пустую строку.
+
 SUB Main()
-    VAR result = UO.GetScriptName(0)
-    UO.Print(CStr(result))
+    # Запускайте Sub Main. Число 0, где оно передано, обозначает индекс; пустые скобки означают
+    # отсутствие аргументов. Текст Print — только сообщение примера.
+    # ScriptIndex=0 — первый текущий запуск, не обязательно вызывающий скрипт. SetScriptName меняет
+    # отображаемое имя, не переименовывая файл.
+    # String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может
+    # быть явно установлено в пустую строку.
+    # Обязательный ScriptIndex — целое число, индекс с нуля из свежего GetScriptsList. Для
+    # отрицательного или отсутствующего индекса возвращается описанный пустой/неизвестный результат.
+    # Не передавайте serial предмета, имя процедуры или ID запуска из IDE.
+
+    Dim index=0
+    Dim name=UO.GetScriptName(index)
+    UO.Print(name)
 END SUB
 ```
 
-### Явные аргументы и сохранение результата
+**Разбор параметров и выполнения:**
+
+- Запускайте Sub Main. Число 0, где оно передано, обозначает индекс; пустые скобки означают отсутствие аргументов. Текст Print — только сообщение примера.
+- ScriptIndex=0 — первый текущий запуск, не обязательно вызывающий скрипт. SetScriptName меняет отображаемое имя, не переименовывая файл.
+- String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может быть явно установлено в пустую строку.
+- Обязательный ScriptIndex — целое число, индекс с нуля из свежего GetScriptsList. Для отрицательного или отсутствующего индекса возвращается описанный пустой/неизвестный результат. Не передавайте serial предмета, имя процедуры или ID запуска из IDE.
+
+### Пример 2. Использование в цикле или условии
 
 ```vb
+# Использование в цикле или условии
+#
+# Читает отображаемое имя активного запуска.
+#
+# String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может
+# быть явно установлено в пустую строку.
+
 SUB Main()
-    VAR arg1 = 0 # ScriptIndex
-    VAR result = UO.GetScriptName(arg1)
-    UO.Print(CStr(result))
+    # Это отдельный пример совместного использования команд. Индексация массива начинается с нуля;
+    # перед обращением проверяйте длину. Wait(250), где он используется, ждёт 250 миллисекунд.
+    # ScriptIndex=0 — первый текущий запуск, не обязательно вызывающий скрипт. SetScriptName меняет
+    # отображаемое имя, не переименовывая файл.
+    # String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может
+    # быть явно установлено в пустую строку.
+    # Обязательный ScriptIndex — целое число, индекс с нуля из свежего GetScriptsList. Для
+    # отрицательного или отсутствующего индекса возвращается описанный пустой/неизвестный результат.
+    # Не передавайте serial предмета, имя процедуры или ID запуска из IDE.
+
+    Dim indices=UO.GetScriptsList()
+    For Each index In indices
+        Dim name=UO.GetScriptName(index)
+        UO.Print(CStr(index) & " = " & name)
+    Next
 END SUB
 ```
 
-### Получение результата внутри процедуры
+**Разбор параметров и выполнения:**
+
+- Это отдельный пример совместного использования команд. Индексация массива начинается с нуля; перед обращением проверяйте длину. Wait(250), где он используется, ждёт 250 миллисекунд.
+- ScriptIndex=0 — первый текущий запуск, не обязательно вызывающий скрипт. SetScriptName меняет отображаемое имя, не переименовывая файл.
+- String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может быть явно установлено в пустую строку.
+- Обязательный ScriptIndex — целое число, индекс с нуля из свежего GetScriptsList. Для отрицательного или отсутствующего индекса возвращается описанный пустой/неизвестный результат. Не передавайте serial предмета, имя процедуры или ID запуска из IDE.
+
+### Пример 3. Полная вспомогательная функция
 
 ```vb
-SUB ReadResult()
-    VAR arg1 = 0 # ScriptIndex
-    VAR result = UO.GetScriptName(arg1)
-    UO.Print(CStr(result))
-END SUB
+# Полная вспомогательная функция
+#
+# Читает отображаемое имя активного запуска.
+#
+# String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может
+# быть явно установлено в пустую строку.
 
 SUB Main()
-    ReadResult()
+    # Под Main приведена функция целиком. Её параметры и результат объясняются отдельно от
+    # API-команды, которую она вызывает.
+    # DescribeScript проверяет состояние и объединяет имя с путём. Между вызовами возможна
+    # остановка; "missing" — значение нашей функции, а не результат GetScriptName.
+    # String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может
+    # быть явно установлено в пустую строку.
+    # Обязательный ScriptIndex — целое число, индекс с нуля из свежего GetScriptsList. Для
+    # отрицательного или отсутствующего индекса возвращается описанный пустой/неизвестный результат.
+    # Не передавайте serial предмета, имя процедуры или ID запуска из IDE.
+
+    UO.Print(DescribeScript(0))
 END SUB
+
+Function DescribeScript(index) As String
+    If UO.GetScriptState(index)=0 Then
+        Return "missing"
+    End If
+    Return UO.GetScriptName(index) & " | " & UO.GetScriptPath(index)
+End Function
 ```
 
-## Реализация для проверки поведения
+**Разбор параметров и выполнения:**
 
-- `InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0`
+- Под Main приведена функция целиком. Её параметры и результат объясняются отдельно от API-команды, которую она вызывает.
+- DescribeScript проверяет состояние и объединяет имя с путём. Между вызовами возможна остановка; "missing" — значение нашей функции, а не результат GetScriptName.
+- String: отображаемое имя либо "", если индекса нет. У существующего запуска имя тоже может быть явно установлено в пустую строку.
+- Обязательный ScriptIndex — целое число, индекс с нуля из свежего GetScriptsList. Для отрицательного или отсутствующего индекса возвращается описанный пустой/неизвестный результат. Не передавайте serial предмета, имя процедуры или ID запуска из IDE.

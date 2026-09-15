@@ -16244,7 +16244,7 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "String",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"GetScriptName\"]",
@@ -16262,7 +16262,7 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "String",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"GetScriptPath\"]",
@@ -16275,7 +16275,7 @@
     {
       "name": "UO.GetScriptsCount",
       "parameters": [],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"GetScriptsCount\"]",
@@ -16287,7 +16287,7 @@
     {
       "name": "UO.GetScriptsList",
       "parameters": [],
-      "returns": "Any",
+      "returns": "Array",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"GetScriptsList\"]",
@@ -16304,7 +16304,7 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"GetScriptState\"]",
@@ -24885,7 +24885,7 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"StartScript\"]",

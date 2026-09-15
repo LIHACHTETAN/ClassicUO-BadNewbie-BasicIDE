@@ -798,6 +798,26 @@
       "sha256": "00cda0212cecdd2733bdbdac5e63a403bd0a1fce74aedc5d59422977e9a5a973"
     },
     {
+      "path": "de/UO.GetScriptName.md",
+      "sha256": "dc5cc7f3f84b8edf215c18862ae5a9665385e4f18089363c04513e79d48c773d"
+    },
+    {
+      "path": "de/UO.GetScriptPath.md",
+      "sha256": "68cfae1fc92b0710d7e42ce18a78fcff6d6e6a9788388c1635aaed3b6fa31453"
+    },
+    {
+      "path": "de/UO.GetScriptsCount.md",
+      "sha256": "3b2b92a14628413367bcd424fd2686461b2a321aa1e7c7fe77af9dde30b74bc0"
+    },
+    {
+      "path": "de/UO.GetScriptsList.md",
+      "sha256": "bb6650204de7a636890757e5a0ee2ee52642d2cec0ba64e0676916c3c2da48b7"
+    },
+    {
+      "path": "de/UO.GetScriptState.md",
+      "sha256": "8defd725485c111658da8c9232fad51192030e3c1447f77bed9bb2f83daf20f8"
+    },
+    {
       "path": "de/UO.GetSkillCap.md",
       "sha256": "4080b606767e2a418824b53d5c461858cd5c387dac370490490b811aaafa2417"
     },
@@ -1068,6 +1088,10 @@
     {
       "path": "de/UO.Stamina.md",
       "sha256": "b87a0e68b8d4b6047380f9954a6f46470425f52b20accef4c5aa304431751add"
+    },
+    {
+      "path": "de/UO.StartScript.md",
+      "sha256": "37c1471ff873302e4ebc746108e7631c85dd9d8e2f6c64fa2dcee48b7db5c110"
     },
     {
       "path": "de/UO.Str.md",
@@ -1614,6 +1638,26 @@
       "sha256": "fc86ec71308dadbdf4444f8a52055ea88d6bcbdc850dba48a9ae4212c5264a54"
     },
     {
+      "path": "en/UO.GetScriptName.md",
+      "sha256": "cc064997e62c2185b307a60f7ffe018b0dedea60eb9d8fba3b10b831943783df"
+    },
+    {
+      "path": "en/UO.GetScriptPath.md",
+      "sha256": "9aa2c2f0fbf01979554a72a508b5f977df28652622b7a2f30d783de537c2adfb"
+    },
+    {
+      "path": "en/UO.GetScriptsCount.md",
+      "sha256": "bf6cc92300f6998bc72db0283ffe868ef001e50b84d888dd58a0cb2a8ad548d0"
+    },
+    {
+      "path": "en/UO.GetScriptsList.md",
+      "sha256": "37a7beebe48e3b1e15f661e63c297a128fab68a8913111cf1c208972229e9fbe"
+    },
+    {
+      "path": "en/UO.GetScriptState.md",
+      "sha256": "81d491d5884cb356894bee45f689ee487ea7c93f80c7bedd5f9a0caca9635003"
+    },
+    {
       "path": "en/UO.GetSkillCap.md",
       "sha256": "777b204f19a19394139fbdf03a18e60853d7973abd229d84a9fb4e180c5fac2b"
     },
@@ -1884,6 +1928,10 @@
     {
       "path": "en/UO.Stamina.md",
       "sha256": "907ccdbdd48888c182ab34eff31bc1d44f32820c1a4d6a5535f0aa776207dd7e"
+    },
+    {
+      "path": "en/UO.StartScript.md",
+      "sha256": "9e781526f78223c96425884d9ba6709a4e47e093aad174d97cdf8231bb61da56"
     },
     {
       "path": "en/UO.Str.md",
@@ -2410,6 +2458,26 @@
       "sha256": "a6daec94ae14c30f86d281fe44c491cf12893f5f1eebe54ac58f54b8f41c99e2"
     },
     {
+      "path": "es/UO.GetScriptName.md",
+      "sha256": "f9e275c70895f2f5dabfdff7bf8a33affc70959a703872ae5686978d1e9ac653"
+    },
+    {
+      "path": "es/UO.GetScriptPath.md",
+      "sha256": "018c8b4aff2b1f42f65e715becb8221db9081445d447c4c0b3973b8298c7c103"
+    },
+    {
+      "path": "es/UO.GetScriptsCount.md",
+      "sha256": "15b09fce40b75155f2f33b4695624e533ea1ff92117dfda98e40c43ba8a5314e"
+    },
+    {
+      "path": "es/UO.GetScriptsList.md",
+      "sha256": "f57800c6b07850a77f87d65f48177fd9234401d5f34578c5528e4729473614c6"
+    },
+    {
+      "path": "es/UO.GetScriptState.md",
+      "sha256": "82b632dc18dd31494dad614e4d9bd472d4bb64a69fc88b538168c6549e1c3121"
+    },
+    {
       "path": "es/UO.GetSkillCap.md",
       "sha256": "8d46106b639c3028eee490cd2c53136e23288bf5ec0273a5c9638f4a53098ca1"
     },
@@ -2680,6 +2748,10 @@
     {
       "path": "es/UO.Stamina.md",
       "sha256": "d81f2fe171fbc31a4eed2dbc223607a611fe5beba6dd1df9c0ec9cbc4d1d54b5"
+    },
+    {
+      "path": "es/UO.StartScript.md",
+      "sha256": "03683183546ad370be5980e56baa162432fc42e1b0837d5f89bd76098d15683f"
     },
     {
       "path": "es/UO.Str.md",
@@ -3286,6 +3358,26 @@
       "sha256": "5e9b1a6778635a219997030254bd6fc8617e3d4f289dbaec6a24e6541e40534d"
     },
     {
+      "path": "fr/UO.GetScriptName.md",
+      "sha256": "886f786ff7abb3d45a5a5fb8c8884f50bb4ac2f1ab3e63425bfb65dbb60736bf"
+    },
+    {
+      "path": "fr/UO.GetScriptPath.md",
+      "sha256": "e6f602742323a7aedcd39c46d53d48233f270731aa2a77e64a2f51764bfecd6b"
+    },
+    {
+      "path": "fr/UO.GetScriptsCount.md",
+      "sha256": "002e6a9d8eeea9844d2bf79bce8418a30e7846476471631e08d1bb56bb441773"
+    },
+    {
+      "path": "fr/UO.GetScriptsList.md",
+      "sha256": "ed8414665f427efba268b6c5325de60d3f646967c5cfdb75e49e12ec9641498e"
+    },
+    {
+      "path": "fr/UO.GetScriptState.md",
+      "sha256": "f17e2044520bdd278f98fc2e6eea88e42c09aacab950736c3479341615ff2309"
+    },
+    {
       "path": "fr/UO.GetSkillCap.md",
       "sha256": "a454b8eba68fee1a514f4ff0e81c6adb803b16a1ee1464a33d603a081f2579c7"
     },
@@ -3558,6 +3650,10 @@
       "sha256": "746d0ea727b30f7f356914fab932bae25e83bc491aa812e40c6810a1eded1ed3"
     },
     {
+      "path": "fr/UO.StartScript.md",
+      "sha256": "f681f79191c1df93c099e41a56ba7bb429a5a3ab3a3b9dac544dbe15f41a5d86"
+    },
+    {
       "path": "fr/UO.Str.md",
       "sha256": "bc6a6b8a1c378a41d77d1720911713cb8bd06d2493985d0f3e640458be0b0eeb"
     },
@@ -3615,7 +3711,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "bc33d798bb60d4c9550e3a2ea822b16e6c8fafdf565b590ede52311ad763aafe"
+      "sha256": "7a3607f3e3da8141d7ceba43c8f9445176b876c4d5ab4adec99dbbf6f346dacd"
     },
     {
       "path": "InStr.md",
@@ -4146,6 +4242,26 @@
       "sha256": "b5006f13e4a172bc32afbf5f510bcfa170a3c1c3f4785d7dd23f8e583a5caa75"
     },
     {
+      "path": "it/UO.GetScriptName.md",
+      "sha256": "e926912e39e24c8372f148bbb18db6e49b30b47d0a76caef431a537e83b5adb2"
+    },
+    {
+      "path": "it/UO.GetScriptPath.md",
+      "sha256": "443b0fe2d3a02887648715b5bb398e963a6a81ad8eb2b74822a78dcf671a8162"
+    },
+    {
+      "path": "it/UO.GetScriptsCount.md",
+      "sha256": "5b20921531c16d3f61b2e95c245469f9e5f9e4b239c83299ffb518c9ea74972f"
+    },
+    {
+      "path": "it/UO.GetScriptsList.md",
+      "sha256": "fc8616c58d9afe86e5eb74df4f527077ce150c4f95f72b78f4b2663fe394e3ad"
+    },
+    {
+      "path": "it/UO.GetScriptState.md",
+      "sha256": "6253261a70ae102dfb9470cf7748f8f9e3d83bbdb257ce76ee584c7842733a09"
+    },
+    {
       "path": "it/UO.GetSkillCap.md",
       "sha256": "9a9a0ed83862fa900e0e6b7a9660fa1116cd7b21cb1f2baf7086938cafb55166"
     },
@@ -4416,6 +4532,10 @@
     {
       "path": "it/UO.Stamina.md",
       "sha256": "83966d372f59e779a72ac8d59141f1b87eec1b57ebb961df8a4291a4c505e69b"
+    },
+    {
+      "path": "it/UO.StartScript.md",
+      "sha256": "1348cb33c9b56dae706843d8281a01809fe0777123123c8a650391d62aed49be"
     },
     {
       "path": "it/UO.Str.md",
@@ -4942,6 +5062,26 @@
       "sha256": "0d26bb134dff7825afacbdec4e43ef96ba02230d7dc128b24db1150d579c903e"
     },
     {
+      "path": "ja/UO.GetScriptName.md",
+      "sha256": "d63a08be21cf18fc82a5923bb03e7478be5c21c0639a05ec0a2d7270e25b4640"
+    },
+    {
+      "path": "ja/UO.GetScriptPath.md",
+      "sha256": "95454c54b34d6a1eceed0d91989e2f29d4a6d85e1d4cd290ac26983b65bab154"
+    },
+    {
+      "path": "ja/UO.GetScriptsCount.md",
+      "sha256": "5f85293836ea26a7d2dfcc36e0485aacf2f4a8648737793eacfe042c08c56d7d"
+    },
+    {
+      "path": "ja/UO.GetScriptsList.md",
+      "sha256": "c3c6ffa4f6f12c514dccfe30a7c92eff8851c0d56e6340ef5fb86878df4ac2c3"
+    },
+    {
+      "path": "ja/UO.GetScriptState.md",
+      "sha256": "06472001fb59364afb966b9c6aee4f3ec67b1306a5cd1c3131ca668dc479a2c6"
+    },
+    {
       "path": "ja/UO.GetSkillCap.md",
       "sha256": "10c6e4165de7b9ef1669929da52cf68993b6162f81e952d2dbfca045801e96ae"
     },
@@ -5212,6 +5352,10 @@
     {
       "path": "ja/UO.Stamina.md",
       "sha256": "5e2b44a1a0e85064bdf34f1dee48dfc6a5a374d38f3cff85569188dd02f41585"
+    },
+    {
+      "path": "ja/UO.StartScript.md",
+      "sha256": "7230eff1a30ee73a83090b0835de4324714106d27b40ca55ee77c512096cea78"
     },
     {
       "path": "ja/UO.Str.md",
@@ -5766,6 +5910,26 @@
       "sha256": "0e33c13cc29b80225462c953422cac88e89d43ec9a86ae272b587efa3eb669c0"
     },
     {
+      "path": "ko/UO.GetScriptName.md",
+      "sha256": "389e305213ea4043cc5d2a4e594f04d80d0b2c7197dc4ba8ab527cdec15be337"
+    },
+    {
+      "path": "ko/UO.GetScriptPath.md",
+      "sha256": "9c7334af31dd6457ccf97db30017906c93b718755090d8039932de23809f51fe"
+    },
+    {
+      "path": "ko/UO.GetScriptsCount.md",
+      "sha256": "97bf7be5a66705461881f5e15ab29ed993eb9051a2423de29f34769a01ad03c2"
+    },
+    {
+      "path": "ko/UO.GetScriptsList.md",
+      "sha256": "770d912a3642dbd42d8d37912d1b5648a07aa15d3db550b3eaac8980d2ae7d15"
+    },
+    {
+      "path": "ko/UO.GetScriptState.md",
+      "sha256": "308b517973752b98b8a63806e45de31dc0a966ab37c0a043f277dfef8fb26af3"
+    },
+    {
       "path": "ko/UO.GetSkillCap.md",
       "sha256": "91666eb5f734988cb6388a93c164c24591e73c34269da8fe8a378247b32de33d"
     },
@@ -6036,6 +6200,10 @@
     {
       "path": "ko/UO.Stamina.md",
       "sha256": "82a9ddf9ec665c4973932daa1693746c0c522ca5b7b43c774ceb8a8192c8cd2c"
+    },
+    {
+      "path": "ko/UO.StartScript.md",
+      "sha256": "2ad8c2f817853cfcdf41ff31f19f94ba72a033803780282c554eb06f6454e10b"
     },
     {
       "path": "ko/UO.Str.md",
@@ -7250,6 +7418,26 @@
       "sha256": "e1084f10810a666ffc946945b3c9562495e99c5ca252c2df62fc4fc4253c7272"
     },
     {
+      "path": "ru/UO.GetScriptName.md",
+      "sha256": "fbab2133ff56a85e74339b75c1ef305110e69426cad6d275cb87b2c16507bee6"
+    },
+    {
+      "path": "ru/UO.GetScriptPath.md",
+      "sha256": "ccf5700a45f4184a1b16bfb97f1aa629dade7d26df0da0b166f3174b376157b4"
+    },
+    {
+      "path": "ru/UO.GetScriptsCount.md",
+      "sha256": "e3fe15b3a8025fa2b590fe43b7ae542320d32d4dac88089d4668cf7169ff1d87"
+    },
+    {
+      "path": "ru/UO.GetScriptsList.md",
+      "sha256": "5f70c9071cc534914114322d1bf01d9691f66d1b827ef52b53988afe73f3b09d"
+    },
+    {
+      "path": "ru/UO.GetScriptState.md",
+      "sha256": "36d5710f7dec6d61de7472978bfb2a7c0a7401c804e0119383469dbb4924e445"
+    },
+    {
       "path": "ru/UO.GetSerial.md",
       "sha256": "56352487c6ec2fcb32756179da6e9488f59012347069f57d1000379b77744864"
     },
@@ -7946,6 +8134,10 @@
       "sha256": "02f5fd707b4e0088baaf6cc7bf8cd6253ac45efe54664113bd64d9376d47a451"
     },
     {
+      "path": "ru/UO.StartScript.md",
+      "sha256": "74c01715b59ea3a1cc744f6545515e5fe0aa8eb938e8575a8a79ffa2a4ce51ce"
+    },
+    {
       "path": "ru/UO.Step.md",
       "sha256": "0d6d029613487493d55471cd7f68805bac0143df9dfdf09a5ecd4839d3525467"
     },
@@ -8071,7 +8263,7 @@
     },
     {
       "path": "runtime-api.json",
-      "sha256": "e21e0fb9eb16be8cd8f63ce249382937943beb4436e6f34af166301ab3767fcf"
+      "sha256": "0af6b810967b784f5b9fdbc5357d55803a7d7e82672b631ce61d8d0d5af2ac5b"
     },
     {
       "path": "self.md",
@@ -8686,6 +8878,26 @@
       "sha256": "6754083996bd2502c616318a0e7c8f94d4c7cb9c38ac500448aab5ac8cd83aff"
     },
     {
+      "path": "uk/UO.GetScriptName.md",
+      "sha256": "d0084a7f89ffa1a2ff64f7374bf6e32d62423be3f1a317e4f0c22ceb09a70a72"
+    },
+    {
+      "path": "uk/UO.GetScriptPath.md",
+      "sha256": "a5f01227efff961761c1f428b0fdce52400382ea52a492b4a4b73fb55d98da86"
+    },
+    {
+      "path": "uk/UO.GetScriptsCount.md",
+      "sha256": "c32d46a9b235ae194f491b5b8092080dc9335e21f326ff42355ca58cf2bf42c9"
+    },
+    {
+      "path": "uk/UO.GetScriptsList.md",
+      "sha256": "c6e6bb32193d16b8ef605a700bceb1fe7d1993d35d4cc7a1a940cda6ca28ae91"
+    },
+    {
+      "path": "uk/UO.GetScriptState.md",
+      "sha256": "14e9368afa4284742f7899a29f4bfa0464f1da94093d71468541e2f5a5ab2ded"
+    },
+    {
       "path": "uk/UO.GetSkillCap.md",
       "sha256": "b7f73e563e3567359c234f24195c22eeaa428ad36dd56776db106cf015aa122f"
     },
@@ -8956,6 +9168,10 @@
     {
       "path": "uk/UO.Stamina.md",
       "sha256": "0a2f00fd1c555b6dc10579189737af2a6692776055425b4b9fec72891a87cc93"
+    },
+    {
+      "path": "uk/UO.StartScript.md",
+      "sha256": "3638c9320d9a3570bcf85565fe59e8cb6e61d3cb39f42688e627e3921e61bb15"
     },
     {
       "path": "uk/UO.Str.md",
@@ -10203,23 +10419,23 @@
     },
     {
       "path": "UO.GetScriptName.md",
-      "sha256": "5b77290800615235549c2f53f8c2191b69c5be0cfdb56a4d82d684355b96a5e9"
+      "sha256": "2489846ed7c860e3f909feddf2a4b2340fd5965c7be65c0bc0ae20b2c6f4080e"
     },
     {
       "path": "UO.GetScriptPath.md",
-      "sha256": "1211209a3be7cc2b755ff78b02ade60c40fdfd5c58c05bd73dc3dbff60fff174"
+      "sha256": "231cc245f573de624da42d279ad67efbcf6910470360ee16418818da27ca3d99"
     },
     {
       "path": "UO.GetScriptsCount.md",
-      "sha256": "a08d1d6060d9ffb04e87350a174ddee336d4b82c7e97500b4bfc2ddf2cfb1190"
+      "sha256": "90fbc7fc4461810d0d10adb8cd8cba3a81f81323d18266b174593cbbd3eae7fb"
     },
     {
       "path": "UO.GetScriptsList.md",
-      "sha256": "f89a5140dd59388b68e62d6c728e0095cfe8bddce21e488541cb9187624a9180"
+      "sha256": "aa9036c8fee12d7fd590b1f1bd97bcfe2ccc45aa9a98138d59b2c38541dd591e"
     },
     {
       "path": "UO.GetScriptState.md",
-      "sha256": "34c8f4b549db26fdc50e52d0996bf24c9568cd13bc219b96f6e872883ba101d2"
+      "sha256": "c4a04babab96e621d2a43ea02beea45bef8a7476a0d38e25f71484c4515aca89"
     },
     {
       "path": "UO.GetSerial.md",
@@ -11535,7 +11751,7 @@
     },
     {
       "path": "UO.StartScript.md",
-      "sha256": "de001456d444d0e33865b973ffb1c2d7691d49a7fbabff37b0665a2abb390819"
+      "sha256": "af17d0444d2488583d8d640f82cf33f184eeb1cc0b4052662e6126221cc14339"
     },
     {
       "path": "UO.StealthCnt.md",
@@ -12470,6 +12686,26 @@
       "sha256": "2a2405d6b91dcda51b335f565e10e3fff9e5607048dacea76f4c5b01ae6183fc"
     },
     {
+      "path": "zh-tw/UO.GetScriptName.md",
+      "sha256": "4c7c1bfc71e8656572fa5c61b6c6022215a80f49a617519bd8c770e94c73c0e8"
+    },
+    {
+      "path": "zh-tw/UO.GetScriptPath.md",
+      "sha256": "f0f965bf0eac9932427ff5d7e55e41148194ed383ec50f134e2fafcdac176818"
+    },
+    {
+      "path": "zh-tw/UO.GetScriptsCount.md",
+      "sha256": "0bba3699ae8c740a853aad7337e20b5152bc81cf3d4bb95cb7d99f908cdb172c"
+    },
+    {
+      "path": "zh-tw/UO.GetScriptsList.md",
+      "sha256": "125d0aaa1bf991795a887fbc0e7637d81c7e328e74c6b4e7f1f6f49e8a431923"
+    },
+    {
+      "path": "zh-tw/UO.GetScriptState.md",
+      "sha256": "6383c1672458c0ca971e1e53d9035ffa670057fb20402ffdaf23dd8a2491e51c"
+    },
+    {
       "path": "zh-tw/UO.GetSkillCap.md",
       "sha256": "9ab71120e86f8e2327a0af3f9d41f8c6eb2a2e77d0d33e9f51d66e959cd96ddc"
     },
@@ -12740,6 +12976,10 @@
     {
       "path": "zh-tw/UO.Stamina.md",
       "sha256": "04704685a12ad466ec565915275b932aa99298de23ced8e5748e0c72ab117c72"
+    },
+    {
+      "path": "zh-tw/UO.StartScript.md",
+      "sha256": "c979b85a0e7b3c392597f16bd915e2f24ccb1784507b443a47f92588a044906e"
     },
     {
       "path": "zh-tw/UO.Str.md",
