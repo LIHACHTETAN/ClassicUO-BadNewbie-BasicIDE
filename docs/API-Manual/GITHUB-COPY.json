@@ -658,6 +658,10 @@
       "sha256": "f028753a3021bbb86235d399ddbf238fd06c88ce991005031396a5f389a4c1fc"
     },
     {
+      "path": "de/UO.FindAtCoord.md",
+      "sha256": "0e970166be0875a0402e13be3c9d913ebe807dfab8f62f4532c63cc43d126e31"
+    },
+    {
       "path": "de/UO.FindCount.md",
       "sha256": "743f6cb12b6d60463b8570bed4657bd07bf46f9add010359d96459684932a8b6"
     },
@@ -1538,6 +1542,10 @@
       "sha256": "e6076c53a20891c91fba27a4d691f33d8fdf81a760ec6c87ea66c7a3ed246e7c"
     },
     {
+      "path": "en/UO.FindAtCoord.md",
+      "sha256": "4f808dee69e732b04bf306d5a305a40f9931d08ef2a40f8b030291601302cb23"
+    },
+    {
       "path": "en/UO.FindCount.md",
       "sha256": "f9ebd81037675934a54bf2c569bc120a1cfc981bc88084134eb2940a95d74f9f"
     },
@@ -2396,6 +2404,10 @@
     {
       "path": "es/UO.EnergyResist.md",
       "sha256": "4ef93247b7de5e066efdfb0e606447448b13d6e6c5ea6cea01de16fa3fb02a7f"
+    },
+    {
+      "path": "es/UO.FindAtCoord.md",
+      "sha256": "c262516fef9b58410cbe6a6c7bc516845d98fffc9a29f0daf4cf76b13579fef0"
     },
     {
       "path": "es/UO.FindCount.md",
@@ -3362,6 +3374,10 @@
       "sha256": "caa6b789cd7ef8b0d9818e9cf63293e946d991b6961073c901f8adc9ab95ce12"
     },
     {
+      "path": "fr/UO.FindAtCoord.md",
+      "sha256": "f027c1102343f6db549c3510dd68e88b6d86e60563dab6792121c186923b6eb2"
+    },
+    {
       "path": "fr/UO.FindCount.md",
       "sha256": "c90b8157665509ae76fc307236302719851ec063756403607a84675c47741a3a"
     },
@@ -3927,7 +3943,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "a54a11e2ebe088a177ef7c58cbe196ecc6dc292f041b15e0c62cc8195889bcd4"
+      "sha256": "74a3e27b212cce04dce99ad703c9373071d33d86bad9c200f2e69cc20a1a96d2"
     },
     {
       "path": "InStr.md",
@@ -4284,6 +4300,10 @@
     {
       "path": "it/UO.EnergyResist.md",
       "sha256": "d518e055c95bf5c04a3920a38ac15d802236330ce919ea7ab13c7ef96967d0c5"
+    },
+    {
+      "path": "it/UO.FindAtCoord.md",
+      "sha256": "2dd8ed5c15a76d7b79b18159876c67c8c7d61b26428ac9fbd2eba2696786fb7e"
     },
     {
       "path": "it/UO.FindCount.md",
@@ -5144,6 +5164,10 @@
     {
       "path": "ja/UO.EnergyResist.md",
       "sha256": "c84c5a25e389a4f154ceb4724791032415802e45bfbc28c919079699d01085ad"
+    },
+    {
+      "path": "ja/UO.FindAtCoord.md",
+      "sha256": "109d8b2305864357ba6059b25df27af2b68dd7844fa322a54477b6ce2a202fd3"
     },
     {
       "path": "ja/UO.FindCount.md",
@@ -6032,6 +6056,10 @@
     {
       "path": "ko/UO.EnergyResist.md",
       "sha256": "782c2ba50198a30d5080e019183b95a1126afe34d446122b6983d0503dde8de4"
+    },
+    {
+      "path": "ko/UO.FindAtCoord.md",
+      "sha256": "cbef32a901b68630cbc6b3c66d3d81abe744ad296a8016831360ec528acf51ef"
     },
     {
       "path": "ko/UO.FindCount.md",
@@ -7350,6 +7378,10 @@
       "sha256": "5f9111ec62195bc0512aebcbee7c0ee27d878559b90b647563df3f12b533ddab"
     },
     {
+      "path": "ru/UO.FindAtCoord.md",
+      "sha256": "c11f7afe7bf7d2de1169fdcebabd45783cad78cd3193a1cfab74a41cc902194f"
+    },
+    {
       "path": "ru/UO.FindCount.md",
       "sha256": "d5ac023dd08082af4bc68fe195ae925c38cbce28d537bf732d95f0df85e816d3"
     },
@@ -8639,7 +8671,7 @@
     },
     {
       "path": "runtime-api.json",
-      "sha256": "7dc02f6ed7bae317bf6725ad62383becb353dbe6eda8b8300682de1f356dafca"
+      "sha256": "755b85ca2a53e5c6da7e5e407a89b65d5feffef4f830b4a466b7afec27f938e5"
     },
     {
       "path": "self.md",
@@ -9080,6 +9112,10 @@
     {
       "path": "uk/UO.EnergyResist.md",
       "sha256": "005452cd3fe0a2cf11fbb252219d77ac99a31957aa13e968b5a07e962ede78b5"
+    },
+    {
+      "path": "uk/UO.FindAtCoord.md",
+      "sha256": "335c31eb6ea7f2799b3dd1bbaeae3044bde42bb97520d586f6067842663488af"
     },
     {
       "path": "uk/UO.FindCount.md",
@@ -10243,7 +10279,7 @@
     },
     {
       "path": "UO.FindAtCoord.md",
-      "sha256": "2dfce7ce9128dd6dc9bfb44bdace05bcad37f39f1d6fa71c44c69e4c7f61f517"
+      "sha256": "25ca4d136a1a57ab0994b4eecea598c7a42921ab56cd968b4e0e9027dd6934f7"
     },
     {
       "path": "UO.FindByNotoriety.md",
@@ -12928,6 +12964,10 @@
     {
       "path": "zh-tw/UO.EnergyResist.md",
       "sha256": "2365dc807da70a32b1b2f0b73eee686262eccf60e832251b397bdc540703bcf7"
+    },
+    {
+      "path": "zh-tw/UO.FindAtCoord.md",
+      "sha256": "deb2286693dde44fda6c1190368072c12243f44e1c1356e5ab9fa1d0356c60bb"
     },
     {
       "path": "zh-tw/UO.FindCount.md",

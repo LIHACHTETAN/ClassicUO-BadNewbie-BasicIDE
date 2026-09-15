@@ -8436,7 +8436,7 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"FindAtCoord\"]",
