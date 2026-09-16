@@ -54,6 +54,7 @@
 - [Using / End Using](Basic.Using.md)
 - [AddressOf / callbacks](Basic.Callbacks.md)
 - [Event / AddHandler / RemoveHandler / RaiseEvent](Basic.Events.md)
+- [AddHandler UO.JournalEntry / client events](Basic.GameEvents.md)
 - [CreateTimer / script timers](Basic.Timers.md)
 - [Structure / New / fields](Basic.Structure.md)
 - [Declare / Lib / Alias](Basic.Declare.md)

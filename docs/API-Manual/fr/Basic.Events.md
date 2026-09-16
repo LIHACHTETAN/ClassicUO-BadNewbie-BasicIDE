@@ -36,7 +36,7 @@ Event, AddHandler, RemoveHandler et RaiseEvent ne renvoient rien (Unit), ni Bool
 - AddHandler ajoute à la fin ; les doublons répètent la Sub. RemoveHandler retire sa dernière occurrence ; sans correspondance, il ne fait rien. Le moteur vérifie déclaration, accès et signature, évalue les arguments, puis fige la liste ordonnée. Les modifications d’inscriptions faites par un gestionnaire prennent effet au RaiseEvent suivant.
 - Une erreur interrompt les gestionnaires restants et arrive au Catch/Finally appelant. Les changements ByRef antérieurs sont recopiés. Pause et arrêt d’urgence restent actifs ; Catch n’intercepte pas cet arrêt. Aucun thread supplémentaire. Les appels natifs bloquants gardent leurs limites d’annulation.
 - Limites : 4096 inscriptions par événement, 16 RaiseEvent imbriqués et 32 cadres de procédures. Les cycles/récursions profondes donnent une erreur de script interceptable au lieu de faire déborder la pile du client. Utilisez une boucle pour un traitement profond. Placez les scalaires partagés dans Module ; les anciens scalaires du fichier restent hérités par copie.
-- Ces événements sont déclarés et déclenchés explicitement par votre script, sans abonnement automatique aux paquets du jeu ou au journal. Handles, WithEvents, Custom Event, types de délégués d’événement et événements de classe ne sont pas implémentés ici. Les mots Basic sont sans UO.; les commandes du jeu gardent UO.
+- Les événements déclarés par le script nécessitent toujours RaiseEvent. Les abonnements automatiques au journal, aux ressources et à la connexion utilisent les événements client UO. décrits dans Basic.GameEvents. Handles, WithEvents, Custom Event, types délégués et événements de classe restent non pris en charge.
 
 ## Exemples
 

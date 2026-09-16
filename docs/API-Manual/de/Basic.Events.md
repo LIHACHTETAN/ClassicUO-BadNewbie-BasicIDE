@@ -36,7 +36,7 @@ Event, AddHandler, RemoveHandler und RaiseEvent liefern keinen Wert (Unit), wede
 - AddHandler hängt an; doppelte Anmeldung ruft dieselbe Sub mehrfach auf. RemoveHandler entfernt ihr letztes Vorkommen, bei fehlendem Treffer passiert nichts. Nach Prüfung von Deklaration, Zugriff und Signatur werden Argumente ausgewertet und die geordnete Handlerliste fixiert. Änderungen während eines Aufrufs gelten beim nächsten RaiseEvent.
 - Ein Handlerfehler beendet die aktuelle Folge und erreicht Catch/Finally des Aufrufers. Vorherige ByRef-Änderungen werden zurückgeschrieben. Pause und Notstopp gelten im Handler; Catch verschluckt den Notstopp nicht. Kein neuer Thread entsteht. Blockierende native Aufrufe behalten ihre Abbruchbeschränkungen.
 - Grenzen: 4096 Anmeldungen pro Ereignis, 16 verschachtelte RaiseEvent-Aufrufe, 32 Skriptprozedurrahmen. Zyklen/tiefe Rekursion erzeugen einen abfangbaren Skriptfehler statt eines Client-Stacküberlaufs. Für tiefe Verarbeitung Schleifen verwenden. Gemeinsame Skalare in Module-Feldern speichern; ältere Dateiskalare werden weiterhin als Kopien geerbt.
-- Dies sind ausdrücklich vom Skript ausgelöste Ereignisse. Keine automatische Anmeldung an Spielpakete oder Journaländerungen. Handles, WithEvents, Custom Event, Ereignisdelegattypen und Klassenereignisse sind hier nicht implementiert. Basic-Schlüsselwörter ohne UO.; Spielbefehle mit UO.
+- Skripteigene Ereignisse benötigen weiterhin RaiseEvent. Automatische Journal-, Ressourcen- und Verbindungsabonnements verwenden die Client-Ereignisse UO. aus Basic.GameEvents. Handles, WithEvents, Custom Event, Ereignisdelegattypen und Klassenereignisse bleiben ununterstützt.
 
 ## Beispiele
 

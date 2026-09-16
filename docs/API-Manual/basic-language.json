@@ -1271,6 +1271,40 @@
       ]
     },
     {
+      "id": "Basic.GameEvents",
+      "name": "AddHandler UO.JournalEntry / client events",
+      "signatures": [
+        "AddHandler UO.JournalEntry, AddressOf OnJournal",
+        "Sub OnJournal(ByVal text As String, ByVal serial As Integer, ByVal name As String, ByVal hue As Integer)",
+        "AddHandler UO.HitPointsChanged, AddressOf OnHits",
+        "AddHandler UO.ManaChanged, AddressOf OnMana",
+        "AddHandler UO.StaminaChanged, AddressOf OnStamina",
+        "Sub OnHits(ByVal current As Integer, ByVal previous As Integer)",
+        "Sub OnMana(ByVal current As Integer, ByVal previous As Integer)",
+        "Sub OnStamina(ByVal current As Integer, ByVal previous As Integer)",
+        "AddHandler UO.ConnectionChanged, AddressOf OnConnection",
+        "Sub OnConnection(ByVal online As Boolean)",
+        "RemoveHandler UO.JournalEntry, AddressOf OnJournal"
+      ],
+      "descriptions": {
+        "en": "Subscribe to new journal entries, player resource changes and connection changes with AddHandler. These UO. names are events, not functions; do not call them or use RaiseEvent on them.",
+        "ru": "AddHandler автоматически подключает обработчик новых сообщений журнала, изменения ресурсов персонажа и подключения. Имена UO. здесь обозначают события, а не функции: вызывать их со скобками или через RaiseEvent нельзя.",
+        "uk": "AddHandler підключає обробник нових записів журналу, зміни ресурсів персонажа та підключення. Імена UO. тут є подіями, а не функціями: їх не можна викликати через дужки чи RaiseEvent.",
+        "fr": "AddHandler abonne un gestionnaire aux nouvelles entrées du journal, aux ressources du personnage et aux changements de connexion. Ces noms UO. désignent des événements, pas des fonctions. Ne les appelez pas avec RaiseEvent.",
+        "de": "AddHandler abonniert neue Journaleinträge, Ressourcenänderungen des Spielers und Verbindungsänderungen. Die UO.-Namen sind Ereignisse, keine aufrufbaren Funktionen. RaiseEvent ist dafür unzulässig.",
+        "it": "AddHandler collega una Sub ai nuovi messaggi del diario, alle risorse del personaggio e ai cambiamenti della connessione. Questi nomi UO. sono eventi, non funzioni: non invocarli con RaiseEvent.",
+        "es": "AddHandler suscribe una Sub a nuevas entradas del diario, cambios de recursos y conexión. Estos nombres UO. son eventos, no funciones; no se pueden invocar mediante RaiseEvent.",
+        "zh-tw": "AddHandler 可訂閱新的日誌訊息、角色資源與連線狀態變化。這些 UO. 名稱是事件而不是函式，不可加括號呼叫或使用 RaiseEvent 觸發。",
+        "ja": "AddHandler で新しいジャーナル行、キャラクターの資源、接続状態の変化を購読します。これらの UO. 名はイベントであり関数ではありません。括弧で呼び出したり RaiseEvent で発生させたりできません。",
+        "ko": "AddHandler로 새 저널 항목, 캐릭터 자원 및 연결 상태 변화를 구독합니다. 이 UO. 이름은 함수가 아닌 이벤트이므로 괄호로 호출하거나 RaiseEvent로 발생시킬 수 없습니다."
+      },
+      "examples": [
+        "Option Explicit On\nModule State\n    Public Dim matched As Boolean = False\n    Public Dim message As String = \"\"\nEnd Module\n\nFunction IsReadyMessage(ByVal text As String) As Boolean\n    Return InStr(text, \"ready: ore\") > 0\nEnd Function\n\nSub OnJournal(ByVal text As String, ByVal serial As Integer, ByVal name As String, ByVal hue As Integer)\n    If IsReadyMessage(text) Then\n        State.message = text\n        State.matched = True\n    End If\nEnd Sub\n\nSub Main()\n    AddHandler UO.JournalEntry, AddressOf OnJournal\n    Try\n        UO.AddToJournal(\"ready: ore\")\n        Wait Until State.matched Timeout 5000\n    Finally\n        RemoveHandler UO.JournalEntry, AddressOf OnJournal\n    End Try\n    Return State.message\nEnd Sub\n",
+        "Option Explicit On\nModule State\n    Public Dim changes As Integer = 0\n    Public Dim last As String = \"\"\nEnd Module\n\nSub Remember(ByVal label As String, ByVal current As Integer, ByVal previous As Integer)\n    State.changes += 1\n    State.last = label & \":\" & CStr(current) & \":\" & CStr(previous)\nEnd Sub\n\nSub OnHits(ByVal current As Integer, ByVal previous As Integer)\n    Remember(\"HP\", current, previous)\nEnd Sub\n\nSub OnMana(ByVal current As Integer, ByVal previous As Integer)\n    Remember(\"MP\", current, previous)\nEnd Sub\n\nSub OnStamina(ByVal current As Integer, ByVal previous As Integer)\n    Remember(\"SP\", current, previous)\nEnd Sub\n\nSub Main()\n    AddHandler UO.HitPointsChanged, AddressOf OnHits\n    AddHandler UO.ManaChanged, AddressOf OnMana\n    AddHandler UO.StaminaChanged, AddressOf OnStamina\n    Try\n        Wait(250)\n        Wait Until State.changes > 0 Timeout 5000\n    Finally\n        RemoveHandler UO.HitPointsChanged, AddressOf OnHits\n        RemoveHandler UO.ManaChanged, AddressOf OnMana\n        RemoveHandler UO.StaminaChanged, AddressOf OnStamina\n    End Try\n    Return State.last\nEnd Sub\n",
+        "Option Explicit On\nModule State\n    Public Dim changes As Integer = 0\n    Public Dim online As Boolean = False\nEnd Module\n\nSub OnConnection(ByVal online As Boolean)\n    State.online = online\n    State.changes += 1\nEnd Sub\n\nSub Main()\n    AddHandler UO.ConnectionChanged, AddressOf OnConnection\n    Try\n        Wait(1000)\n    Finally\n        RemoveHandler UO.ConnectionChanged, AddressOf OnConnection\n    End Try\n    Return State.changes\nEnd Sub\n"
+      ]
+    },
+    {
       "id": "Basic.Timers",
       "name": "CreateTimer / script timers",
       "signatures": [

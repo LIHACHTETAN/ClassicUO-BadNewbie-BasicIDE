@@ -36,7 +36,7 @@ Event、AddHandler、RemoveHandler、RaiseEvent 不回傳值（Unit），不是 
 - AddHandler 附加於尾端；重複註冊會重複呼叫同一 Sub。RemoveHandler 刪除最後一個相符 Sub，沒有相符項目則不變。引擎先檢查宣告、存取及簽章，再求值引數並固定有序處理程序清單。處理中修改訂閱只影響下一次 RaiseEvent。
 - 處理程序出錯會停止本次其餘呼叫，錯誤傳至呼叫端 Catch/Finally；已發生的 ByRef 變更仍寫回。暫停及緊急停止在處理程序內同樣有效，Catch 不會吞掉緊急停止。不建立新執行緒；阻塞的原生呼叫仍受其自身取消限制。
 - 限制：每個事件 4096 個訂閱、16 層 RaiseEvent、32 層腳本程序框架。事件循環或過深遞迴產生可攔截的腳本錯誤，不讓用戶端堆疊溢位；深度處理請用迴圈。共用純量放在 Module 欄位；舊版檔案層級純量仍以複本繼承。
-- 這些事件由腳本宣告並明確觸發，不會自動訂閱遊戲封包或日誌變更。此實作不含 Handles、WithEvents、Custom Event、事件委派型別或類別事件。Basic 關鍵字不加 UO.；遊戲 API 保留 UO.。
+- 腳本宣告的事件仍需明確 RaiseEvent。自動日誌、資源與連線訂閱使用 Basic.GameEvents 說明的客戶端 UO. 事件。仍不支援 Handles、WithEvents、Custom Event、事件委派型別及類別事件。
 
 ## 範例
 

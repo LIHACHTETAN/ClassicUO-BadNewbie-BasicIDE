@@ -36,7 +36,7 @@ Event, AddHandler, RemoveHandler y RaiseEvent no devuelven un valor (Unit): ni B
 - AddHandler añade al final; las suscripciones duplicadas repiten la Sub. RemoveHandler elimina su última aparición; si no existe, no hace nada. El motor comprueba declaración, acceso y firma, evalúa argumentos y fija una lista ordenada. Cambios de suscripciones durante un controlador afectan al siguiente RaiseEvent.
 - Un error detiene los controladores restantes y llega al Catch/Finally del llamante. Los cambios ByRef anteriores se copian de vuelta. Pausa y parada de emergencia funcionan dentro del controlador; Catch no absorbe la parada. No crea hilos nuevos. Las llamadas nativas bloqueantes conservan sus límites de cancelación.
 - Límites: 4096 suscripciones por evento, 16 RaiseEvent anidados y 32 marcos de procedimientos. Los ciclos y la recursión profunda producen un error de script capturable en vez de agotar la pila del cliente. Use bucles para procesamiento profundo. Los escalares compartidos van en campos Module; los antiguos escalares de archivo siguen heredándose como copias.
-- Son eventos declarados y activados explícitamente por su script, sin suscripción automática a paquetes del juego o cambios del diario. Handles, WithEvents, Custom Event, tipos de delegados de eventos y eventos de clases no están implementados aquí. Palabras Basic sin UO.; comandos del juego con UO.
+- Los eventos declarados por el script siguen necesitando RaiseEvent. Las suscripciones automáticas a diario, recursos y conexión usan los eventos del cliente UO. descritos en Basic.GameEvents. Handles, WithEvents, Custom Event, tipos delegado de eventos y eventos de clase siguen sin admitirse.
 
 ## Ejemplos
 
