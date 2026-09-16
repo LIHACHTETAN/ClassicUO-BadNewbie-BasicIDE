@@ -1,92 +1,144 @@
 # UO.TradeContainer
 
-ClassicUO • Runtime API • `UO.TradeContainer.md`
+ClassicUO • Runtime API
 
-## Точный синтаксис / Registered signatures
+<!-- yoko-manual: 1 -->
+
+Возвращает serial своего контейнера обмена как hex-строку.
+
+## Точный синтаксис
 
 ```text
 UO.TradeContainer(windowIndex:Any) -> String
 ```
 
-Порядок аргументов соответствует строкам выше. `Unit` означает отсутствие возвращаемого значения. `Any` — значение BASIC с преобразованием при вызове. Имена нечувствительны к регистру.
+Выберите одну из зарегистрированных форм. Параметры передаются позиционно. Any означает значение BASIC с преобразованием внутри команды; Unit — отсутствие возвращаемого значения.
 
-## `UO.TradeContainer`
+## Параметры
 
-### Direct runtime overloads
+- `windowIndex` — Целое число: текущий индекс окна от 0 до TradeCount()-1. Отрицательный или отсутствующий индекс даёт пустой результат. Это не serial.
 
-- `UO.TradeContainer(windowIndex:Integer) -> String`
-  - **Return type:** `String`
-  - **Return contract:** String runtime value. Empty string may be a valid no-data/no-match result.
+## Возвращает
 
-### Parameters
+String: hex вида "0x40000011"; "0x00000000" при отсутствии окна. Это ID своего контейнера, не Boolean и не пустая строка.
 
-- `windowIndex` — Integer control/count/index value (Integer); exact zero/sentinel meaning is documented by this command.
+## Поведение
 
-### Accepted values / constants
+- GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade нумеруют окна с 1; TradeContainer/TradeOpponent/TradeName и все формы TradeCheck — с 0. Это явная совместимость данного клиента: внешние справочники разных движков используют разные начала отсчёта.
+- Чтение выполняется на игровом потоке по живым окнам текущего мира. Закрытые окна не считаются. Вызовы чтения не отправляют пакетов и не ждут ответа. Порядок UI может меняться при открытии, закрытии и переносе окна наверх; номер не является постоянным идентификатором.
+- ConfirmTrade и запись своего TradeCheck отправляют пакет только при изменении согласия. Чужое согласие задаёт сервер. CancelTrade отправляет отмену один раз. 1/TRUE — локальное состояние/обработка, а не гарантия завершения обмена. Имена и оба согласия не доказывают, что состав предметов не изменился.
 
-- `windowIndex` — Numeric BASIC value. Exact range/clamping/sentinel values are stated in this card's parameter text and Behavior/Notes.
+### Внутренние функции: от вызова до результата
 
-### Defaults / omitted arguments
+Ниже — путь вызова в C#. После него приведены исполняемые Basic-примеры; это не попытка заново реализовать сетевой протокол в скрипте.
 
-No parameters are optional unless the signature/Behavior explicitly states otherwise.
+#### 1. TradeContainer
 
-### Behavior
+Регистрация выбирает форму по числу аргументов; числа преобразуются через NumberConversions. Для TradeCheck с двумя аргументами стороны 1/2 проверяются и переводятся в 0/1 bridge. Legacy-serial форматируется через ToHex.
 
-Reads or mutates the current ClassicUO item/equipment state through the registered runtime route and client action queue.
+String: hex вида "0x40000011"; "0x00000000" при отсутствии окна. Это ID своего контейнера, не Boolean и не пустая строка.
 
-### Notes / limitations
+Исходник проекта: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; функция `TradeContainer`.
 
-Use the exact registered overload and positional argument order. Server/world-dependent effects may complete asynchronously; validate state when the script depends on confirmation.
+#### 2. TradeContainer
 
-### Examples
+Invoke передаёт чтение/изменение на игровой поток с отменой скрипта; метод читает ID1/ID2, LocalSerial, OpponentName или флажки выбранного TradingGump.
 
-```basic
+Возвращает serial своего контейнера обмена как hex-строку.
+
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `TradeContainer`.
+
+#### 3. FindTrade
+
+FindNumberedTrade проверяет number>0 до вычитания 1; FindTrade отклоняет отрицательный индекс и перечисляет только незакрытые TradingGump текущего World.
+
+GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade нумеруют окна с 1; TradeContainer/TradeOpponent/TradeName и все формы TradeCheck — с 0. Это явная совместимость данного клиента: внешние справочники разных движков используют разные начала отсчёта.
+
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `FindTrade`.
+
+Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
+
+
+## Примеры
+
+### Пример 1. Прямое чтение или действие
+
+```vb
+# Прямое чтение или действие
+#
+# Возвращает serial своего контейнера обмена как hex-строку.
+#
+# String: hex вида "0x40000011"; "0x00000000" при отсутствии окна. Это ID своего контейнера, не
+# Boolean и не пустая строка.
+
 SUB Main()
-    VAR result = UO.TradeContainer(0)
+    # Вызов сделан один раз, результат сохранён в value/result. 0 — первый индекс, 1 — первый номер
+    # (см. синтаксис этой команды). HEX показывает числовой serial; CStr — число или строку.
+
+    VAR value = UO.TradeContainer(0)
+    UO.Print(CStr(value))
 END SUB
 ```
 
----
+**Разбор параметров и выполнения:**
 
-## Варианты использования
+- Вызов сделан один раз, результат сохранён в value/result. 0 — первый индекс, 1 — первый номер (см. синтаксис этой команды). HEX показывает числовой serial; CStr — число или строку.
 
-Это отдельные сценарии. Подставьте свои serial, пути и координаты; серверные действия зависят от текущего состояния игры.
-
-### Прямой вызов
+### Пример 2. Другой сценарий и параметры
 
 ```vb
+# Другой сценарий и параметры
+#
+# Возвращает serial своего контейнера обмена как hex-строку.
+#
+# String: hex вида "0x40000011"; "0x00000000" при отсутствии окна. Это ID своего контейнера, не
+# Boolean и не пустая строка.
+
 SUB Main()
-    VAR result = UO.TradeContainer(0)
-    UO.Print(CStr(result))
+    # total — снимок числа окон; index — текущий индекс/номер. Пример перебора ничего не
+    # подтверждает. В GetTradeContainer два вызова читают свой контейнер (1) и чужой (2) первого
+    # окна (1).
+
+    VAR total = UO.TradeCount()
+    FOR VAR index = 0 TO total - 1
+        VAR value = UO.TradeContainer(index)
+        UO.Print(CStr(index) + ": " + CStr(value))
+    NEXT
 END SUB
 ```
 
-### Обработка пустого текста
+**Разбор параметров и выполнения:**
+
+- total — снимок числа окон; index — текущий индекс/номер. Пример перебора ничего не подтверждает. В GetTradeContainer два вызова читают свой контейнер (1) и чужой (2) первого окна (1).
+
+### Пример 3. Полный помощник со всеми функциями
 
 ```vb
+# Полный помощник со всеми функциями
+#
+# Возвращает serial своего контейнера обмена как hex-строку.
+#
+# String: hex вида "0x40000011"; "0x00000000" при отсутствии окна. Это ID своего контейнера, не
+# Boolean и не пустая строка.
+
 SUB Main()
-    VAR arg1 = 0 # windowIndex
-    VAR result = UO.TradeContainer(arg1)
-    IF len(result) > 0 THEN
-        UO.Print(result)
-    ELSE
-        UO.Print('Empty')
+    # Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают
+    # риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия
+    # expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
+
+    VAR value = ReadTradeValue(0)
+    UO.Print(CStr(value))
+END SUB
+
+FUNCTION ReadTradeValue(index)
+    VAR total = UO.TradeCount()
+    IF index < 0 OR index >= total + 0 THEN
+        RETURN "0x00000000"
     END IF
-END SUB
+    RETURN UO.TradeContainer(index)
+END FUNCTION
 ```
 
-### Поиск текста в результате
+**Разбор параметров и выполнения:**
 
-```vb
-SUB Main()
-    VAR arg1 = 0 # windowIndex
-    VAR result = UO.TradeContainer(arg1)
-    IF contains(LCase(result), 'example') THEN
-        UO.Print('Match')
-    END IF
-END SUB
-```
-
-## Реализация для проверки поведения
-
-- `InjectionScript.Runtime.InjectionApiUO.TradeContainer`
+- Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.

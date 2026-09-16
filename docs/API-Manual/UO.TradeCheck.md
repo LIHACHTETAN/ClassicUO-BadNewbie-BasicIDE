@@ -1,8 +1,12 @@
 # UO.TradeCheck
 
-ClassicUO • Runtime API • `UO.TradeCheck.md`
+ClassicUO • Runtime API
 
-## Точный синтаксис / Registered signatures
+<!-- yoko-manual: 1 -->
+
+Читает флажки согласия; трёхпараметровая форма также изменяет собственный флажок.
+
+## Точный синтаксис
 
 ```text
 UO.TradeCheck(TradeNum:Any, Num:Any) -> Any
@@ -10,147 +14,170 @@ UO.TradeCheck(windowIndex:Any) -> Integer
 UO.TradeCheck(windowIndex:Any, checkbox:Any, stateValue:Any) -> Integer
 ```
 
-Порядок аргументов соответствует строкам выше. `Unit` означает отсутствие возвращаемого значения. `Any` — значение BASIC с преобразованием при вызове. Имена нечувствительны к регистру.
+Выберите одну из зарегистрированных форм. Параметры передаются позиционно. Any означает значение BASIC с преобразованием внутри команды; Unit — отсутствие возвращаемого значения.
 
-## `UO.TradeCheck`
+## Параметры
 
-### Compatibility description
+- `windowIndex` — Целое число: текущий индекс окна от 0 до TradeCount()-1. Отрицательный или отсутствующий индекс даёт пустой результат. Это не serial.
+- `TradeNum` — Целое число: текущий индекс окна от 0 до TradeCount()-1. Отрицательный или отсутствующий индекс даёт пустой результат. Это не serial.
+- `Num` — Только двухпараметровая форма: 1 — свой флажок, 2 — флажок партнёра; другие значения дают 0. TradeNum здесь начинается с 0.
+- `checkbox` — Только трёхпараметровая форма: 0 — свой флажок, 1 — партнёра. Чужой флажок только читается; другое значение даёт 0.
+- `stateValue` — Только при checkbox=0: 0/FALSE снимает согласие, любое ненулевое число/TRUE включает. При checkbox=1 значение игнорируется.
 
-> Historical Stealth/Pascal reference text. Current Basic signatures and return contracts below are authoritative when behavior differs.
+## Возвращает
 
-Возвращает состояние «галочки» (принятия) участника окна безопасной торговли. TradeNum — индекс окна торговли (используйте TradeCount для получения числа активных торговых окон). Num — какого участника проверять: 1 = свой (ваша сторона), 2 = сторона оппонента. Значение 0 или больше 2 — невалидны, возвращается False . Возвращает True , если указанный участник отметил (принял) торговлю, False — в противном случае или при ошибке. Возвращает False , если персонаж не подключён.
+Integer: 1 = TRUE — выбранный флажок установлен; 0 = FALSE — снят, окно отсутствует либо сторона неверна. В форме записи возвращается состояние, а не признак успешной сделки: снятие флажка возвращает 0.
 
-### Current Basic signatures / Return
+Это логический результат: 1 = TRUE, 0 = FALSE. После VAR result = команда(...) можно писать IF result = TRUE THEN или IF result = 1 THEN; для отрицательного результата — IF result = FALSE THEN или IF result = 0 THEN. TRUE/FALSE пишутся без кавычек. Вызовите команду один раз и сохраните результат: повторный вызов может повторить действие или прочитать уже изменившееся состояние.
 
-- `UO.TradeCheck(TradeNum:Integer, Num:Integer) -> Boolean`
-  - **Return type:** `Boolean`
-  - **Return contract:** Boolean success/state value: TRUE on success/active state, FALSE otherwise.
-  - **Runtime route:** `DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility["TradeCheck"]` → `BRIDGE CONTRACT -> IApiBridge.TradeCheck`
+## Поведение
 
-**Pascal compatibility signature:** `function TradeCheck(TradeNum: Byte; Num: Byte): Boolean;`
+- GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade нумеруют окна с 1; TradeContainer/TradeOpponent/TradeName и все формы TradeCheck — с 0. Это явная совместимость данного клиента: внешние справочники разных движков используют разные начала отсчёта.
+- Чтение выполняется на игровом потоке по живым окнам текущего мира. Закрытые окна не считаются. Вызовы чтения не отправляют пакетов и не ждут ответа. Порядок UI может меняться при открытии, закрытии и переносе окна наверх; номер не является постоянным идентификатором.
+- ConfirmTrade и запись своего TradeCheck отправляют пакет только при изменении согласия. Чужое согласие задаёт сервер. CancelTrade отправляет отмену один раз. 1/TRUE — локальное состояние/обработка, а не гарантия завершения обмена. Имена и оба согласия не доказывают, что состав предметов не изменился.
 
-### Additional current runtime overloads
+### Внутренние функции: от вызова до результата
 
-- `UO.TradeCheck(windowIndex:Integer) -> Integer`
-  - **Return type:** `Integer`
-  - **Return contract:** Integer result from the registered runtime implementation; command-specific zero/-1 sentinels are described in Behavior/Notes.
-- `UO.TradeCheck(windowIndex:Integer, checkbox:Boolean, stateValue:Boolean) -> Integer`
-  - **Return type:** `Integer`
-  - **Return contract:** Integer result from the registered runtime implementation; command-specific zero/-1 sentinels are described in Behavior/Notes.
+Ниже — путь вызова в C#. После него приведены исполняемые Basic-примеры; это не попытка заново реализовать сетевой протокол в скрипте.
 
-### Parameters
+#### 1. TradeCheck
 
-- `TradeNum` — Integer control/count/index value (Integer); exact zero/sentinel meaning is documented by Behavior/Notes.
-- `Num` — Integer control/count/index value (Integer); exact zero/sentinel meaning is documented by Behavior/Notes.
-- `windowIndex` — Integer control/count/index value (Integer); exact zero/sentinel meaning is documented by this command.
-- `checkbox` — Boolean-like value: TRUE/1 enables the option and FALSE/0 disables it unless Behavior documents another numeric mode.
-- `stateValue` — Boolean-like value: TRUE/1 enables the option and FALSE/0 disables it unless Behavior documents another numeric mode.
+Регистрация выбирает форму по числу аргументов; числа преобразуются через NumberConversions. Для TradeCheck с двумя аргументами стороны 1/2 проверяются и переводятся в 0/1 bridge. Legacy-serial форматируется через ToHex.
 
-### Accepted values / constants
+Integer: 1 = TRUE — выбранный флажок установлен; 0 = FALSE — снят, окно отсутствует либо сторона неверна. В форме записи возвращается состояние, а не признак успешной сделки: снятие флажка возвращает 0.
 
-- `TradeNum` — Numeric BASIC value. Exact range/clamping/sentinel values are stated in this card's parameter text and Behavior/Notes.
-- `Num` — Numeric BASIC value. Exact range/clamping/sentinel values are stated in this card's parameter text and Behavior/Notes.
-- `windowIndex` — Numeric BASIC value. Exact range/clamping/sentinel values are stated in this card's parameter text and Behavior/Notes.
-- `checkbox` — TRUE/FALSE or 1/0.
-- `stateValue` — TRUE/FALSE or 1/0.
+Исходник проекта: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; функция `TradeCheck`.
 
-### Defaults / omitted arguments
+#### 2. TradeCheck
 
-Registered arities: 1, 2, 3. Shorter overloads omit only parameters shown absent by those signatures; no additional hidden defaults are assumed.
+Invoke передаёт чтение/изменение на игровой поток с отменой скрипта; метод читает ID1/ID2, LocalSerial, OpponentName или флажки выбранного TradingGump.
 
-### Behavior
+Читает флажки согласия; трёхпараметровая форма также изменяет собственный флажок.
 
-Executes the registered Basic runtime implementation shown in the Runtime route. The behavior is source-backed by the current registration rather than the historical Stealth text alone.
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `TradeCheck`.
 
-### Notes / limitations
+#### 3. FindTrade
 
-Use the exact registered overload and positional argument order. Server/world-dependent effects may complete asynchronously; validate state when the script depends on confirmation.
+FindNumberedTrade проверяет number>0 до вычитания 1; FindTrade отклоняет отрицательный индекс и перечисляет только незакрытые TradingGump текущего World.
 
-### Examples
+GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade нумеруют окна с 1; TradeContainer/TradeOpponent/TradeName и все формы TradeCheck — с 0. Это явная совместимость данного клиента: внешние справочники разных движков используют разные начала отсчёта.
 
-```basic
-SUB Main()
-    VAR result = UO.TradeCheck(0, 0)
-END SUB
-```
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `FindTrade`.
 
-```basic
-SUB Main()
-    VAR result = UO.TradeCheck(0)
-END SUB
-```
+#### 4. AcceptTrade
 
-```basic
-SUB Main()
-    VAR result = UO.TradeCheck(0, 0, 0)
-END SUB
-```
+При изменении собственного флажка GameActions.AcceptTrade вызывает Send_TradeResponse с кодом 2, ID1 и состоянием. Чтение и повторная установка того же состояния пакета не создают.
 
----
+Integer: 1 = TRUE — выбранный флажок установлен; 0 = FALSE — снят, окно отсутствует либо сторона неверна. В форме записи возвращается состояние, а не признак успешной сделки: снятие флажка возвращает 0.
 
-## Варианты использования
+Исходник проекта: `src/ClassicUO.Client/Game/GameActions.cs`; функция `AcceptTrade`.
 
-Это отдельные сценарии. Подставьте свои serial, пути и координаты; серверные действия зависят от текущего состояния игры.
+Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
 
-### Прямой вызов
+
+## Примеры
+
+### Пример 1. Прямое чтение или действие
 
 ```vb
+# Прямое чтение или действие
+#
+# Читает флажки согласия; трёхпараметровая форма также изменяет собственный флажок.
+#
+# Integer: 1 = TRUE — выбранный флажок установлен; 0 = FALSE — снят, окно отсутствует либо
+# сторона неверна. В форме записи возвращается состояние, а не признак успешной сделки: снятие
+# флажка возвращает 0.
+#
+# Это логический результат: 1 = TRUE, 0 = FALSE. После VAR result = команда(...) можно писать IF
+# result = TRUE THEN или IF result = 1 THEN; для отрицательного результата — IF result = FALSE
+# THEN или IF result = 0 THEN. TRUE/FALSE пишутся без кавычек. Вызовите команду один раз и
+# сохраните результат: повторный вызов может повторить действие или прочитать уже изменившееся
+# состояние.
+
 SUB Main()
-    VAR result = UO.TradeCheck(0)
-    UO.Print(CStr(result))
+    # UO.TradeCheck(0) и UO.TradeCheck(0,1) читают своё согласие первого окна; UO.TradeCheck(0,2) —
+    # чужое. Здесь нет записи и нет автоматического подтверждения.
+
+    VAR own = UO.TradeCheck(0)
+    VAR sameOwn = UO.TradeCheck(0, 1)
+    VAR other = UO.TradeCheck(0, 2)
+    UO.Print(CStr(own) + "/" + CStr(sameOwn) + "/" + CStr(other))
 END SUB
 ```
 
-### Расширенная перегрузка: 3 аргументов
+**Разбор параметров и выполнения:**
+
+- UO.TradeCheck(0) и UO.TradeCheck(0,1) читают своё согласие первого окна; UO.TradeCheck(0,2) — чужое. Здесь нет записи и нет автоматического подтверждения.
+
+### Пример 2. Другой сценарий и параметры
 
 ```vb
+# Другой сценарий и параметры
+#
+# Читает флажки согласия; трёхпараметровая форма также изменяет собственный флажок.
+#
+# Integer: 1 = TRUE — выбранный флажок установлен; 0 = FALSE — снят, окно отсутствует либо
+# сторона неверна. В форме записи возвращается состояние, а не признак успешной сделки: снятие
+# флажка возвращает 0.
+#
+# Это логический результат: 1 = TRUE, 0 = FALSE. После VAR result = команда(...) можно писать IF
+# result = TRUE THEN или IF result = 1 THEN; для отрицательного результата — IF result = FALSE
+# THEN или IF result = 0 THEN. TRUE/FALSE пишутся без кавычек. Вызовите команду один раз и
+# сохраните результат: повторный вызов может повторить действие или прочитать уже изменившееся
+# состояние.
+
 SUB Main()
-    VAR arg1 = 0 # windowIndex
-    VAR arg2 = 2 # checkbox
-    VAR arg3 = 3 # stateValue
-    VAR result = UO.TradeCheck(arg1, arg2, arg3)
-    UO.Print(CStr(result))
+    # UO.TradeCheck(0,0,FALSE) снимает своё согласие. UO.TradeCheck(0,1,FALSE) только читает
+    # согласие партнёра: FALSE не может изменить чужую сторону. Результат 0 после снятия ожидаем.
+
+    VAR cleared = UO.TradeCheck(0, 0, FALSE)
+    VAR other = UO.TradeCheck(0, 1, FALSE)
+    UO.Print(CStr(cleared) + "/" + CStr(other))
 END SUB
 ```
 
-### Перегрузка: 2 аргументов
+**Разбор параметров и выполнения:**
+
+- UO.TradeCheck(0,0,FALSE) снимает своё согласие. UO.TradeCheck(0,1,FALSE) только читает согласие партнёра: FALSE не может изменить чужую сторону. Результат 0 после снятия ожидаем.
+
+### Пример 3. Полный помощник со всеми функциями
 
 ```vb
-SUB Main()
-    VAR result = UO.TradeCheck(1, 2)
-    UO.Print(CStr(result))
-END SUB
-```
+# Полный помощник со всеми функциями
+#
+# Читает флажки согласия; трёхпараметровая форма также изменяет собственный флажок.
+#
+# Integer: 1 = TRUE — выбранный флажок установлен; 0 = FALSE — снят, окно отсутствует либо
+# сторона неверна. В форме записи возвращается состояние, а не признак успешной сделки: снятие
+# флажка возвращает 0.
+#
+# Это логический результат: 1 = TRUE, 0 = FALSE. После VAR result = команда(...) можно писать IF
+# result = TRUE THEN или IF result = 1 THEN; для отрицательного результата — IF result = FALSE
+# THEN или IF result = 0 THEN. TRUE/FALSE пишутся без кавычек. Вызовите команду один раз и
+# сохраните результат: повторный вызов может повторить действие или прочитать уже изменившееся
+# состояние.
 
-### Условие по полученному числу
-
-```vb
 SUB Main()
-    VAR arg1 = 0 # windowIndex
-    VAR result = UO.TradeCheck(arg1)
-    # Пример порога; выберите подходящий смыслу команды.
-    IF result > 0 THEN
-        UO.Print(CStr(result))
+    # Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают
+    # риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия
+    # expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
+
+    VAR accepted = BothAccepted(0)
+    IF accepted = TRUE THEN
+        UO.Print("Both boxes are checked; server completion is not known")
     END IF
 END SUB
-```
 
-### Результат через собственную функцию
-
-```vb
-FUNCTION ReadResult()
-    VAR arg1 = 0 # windowIndex
-    VAR result = UO.TradeCheck(arg1)
-    RETURN result
+FUNCTION BothAccepted(index)
+    IF index < 0 OR index >= UO.TradeCount() THEN
+        RETURN FALSE
+    END IF
+    VAR own = UO.TradeCheck(index, 1)
+    VAR other = UO.TradeCheck(index, 2)
+    RETURN own = TRUE AND other = TRUE
 END FUNCTION
-
-SUB Main()
-    VAR answer = ReadResult()
-    UO.Print(CStr(answer))
-END SUB
 ```
 
-## Реализация для проверки поведения
+**Разбор параметров и выполнения:**
 
-- `InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0`
-- `InjectionScript.Runtime.InjectionApiUO.TradeCheck`
+- Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.

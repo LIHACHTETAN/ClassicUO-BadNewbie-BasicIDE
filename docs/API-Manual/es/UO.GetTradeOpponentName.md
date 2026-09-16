@@ -1,0 +1,139 @@
+# UO.GetTradeOpponentName
+
+ClassicUO • Runtime API
+
+<!-- yoko-manual: 1 -->
+<!-- yoko-locale: es -->
+
+Lee el nombre recibido al abrir el intercambio.
+
+## Sintaxis exacta
+
+```text
+UO.GetTradeOpponentName(TradeNum:Any) -> Any
+```
+
+## Parámetros
+
+- `TradeNum` — Número entero actual: 1..TradeCount(). Cero/negativos inválidos. No es serial.
+
+## Devuelve
+
+String: nombre recibido al abrir; cadena vacía sin ventana/nombre. No solicita actualización.
+
+## Comportamiento
+
+- GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade empiezan en 1; TradeContainer/TradeOpponent/TradeName y todas las formas TradeCheck en 0. Este cliente conserva esas convenciones; las referencias de distintos motores difieren.
+- Lee en el hilo del juego las ventanas vivas del World actual, excluyendo las cerradas. Leer no envía paquetes ni espera respuestas. Abrir, cerrar o traer al frente cambia el orden UI; el índice no es un ID permanente.
+- ConfirmTrade y escribir su TradeCheck envían solo si cambia la aceptación. El servidor controla la casilla ajena. CancelTrade envía una vez. 1/TRUE indica estado/procesamiento local, no transferencia completa. Nombres y casillas no prueban que los objetos sigan iguales.
+
+### Funciones internas: de la llamada al resultado
+
+Se explica la ruta C# y después se muestran ejemplos Basic ejecutables. Los scripts no reimplementan el protocolo de red.
+
+#### 1. ExecuteStealthCompatibility
+
+El registro selecciona según cantidad de argumentos; NumberConversions convierte números. TradeCheck de dos argumentos valida 1/2 y los transforma en 0/1 del bridge. ToHex formatea serials heredados.
+
+String: nombre recibido al abrir; cadena vacía sin ventana/nombre. No solicita actualización.
+
+Código del proyecto: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; función `ExecuteStealthCompatibility`.
+
+#### 2. GetTradeOpponentName
+
+Invoke lleva lectura/escritura al hilo del juego con cancelación del script; lee ID1/ID2, LocalSerial, OpponentName o casillas del TradingGump seleccionado.
+
+Lee el nombre recibido al abrir el intercambio.
+
+Código del proyecto: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; función `GetTradeOpponentName`.
+
+#### 3. FindNumberedTrade
+
+FindNumberedTrade comprueba number>0 antes de restar 1; FindTrade rechaza índices negativos y enumera solo TradingGump abiertos de este World.
+
+GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade empiezan en 1; TradeContainer/TradeOpponent/TradeName y todas las formas TradeCheck en 0. Este cliente conserva esas convenciones; las referencias de distintos motores difieren.
+
+Código del proyecto: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; función `FindNumberedTrade`.
+
+La función está completa y Main la llama. Comprobar límites/ID reduce errores pero las llamadas no son atómicas: puede cambiar la ventana. expectedPartner es el serial guardado del personaje, no una validación de precio/contenido.
+
+
+## Ejemplos
+
+### Lectura o acción directa
+
+```vb
+# Lectura o acción directa
+#
+# Lee el nombre recibido al abrir el intercambio.
+#
+# String: nombre recibido al abrir; cadena vacía sin ventana/nombre. No solicita actualización.
+
+SUB Main()
+    # Una llamada guardada en value/result. 0 es el primer índice, 1 el primer número (ver
+    # sintaxis). HEX muestra serials numéricos; CStr números o texto.
+
+    VAR value = UO.GetTradeOpponentName(1)
+    UO.Print(CStr(value))
+END SUB
+```
+
+**Explicación de los parámetros y la ejecución:**
+
+- Una llamada guardada en value/result. 0 es el primer índice, 1 el primer número (ver sintaxis). HEX muestra serials numéricos; CStr números o texto.
+
+### Otro escenario y parámetros
+
+```vb
+# Otro escenario y parámetros
+#
+# Lee el nombre recibido al abrir el intercambio.
+#
+# String: nombre recibido al abrir; cadena vacía sin ventana/nombre. No solicita actualización.
+
+SUB Main()
+    # total guarda la cantidad de ventanas; index es el índice/número actual. Enumerar no confirma
+    # nada. GetTradeContainer lee los contenedores propio (1) y ajeno (2) de la ventana 1.
+
+    VAR total = UO.TradeCount()
+    FOR VAR index = 1 TO total - 0
+        VAR value = UO.GetTradeOpponentName(index)
+        UO.Print(CStr(index) + ": " + CStr(value))
+    NEXT
+END SUB
+```
+
+**Explicación de los parámetros y la ejecución:**
+
+- total guarda la cantidad de ventanas; index es el índice/número actual. Enumerar no confirma nada. GetTradeContainer lee los contenedores propio (1) y ajeno (2) de la ventana 1.
+
+### Función auxiliar completa
+
+```vb
+# Función auxiliar completa
+#
+# Lee el nombre recibido al abrir el intercambio.
+#
+# String: nombre recibido al abrir; cadena vacía sin ventana/nombre. No solicita actualización.
+
+SUB Main()
+    # La función está completa y Main la llama. Comprobar límites/ID reduce errores pero las
+    # llamadas no son atómicas: puede cambiar la ventana. expectedPartner es el serial guardado del
+    # personaje, no una validación de precio/contenido.
+
+    VAR value = ReadTradeValue(1)
+    UO.Print(CStr(value))
+END SUB
+
+FUNCTION ReadTradeValue(index)
+    VAR total = UO.TradeCount()
+    IF index < 1 OR index >= total + 1 THEN
+        RETURN ""
+    END IF
+    RETURN UO.GetTradeOpponentName(index)
+END FUNCTION
+```
+
+**Explicación de los parámetros y la ejecución:**
+
+- La función está completa y Main la llama. Comprobar límites/ID reduce errores pero las llamadas no son atómicas: puede cambiar la ventana. expectedPartner es el serial guardado del personaje, no una validación de precio/contenido.

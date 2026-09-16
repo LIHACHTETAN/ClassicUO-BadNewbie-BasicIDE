@@ -654,8 +654,16 @@
       "sha256": "13454823c3046ece788cbb1063f7fd3cc6c853aae0383c6728717f596e4fcc63"
     },
     {
+      "path": "de/UO.CancelTrade.md",
+      "sha256": "989ab301584cc3322fd28b97e03256b233efb90cbf3484b5782718d125b0281a"
+    },
+    {
       "path": "de/UO.ColdResist.md",
       "sha256": "e762bdb60b80c17c91e1ad307dab989b33e97c247c79cafaa47dee354c828467"
+    },
+    {
+      "path": "de/UO.ConfirmTrade.md",
+      "sha256": "3032bb50cfb72cc50678e530e6cebc762605963e939c17f8f73ddab71ab17d4a"
     },
     {
       "path": "de/UO.Dead.md",
@@ -978,6 +986,18 @@
       "sha256": "4e6968399969a8171b98a1ca8d1b25b5aa20f5dc5909f57de4a6a47c6188edf1"
     },
     {
+      "path": "de/UO.GetTradeContainer.md",
+      "sha256": "ecb7950c3c53684c932f8ebcbe324d6baa25bd2abcda59e2bb04421a11c94903"
+    },
+    {
+      "path": "de/UO.GetTradeOpponent.md",
+      "sha256": "e23d0beea13cc3eb8535a05601f870b30def47c4fb269c454fd40d0e7fee9694"
+    },
+    {
+      "path": "de/UO.GetTradeOpponentName.md",
+      "sha256": "34a0884d2503001d24864b27fc084aece14ec75e4aae1f2fd37cdf5c91db21a6"
+    },
+    {
       "path": "de/UO.GetWeight.md",
       "sha256": "93a7fe2952ab89ba9a672c280b13186097f48b48498bdd81c62005a4136a3950"
     },
@@ -1048,6 +1068,10 @@
     {
       "path": "de/UO.IsPoisoned.md",
       "sha256": "097d6578f10e995fe5990aba3e7c669661b695bedc53eab1d670e6e887e59199"
+    },
+    {
+      "path": "de/UO.IsTrade.md",
+      "sha256": "425d167d669ff7c61348b45338c2103ce8289ceb293570bb95600a47554a29b5"
     },
     {
       "path": "de/UO.IsWorldCellPassable.md",
@@ -1216,6 +1240,26 @@
     {
       "path": "de/UO.Strength.md",
       "sha256": "bbb5436363130b6522fb29ee72591ff67253bd25408e9f661cd25ca9a0623fd5"
+    },
+    {
+      "path": "de/UO.TradeCheck.md",
+      "sha256": "efc8b4d586eb1c963d176551f7b6a29db3379f5524a37740cd81a36c44168333"
+    },
+    {
+      "path": "de/UO.TradeContainer.md",
+      "sha256": "423152502caa021f4badd0d8075d544630c8c14514b9877cc3e94100d16d7e2a"
+    },
+    {
+      "path": "de/UO.TradeCount.md",
+      "sha256": "19c3b58f33161d3c3094645791bcb28af3edc7bce80190f60703324c6781a75c"
+    },
+    {
+      "path": "de/UO.TradeName.md",
+      "sha256": "98d742e47ef5d1191509aa5cc9b66c0484ada21932f50473966c5205512d83d4"
+    },
+    {
+      "path": "de/UO.TradeOpponent.md",
+      "sha256": "0371beb23f4fa391bf809b5bef7c0e49ede72a913ff38db8413dee4333b8c67a"
     },
     {
       "path": "de/UO.WaitGump.md",
@@ -1574,8 +1618,16 @@
       "sha256": "a80967ee27a12ff0ff0f28447ae99ced12d911467f4d9664531e3a288036a6e0"
     },
     {
+      "path": "en/UO.CancelTrade.md",
+      "sha256": "249bf63092dd09eb5e5d6f52d05cf0b19be8fd2695b0f4b04fdd5056265b5bfc"
+    },
+    {
       "path": "en/UO.ColdResist.md",
       "sha256": "a8a25fd5641170ead8bb95e90cd9910bee3be216f2b65d71aba0782e056d58c0"
+    },
+    {
+      "path": "en/UO.ConfirmTrade.md",
+      "sha256": "ac44aa7cd8ac02ebb7866dffff98cb19bf8a4ef596020cde704f4071c382fea7"
     },
     {
       "path": "en/UO.Dead.md",
@@ -1898,6 +1950,18 @@
       "sha256": "180e976937912b390c1d8a2fcab04a7972373d13091f94565057aa564fad5e10"
     },
     {
+      "path": "en/UO.GetTradeContainer.md",
+      "sha256": "65473ae3b15105397b57e4178a0d737d04ff8f1c0f3c503dac0461fdf38aba2a"
+    },
+    {
+      "path": "en/UO.GetTradeOpponent.md",
+      "sha256": "b34e733e2bea3824a6942d9074f04bb8e9fb59c54507572130c52c48f264e9b8"
+    },
+    {
+      "path": "en/UO.GetTradeOpponentName.md",
+      "sha256": "6471b738abdb1b80568e7acd494da75b7aec6b45206bfbed71b8da6ab6637e89"
+    },
+    {
       "path": "en/UO.GetWeight.md",
       "sha256": "474aeced21c55fa40dfe97ad02490a43aad53bde3666603323cc5466ea83792d"
     },
@@ -1968,6 +2032,10 @@
     {
       "path": "en/UO.IsPoisoned.md",
       "sha256": "eef5e9dd930da343e94ecc33e5b6f487f06d68584eab5e7c6cfab6a1397a86c2"
+    },
+    {
+      "path": "en/UO.IsTrade.md",
+      "sha256": "cdf97561bd9a1acc21e72dba4be8886496b422025c956abaaaa1daeee8b9af11"
     },
     {
       "path": "en/UO.IsWorldCellPassable.md",
@@ -2136,6 +2204,26 @@
     {
       "path": "en/UO.Strength.md",
       "sha256": "cac7f1e8b4e5ad1131e825f5280e23201560840a6d0d4cb427184f713ffc0acb"
+    },
+    {
+      "path": "en/UO.TradeCheck.md",
+      "sha256": "158dd7390739ef8ef870020e8984d2f005d03c72f0d2f35fe708d83753b4fd64"
+    },
+    {
+      "path": "en/UO.TradeContainer.md",
+      "sha256": "ad960f28e3c2b0d62113f6dd4fef79cd74a4acba51b9dd92d327c7952e7bbc18"
+    },
+    {
+      "path": "en/UO.TradeCount.md",
+      "sha256": "74ae8a091b79917c9a65982854f79bb1757fd8eeea889d6bf6a653fdae72d179"
+    },
+    {
+      "path": "en/UO.TradeName.md",
+      "sha256": "683a7d32e769ffc76ba6a692172cf36c54dd17649bc35ef7ba9c214fb8e77950"
+    },
+    {
+      "path": "en/UO.TradeOpponent.md",
+      "sha256": "787b59bea698915627d8534e52fbf927d72977e9e838c3b26a2e588e0320731f"
     },
     {
       "path": "en/UO.WaitGump.md",
@@ -2470,8 +2558,16 @@
       "sha256": "500eb22e04c43730cac9394489096cf101c4d46750d49c0b613e523cfad3e679"
     },
     {
+      "path": "es/UO.CancelTrade.md",
+      "sha256": "86fcc03885605a70baca38d22a6ac4453cafee7fe7eea707b2442d8ccc76f34c"
+    },
+    {
       "path": "es/UO.ColdResist.md",
       "sha256": "b6c10152f2b6238fe3b41bd9043ebaf4620a68b18160974acfb36def181e1827"
+    },
+    {
+      "path": "es/UO.ConfirmTrade.md",
+      "sha256": "2aa88a8e20c2f543a4af4468c10c3624699f49d12b529da33b91c03d07688ff1"
     },
     {
       "path": "es/UO.Dead.md",
@@ -2794,6 +2890,18 @@
       "sha256": "e6ab1a84d70809dd8fd1cc232f400db897befd1814d0f5f24b1427d63426332a"
     },
     {
+      "path": "es/UO.GetTradeContainer.md",
+      "sha256": "46fca23a95b9bdd873fa930e3e81f55cd13d317dbb2a18a34df175d70fe747eb"
+    },
+    {
+      "path": "es/UO.GetTradeOpponent.md",
+      "sha256": "84e203aa566890c887ded343509871f0d8259f43bb70aa1bab80c6b89aaa9950"
+    },
+    {
+      "path": "es/UO.GetTradeOpponentName.md",
+      "sha256": "12264a8c0fe8beb1bce7ea194c49e67e29c11a5423865d2b282ea3e594ae3e7d"
+    },
+    {
       "path": "es/UO.GetWeight.md",
       "sha256": "b58bb4744bc5322f5e221ac7ab3d588a73cd9a6d1d7f35f0790341dbea66884d"
     },
@@ -2864,6 +2972,10 @@
     {
       "path": "es/UO.IsPoisoned.md",
       "sha256": "35528227875a7374660aa7f0fdd6db0ea8807d50ffc0e937bb18cc5823abad46"
+    },
+    {
+      "path": "es/UO.IsTrade.md",
+      "sha256": "75cd558857138e8ae6cf16b42da258605641c82432f5221d327ec188d26bdeb2"
     },
     {
       "path": "es/UO.IsWorldCellPassable.md",
@@ -3032,6 +3144,26 @@
     {
       "path": "es/UO.Strength.md",
       "sha256": "cfc0d5131294083e3720a4a00468a38e21485bbd46f52b381ad82f5e7d859f04"
+    },
+    {
+      "path": "es/UO.TradeCheck.md",
+      "sha256": "61fa7a06d74187cd85d0aa27a273b5e1bedbe7e2ae0d98dae01536bac35252ec"
+    },
+    {
+      "path": "es/UO.TradeContainer.md",
+      "sha256": "38871804de179f1167cb3a2818c69cb4db52aff0e88de99ff1562b36e0711018"
+    },
+    {
+      "path": "es/UO.TradeCount.md",
+      "sha256": "24fb75c5917b05f066cba343fda2134b3e7513c1ccb145c1073795d39b312a9f"
+    },
+    {
+      "path": "es/UO.TradeName.md",
+      "sha256": "51e9ce050d9cd7e2409ca4134a06265778594fdbc1a92074114987432586a6c4"
+    },
+    {
+      "path": "es/UO.TradeOpponent.md",
+      "sha256": "c554d554a43d49474a102b7c4a9b6c4319b11f794ec4a95eaba7794463ed8b56"
     },
     {
       "path": "es/UO.WaitGump.md",
@@ -3470,8 +3602,16 @@
       "sha256": "a6481b5f86cf718042a7551ea61b974982262849a4afcd3ec21a3b1a90e13a39"
     },
     {
+      "path": "fr/UO.CancelTrade.md",
+      "sha256": "62212be1d7715ab9bd660c585d4379c78502f49c81e3fe1b5d1a5214313edfd4"
+    },
+    {
       "path": "fr/UO.ColdResist.md",
       "sha256": "ae692bd07b66cf1ad3e7697fb7e63d6ca0bbf5f2e28b14b9df22dea69516d330"
+    },
+    {
+      "path": "fr/UO.ConfirmTrade.md",
+      "sha256": "4d5507e62b6f19febc34c23bd76a10ce4c9848fb7283f27a76ce6200d5139216"
     },
     {
       "path": "fr/UO.Dead.md",
@@ -3794,6 +3934,18 @@
       "sha256": "caa585b986a7b1bea10a2d0ba52bd48b3ffaddae98e63b3ebb62fd3a10f021d2"
     },
     {
+      "path": "fr/UO.GetTradeContainer.md",
+      "sha256": "57daa4691cb9fc9e6fa838eacc1a7d9ae94181bd018b2c85f97da02a86d354b2"
+    },
+    {
+      "path": "fr/UO.GetTradeOpponent.md",
+      "sha256": "4c03e49950cbb93c775a7d8155957fa3e55d90e9e4a7ec7cc918c46665f5eff1"
+    },
+    {
+      "path": "fr/UO.GetTradeOpponentName.md",
+      "sha256": "f00a646aded577c21f26748c5ee9e78f79dec4005d4762daa3ab788b14c33a51"
+    },
+    {
       "path": "fr/UO.GetWeight.md",
       "sha256": "bbbe93c2e4305ace31c02519db985d464944bba9972ae35a1536a21f23d24ed0"
     },
@@ -3864,6 +4016,10 @@
     {
       "path": "fr/UO.IsPoisoned.md",
       "sha256": "09663df36cd561e5e069865e6b82bd2ac17598ee618123d7e3f90364e147c112"
+    },
+    {
+      "path": "fr/UO.IsTrade.md",
+      "sha256": "5a112aa7dc4d39ee34d92e7501656e636fbc3df070ee39883c1e52369f100bc9"
     },
     {
       "path": "fr/UO.IsWorldCellPassable.md",
@@ -4034,6 +4190,26 @@
       "sha256": "fd8d12403fd3b2a343a83fce471e5a313852be270b10b3e457c5c6b6e80ac482"
     },
     {
+      "path": "fr/UO.TradeCheck.md",
+      "sha256": "349be1602786e4b4cbd07137cf77ec76b80317f4c1f132a78b1bd6aae7865ef1"
+    },
+    {
+      "path": "fr/UO.TradeContainer.md",
+      "sha256": "58d60d57dbfb30c66ef561b01d2ea39ab08244f16b511aedab0a73dc1da6d9c8"
+    },
+    {
+      "path": "fr/UO.TradeCount.md",
+      "sha256": "9f9334301bd16957aed9481536d9938d482bc32cb7ac0d84bcf25bd29dd90e29"
+    },
+    {
+      "path": "fr/UO.TradeName.md",
+      "sha256": "ab7897e6a50cb64050e0034541a5a518318742bfffe11a0032ff43933d2d4b14"
+    },
+    {
+      "path": "fr/UO.TradeOpponent.md",
+      "sha256": "dafaf0d7ba7a04b38015f07cb00e6c1b514e0a1fecae07090107f67451c8706d"
+    },
+    {
       "path": "fr/UO.WaitGump.md",
       "sha256": "4201d2d28e5e1a03863e91d1540f3e817f29c1fd5b7e5e32a995c9c766677d39"
     },
@@ -4083,7 +4259,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "37d1bdac9245514f8a0e5175273640161709c05a07677243167e24f7eb002498"
+      "sha256": "274241ace95079f45afd43f202d616d1a589dab3b502faf8e3ce01960d7a2a50"
     },
     {
       "path": "InStr.md",
@@ -4430,8 +4606,16 @@
       "sha256": "706a6a62ca64275e8438b6383fa555d2cab3ad2a70bc6766635e23a991aecece"
     },
     {
+      "path": "it/UO.CancelTrade.md",
+      "sha256": "ace21cba5bffe1d9433725ad9a5d9a2357de193d1e70b0420b3e99fb9465a17c"
+    },
+    {
       "path": "it/UO.ColdResist.md",
       "sha256": "7ff826fa336d2f4f07f3c92cc61cd265ace5ccfa28945ea2faf65a6b19d86182"
+    },
+    {
+      "path": "it/UO.ConfirmTrade.md",
+      "sha256": "838183998c54a1dc322a1b565decc6f7ae50c7cf6f0438e7d9af889aed30a6ef"
     },
     {
       "path": "it/UO.Dead.md",
@@ -4754,6 +4938,18 @@
       "sha256": "7dcf8459627a96ade9105e8b9ceefd1b658c8f6d8b046fa202fc2e75da9df2de"
     },
     {
+      "path": "it/UO.GetTradeContainer.md",
+      "sha256": "e8a238ae4647c34ca495aa141b6ac6dfc16dc72e86842d81943682da054ea692"
+    },
+    {
+      "path": "it/UO.GetTradeOpponent.md",
+      "sha256": "ea48146a7a014d9464a657289f8368c14d8e4896caa30e78234db3e7a719abde"
+    },
+    {
+      "path": "it/UO.GetTradeOpponentName.md",
+      "sha256": "90f6255bc23d2bebde34c5b0899aa0503e2ca27c7c3ea286e0c4eab34e88cd51"
+    },
+    {
       "path": "it/UO.GetWeight.md",
       "sha256": "f24612b671172c9bd19d5b73128b54a64309df30ae771ec17139301d6a6ff56a"
     },
@@ -4824,6 +5020,10 @@
     {
       "path": "it/UO.IsPoisoned.md",
       "sha256": "2ab99c8b26a742db2b402986b7775cd6126f187c694449b80ab6fbf2aa6562ba"
+    },
+    {
+      "path": "it/UO.IsTrade.md",
+      "sha256": "2986f4b713ac5f43c17cd2c09162f759aea3b56c38b6c70b6bf198ecd7aa5d74"
     },
     {
       "path": "it/UO.IsWorldCellPassable.md",
@@ -4992,6 +5192,26 @@
     {
       "path": "it/UO.Strength.md",
       "sha256": "8a7d6456787b113f9a192c73a450fc1f4a30502f11b04ce94a8b7c823f2b0811"
+    },
+    {
+      "path": "it/UO.TradeCheck.md",
+      "sha256": "f4e57dafaedaf2a6e9639bb1070e12df65d7b54fc79a79224f71b4e4871ee3a4"
+    },
+    {
+      "path": "it/UO.TradeContainer.md",
+      "sha256": "dd335b26e3501c44ddbf8e310c66f934dd1f5abbbb99d6f08234ed8b80da901c"
+    },
+    {
+      "path": "it/UO.TradeCount.md",
+      "sha256": "c3f58373bb3116b02515f3339cff4b3c883382ce6821b50ecece3da8256243b1"
+    },
+    {
+      "path": "it/UO.TradeName.md",
+      "sha256": "bbe369539b64aa87d9e67ee102b79f7db0f19afac0075e6afd577671a43e6aef"
+    },
+    {
+      "path": "it/UO.TradeOpponent.md",
+      "sha256": "a14b8002363427db87a0041a95f286c126f4d62eff7ce1fa2032f8c8f3077d6a"
     },
     {
       "path": "it/UO.WaitGump.md",
@@ -5326,8 +5546,16 @@
       "sha256": "9eb8a1771e72879520becc1441ed0a3630179eab70270552deedf8d9acf36859"
     },
     {
+      "path": "ja/UO.CancelTrade.md",
+      "sha256": "5590b57bfd1ea695915fbbb39f806177a2fba85626185172b1176eeb8855ea90"
+    },
+    {
       "path": "ja/UO.ColdResist.md",
       "sha256": "7a87de6ee399870abb23668d8848b04997a3ac14ff94f8dc50ad656fc75f02cb"
+    },
+    {
+      "path": "ja/UO.ConfirmTrade.md",
+      "sha256": "6ccf59ea6930f77c7ad47e7a91180407bda017227da46e39f264fbfb089fb8b1"
     },
     {
       "path": "ja/UO.Dead.md",
@@ -5650,6 +5878,18 @@
       "sha256": "2658f55a85a1707cd32b5e31d9805ebd1224a6f4876767a0adf1ce5aabeaa5de"
     },
     {
+      "path": "ja/UO.GetTradeContainer.md",
+      "sha256": "e1e7c32732b32f65ffb2cc4ec854092848cf3d9f2006fe49c26ab6b5300393cb"
+    },
+    {
+      "path": "ja/UO.GetTradeOpponent.md",
+      "sha256": "355d34e63cae64fe67314bbaaaec597fced29af172181307216316af476067b2"
+    },
+    {
+      "path": "ja/UO.GetTradeOpponentName.md",
+      "sha256": "67c2ebfc092a3b25efd5d4499513535f4464d86d36ab9544c6e839d95319b5d7"
+    },
+    {
       "path": "ja/UO.GetWeight.md",
       "sha256": "dea271cd1d2756cfc5ee65cffb75c6578e4cc0a055901c6f9787e877c5870285"
     },
@@ -5720,6 +5960,10 @@
     {
       "path": "ja/UO.IsPoisoned.md",
       "sha256": "0b8ba73d43ce284ad9bac34b39ff6fecf42d5923b55d9ec5d61e3a8c28f51ba9"
+    },
+    {
+      "path": "ja/UO.IsTrade.md",
+      "sha256": "ba910da2ea6a150ca5fff6c5d2427feaaa4a04bdd5ee27d885c837cd0882b192"
     },
     {
       "path": "ja/UO.IsWorldCellPassable.md",
@@ -5888,6 +6132,26 @@
     {
       "path": "ja/UO.Strength.md",
       "sha256": "ffbbc20ed92ff933694416a2f685505f25f1bcf28c769cf7c5912e293e62c18b"
+    },
+    {
+      "path": "ja/UO.TradeCheck.md",
+      "sha256": "9337e03ca1dcd57d68e8e4877b23e572afe3209e2df71704bec1361042fcc22e"
+    },
+    {
+      "path": "ja/UO.TradeContainer.md",
+      "sha256": "54cd356c71b5579f25c9c5018e4814bf827019b38d8f8da56491484c5065911e"
+    },
+    {
+      "path": "ja/UO.TradeCount.md",
+      "sha256": "f9a436813312299380619840bea3c511a5d2d3993d129aaaa93b1552e64ed70a"
+    },
+    {
+      "path": "ja/UO.TradeName.md",
+      "sha256": "871133f8ba9c0a58a45da820fca004adaf1ad0e957e1e98e4397e924daff21f0"
+    },
+    {
+      "path": "ja/UO.TradeOpponent.md",
+      "sha256": "a081f4c349ec607d25b6941fd9940c2b09cef8ad1388316ff6218596434e06b6"
     },
     {
       "path": "ja/UO.WaitGump.md",
@@ -6250,8 +6514,16 @@
       "sha256": "64fa2a20b5ebc77c4df4d9488048485bd29222854f10187cf53bc5f9d7d51a15"
     },
     {
+      "path": "ko/UO.CancelTrade.md",
+      "sha256": "310afc91d9383f42e9be209831ea789ff1bb2eaf2720476443267cdefd36f825"
+    },
+    {
       "path": "ko/UO.ColdResist.md",
       "sha256": "13ef70707fe10c26bfc8335bb80798395086cc9e698a671533ab65b243bbddc7"
+    },
+    {
+      "path": "ko/UO.ConfirmTrade.md",
+      "sha256": "802be4fde68dad16fbeaf6ac1e430d1f95d749f2be9c82d460eea0558150b623"
     },
     {
       "path": "ko/UO.Dead.md",
@@ -6574,6 +6846,18 @@
       "sha256": "183dbf3cd84d694ac8b3dda0c2639e464cf99249544f0fd3abea71239619f936"
     },
     {
+      "path": "ko/UO.GetTradeContainer.md",
+      "sha256": "e5ef6055236a387f800cc30102873cd06c8d48f40bf70fccb94eb0f57197da96"
+    },
+    {
+      "path": "ko/UO.GetTradeOpponent.md",
+      "sha256": "353d7f8ecf7f9cd13b90b53499f423f3280bf8b64198ac026d6f7a54909de9d0"
+    },
+    {
+      "path": "ko/UO.GetTradeOpponentName.md",
+      "sha256": "1872d86b259f9c5e7e0bb4e3f59bc79efc83f3d72699e51dc5d3187f31aae9b7"
+    },
+    {
       "path": "ko/UO.GetWeight.md",
       "sha256": "12fcc3b6cca5717e214a3d1b0f3adb1cc2d06577e48b2f0eaaa9f497315ce203"
     },
@@ -6644,6 +6928,10 @@
     {
       "path": "ko/UO.IsPoisoned.md",
       "sha256": "3e28e63e97d17ae691dee203c330b8de070b704331948ad76fd621616a387cda"
+    },
+    {
+      "path": "ko/UO.IsTrade.md",
+      "sha256": "1fee505cddac6ac1f16b7b52279670cbd33dc479fae2c9ec16d95fa486c63006"
     },
     {
       "path": "ko/UO.IsWorldCellPassable.md",
@@ -6812,6 +7100,26 @@
     {
       "path": "ko/UO.Strength.md",
       "sha256": "91280fbaae37896b8c6dbb7b15df7ab1cae8feba3aff36a2dfaab5d1def02e0d"
+    },
+    {
+      "path": "ko/UO.TradeCheck.md",
+      "sha256": "04af8b6710a03950a455d8329acf864200b8a9534837f466bab16ccc29731a08"
+    },
+    {
+      "path": "ko/UO.TradeContainer.md",
+      "sha256": "8835a3f72007bb76ed2d42a5243a70e5c5794485ef92e0de38274843b38aa888"
+    },
+    {
+      "path": "ko/UO.TradeCount.md",
+      "sha256": "fd0ae2ac13cdf85e92d46af46fdaf55e9584aa151a960342e9b367803721bbce"
+    },
+    {
+      "path": "ko/UO.TradeName.md",
+      "sha256": "76ee1e405fa66dc6f3c9f88c44557af516a6aab82d039ef8277b137c16235854"
+    },
+    {
+      "path": "ko/UO.TradeOpponent.md",
+      "sha256": "4f078dedf1f164080197ad24f77b67df0836045497218fb8049ae1fc29aac763"
     },
     {
       "path": "ko/UO.WaitGump.md",
@@ -7486,6 +7794,10 @@
       "sha256": "f3636fc388251a1c5807a70dcf1a584a2c44fa534f1ce07091919e2b00463e60"
     },
     {
+      "path": "ru/UO.CancelTrade.md",
+      "sha256": "f9f4cd500eb19fc9f288c9f815548bde808e6e925417f9fac0dc37c61d23ddc7"
+    },
+    {
       "path": "ru/UO.CancelWaitTarget.md",
       "sha256": "2b4e8776a4e8e8820c2ca837d28205bc8c31dced4e899834492b4aaef73d184a"
     },
@@ -7544,6 +7856,10 @@
     {
       "path": "ru/UO.ColdResist.md",
       "sha256": "2b11965079f8f388c84c055612316a603feee1da207570e94743c12ef7ac3230"
+    },
+    {
+      "path": "ru/UO.ConfirmTrade.md",
+      "sha256": "8af743b0c28e28480e1b64c10ca73d73ef6f33409f913f913c6476312ea128f5"
     },
     {
       "path": "ru/UO.Connected.md",
@@ -8206,6 +8522,18 @@
       "sha256": "26c4b5d1c2d33b037e0d6b402768e2c7222d16fb88cc6bdc856eaafc10b3fa82"
     },
     {
+      "path": "ru/UO.GetTradeContainer.md",
+      "sha256": "6c353a081e53ea58c9a0b67763205c7caec922742cb8753f607b4a94ad425232"
+    },
+    {
+      "path": "ru/UO.GetTradeOpponent.md",
+      "sha256": "1c1bea36585171d6ddf8a6e2f328017a5505515b25fef4230622863da6ae7c39"
+    },
+    {
+      "path": "ru/UO.GetTradeOpponentName.md",
+      "sha256": "c10fd715315741f54d1e136c8789e9eaf625c1ec9a2a0c7d6336516b1bfedfdb"
+    },
+    {
       "path": "ru/UO.GetType.md",
       "sha256": "c1219a82c5c499e2ed9973e02f0075f513978db37a99eaf85223cffe734e9ad7"
     },
@@ -8407,7 +8735,7 @@
     },
     {
       "path": "ru/UO.IsTrade.md",
-      "sha256": "078347e349e07992a7afb27bfda68cb51605bdfa77d9fa5c782784aa7f42c6f7"
+      "sha256": "154ed0e7d7f164da7c984c1ea60ba77761887ea979532c55d2e58ea792090331"
     },
     {
       "path": "ru/UO.IsWaitTargetActive.md",
@@ -8866,6 +9194,26 @@
       "sha256": "42ec9febbcec8450c172856676a3773a4645dfb8fa657bed9bc97126e232b24c"
     },
     {
+      "path": "ru/UO.TradeCheck.md",
+      "sha256": "08c0d1a496de8c86a2e626875e0bd7ee063cc081c42228d888bd3e49e112a66c"
+    },
+    {
+      "path": "ru/UO.TradeContainer.md",
+      "sha256": "abfa4da7815b98337c0f6fbc8570e0d2ff04f3b92c968b85169ace4fd3a2a6a5"
+    },
+    {
+      "path": "ru/UO.TradeCount.md",
+      "sha256": "0a8a2ee2e809651d3768ec43a2addbf60cbddb00fad8b3be5c8bfc98576ecef4"
+    },
+    {
+      "path": "ru/UO.TradeName.md",
+      "sha256": "b510bd0d3b6f76438b130075e4a40360227c3d552d8295211f9ab84a5b9f4def"
+    },
+    {
+      "path": "ru/UO.TradeOpponent.md",
+      "sha256": "57e38cefa5cb1ef0991df7eaa10ad73c7ca87def7d5c89287902b5b305c59745"
+    },
+    {
       "path": "ru/UO.WaitForClientTargetResponse.md",
       "sha256": "eb00678553c9d226294576149759e3b2d9cfd5f73df4b33cbc4d73ed7d7210d8"
     },
@@ -8939,7 +9287,7 @@
     },
     {
       "path": "runtime-api.json",
-      "sha256": "be276df2e28dd8f28899a6a0459312fc420a2fd0580db39b258ebc462346ce0b"
+      "sha256": "f77000c30693de145bbf755280da5686efc7d14ffc74afd22094968c33fa6474"
     },
     {
       "path": "self.md",
@@ -9370,8 +9718,16 @@
       "sha256": "f82b2113250733ad846b4881f274d972654ff242dacf2b2f659efc048e870b2d"
     },
     {
+      "path": "uk/UO.CancelTrade.md",
+      "sha256": "78b3c722b160126f72a3f365473e49c343cb25d87b3c2e9c89e191723b41b392"
+    },
+    {
       "path": "uk/UO.ColdResist.md",
       "sha256": "0b58712b2a3234a6f8ac044872f84dad1721e963e8da8de7d07b52735469d83a"
+    },
+    {
+      "path": "uk/UO.ConfirmTrade.md",
+      "sha256": "56cb69f9652d68f500ccf0a2de7e6ef96917e29c9c699b9bbcbbe02caf8da8d8"
     },
     {
       "path": "uk/UO.Dead.md",
@@ -9694,6 +10050,18 @@
       "sha256": "c1750512da7ec69f626a2704ddc8a290e43f5e920489b41d1078fa194ec40c7e"
     },
     {
+      "path": "uk/UO.GetTradeContainer.md",
+      "sha256": "c703dd6adddb7df0814ae1cab55cad3456c9ffe32fa3a7c69b95a69a9c4061ca"
+    },
+    {
+      "path": "uk/UO.GetTradeOpponent.md",
+      "sha256": "502ccfaeba920ce06b6de8f73fe379226e1fef73815e332fd090f3ec12e9ba29"
+    },
+    {
+      "path": "uk/UO.GetTradeOpponentName.md",
+      "sha256": "bc65385e34d4421b8778c079a68b822b54bed92998a5cd870065701d4cc5cc84"
+    },
+    {
       "path": "uk/UO.GetWeight.md",
       "sha256": "2fa5e7e689e867d086c7e2036e8d22bc7357f282d6d4cab62fea04a9ec1ba7ae"
     },
@@ -9764,6 +10132,10 @@
     {
       "path": "uk/UO.IsPoisoned.md",
       "sha256": "04559023b24fc3b34d530bbaddac92cad11af8ec368acc47b09ae93055036743"
+    },
+    {
+      "path": "uk/UO.IsTrade.md",
+      "sha256": "cb89c8ce1be28d7fa4ad967ef1dca12c2f18e28f9c52d270cef11bcc88983951"
     },
     {
       "path": "uk/UO.IsWorldCellPassable.md",
@@ -9932,6 +10304,26 @@
     {
       "path": "uk/UO.Strength.md",
       "sha256": "7bb0066787008be0638b29b3e86ed8f091fcfa0cc36041cf515f18f928942a31"
+    },
+    {
+      "path": "uk/UO.TradeCheck.md",
+      "sha256": "57d96627250113c0bf337ddf347f80860484a327f40f35fcf9e8cf66f931bf8d"
+    },
+    {
+      "path": "uk/UO.TradeContainer.md",
+      "sha256": "f9aea52366ff4cd2aa71560f6e5ae292d529558dd3734882f5b999955dc04ef2"
+    },
+    {
+      "path": "uk/UO.TradeCount.md",
+      "sha256": "028686cbecb1f59a1a3dccbdfb4aa018dad66389d4895e7a82c680cf96ac461d"
+    },
+    {
+      "path": "uk/UO.TradeName.md",
+      "sha256": "f3e25cba09a1c144331defcee0a564c38e3549d15f9e26343e58cd8c9647a7c6"
+    },
+    {
+      "path": "uk/UO.TradeOpponent.md",
+      "sha256": "64ca29fc4631067fe86e057eba4fde73a63066a3d77da53d1e1be4558897b558"
     },
     {
       "path": "uk/UO.WaitGump.md",
@@ -10143,7 +10535,7 @@
     },
     {
       "path": "UO.CancelTrade.md",
-      "sha256": "95d3e63287e1bed1e7b0c49d30f819590b458fdedee81aebd3f8997420bd2002"
+      "sha256": "1c733f064f04a25bab9e001564642b850d7b73853beac58fc0aeaeed2baac9ba"
     },
     {
       "path": "UO.CancelWaitTarget.md",
@@ -10335,7 +10727,7 @@
     },
     {
       "path": "UO.ConfirmTrade.md",
-      "sha256": "123698459183227830ce82f8a686288f39636ff96c111a0f6de8039cc29cb094"
+      "sha256": "2d7fb0071298f097c6a2e90a13fe9706b6e76d3b6da2c14533272da7c534f031"
     },
     {
       "path": "UO.Connect.md",
@@ -11303,15 +11695,15 @@
     },
     {
       "path": "UO.GetTradeContainer.md",
-      "sha256": "7f9a6855c66204b8b9b478421be59827c7247b9b3fe7b324dc11e575435f3a6a"
+      "sha256": "0df2b8328bf9a830afae9ac7193c2e26fb6f476ffdbb1d55ff27576d964b653c"
     },
     {
       "path": "UO.GetTradeOpponent.md",
-      "sha256": "3662c20793c055c3835e0287d98e10ca9364317980fa29b739b8b5f7b18863f0"
+      "sha256": "e326e109edd0e920e55f32c234bf6aeb7717a3ac74f4046429280da858ff1df1"
     },
     {
       "path": "UO.GetTradeOpponentName.md",
-      "sha256": "14c665f0db135e4d049de0f5c1421e45410bb1ce38065f176060997cb40664dc"
+      "sha256": "3b94d7c781a4a7c883ff00437be8ee4876aa4c3754b0ee63c2151f7b50f5a223"
     },
     {
       "path": "UO.GetType.md",
@@ -11659,7 +12051,7 @@
     },
     {
       "path": "UO.IsTrade.md",
-      "sha256": "acf1a785c9aece9d8dbe5d6f1a3f303cdf05dab1dad6f93956d9a17e895ef017"
+      "sha256": "1377a223bd13a41e2b408a006fe4f87e828d4dd4812b2e9acfbe0d3b5f68f100"
     },
     {
       "path": "UO.IsTreeTile.md",
@@ -12651,23 +13043,23 @@
     },
     {
       "path": "UO.TradeCheck.md",
-      "sha256": "b3bdcb8b7f1796d6aa3d9fcea9da43f3b499e1ed3d3a7b393a55c23a51f70b42"
+      "sha256": "9730c6279f54fcffb5ea87ceda178a83dc4af918e8aeaf7107508e4a9bc5699a"
     },
     {
       "path": "UO.TradeContainer.md",
-      "sha256": "255ebfc7b27681ee9377ef751ef7b39597663bdaf0d602c8bc609084568a2c08"
+      "sha256": "5623e02bd15a0224c290365372c5dc135ba87ba5e9a6a0fb397fc53404064b32"
     },
     {
       "path": "UO.TradeCount.md",
-      "sha256": "2b911d646c456134ee0c9414a8c5ba2f3531d0a3218f8619daeba97a178bc0e6"
+      "sha256": "b7db98657202fb8944843d9b0bb7f17dd7dfcdf7bba349307a8b0f2b83f4f6f4"
     },
     {
       "path": "UO.TradeName.md",
-      "sha256": "e005ad7654495b7a397df1b37229204d96372136032a08122fd85dfa583276f7"
+      "sha256": "959451418f21cda5557179d831354c12503b1e829597cc75b1ed4cf4c94e8abb"
     },
     {
       "path": "UO.TradeOpponent.md",
-      "sha256": "dd1b6b77a7d83257ec6d5342f71a86ca4c9fb2187e2aeafb4faa7e0e14f58df2"
+      "sha256": "5055f44460ceb678862be44ec56ec2f954779774dc4ab11ed2bee3d42c874713"
     },
     {
       "path": "UO.Undress.md",
@@ -13254,8 +13646,16 @@
       "sha256": "320f90790a758f14537fb9fec69f3e6c4d57c2888eb175f61de45437048c70cc"
     },
     {
+      "path": "zh-tw/UO.CancelTrade.md",
+      "sha256": "2688c6a4a91b75bc165809df1055c3150d05ee23cc51f71674ef5bc4b797fb53"
+    },
+    {
       "path": "zh-tw/UO.ColdResist.md",
       "sha256": "05340265aa2dbe41c4bec15bad8628ad29b456561bca4fb1f2db985edb7f79dd"
+    },
+    {
+      "path": "zh-tw/UO.ConfirmTrade.md",
+      "sha256": "b639cfdbd94892ac3b85662a4b9cf3be9966822cc06508e595aeb413adbef2e4"
     },
     {
       "path": "zh-tw/UO.Dead.md",
@@ -13578,6 +13978,18 @@
       "sha256": "b894f046c91d5f1e774f39fe43e08fa4377c0fe8fab3f9f1a26c2486753f49d6"
     },
     {
+      "path": "zh-tw/UO.GetTradeContainer.md",
+      "sha256": "3339b183f1a1dea45231bf5f091af2d2d4ec22d384b0aafe658483bb49205258"
+    },
+    {
+      "path": "zh-tw/UO.GetTradeOpponent.md",
+      "sha256": "a1903c145e528abc145177e9898b0e50c283e8c267ce57a7c94b08cb71f2f0aa"
+    },
+    {
+      "path": "zh-tw/UO.GetTradeOpponentName.md",
+      "sha256": "e4dd0f4405091c381733828042c30033c40a1898a63e97f3975b320c7f531aba"
+    },
+    {
       "path": "zh-tw/UO.GetWeight.md",
       "sha256": "aef01ff1540b020efc55cd43a9176f7529185f663e91dd0cb52dfa78d4f772fc"
     },
@@ -13648,6 +14060,10 @@
     {
       "path": "zh-tw/UO.IsPoisoned.md",
       "sha256": "609ac5e77f03d035b9d8230082f4da2efd0ccf0c29dca461dafc4998bfd0b788"
+    },
+    {
+      "path": "zh-tw/UO.IsTrade.md",
+      "sha256": "cc2670238f8c42954c15b82e945cd03b846b1132b55b2b21450c0f15b70815f0"
     },
     {
       "path": "zh-tw/UO.IsWorldCellPassable.md",
@@ -13816,6 +14232,26 @@
     {
       "path": "zh-tw/UO.Strength.md",
       "sha256": "3f9df883aa0700d61436a7d0fcb24f2aa998fdaba1671a79343ed2f5758069ec"
+    },
+    {
+      "path": "zh-tw/UO.TradeCheck.md",
+      "sha256": "b7af7946a8422cae67e797332bd8c723ea1bfedef2eaf58576b12da49212cd34"
+    },
+    {
+      "path": "zh-tw/UO.TradeContainer.md",
+      "sha256": "391c9f3922e55511d5039ddbe9070009f8f26081e919fc1fb5a17e895326a204"
+    },
+    {
+      "path": "zh-tw/UO.TradeCount.md",
+      "sha256": "ed7bc9971f9edb1c16688b1bd3baa9665d5ca87d38d59be7c431e0c9bf1d6f7f"
+    },
+    {
+      "path": "zh-tw/UO.TradeName.md",
+      "sha256": "d493f4f1fb3c6162ebbcfb7c5103edf46df9a0f6075e56297520637c99b9d0a2"
+    },
+    {
+      "path": "zh-tw/UO.TradeOpponent.md",
+      "sha256": "96db5b716af6501679f0f9e3e5bc64a63e08e2f1f091ed2226adf49821534b1e"
     },
     {
       "path": "zh-tw/UO.WaitGump.md",

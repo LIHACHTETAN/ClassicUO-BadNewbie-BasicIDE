@@ -1,99 +1,144 @@
 # UO.GetTradeOpponentName
 
-ClassicUO • Runtime API • `UO.GetTradeOpponentName.md`
+ClassicUO • Runtime API
 
-## Точный синтаксис / Registered signatures
+<!-- yoko-manual: 1 -->
+
+Возвращает имя партнёра, полученное вместе с окном обмена.
+
+## Точный синтаксис
 
 ```text
 UO.GetTradeOpponentName(TradeNum:Any) -> Any
 ```
 
-Порядок аргументов соответствует строкам выше. `Unit` означает отсутствие возвращаемого значения. `Any` — значение BASIC с преобразованием при вызове. Имена нечувствительны к регистру.
+Выберите одну из зарегистрированных форм. Параметры передаются позиционно. Any означает значение BASIC с преобразованием внутри команды; Unit — отсутствие возвращаемого значения.
 
-## `UO.GetTradeOpponentName`
+## Параметры
 
-### Compatibility description
+- `TradeNum` — Целое число: текущий номер окна от 1 до TradeCount(). 0 и отрицательные значения недопустимы. Это не serial.
 
-> Historical Stealth/Pascal reference text. Current Basic signatures and return contracts below are authoritative when behavior differs.
+## Возвращает
 
-Возвращает имя оппонента в указанном окне безопасного обмена. TradeNum — индекс активного окна обмена (начиная с 1, как возвращает TradeCount ). Возвращает пустую строку, если окно обмена не существует или персонаж не подключён.
+String: имя из пакета открытия обмена; пустая строка при отсутствии окна или имени. Не запрашивает имя заново.
 
-### Current Basic signatures / Return
+## Поведение
 
-- `UO.GetTradeOpponentName(TradeNum:Integer) -> String`
-  - **Return type:** `String`
-  - **Return contract:** String runtime value. Empty string may be a valid no-data/no-match result.
-  - **Runtime route:** `DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility["GetTradeOpponentName"]` → `BRIDGE CONTRACT -> IApiBridge.GetTradeOpponentName`
+- GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade нумеруют окна с 1; TradeContainer/TradeOpponent/TradeName и все формы TradeCheck — с 0. Это явная совместимость данного клиента: внешние справочники разных движков используют разные начала отсчёта.
+- Чтение выполняется на игровом потоке по живым окнам текущего мира. Закрытые окна не считаются. Вызовы чтения не отправляют пакетов и не ждут ответа. Порядок UI может меняться при открытии, закрытии и переносе окна наверх; номер не является постоянным идентификатором.
+- ConfirmTrade и запись своего TradeCheck отправляют пакет только при изменении согласия. Чужое согласие задаёт сервер. CancelTrade отправляет отмену один раз. 1/TRUE — локальное состояние/обработка, а не гарантия завершения обмена. Имена и оба согласия не доказывают, что состав предметов не изменился.
 
-**Pascal compatibility signature:** `function GetTradeOpponentName(TradeNum: Byte): String;`
+### Внутренние функции: от вызова до результата
 
-### Parameters
+Ниже — путь вызова в C#. После него приведены исполняемые Basic-примеры; это не попытка заново реализовать сетевой протокол в скрипте.
 
-- `TradeNum` — Integer control/count/index value (Integer); exact zero/sentinel meaning is documented by Behavior/Notes.
+#### 1. ExecuteStealthCompatibility
 
-### Accepted values / constants
+Регистрация выбирает форму по числу аргументов; числа преобразуются через NumberConversions. Для TradeCheck с двумя аргументами стороны 1/2 проверяются и переводятся в 0/1 bridge. Legacy-serial форматируется через ToHex.
 
-- `TradeNum` — Numeric BASIC value. Exact range/clamping/sentinel values are stated in this card's parameter text and Behavior/Notes.
+String: имя из пакета открытия обмена; пустая строка при отсутствии окна или имени. Не запрашивает имя заново.
 
-### Defaults / omitted arguments
+Исходник проекта: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; функция `ExecuteStealthCompatibility`.
 
-No parameters are optional unless the signature/Behavior explicitly states otherwise.
+#### 2. GetTradeOpponentName
 
-### Behavior
+Invoke передаёт чтение/изменение на игровой поток с отменой скрипта; метод читает ID1/ID2, LocalSerial, OpponentName или флажки выбранного TradingGump.
 
-Executes the registered Basic runtime implementation shown in the Runtime route. The behavior is source-backed by the current registration rather than the historical Stealth text alone.
+Возвращает имя партнёра, полученное вместе с окном обмена.
 
-### Notes / limitations
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `GetTradeOpponentName`.
 
-Use the exact registered overload and positional argument order. Server/world-dependent effects may complete asynchronously; validate state when the script depends on confirmation.
+#### 3. FindNumberedTrade
 
-### Examples
+FindNumberedTrade проверяет number>0 до вычитания 1; FindTrade отклоняет отрицательный индекс и перечисляет только незакрытые TradingGump текущего World.
 
-```basic
-SUB Main()
-    VAR result = UO.GetTradeOpponentName(0)
-END SUB
-```
+GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade нумеруют окна с 1; TradeContainer/TradeOpponent/TradeName и все формы TradeCheck — с 0. Это явная совместимость данного клиента: внешние справочники разных движков используют разные начала отсчёта.
 
----
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `FindNumberedTrade`.
 
-## Варианты использования
+Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
 
-Это отдельные сценарии. Подставьте свои serial, пути и координаты; серверные действия зависят от текущего состояния игры.
 
-### Прямой вызов
+## Примеры
+
+### Пример 1. Прямое чтение или действие
 
 ```vb
+# Прямое чтение или действие
+#
+# Возвращает имя партнёра, полученное вместе с окном обмена.
+#
+# String: имя из пакета открытия обмена; пустая строка при отсутствии окна или имени. Не
+# запрашивает имя заново.
+
 SUB Main()
-    VAR result = UO.GetTradeOpponentName(1)
-    UO.Print(CStr(result))
+    # Вызов сделан один раз, результат сохранён в value/result. 0 — первый индекс, 1 — первый номер
+    # (см. синтаксис этой команды). HEX показывает числовой serial; CStr — число или строку.
+
+    VAR value = UO.GetTradeOpponentName(1)
+    UO.Print(CStr(value))
 END SUB
 ```
 
-### Явные аргументы и сохранение результата
+**Разбор параметров и выполнения:**
+
+- Вызов сделан один раз, результат сохранён в value/result. 0 — первый индекс, 1 — первый номер (см. синтаксис этой команды). HEX показывает числовой serial; CStr — число или строку.
+
+### Пример 2. Другой сценарий и параметры
 
 ```vb
+# Другой сценарий и параметры
+#
+# Возвращает имя партнёра, полученное вместе с окном обмена.
+#
+# String: имя из пакета открытия обмена; пустая строка при отсутствии окна или имени. Не
+# запрашивает имя заново.
+
 SUB Main()
-    VAR arg1 = 1 # TradeNum
-    VAR result = UO.GetTradeOpponentName(arg1)
-    UO.Print(CStr(result))
+    # total — снимок числа окон; index — текущий индекс/номер. Пример перебора ничего не
+    # подтверждает. В GetTradeContainer два вызова читают свой контейнер (1) и чужой (2) первого
+    # окна (1).
+
+    VAR total = UO.TradeCount()
+    FOR VAR index = 1 TO total - 0
+        VAR value = UO.GetTradeOpponentName(index)
+        UO.Print(CStr(index) + ": " + CStr(value))
+    NEXT
 END SUB
 ```
 
-### Получение результата внутри процедуры
+**Разбор параметров и выполнения:**
+
+- total — снимок числа окон; index — текущий индекс/номер. Пример перебора ничего не подтверждает. В GetTradeContainer два вызова читают свой контейнер (1) и чужой (2) первого окна (1).
+
+### Пример 3. Полный помощник со всеми функциями
 
 ```vb
-SUB ReadResult()
-    VAR arg1 = 1 # TradeNum
-    VAR result = UO.GetTradeOpponentName(arg1)
-    UO.Print(CStr(result))
-END SUB
+# Полный помощник со всеми функциями
+#
+# Возвращает имя партнёра, полученное вместе с окном обмена.
+#
+# String: имя из пакета открытия обмена; пустая строка при отсутствии окна или имени. Не
+# запрашивает имя заново.
 
 SUB Main()
-    ReadResult()
+    # Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают
+    # риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия
+    # expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
+
+    VAR value = ReadTradeValue(1)
+    UO.Print(CStr(value))
 END SUB
+
+FUNCTION ReadTradeValue(index)
+    VAR total = UO.TradeCount()
+    IF index < 1 OR index >= total + 1 THEN
+        RETURN ""
+    END IF
+    RETURN UO.GetTradeOpponentName(index)
+END FUNCTION
 ```
 
-## Реализация для проверки поведения
+**Разбор параметров и выполнения:**
 
-- `InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0`
+- Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.

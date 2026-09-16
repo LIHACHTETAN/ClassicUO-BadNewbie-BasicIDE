@@ -1,101 +1,127 @@
 # UO.TradeCount
 
-ClassicUO • Runtime API • `UO.TradeCount.md`
+ClassicUO • Runtime API
 
-## Точный синтаксис / Registered signatures
+<!-- yoko-manual: 1 -->
+
+Возвращает количество открытых окон обмена.
+
+## Точный синтаксис
 
 ```text
 UO.TradeCount() -> Integer
 ```
 
-Порядок аргументов соответствует строкам выше. `Unit` означает отсутствие возвращаемого значения. `Any` — значение BASIC с преобразованием при вызове. Имена нечувствительны к регистру.
+Выберите одну из зарегистрированных форм. Параметры передаются позиционно. Any означает значение BASIC с преобразованием внутри команды; Unit — отсутствие возвращаемого значения.
 
-## `UO.TradeCount`
+## Параметры
 
-### Compatibility description
+Параметров нет.
 
-> Historical Stealth/Pascal reference text. Current Basic signatures and return contracts below are authoritative when behavior differs.
+## Возвращает
 
-Возвращает количество активных окон безопасной торговли. Возвращает 0 , если торговых окон нет или персонаж не подключён.
+Integer: число окон от 0. Это количество, а не Boolean; для проверки наличия используйте > 0.
 
-### Current Basic signatures / Return
+## Поведение
 
-- `UO.TradeCount() -> Integer`
-  - **Return type:** `Integer`
-  - **Return contract:** Integer result from the registered runtime implementation; command-specific zero/-1 sentinels are described in Behavior/Notes.
-  - **Runtime route:** `DIRECT NATIVE REGISTRATION -> InjectionApiUO.Register["UO.TradeCount"]`
+- GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade нумеруют окна с 1; TradeContainer/TradeOpponent/TradeName и все формы TradeCheck — с 0. Это явная совместимость данного клиента: внешние справочники разных движков используют разные начала отсчёта.
+- Чтение выполняется на игровом потоке по живым окнам текущего мира. Закрытые окна не считаются. Вызовы чтения не отправляют пакетов и не ждут ответа. Порядок UI может меняться при открытии, закрытии и переносе окна наверх; номер не является постоянным идентификатором.
+- ConfirmTrade и запись своего TradeCheck отправляют пакет только при изменении согласия. Чужое согласие задаёт сервер. CancelTrade отправляет отмену один раз. 1/TRUE — локальное состояние/обработка, а не гарантия завершения обмена. Имена и оба согласия не доказывают, что состав предметов не изменился.
 
-**Pascal compatibility signature:** `function TradeCount: Byte;`
+### Внутренние функции: от вызова до результата
 
-### Parameters
+Ниже — путь вызова в C#. После него приведены исполняемые Basic-примеры; это не попытка заново реализовать сетевой протокол в скрипте.
 
-- None. This command has a zero-argument overload or exposes no positional arguments in the current runtime registration.
+#### 1. TradeCount
 
-### Accepted values / constants
+Регистрация выбирает форму по числу аргументов; числа преобразуются через NumberConversions. Для TradeCheck с двумя аргументами стороны 1/2 проверяются и переводятся в 0/1 bridge. Legacy-serial форматируется через ToHex.
 
-- None; this command's registered overload takes no positional arguments.
+Integer: число окон от 0. Это количество, а не Boolean; для проверки наличия используйте > 0.
 
-### Defaults / omitted arguments
+Исходник проекта: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; функция `TradeCount`.
 
-No parameters; no argument defaults apply.
+#### 2. TradeCount
 
-### Behavior
+Invoke передаёт чтение/изменение на игровой поток с отменой скрипта; метод читает ID1/ID2, LocalSerial, OpponentName или флажки выбранного TradingGump.
 
-Executes the registered Basic runtime implementation shown in the Runtime route. The behavior is source-backed by the current registration rather than the historical Stealth text alone.
+Возвращает количество открытых окон обмена.
 
-### Notes / limitations
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `TradeCount`.
 
-Use the exact registered overload and positional argument order. Server/world-dependent effects may complete asynchronously; validate state when the script depends on confirmation.
+Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
 
-### Examples
 
-```basic
+## Примеры
+
+### Пример 1. Прямое чтение или действие
+
+```vb
+# Прямое чтение или действие
+#
+# Возвращает количество открытых окон обмена.
+#
+# Integer: число окон от 0. Это количество, а не Boolean; для проверки наличия используйте > 0.
+
 SUB Main()
-    VAR result = UO.TradeCount()
+    # Вызов сделан один раз, результат сохранён в value/result. 0 — первый индекс, 1 — первый номер
+    # (см. синтаксис этой команды). HEX показывает числовой serial; CStr — число или строку.
+
+    VAR value = UO.TradeCount()
+    UO.Print(CStr(value))
 END SUB
 ```
 
----
+**Разбор параметров и выполнения:**
 
-## Варианты использования
+- Вызов сделан один раз, результат сохранён в value/result. 0 — первый индекс, 1 — первый номер (см. синтаксис этой команды). HEX показывает числовой serial; CStr — число или строку.
 
-Это отдельные сценарии. Подставьте свои serial, пути и координаты; серверные действия зависят от текущего состояния игры.
-
-### Прямой вызов
+### Пример 2. Другой сценарий и параметры
 
 ```vb
+# Другой сценарий и параметры
+#
+# Возвращает количество открытых окон обмена.
+#
+# Integer: число окон от 0. Это количество, а не Boolean; для проверки наличия используйте > 0.
+
 SUB Main()
-    VAR result = UO.TradeCount()
-    UO.Print(CStr(result))
+    # before/after — два отдельных снимка с интервалом 500 миллисекунд. Пауза не ждёт конкретный
+    # обмен; между чтениями состояние может измениться несколько раз.
+
+    VAR before = UO.TradeCount()
+    WAIT(500)
+    VAR after = UO.TradeCount()
+    UO.Print(CStr(before) + " -> " + CStr(after))
 END SUB
 ```
 
-### Условие по полученному числу
+**Разбор параметров и выполнения:**
+
+- before/after — два отдельных снимка с интервалом 500 миллисекунд. Пауза не ждёт конкретный обмен; между чтениями состояние может измениться несколько раз.
+
+### Пример 3. Полный помощник со всеми функциями
 
 ```vb
+# Полный помощник со всеми функциями
+#
+# Возвращает количество открытых окон обмена.
+#
+# Integer: число окон от 0. Это количество, а не Boolean; для проверки наличия используйте > 0.
+
 SUB Main()
-    VAR result = UO.TradeCount()
-    # Пример порога; выберите подходящий смыслу команды.
-    IF result > 0 THEN
-        UO.Print(CStr(result))
-    END IF
+    # Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают
+    # риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия
+    # expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
+
+    VAR value = ReadTradeState()
+    UO.Print(CStr(value))
 END SUB
-```
 
-### Результат через собственную функцию
-
-```vb
-FUNCTION ReadResult()
-    VAR result = UO.TradeCount()
-    RETURN result
+FUNCTION ReadTradeState()
+    RETURN UO.TradeCount()
 END FUNCTION
-
-SUB Main()
-    VAR answer = ReadResult()
-    UO.Print(CStr(answer))
-END SUB
 ```
 
-## Реализация для проверки поведения
+**Разбор параметров и выполнения:**
 
-- `InjectionScript.Runtime.InjectionApiUO.TradeCount`
+- Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.

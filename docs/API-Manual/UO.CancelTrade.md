@@ -1,99 +1,181 @@
 # UO.CancelTrade
 
-ClassicUO • Runtime API • `UO.CancelTrade.md`
+ClassicUO • Runtime API
 
-## Точный синтаксис / Registered signatures
+<!-- yoko-manual: 1 -->
+
+Отменяет выбранный обмен и закрывает его окно.
+
+## Точный синтаксис
 
 ```text
 UO.CancelTrade(TradeNum:Any) -> Any
 ```
 
-Порядок аргументов соответствует строкам выше. `Unit` означает отсутствие возвращаемого значения. `Any` — значение BASIC с преобразованием при вызове. Имена нечувствительны к регистру.
+Выберите одну из зарегистрированных форм. Параметры передаются позиционно. Any означает значение BASIC с преобразованием внутри команды; Unit — отсутствие возвращаемого значения.
 
-## `UO.CancelTrade`
+## Параметры
 
-### Compatibility description
+- `TradeNum` — Целое число: текущий номер окна от 1 до TradeCount(). 0 и отрицательные значения недопустимы. Это не serial.
 
-> Historical Stealth/Pascal reference text. Current Basic signatures and return contracts below are authoritative when behavior differs.
+## Возвращает
 
-Отменяет окно обмена с индексом TradeNum из списка активных обменов. Возвращает True , если обмен успешно отменён, False , если индекс обмена недействителен или такой обмен не существует.
+Integer: 1 = TRUE — окно найдено, закрыто и запрос отмены отправлен через закрытие; 0 = FALSE — окна нет. Это не ожидание серверного ответа. Повторная отмена закрытого окна не отправляет второй пакет.
 
-### Current Basic signatures / Return
+Это логический результат: 1 = TRUE, 0 = FALSE. После VAR result = команда(...) можно писать IF result = TRUE THEN или IF result = 1 THEN; для отрицательного результата — IF result = FALSE THEN или IF result = 0 THEN. TRUE/FALSE пишутся без кавычек. Вызовите команду один раз и сохраните результат: повторный вызов может повторить действие или прочитать уже изменившееся состояние.
 
-- `UO.CancelTrade(TradeNum:Integer) -> Boolean`
-  - **Return type:** `Boolean`
-  - **Return contract:** Boolean success/state value: TRUE on success/active state, FALSE otherwise.
-  - **Runtime route:** `DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility["CancelTrade"]` → `BRIDGE CONTRACT -> IApiBridge.CancelTrade`
+## Поведение
 
-**Pascal compatibility signature:** `function CancelTrade(TradeNum: Byte): Boolean;`
+- GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade нумеруют окна с 1; TradeContainer/TradeOpponent/TradeName и все формы TradeCheck — с 0. Это явная совместимость данного клиента: внешние справочники разных движков используют разные начала отсчёта.
+- Чтение выполняется на игровом потоке по живым окнам текущего мира. Закрытые окна не считаются. Вызовы чтения не отправляют пакетов и не ждут ответа. Порядок UI может меняться при открытии, закрытии и переносе окна наверх; номер не является постоянным идентификатором.
+- ConfirmTrade и запись своего TradeCheck отправляют пакет только при изменении согласия. Чужое согласие задаёт сервер. CancelTrade отправляет отмену один раз. 1/TRUE — локальное состояние/обработка, а не гарантия завершения обмена. Имена и оба согласия не доказывают, что состав предметов не изменился.
 
-### Parameters
+### Внутренние функции: от вызова до результата
 
-- `TradeNum` — Integer control/count/index value (Integer); exact zero/sentinel meaning is documented by Behavior/Notes.
+Ниже — путь вызова в C#. После него приведены исполняемые Basic-примеры; это не попытка заново реализовать сетевой протокол в скрипте.
 
-### Accepted values / constants
+#### 1. ExecuteStealthCompatibility
 
-- `TradeNum` — Numeric BASIC value. Exact range/clamping/sentinel values are stated in this card's parameter text and Behavior/Notes.
+Регистрация выбирает форму по числу аргументов; числа преобразуются через NumberConversions. Для TradeCheck с двумя аргументами стороны 1/2 проверяются и переводятся в 0/1 bridge. Legacy-serial форматируется через ToHex.
 
-### Defaults / omitted arguments
+Integer: 1 = TRUE — окно найдено, закрыто и запрос отмены отправлен через закрытие; 0 = FALSE — окна нет. Это не ожидание серверного ответа. Повторная отмена закрытого окна не отправляет второй пакет.
 
-No parameters are optional unless the signature/Behavior explicitly states otherwise.
+Исходник проекта: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; функция `ExecuteStealthCompatibility`.
 
-### Behavior
+#### 2. CancelTrade
 
-Executes the registered Basic runtime implementation shown in the Runtime route. The behavior is source-backed by the current registration rather than the historical Stealth text alone.
+Invoke передаёт чтение/изменение на игровой поток с отменой скрипта; метод читает ID1/ID2, LocalSerial, OpponentName или флажки выбранного TradingGump.
 
-### Notes / limitations
+Отменяет выбранный обмен и закрывает его окно.
 
-Use the exact registered overload and positional argument order. Server/world-dependent effects may complete asynchronously; validate state when the script depends on confirmation.
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `CancelTrade`.
 
-### Examples
+#### 3. FindNumberedTrade
 
-```basic
-SUB Main()
-    VAR result = UO.CancelTrade(0)
-END SUB
-```
+FindNumberedTrade проверяет number>0 до вычитания 1; FindTrade отклоняет отрицательный индекс и перечисляет только незакрытые TradingGump текущего World.
 
----
+GetTradeContainer/GetTradeOpponent/GetTradeOpponentName/ConfirmTrade/CancelTrade нумеруют окна с 1; TradeContainer/TradeOpponent/TradeName и все формы TradeCheck — с 0. Это явная совместимость данного клиента: внешние справочники разных движков используют разные начала отсчёта.
 
-## Варианты использования
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `FindNumberedTrade`.
 
-Это отдельные сценарии. Подставьте свои serial, пути и координаты; серверные действия зависят от текущего состояния игры.
+#### 4. Dispose
 
-### Прямой вызов
+Dispose сразу выходит для уже закрытого окна, освобождает UI и вызывает GameActions.CancelTrade(ID1) ровно один раз.
+
+Integer: 1 = TRUE — окно найдено, закрыто и запрос отмены отправлен через закрытие; 0 = FALSE — окна нет. Это не ожидание серверного ответа. Повторная отмена закрытого окна не отправляет второй пакет.
+
+Исходник проекта: `src/ClassicUO.Client/Game/UI/Gumps/TradingGump.cs`; функция `Dispose`.
+
+Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
+
+
+## Примеры
+
+### Пример 1. Прямое чтение или действие
 
 ```vb
+# Прямое чтение или действие
+#
+# Отменяет выбранный обмен и закрывает его окно.
+#
+# Integer: 1 = TRUE — окно найдено, закрыто и запрос отмены отправлен через закрытие; 0 = FALSE
+# — окна нет. Это не ожидание серверного ответа. Повторная отмена закрытого окна не отправляет
+# второй пакет.
+#
+# Это логический результат: 1 = TRUE, 0 = FALSE. После VAR result = команда(...) можно писать IF
+# result = TRUE THEN или IF result = 1 THEN; для отрицательного результата — IF result = FALSE
+# THEN или IF result = 0 THEN. TRUE/FALSE пишутся без кавычек. Вызовите команду один раз и
+# сохраните результат: повторный вызов может повторить действие или прочитать уже изменившееся
+# состояние.
+
 SUB Main()
+    # Вызов сделан один раз, результат сохранён в value/result. 0 — первый индекс, 1 — первый номер
+    # (см. синтаксис этой команды). HEX показывает числовой serial; CStr — число или строку.
+
     VAR result = UO.CancelTrade(1)
-    UO.Print(CStr(result))
+    IF result = TRUE THEN
+        UO.Print("Local request processed")
+    END IF
 END SUB
 ```
 
-### Явные аргументы и сохранение результата
+**Разбор параметров и выполнения:**
+
+- Вызов сделан один раз, результат сохранён в value/result. 0 — первый индекс, 1 — первый номер (см. синтаксис этой команды). HEX показывает числовой serial; CStr — число или строку.
+
+### Пример 2. Другой сценарий и параметры
 
 ```vb
+# Другой сценарий и параметры
+#
+# Отменяет выбранный обмен и закрывает его окно.
+#
+# Integer: 1 = TRUE — окно найдено, закрыто и запрос отмены отправлен через закрытие; 0 = FALSE
+# — окна нет. Это не ожидание серверного ответа. Повторная отмена закрытого окна не отправляет
+# второй пакет.
+#
+# Это логический результат: 1 = TRUE, 0 = FALSE. После VAR result = команда(...) можно писать IF
+# result = TRUE THEN или IF result = 1 THEN; для отрицательного результата — IF result = FALSE
+# THEN или IF result = 0 THEN. TRUE/FALSE пишутся без кавычек. Вызовите команду один раз и
+# сохраните результат: повторный вызов может повторить действие или прочитать уже изменившееся
+# состояние.
+
 SUB Main()
-    VAR arg1 = 1 # TradeNum
-    VAR result = UO.CancelTrade(arg1)
-    UO.Print(CStr(result))
+    # ConfirmTrade и запись своего TradeCheck отправляют пакет только при изменении согласия. Чужое
+    # согласие задаёт сервер. CancelTrade отправляет отмену один раз. 1/TRUE — локальное
+    # состояние/обработка, а не гарантия завершения обмена. Имена и оба согласия не доказывают, что
+    # состав предметов не изменился.
+
+    VAR tradeNumber = 2
+    IF UO.TradeCount() >= tradeNumber THEN
+        VAR result = UO.CancelTrade(tradeNumber)
+        UO.Print(CStr(result))
+    END IF
 END SUB
 ```
 
-### Получение результата внутри процедуры
+**Разбор параметров и выполнения:**
+
+- ConfirmTrade и запись своего TradeCheck отправляют пакет только при изменении согласия. Чужое согласие задаёт сервер. CancelTrade отправляет отмену один раз. 1/TRUE — локальное состояние/обработка, а не гарантия завершения обмена. Имена и оба согласия не доказывают, что состав предметов не изменился.
+
+### Пример 3. Полный помощник со всеми функциями
 
 ```vb
-SUB ReadResult()
-    VAR arg1 = 1 # TradeNum
-    VAR result = UO.CancelTrade(arg1)
+# Полный помощник со всеми функциями
+#
+# Отменяет выбранный обмен и закрывает его окно.
+#
+# Integer: 1 = TRUE — окно найдено, закрыто и запрос отмены отправлен через закрытие; 0 = FALSE
+# — окна нет. Это не ожидание серверного ответа. Повторная отмена закрытого окна не отправляет
+# второй пакет.
+#
+# Это логический результат: 1 = TRUE, 0 = FALSE. После VAR result = команда(...) можно писать IF
+# result = TRUE THEN или IF result = 1 THEN; для отрицательного результата — IF result = FALSE
+# THEN или IF result = 0 THEN. TRUE/FALSE пишутся без кавычек. Вызовите команду один раз и
+# сохраните результат: повторный вызов может повторить действие или прочитать уже изменившееся
+# состояние.
+
+SUB Main()
+    # Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают
+    # риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия
+    # expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.
+
+    VAR expectedPartner = UO.GetTradeOpponent(1)
+    VAR result = ApplyToPartner(1, expectedPartner)
     UO.Print(CStr(result))
 END SUB
 
-SUB Main()
-    ReadResult()
-END SUB
+FUNCTION ApplyToPartner(tradeNumber, expectedPartner)
+    IF expectedPartner = 0 THEN
+        RETURN FALSE
+    END IF
+    IF UO.GetTradeOpponent(tradeNumber) <> expectedPartner THEN
+        RETURN FALSE
+    END IF
+    RETURN UO.CancelTrade(tradeNumber)
+END FUNCTION
 ```
 
-## Реализация для проверки поведения
+**Разбор параметров и выполнения:**
 
-- `InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0`
+- Помощник приведён полностью и действительно вызывается из Main. Проверки диапазона/ID снижают риск ошибки, но несколько вызовов не атомарны: окно может смениться между ними. Для действия expectedPartner — сохранённый serial персонажа; это не проверка цены или содержимого обмена.

@@ -25631,8 +25631,8 @@
         "ARGUMENT -> position 1 TradeNum; read by Arg",
         "ARGUMENT -> position 2 Num; read by Arg",
         "BRIDGE CONTRACT -> IApiBridge.TradeCheck",
-        "RESULT -> new InjectionValue(bridge.TradeCheck(Arg(0), Arg(1), 0, false))",
-        "BRANCH LOGIC -> return new InjectionValue(bridge.TradeCheck(Arg(0), Arg(1), 0, false));"
+        "RESULT -> new InjectionValue(tradeSide is 1 or 2 ? bridge.TradeCheck(Arg(0), tradeSide - 1, 0, false) : 0)",
+        "BRANCH LOGIC -> int tradeSide = Arg(1); return new InjectionValue(tradeSide is 1 or 2 ? bridge.TradeCheck(Arg(0), tradeSide - 1, 0, false) : 0);"
       ]
     },
     {
