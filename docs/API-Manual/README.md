@@ -1,6 +1,6 @@
 # API Manual — ClassicUO
 
-810 имён команд; 1231 вариантов имя/число аргументов; 191 runtime-параметров.
+811 имён команд; 1232 вариантов имя/число аргументов; 191 runtime-параметров.
 
 Это внешние редактируемые файлы. Окно клиента читает файл при выборе команды. В Theia повторно откройте API Manual для обновления; файл также можно открыть в обозревателе. Кнопка Source открывает файл выбранной команды. Для изменения самой команды нужна правка исходников и сборка.
 
@@ -56,6 +56,7 @@
 - [Event / AddHandler / RemoveHandler / RaiseEvent](Basic.Events.md)
 - [AddHandler UO.JournalEntry / client events](Basic.GameEvents.md)
 - [CreateTimer / script timers](Basic.Timers.md)
+- [Async / Await / Delay](Basic.Async.md)
 - [Structure / New / fields](Basic.Structure.md)
 - [Declare / Lib / Alias](Basic.Declare.md)
 - [Windows.bas](Basic.Windows.md)
@@ -81,6 +82,7 @@
 - [CreateTimer](CreateTimer.md)
 - [CSng](CSng.md)
 - [CStr](CStr.md)
+- [Delay](Delay.md)
 - [Dictionary](Dictionary.md)
 - [Exp](Exp.md)
 - [File](File.md)
@@ -165,6 +167,7 @@
 - [CSng](CSng.md)
 - [CStr](CStr.md)
 - [dead](dead.md)
+- [Delay](Delay.md)
 - [Dictionary](Dictionary.md)
 - [Ear](Ear.md)
 - [Earrings](Earrings.md)

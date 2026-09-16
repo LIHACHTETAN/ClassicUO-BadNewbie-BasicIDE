@@ -18,6 +18,7 @@
     "CreateTimer",
     "CSng",
     "CStr",
+    "Delay",
     "Dictionary",
     "Exp",
     "File",
@@ -1334,6 +1335,40 @@
         "Option Explicit On\nModule State\n    Public Dim count As Integer = 0\n    Public Dim pulse\nEnd Module\n\nSub CountPulse()\n    State.count += 1\n    If State.count >= 3 Then\n        State.pulse.Stop()\n    End If\nEnd Sub\n\nFunction RunThreePulses() As String\n    State.pulse = CreateTimer(20, AddressOf CountPulse)\n    Using State.pulse\n        State.pulse.Start()\n        Wait Until State.count >= 3 Timeout 3000\n        Return CStr(State.count) & \":\" & CStr(State.pulse.Enabled())\n    End Using\nEnd Function\n\nSub Main()\n    Return RunThreePulses()\nEnd Sub\n",
         "Option Explicit On\nModule State\n    Public Dim message As String = \"\"\nEnd Module\n\nSub SetReady()\n    State.message = \"ready\"\nEnd Sub\n\nFunction GetHandler()\n    Return AddressOf SetReady\nEnd Function\n\nSub Main()\n    Dim callback = GetHandler()\n    Dim notice = CreateTimer(repeating:=False, handler:=callback, milliseconds:=5)\n    Using notice\n        notice.SetInterval(10)\n        notice.Start()\n        Wait Until State.message = \"ready\" Timeout 3000\n        Return State.message & \":\" & CStr(notice.Enabled())\n    End Using\nEnd Sub\n",
         "Option Explicit On\nSub FailingPulse()\n    Throw \"tick failed\"\nEnd Sub\n\nSub Main()\n    Dim pulse = CreateTimer(5, AddressOf FailingPulse)\n    Dim problemText As String = \"\"\n    Dim enabledAfterError As Boolean = True\n    Try\n        pulse.Start()\n        Wait(2000)\n    Catch problem\n        problemText = problem\n        enabledAfterError = pulse.Enabled()\n    Finally\n        pulse.Dispose()\n    End Try\n    Return problemText & \":\" & CStr(enabledAfterError)\nEnd Sub\n"
+      ]
+    },
+    {
+      "id": "Basic.Async",
+      "name": "Async / Await / Delay",
+      "signatures": [
+        "Async Function Work(ByVal value As Integer) As Task(Of Integer)\n    Await Delay(100)\n    Return value\nEnd Function",
+        "Async Function Work() As Task\n    Await Delay(100)\nEnd Function",
+        "Delay(milliseconds) -> Object (ScriptTask)",
+        "Await task",
+        "Dim value = Await task",
+        "value = Await task",
+        "Return Await task",
+        "task.IsCompleted() -> Integer (0/1)",
+        "task.IsFaulted() -> Integer (0/1)",
+        "task.IsCanceled() -> Integer (0/1)",
+        "task.Result() -> T / Unit"
+      ],
+      "descriptions": {
+        "en": "Async Function creates a script task. Await suspends that function while other ready work in the same script can proceed. This is cooperative Basic execution, not a new thread or the full VB.NET Task library.",
+        "ru": "Async Function создаёт задачу скрипта. Await приостанавливает эту функцию и позволяет выполнять другую готовую работу того же скрипта. Это совместное выполнение Basic, без нового потока и без полной библиотеки Task из VB.NET.",
+        "uk": "Async Function створює завдання скрипту. Await призупиняє цю функцію, дозволяючи іншій готовій роботі того самого скрипту виконуватися. Це спільне виконання Basic без нового потоку та повної бібліотеки Task із VB.NET.",
+        "fr": "Async Function crée une tâche du script. Await suspend cette fonction pour laisser progresser les autres travaux prêts du même script. Aucun nouveau thread ni bibliothèque Task complète de VB.NET n’est créé.",
+        "de": "Async Function erzeugt eine Skriptaufgabe. Await unterbricht diese Funktion, damit andere bereite Arbeit desselben Skripts weiterläuft. Es entsteht kein neuer Thread; die vollständige VB.NET-Task-Bibliothek ist nicht verfügbar.",
+        "it": "Async Function crea un’attività dello script. Await sospende quella funzione per consentire altro lavoro pronto nello stesso script. Non crea un thread nuovo e non include l’intera libreria Task di VB.NET.",
+        "es": "Async Function crea una tarea del script. Await suspende esa función para permitir otro trabajo preparado del mismo script. No crea un hilo nuevo ni incluye toda la biblioteca Task de VB.NET.",
+        "zh-tw": "Async Function 建立指令碼工作。Await 暫停該函式，讓同一指令碼中其他已就緒的工作繼續執行。這是協作執行，不會建立新執行緒，也不提供完整的 VB.NET Task 程式庫。",
+        "ja": "Async Function はスクリプトのタスクを作成します。Await はその関数を中断し、同じスクリプト内の準備できた別の処理を進めます。新しいスレッドや VB.NET の完全な Task ライブラリではありません。",
+        "ko": "Async Function은 스크립트 작업을 만듭니다. Await는 해당 함수를 중단하여 같은 스크립트의 다른 준비된 작업이 진행되도록 합니다. 새 스레드나 전체 VB.NET Task 라이브러리를 제공하는 기능은 아닙니다."
+      },
+      "examples": [
+        "Option Explicit On\nAsync Function ValueLater(ByVal value As Integer, ByVal milliseconds As Integer) As Task(Of Integer)\n    Await Delay(milliseconds)\n    Return value\nEnd Function\n\nSub Main()\n    Dim first = ValueLater(20, 30)\n    Dim second = ValueLater(22, 10)\n    Wait Until first.IsCompleted() AndAlso second.IsCompleted() Timeout 5000\n    Return first.Result() + second.Result()\nEnd Sub\n",
+        "Option Explicit On\nModule State\n    Public Dim cleaned As Boolean = False\nEnd Module\n\nAsync Function FailLater() As Task\n    Await Delay(5)\n    Throw \"failed\"\nEnd Function\n\nAsync Function ReadFailure() As Task(Of String)\n    Dim message As String = \"\"\n    Try\n        Await FailLater()\n    Catch problem\n        message = problem\n    Finally\n        State.cleaned = True\n    End Try\n    Return message & \":\" & CStr(State.cleaned)\nEnd Function\n\nSub Main()\n    Dim task = ReadFailure()\n    Wait Until task.IsCompleted() Timeout 5000\n    Return task.Result()\nEnd Sub\n",
+        "Option Explicit On\nAsync Function IncrementLater(ByVal value As Integer) As Task(Of Integer)\n    Await Delay(5)\n    Return value + 1\nEnd Function\n\nAsync Function SumLater() As Task(Of Integer)\n    Dim total As Integer = 0\n    For Var i = 1 To 3\n        Dim nextValue = Await IncrementLater(i)\n        total += nextValue\n    Next\n    Return total\nEnd Function\n\nAsync Function ForwardResult() As Task(Of Integer)\n    Return Await SumLater()\nEnd Function\n\nSub Main()\n    Dim task = ForwardResult()\n    Wait Until task.IsCompleted() Timeout 5000\n    Return task.Result()\nEnd Sub\n"
       ]
     },
     {

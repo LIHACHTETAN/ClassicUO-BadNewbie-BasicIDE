@@ -51,7 +51,7 @@
     },
     {
       "path": "basic-language.json",
-      "sha256": "45317a32bf3361ae1af5b16cf40e86b49bbd50c52692397a2780b2c513be821e"
+      "sha256": "369afd47437c165effaefa7b077874bfb4e66e205447eecd57db59cc0ce7ee71"
     },
     {
       "path": "Basic.ApiNames.md",
@@ -64,6 +64,10 @@
     {
       "path": "Basic.Arrays.md",
       "sha256": "1401d6f60c47bcbf8e63b7d916831cfbb6b1dbc9a1921834ef49f8667a6b8aa8"
+    },
+    {
+      "path": "Basic.Async.md",
+      "sha256": "3156dee82b4ff137a76249b964a4328a776dc2fad9389e6531208b16e4b1a3b3"
     },
     {
       "path": "Basic.ByRef.md",
@@ -346,6 +350,10 @@
       "sha256": "6eab10ec4abdc219432a4dd376659b0ccd60998c881a82fd076cfde7d18cba3a"
     },
     {
+      "path": "de/Basic.Async.md",
+      "sha256": "5e98ce803dba8bb7f4f3681e9ff75ac4ab9246824ef7c884e379ac494a849b14"
+    },
+    {
       "path": "de/Basic.ByRef.md",
       "sha256": "b2f3b663a478a7b702fce94a452035dece739d301d04734d21304ba1966d5e24"
     },
@@ -540,6 +548,10 @@
     {
       "path": "de/CreateTimer.md",
       "sha256": "50386467ac5037bd37b5efc53b776bfd2186896968256e9ba61c8e7349694359"
+    },
+    {
+      "path": "de/Delay.md",
+      "sha256": "5e98ce803dba8bb7f4f3681e9ff75ac4ab9246824ef7c884e379ac494a849b14"
     },
     {
       "path": "de/Dictionary.md",
@@ -1218,6 +1230,10 @@
       "sha256": "60253f9d34b109cd9739419fb70f5fbbcd08350bfae6dd3439bdc6cb6a977179"
     },
     {
+      "path": "Delay.md",
+      "sha256": "3156dee82b4ff137a76249b964a4328a776dc2fad9389e6531208b16e4b1a3b3"
+    },
+    {
       "path": "Dictionary.md",
       "sha256": "839bba75115d1c140c4df209a1af992db332b02d0158637b89b5c555390a73ab"
     },
@@ -1252,6 +1268,10 @@
     {
       "path": "en/Basic.Arrays.md",
       "sha256": "24107de2c9766dfa3f366a54b79c7881cebb09d747d869cca50d93325563360e"
+    },
+    {
+      "path": "en/Basic.Async.md",
+      "sha256": "e06390c22bb525a404e38f902450e3a4a7e697f4a6c2900715412b35f05dec39"
     },
     {
       "path": "en/Basic.ByRef.md",
@@ -1448,6 +1468,10 @@
     {
       "path": "en/CreateTimer.md",
       "sha256": "a2e5e26493404bc82f2288c2845ef8fddcdaf355750102d5f6db00ab486cbe82"
+    },
+    {
+      "path": "en/Delay.md",
+      "sha256": "e06390c22bb525a404e38f902450e3a4a7e697f4a6c2900715412b35f05dec39"
     },
     {
       "path": "en/Dictionary.md",
@@ -2142,6 +2166,10 @@
       "sha256": "a323b3bdde7024f4307ae7840b884b88de52e4dd95ac57e77c156102f3d4a8f4"
     },
     {
+      "path": "es/Basic.Async.md",
+      "sha256": "0f08c919c8c7d39d1355a74f3c5861b0b4eb032c28f71ad754163579db84a46b"
+    },
+    {
       "path": "es/Basic.ByRef.md",
       "sha256": "e4e3ff768e4cf77c2173ff1cfbdfb06c9385ba49692efe406b80eeae65ff5c4b"
     },
@@ -2336,6 +2364,10 @@
     {
       "path": "es/CreateTimer.md",
       "sha256": "c6f2a9d0f4f1f395a572e8a535c2846ac3d5d4096e84b5ad9da63a86912a7ed4"
+    },
+    {
+      "path": "es/Delay.md",
+      "sha256": "0f08c919c8c7d39d1355a74f3c5861b0b4eb032c28f71ad754163579db84a46b"
     },
     {
       "path": "es/Dictionary.md",
@@ -3134,6 +3166,10 @@
       "sha256": "6775fe4c2a402737b7729eea80c6cb557e9bef22af2937b6e7327b185d76c8b8"
     },
     {
+      "path": "fr/Basic.Async.md",
+      "sha256": "8b2778d5ee78caf6d02602ff4776980b27761ee92ccdc5206f3390155e2af33b"
+    },
+    {
       "path": "fr/Basic.ByRef.md",
       "sha256": "d89daa6c9889a3d0ce502d0cae1d473503fd3bf961ec80d00cc1036cc7869495"
     },
@@ -3328,6 +3364,10 @@
     {
       "path": "fr/CreateTimer.md",
       "sha256": "f22aea2547261f2e9cf90f8667cf9ad5b7a8ebaf8945c44323c3ba3e04b4687d"
+    },
+    {
+      "path": "fr/Delay.md",
+      "sha256": "8b2778d5ee78caf6d02602ff4776980b27761ee92ccdc5206f3390155e2af33b"
     },
     {
       "path": "fr/Dictionary.md",
@@ -4043,7 +4083,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "187a54598ecf9640b67452f42841d8a389f9629ebb0add05d45fe9feb13288f2"
+      "sha256": "37d1bdac9245514f8a0e5175273640161709c05a07677243167e24f7eb002498"
     },
     {
       "path": "InStr.md",
@@ -4084,6 +4124,10 @@
     {
       "path": "it/Basic.Arrays.md",
       "sha256": "37511e641d4ebcc6fa0fb105cc40c3a4c382e7169c0b7ef4d5a628a70830df13"
+    },
+    {
+      "path": "it/Basic.Async.md",
+      "sha256": "ba431cc6a1a12dd802e4447468bb497b6129cae0a964745d1d9180cf473a8e99"
     },
     {
       "path": "it/Basic.ByRef.md",
@@ -4280,6 +4324,10 @@
     {
       "path": "it/CreateTimer.md",
       "sha256": "7dbafe8b32a7da239f3610adcef429eb2d0771cb9ec8d4d18eb1633c1cbb7b61"
+    },
+    {
+      "path": "it/Delay.md",
+      "sha256": "ba431cc6a1a12dd802e4447468bb497b6129cae0a964745d1d9180cf473a8e99"
     },
     {
       "path": "it/Dictionary.md",
@@ -4974,6 +5022,10 @@
       "sha256": "6cfbaabedbfdec73a77de1a2c4a23c4339d8a376daa67ede3284325a9179302b"
     },
     {
+      "path": "ja/Basic.Async.md",
+      "sha256": "e64b8c69c2e97cc2b6a78767ed93e156091ace271755d73be261be5d8011d1d1"
+    },
+    {
       "path": "ja/Basic.ByRef.md",
       "sha256": "e67d3c3eade71126cf341b770ee483446e18245eb736d331f475020b8433fad8"
     },
@@ -5168,6 +5220,10 @@
     {
       "path": "ja/CreateTimer.md",
       "sha256": "acacb66fb3465e0a55dd8600a0940700fd2b3fdc9756571c738ef199757edccf"
+    },
+    {
+      "path": "ja/Delay.md",
+      "sha256": "e64b8c69c2e97cc2b6a78767ed93e156091ace271755d73be261be5d8011d1d1"
     },
     {
       "path": "ja/Dictionary.md",
@@ -5890,6 +5946,10 @@
       "sha256": "88d1cf1d216fe69039b7fdb3bc4a559a2ce578eeeef8628f023cc6dba6405802"
     },
     {
+      "path": "ko/Basic.Async.md",
+      "sha256": "cd1707efda13b6df2353a11aaa96ebb0a253c850a69c718a95b70924bfbb1955"
+    },
+    {
       "path": "ko/Basic.ByRef.md",
       "sha256": "92b1c969999922a03ea00c4dcb75f2a6fa875a54ba3b71a5e567794ea6ac8f86"
     },
@@ -6084,6 +6144,10 @@
     {
       "path": "ko/CreateTimer.md",
       "sha256": "dd5d9c6b74aad23f30c4fd8fef7883d0bd1ba6a0c0d542b2af554fb5b527722f"
+    },
+    {
+      "path": "ko/Delay.md",
+      "sha256": "cd1707efda13b6df2353a11aaa96ebb0a253c850a69c718a95b70924bfbb1955"
     },
     {
       "path": "ko/Dictionary.md",
@@ -6879,7 +6943,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "4a8546cacddff3c93a308e149e17f098e5462de48768b5b5de0387080fb1fd1f"
+      "sha256": "b577960a848fd706d5af9e3ec829d7329ccc8a073c1dec0c5ac171ce5e920372"
     },
     {
       "path": "remain.md",
@@ -6956,6 +7020,10 @@
     {
       "path": "ru/Basic.Arrays.md",
       "sha256": "1401d6f60c47bcbf8e63b7d916831cfbb6b1dbc9a1921834ef49f8667a6b8aa8"
+    },
+    {
+      "path": "ru/Basic.Async.md",
+      "sha256": "3156dee82b4ff137a76249b964a4328a776dc2fad9389e6531208b16e4b1a3b3"
     },
     {
       "path": "ru/Basic.ByRef.md",
@@ -7192,6 +7260,10 @@
     {
       "path": "ru/CStr.md",
       "sha256": "0fe59578ffacf267472e28ca53aa8e78951a9dfc773834708fd9b63a9f57d40e"
+    },
+    {
+      "path": "ru/Delay.md",
+      "sha256": "3156dee82b4ff137a76249b964a4328a776dc2fad9389e6531208b16e4b1a3b3"
     },
     {
       "path": "ru/Dictionary.md",
@@ -8867,7 +8939,7 @@
     },
     {
       "path": "runtime-api.json",
-      "sha256": "f9cd9395e2a4e419977e39c902e6333c00e19a12d510b8b42e46fd9e911f56d2"
+      "sha256": "be276df2e28dd8f28899a6a0459312fc420a2fd0580db39b258ebc462346ce0b"
     },
     {
       "path": "self.md",
@@ -8992,6 +9064,10 @@
     {
       "path": "uk/Basic.Arrays.md",
       "sha256": "19f91f8ced0dbf15a81e5eab610c2fce8f2f0fd00d02672cce53c6521ab68b3e"
+    },
+    {
+      "path": "uk/Basic.Async.md",
+      "sha256": "276322e2f7aba77a4e1ae429186b7a23f8fc5960728649f4a144d6c8cb798e2f"
     },
     {
       "path": "uk/Basic.ByRef.md",
@@ -9188,6 +9264,10 @@
     {
       "path": "uk/CreateTimer.md",
       "sha256": "a57bc4ec114537a54b8ece652c22a5e27a213fef462849553c9a9133569ba5e3"
+    },
+    {
+      "path": "uk/Delay.md",
+      "sha256": "276322e2f7aba77a4e1ae429186b7a23f8fc5960728649f4a144d6c8cb798e2f"
     },
     {
       "path": "uk/Dictionary.md",
@@ -12870,6 +12950,10 @@
       "sha256": "33b7793c5fa53395004acedab209fe9b93d6898c4d17209e317663e7af6b089e"
     },
     {
+      "path": "zh-tw/Basic.Async.md",
+      "sha256": "71eebf53ee2b08c6f6ab77959cb85566c796d44e448073149a295034630ce8f1"
+    },
+    {
       "path": "zh-tw/Basic.ByRef.md",
       "sha256": "cad1db2ea0c0bc060b9ff77c929ded593a78a32c8818da35eb479f1654339391"
     },
@@ -13064,6 +13148,10 @@
     {
       "path": "zh-tw/CreateTimer.md",
       "sha256": "e6456ce285c77ae3636010aa4628692be880a49cf3dcf215abf7f437277070b0"
+    },
+    {
+      "path": "zh-tw/Delay.md",
+      "sha256": "71eebf53ee2b08c6f6ab77959cb85566c796d44e448073149a295034630ce8f1"
     },
     {
       "path": "zh-tw/Dictionary.md",
