@@ -4016,7 +4016,7 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"CountEx\"]",
@@ -13045,7 +13045,7 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"FindTypeEx\"]",
@@ -13078,17 +13078,17 @@
           "kind": "Any"
         }
       ],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"FindTypesArrayEx\"]",
         "ARGUMENT -> position 1 ObjTypes; read by ArrayArg",
         "ARGUMENT -> position 2 Colors; read by ArrayArg",
-        "ARGUMENT -> position 3 Containers; read by ArrayArg",
+        "ARGUMENT -> position 3 Containers; read by arguments[]",
         "ARGUMENT -> position 4 InSub; read by Arg",
         "BRIDGE CONTRACT -> IApiBridge.FindTypes",
-        "RESULT -> new InjectionValue(bridge.FindTypes(ArrayArg(0), ArrayArg(1), ArrayArg(2).Select(value => value == -1 ? 1 : value).ToArray(), Arg(3) != 0))",
-        "BRANCH LOGIC -> return new InjectionValue(bridge.FindTypes(ArrayArg(0), ArrayArg(1), ArrayArg(2).Select(value => value == -1 ? 1 : value).ToArray(), Arg(3) != 0));"
+        "RESULT -> new InjectionValue(bridge.FindTypes(ArrayArg(0), ArrayArg(1), searchContainers.Select(ConvertStealthSearchContainer).ToArray(), Arg(3) != 0))",
+        "BRANCH LOGIC -> InjectionValue[] searchContainers = arguments[2].Kind == InjectionValueKind.Array ? arguments[2].Array : new[] { arguments[2] }; return new InjectionValue(bridge.FindTypes(ArrayArg(0), ArrayArg(1), searchContainers.Select(ConvertStealthSearchContainer).ToArray(), Arg(3) != 0));"
       ]
     },
     {
@@ -17826,7 +17826,7 @@
     {
       "name": "UO.Ground",
       "parameters": [],
-      "returns": "Any",
+      "returns": "Integer",
       "implementation": "InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0",
       "dependencies": [
         "DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility[\"Ground\"]",

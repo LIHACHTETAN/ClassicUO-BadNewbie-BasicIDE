@@ -1,111 +1,206 @@
 # UO.FindTypeEx
 
-ClassicUO • Runtime API • `UO.FindTypeEx.md`
+ClassicUO • Runtime API
 
-## Точный синтаксис / Registered signatures
+<!-- yoko-manual: 1 -->
+
+Ищет одну графику и цвет в контейнере либо на земле и возвращает один найденный ID.
+
+## Точный синтаксис
 
 ```text
-UO.FindTypeEx(ObjType:Any, Color:Any, Container:Any, InSub:Any) -> Any
+UO.FindTypeEx(ObjType:Any, Color:Any, Container:Any, InSub:Any) -> Integer
 ```
 
-Порядок аргументов соответствует строкам выше. `Unit` означает отсутствие возвращаемого значения. `Any` — значение BASIC с преобразованием при вызове. Имена нечувствительны к регистру.
+Выберите одну из зарегистрированных форм. Параметры передаются позиционно. Any означает значение BASIC с преобразованием внутри команды; Unit — отсутствие возвращаемого значения.
 
-## `UO.FindTypeEx`
+## Параметры
 
-### Compatibility description
+- `ObjType` — Graphic/body, не serial предмета. 0..65534 — конкретная графика; -1 или 0xFFFF — любая. Другие отрицательные Integer в этом клиенте также снимают фильтр.
+- `Color` — Hue, не количество предметов. 0 — неокрашенный предмет; -1 или 0xFFFF — любой hue. Другие отрицательные Integer тоже снимают фильтр цвета.
+- `Container` — Земля: UO.Ground(), 0, -1, 0xFFFFFFFF либо строка ground. Рюкзак: строка backpack или его serial. Принимаются десятичный/hex serial и имя AddObject. my выбирает весь инвентарь своего персонажа, включая экипировку и вложенные сумки. Неизвестное имя вызывает ошибку скрипта. Проверяйте полученный serial: явный 0 выбирает землю. Имена ground/backpack понятнее числовых обозначений, которые различаются между семействами команд.
+- `InSub` — Обязательный TRUE/FALSE (1/0). FALSE — прямое содержимое конкретного контейнера; TRUE — также загруженные вложенные сумки. Для земли рекурсия ничего не меняет. my уже выбирает весь принадлежащий персонажу инвентарь.
 
-> Historical Stealth/Pascal reference text. Current Basic signatures and return contracts below are authoritative when behavior differs.
+## Возвращает
 
-Ищет объекты с указанным типом ObjType и цветом Color в заданном контейнере Container . ObjType — graphic (тип) искомого объекта. $FFFF (65535) — любой тип. Color — цвет объекта. $FFFF (65535) — любой цвет. Container — где искать: Backpack (рюкзак), Ground / $FFFFFFFF (земля в радиусе FindDistance / FindVertical ), или ID конкретного контейнера. InSub — True для рекурсивного поиска по вложенным контейнерам. Возвращает ID последнего найденного объекта, или 0 если ничего не найдено или персонаж не подключён. Радиус поиска задаётся FindDistance (по горизонтали, макс. 90) и FindVertical (по вертикали, макс. 120). После успешного поиска обновляются: FindItem , FindCount , FindFullQuantity , FindQuantity , GetFindedList . Объекты, добавленные в список игнорирования через Ignore , исключаются из результатов.
+Integer: serial первого совпадения в локальном порядке обхода; 0, если совпадений нет. Не graphic, количество, массив или Boolean. Проверяйте result <> 0, а не result = TRUE либо result = 1. Стопка считается одним объектом; Mobile — одним объектом и одной единицей. Порядок не означает близость и не гарантирован между поисками.
 
-### Current Basic signatures / Return
+## Поведение
 
-- `UO.FindTypeEx(ObjType:Integer, Color:Integer, Container:Integer, InSub:Boolean) -> Integer`
-  - **Return type:** `Integer`
-  - **Return contract:** Integer result from the registered runtime implementation; command-specific zero/-1 sentinels are described in Behavior/Notes.
-  - **Runtime route:** `DISPATCH -> InjectionApiUO.ExecuteStealthCompatibility["FindTypeEx"]` → `BRIDGE CONTRACT -> IApiBridge.FindType`
+- Нужны все четыре позиционных аргумента. Необязательных аргументов нет.
+- Земля использует FindDistance и FindVertical этого скрипта, исключает self и включает подходящие Item и Mobile. Поиск в конкретном контейнере эти пределы расстояния/высоты не применяет. В обоих случаях исключаются Ignore и уничтоженные объекты.
+- До обхода очищаются FindItem, FindCount, FindFullQuantity и GetFoundItems. Затем они относятся к этому поиску; пустой поиск оставляет нули и пустой массив. FindFullQuantity суммирует max(1, Amount) предметов и по 1 для Mobile. FindQuantity читает текущее количество FindItem. Сохраните GetFoundItems, если после другого поиска прежний список ещё нужен.
+- Bridge один раз обходит загруженные предметы, затем Mobile, если выбрана земля. Должны совпасть тип, цвет и хотя бы один контейнер. Один объект учитывается один раз, даже если подходит нескольким условиям. Повторного полного обхода мира для каждой комбинации нет.
+- Читаются только данные, полученные клиентом. Контейнеры не открываются, клетки карты не загружаются, переноса нет. Пустой результат не доказывает пустоту сундука на сервере. Если нужна активная связь, проверяйте Connected: сам поиск читает локальное состояние.
+- [Stealth FindTypeEx](https://stealth.od.ua/api/FindTypeEx/). Первоисточник описывает последний ID и запасной поиск в рюкзаке при ошибочном контейнере. Здесь сохраняется первое локальное совпадение; неизвестное имя не переключает поиск на рюкзак. Ground также принимает 0; свой FindDistance по умолчанию 18, максимум 255. Это особенности данного клиента.
 
-**Pascal compatibility signature:** `function FindTypeEx(ObjType: Word; Color: Word; Container: Cardinal; InSub: Boolean): Cardinal;`
+### Внутренние функции: от вызова до результата
 
-### Parameters
+Это реальные этапы реализации, не дополнительные публичные команды. FindGoldNearSelf и SearchTypesIn ниже — полностью приведённые функции скрипта.
 
-- `ObjType` — Item/mobile/tile type (graphic/body ID). -1/0xFFFF may mean wildcard only for commands that document it.
-- `Color` — Hue/color filter. -1 commonly means any hue where the overload supports wildcard filtering.
-- `Container` — Container serial or a runtime container sentinel such as backpack/ground, according to the command contract.
-- `InSub` — Boolean value with command-specific semantics. The accepted domain and any sentinel values are enumerated in the Accepted values / constants and Behavior sections below.
+#### 1. ExecuteStealthCompatibility
 
-### Accepted values / constants
+Runtime преобразует числовые фильтры и отдельно разрешает имена контейнеров; обозначение земли переводится во внутреннюю область мира bridge.
 
-- `ObjType` — Decimal or 0x-prefixed graphic/body/tile ID; -1/0xFFFF is wildcard only where Behavior explicitly allows it.
-- `Color` — Decimal or 0x-prefixed hue; -1 is any/default only where Behavior explicitly allows it.
-- `Container` — self/backpack/lasttarget/saved object name or valid decimal/0x serial, according to the overload. 0 only where documented as no-object/clear.
-- `InSub` — TRUE/FALSE or 1/0.
+Нужны все четыре позиционных аргумента. Необязательных аргументов нет.
 
-### Defaults / omitted arguments
+Исходник проекта: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; функция `ExecuteStealthCompatibility`.
 
-No parameters are optional unless the signature/Behavior explicitly states otherwise.
+#### 2. ConvertStealthSearchContainer
 
-### Behavior
+Земля: UO.Ground(), 0, -1, 0xFFFFFFFF либо строка ground. Рюкзак: строка backpack или его serial. Принимаются десятичный/hex serial и имя AddObject. my выбирает весь инвентарь своего персонажа, включая экипировку и вложенные сумки. Неизвестное имя вызывает ошибку скрипта. Проверяйте полученный serial: явный 0 выбирает землю. Имена ground/backpack понятнее числовых обозначений, которые различаются между семействами команд.
 
-Reads or searches the currently loaded ClassicUO world/runtime state using the registered positional overload and its documented filters.
+Runtime преобразует числовые фильтры и отдельно разрешает имена контейнеров; обозначение земли переводится во внутреннюю область мира bridge.
 
-### Notes / limitations
+Исходник проекта: `external/InjectionScript/src/InjectionScript/Runtime/InjectionApiUO.cs`; функция `ConvertStealthSearchContainer`.
 
-Use the exact registered overload and positional argument order. Server/world-dependent effects may complete asynchronously; validate state when the script depends on confirmation.
+#### 3. ResetFindResults
 
-### Examples
+До обхода очищаются FindItem, FindCount, FindFullQuantity и GetFoundItems. Затем они относятся к этому поиску; пустой поиск оставляет нули и пустой массив. FindFullQuantity суммирует max(1, Amount) предметов и по 1 для Mobile. FindQuantity читает текущее количество FindItem. Сохраните GetFoundItems, если после другого поиска прежний список ещё нужен.
 
-```basic
-SUB Main()
-    VAR result = UO.FindTypeEx(0x0190, -1, backpack, 0)
-END SUB
-```
+Integer: serial первого совпадения в локальном порядке обхода; 0, если совпадений нет. Не graphic, количество, массив или Boolean. Проверяйте result <> 0, а не result = TRUE либо result = 1. Стопка считается одним объектом; Mobile — одним объектом и одной единицей. Порядок не означает близость и не гарантирован между поисками.
 
----
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `ResetFindResults`.
 
-## Варианты использования
+#### 4. FindType
 
-Это отдельные сценарии. Подставьте свои serial, пути и координаты; серверные действия зависят от текущего состояния игры.
+Bridge один раз обходит загруженные предметы, затем Mobile, если выбрана земля. Должны совпасть тип, цвет и хотя бы один контейнер. Один объект учитывается один раз, даже если подходит нескольким условиям. Повторного полного обхода мира для каждой комбинации нет.
 
-### Прямой вызов
+Земля использует FindDistance и FindVertical этого скрипта, исключает self и включает подходящие Item и Mobile. Поиск в конкретном контейнере эти пределы расстояния/высоты не применяет. В обоих случаях исключаются Ignore и уничтоженные объекты.
+
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `FindType`.
+
+#### 5. MatchesFindIdentity
+
+Graphic/body, не serial предмета. 0..65534 — конкретная графика; -1 или 0xFFFF — любая. Другие отрицательные Integer в этом клиенте также снимают фильтр. Hue, не количество предметов. 0 — неокрашенный предмет; -1 или 0xFFFF — любой hue. Другие отрицательные Integer тоже снимают фильтр цвета.
+
+Bridge один раз обходит загруженные предметы, затем Mobile, если выбрана земля. Должны совпасть тип, цвет и хотя бы один контейнер. Один объект учитывается один раз, даже если подходит нескольким условиям. Повторного полного обхода мира для каждой комбинации нет.
+
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `MatchesFindIdentity`.
+
+#### 6. MatchesFindContainer
+
+Обязательный TRUE/FALSE (1/0). FALSE — прямое содержимое конкретного контейнера; TRUE — также загруженные вложенные сумки. Для земли рекурсия ничего не меняет. my уже выбирает весь принадлежащий персонажу инвентарь.
+
+Земля использует FindDistance и FindVertical этого скрипта, исключает self и включает подходящие Item и Mobile. Поиск в конкретном контейнере эти пределы расстояния/высоты не применяет. В обоих случаях исключаются Ignore и уничтоженные объекты.
+
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `MatchesFindContainer`.
+
+#### 7. RegisterFound
+
+До обхода очищаются FindItem, FindCount, FindFullQuantity и GetFoundItems. Затем они относятся к этому поиску; пустой поиск оставляет нули и пустой массив. FindFullQuantity суммирует max(1, Amount) предметов и по 1 для Mobile. FindQuantity читает текущее количество FindItem. Сохраните GetFoundItems, если после другого поиска прежний список ещё нужен.
+
+Integer: serial первого совпадения в локальном порядке обхода; 0, если совпадений нет. Не graphic, количество, массив или Boolean. Проверяйте result <> 0, а не result = TRUE либо result = 1. Стопка считается одним объектом; Mobile — одним объектом и одной единицей. Порядок не означает близость и не гарантирован между поисками.
+
+Исходник проекта: `src/ClassicUO.Client/Game/Managers/ClassicUOInjectionApiBridge.cs`; функция `RegisterFound`.
+
+Читаются только данные, полученные клиентом. Контейнеры не открываются, клетки карты не загружаются, переноса нет. Пустой результат не доказывает пустоту сундука на сервере. Если нужна активная связь, проверяйте Connected: сам поиск читает локальное состояние.
+
+
+## Примеры
+
+### Пример 1. Прямое содержимое рюкзака
 
 ```vb
+# Прямое содержимое рюкзака
+#
+# Ищет одну графику и цвет в контейнере либо на земле и возвращает один найденный ID.
+#
+# Integer: serial первого совпадения в локальном порядке обхода; 0, если совпадений нет. Не
+# graphic, количество, массив или Boolean. Проверяйте result <> 0, а не result = TRUE либо
+# result = 1. Стопка считается одним объектом; Mobile — одним объектом и одной единицей. Порядок
+# не означает близость и не гарантирован между поисками.
+
 SUB Main()
-    VAR result = UO.FindTypeEx(1, -1, backpack, 4)
-    UO.Print(CStr(result))
+    # 0x0EED — золото, -1 — любой hue; backpack/FALSE исключает вложенные сумки. Три строки выводят
+    # первый ID в hex без 0x, число объектов и сумму единиц. Две стопки по 20 и 50: объектов 2,
+    # единиц 70.
+
+    VAR item = UO.FindTypeEx(0x0EED, -1, 'backpack', FALSE)
+    UO.Print(Hex(item))
+    UO.Print(STR(UO.FindCount()))
+    UO.Print(STR(UO.FindFullQuantity()))
 END SUB
 ```
 
-### Явные аргументы и сохранение результата
+**Разбор параметров и выполнения:**
+
+- 0x0EED — золото, -1 — любой hue; backpack/FALSE исключает вложенные сумки. Три строки выводят первый ID в hex без 0x, число объектов и сумму единиц. Две стопки по 20 и 50: объектов 2, единиц 70.
+
+### Пример 2. Полная функция временного поиска на земле
 
 ```vb
+# Полная функция временного поиска на земле
+#
+# Ищет одну графику и цвет в контейнере либо на земле и возвращает один найденный ID.
+#
+# Integer: serial первого совпадения в локальном порядке обхода; 0, если совпадений нет. Не
+# graphic, количество, массив или Boolean. Проверяйте result <> 0, а не result = TRUE либо
+# result = 1. Стопка считается одним объектом; Mobile — одним объектом и одной единицей. Порядок
+# не означает близость и не гарантирован между поисками.
+
 SUB Main()
-    VAR arg1 = 1 # ObjType
-    VAR arg2 = -1 # Color
-    VAR arg3 = backpack # Container
-    VAR arg4 = 4 # InSub
-    VAR result = UO.FindTypeEx(arg1, arg2, arg3, arg4)
-    UO.Print(CStr(result))
+    # radius=5 и height=10 действуют внутри FindGoldNearSelf. Finally восстанавливает оба предела
+    # даже при Return или ошибке. Функция возвращает serial золота либо 0; Main проверяет <> 0 перед
+    # выводом.
+
+    VAR item = FindGoldNearSelf(5, 10)
+    IF item <> 0 THEN
+        UO.Print(Hex(item))
+    ELSE
+        UO.Print('Empty')
+    END IF
 END SUB
+
+FUNCTION FindGoldNearSelf(radius, height)
+    VAR oldDistance = UO.FindDistance()
+    VAR oldVertical = UO.FindVertical()
+    TRY
+        UO.FindDistance(radius)
+        UO.FindVertical(height)
+        RETURN UO.FindTypeEx(0x0EED, -1, UO.Ground(), FALSE)
+    FINALLY
+        UO.FindDistance(oldDistance)
+        UO.FindVertical(oldVertical)
+    END TRY
+END FUNCTION
 ```
 
-### Получение результата внутри процедуры
+**Разбор параметров и выполнения:**
+
+- radius=5 и height=10 действуют внутри FindGoldNearSelf. Finally восстанавливает оба предела даже при Return или ошибке. Функция возвращает serial золота либо 0; Main проверяет <> 0 перед выводом.
+
+### Пример 3. Имя контейнера и вложенные сумки
 
 ```vb
-SUB ReadResult()
-    VAR arg1 = 1 # ObjType
-    VAR arg2 = -1 # Color
-    VAR arg3 = backpack # Container
-    VAR arg4 = 4 # InSub
-    VAR result = UO.FindTypeEx(arg1, arg2, arg3, arg4)
-    UO.Print(CStr(result))
-END SUB
+# Имя контейнера и вложенные сумки
+#
+# Ищет одну графику и цвет в контейнере либо на земле и возвращает один найденный ID.
+#
+# Integer: serial первого совпадения в локальном порядке обхода; 0, если совпадений нет. Не
+# graphic, количество, массив или Boolean. Проверяйте result <> 0, а не result = TRUE либо
+# result = 1. Стопка считается одним объектом; Mobile — одним объектом и одной единицей. Порядок
+# не означает близость и не гарантирован между поисками.
 
 SUB Main()
-    ReadResult()
+    # GetSerial разрешает backpack; проверка на ноль не позволяет случайно выбрать землю. AddObject
+    # сохраняет ID как search_bag. TRUE включает вложенные сумки. GetFoundItems сохраняет отдельный
+    # массив; IsObjectExists повторно проверяет каждый ID.
+
+    VAR bag = UO.GetSerial('backpack')
+    IF bag <> 0 THEN
+        UO.AddObject('search_bag', bag)
+        UO.FindTypeEx(0x0EED, -1, 'search_bag', TRUE)
+        VAR items = UO.GetFoundItems()
+        FOR EACH item IN items
+            IF UO.IsObjectExists(item) THEN
+                UO.Print(Hex(item))
+            END IF
+        NEXT
+    END IF
 END SUB
 ```
 
-## Реализация для проверки поведения
+**Разбор параметров и выполнения:**
 
-- `InjectionScript.Runtime.InjectionApiUO+<>c__DisplayClass41_0.<RegisterStealthCompatibility>b__0`
+- GetSerial разрешает backpack; проверка на ноль не позволяет случайно выбрать землю. AddObject сохраняет ID как search_bag. TRUE включает вложенные сумки. GetFoundItems сохраняет отдельный массив; IsObjectExists повторно проверяет каждый ID.

@@ -682,6 +682,14 @@
       "sha256": "1dc1dad2d766a508207fc457fd0521447f7771b1a89c4b857f9b10b25e13fd75"
     },
     {
+      "path": "de/UO.FindTypeEx.md",
+      "sha256": "3a5c7a31b6f10352c1b6b366c9bdff424a4c70dba736eb83204fa1ab4e6ef75d"
+    },
+    {
+      "path": "de/UO.FindTypesArrayEx.md",
+      "sha256": "fd06ef26c0e2339019a2da855a9137a493cd1bbccef3affd3c00ba01d5589348"
+    },
+    {
       "path": "de/UO.FindVertical.md",
       "sha256": "34348c1d4607583d3624f38d5754d4c6d0dd884b9ddb383e3cb72da2265cd94f"
     },
@@ -956,6 +964,10 @@
     {
       "path": "de/UO.Gold.md",
       "sha256": "bb1bd5073e838010fd65e51c96832a7fa9b2670c6f6901697af8d3fb09fcc879"
+    },
+    {
+      "path": "de/UO.Ground.md",
+      "sha256": "66ef18c8036e2ff2e88bae446a2fabce7ccf5e9efcca7678a0f3fbcd8cf78665"
     },
     {
       "path": "de/UO.GumpAutoCheckBox.md",
@@ -1574,6 +1586,14 @@
       "sha256": "78cb9cac24422c5049e57eec16d3c9d9a23cceac6a75c5dec1f6ba4584f22fd9"
     },
     {
+      "path": "en/UO.FindTypeEx.md",
+      "sha256": "74f2dd6d42c97f4f1de4eb87c326b73867f93a7001651b60ae46a1e1ab96ffa9"
+    },
+    {
+      "path": "en/UO.FindTypesArrayEx.md",
+      "sha256": "0b86bdfad3e5fe7db7c7239d9bb284b74129dc0e5705e43eb9c97ba85e3e0b81"
+    },
+    {
       "path": "en/UO.FindVertical.md",
       "sha256": "d3c6aa07a06d1a91c5d61efb7b3bf69060fed9270c5d5f12b490364715338006"
     },
@@ -1848,6 +1868,10 @@
     {
       "path": "en/UO.Gold.md",
       "sha256": "5312512bc23e8d487c6c3a4118d737ac89a17b06041f8e5fc170e1e0a0c2487e"
+    },
+    {
+      "path": "en/UO.Ground.md",
+      "sha256": "bf2fda96ad725b2dc507a0d1ee56d7d58dc8f6ad3963b736f0989ff2c6139397"
     },
     {
       "path": "en/UO.GumpAutoCheckBox.md",
@@ -2446,6 +2470,14 @@
       "sha256": "82a635c7cb72134aaf34dfef0bdec65e36b4e4bfb7b9c454af3801ae2e519386"
     },
     {
+      "path": "es/UO.FindTypeEx.md",
+      "sha256": "e89b8157fcf0e6489ec16bc31241061eee77b97778f37219b5400036ba8ce30d"
+    },
+    {
+      "path": "es/UO.FindTypesArrayEx.md",
+      "sha256": "5aa93173b0a1482a813ac646f4f1ce76e68a0053d6a2534dfd207114582d9d7c"
+    },
+    {
       "path": "es/UO.FindVertical.md",
       "sha256": "1cef46fa3e0068847786ebb0c27eb2f84e8dc0ec0bf702540658d70677e59ac8"
     },
@@ -2720,6 +2752,10 @@
     {
       "path": "es/UO.Gold.md",
       "sha256": "966fd2ef130e4b335eaa5e186b3e9bada4382c5a52b4aedd9bdbc37323769c5b"
+    },
+    {
+      "path": "es/UO.Ground.md",
+      "sha256": "1971c3831a09525fd3f591f507bb0f5ba8decf4ffd3f53dced14f4fff9f6e20f"
     },
     {
       "path": "es/UO.GumpAutoCheckBox.md",
@@ -3422,6 +3458,14 @@
       "sha256": "2bd13e57508e32f1534016ac5000d84b2abd1d1edf6471507ed3eb6d6a67bb5b"
     },
     {
+      "path": "fr/UO.FindTypeEx.md",
+      "sha256": "20fe5481f377812c14b6e7eb4210a714007c7e52cced0699c5a9586f7c4599f9"
+    },
+    {
+      "path": "fr/UO.FindTypesArrayEx.md",
+      "sha256": "114a29bf6f54b4e0f087749caa738d6a47559abd9c05f7f56d45296789bb8be6"
+    },
+    {
       "path": "fr/UO.FindVertical.md",
       "sha256": "47caa110e4d53bd0fe4c61e9efbbcafa6553d235c89a73a1bea378e5a4684020"
     },
@@ -3696,6 +3740,10 @@
     {
       "path": "fr/UO.Gold.md",
       "sha256": "a014a1e291efe7bd0ea9512aa610db52ac02ac2586b48a4ea4ddeca8ae5ef1b2"
+    },
+    {
+      "path": "fr/UO.Ground.md",
+      "sha256": "72db49ee83534d920c4bf04383f2b6b79511be6d1374273412de04e49adf0129"
     },
     {
       "path": "fr/UO.GumpAutoCheckBox.md",
@@ -3975,7 +4023,7 @@
     },
     {
       "path": "INDEX.json",
-      "sha256": "a5536ffd607f558fa8fe8f682813cad44036032dbf9b9e3c9c44bd6d529eb328"
+      "sha256": "8b240dfd693256cddf4a066a2876a5a01048cc293d50166c820bc766dd0f2757"
     },
     {
       "path": "InStr.md",
@@ -4358,6 +4406,14 @@
       "sha256": "d91fe276719e810b3d3e151da34a9fd774c86e5a0f2dbe46fd763615b23e5990"
     },
     {
+      "path": "it/UO.FindTypeEx.md",
+      "sha256": "99dd7b831d0fda6d8d1c811f234939ed660f5ac8d200c6a71901a0e1902015f6"
+    },
+    {
+      "path": "it/UO.FindTypesArrayEx.md",
+      "sha256": "568ca13ee056680d167a1187bb472fb135af50e8bead9c2a5cc994f1f0c7f2a4"
+    },
+    {
       "path": "it/UO.FindVertical.md",
       "sha256": "2ca80546abb033084be99a0bfec196d3fde6939924f2bf6e5998bffd479a1e60"
     },
@@ -4632,6 +4688,10 @@
     {
       "path": "it/UO.Gold.md",
       "sha256": "64c733eacc3a613e1db49786e8736c52f5d42143e60236ecc7edddc0fa8d8d84"
+    },
+    {
+      "path": "it/UO.Ground.md",
+      "sha256": "b0f37641b89bdf6841b74ad4dbddc5133053da373d388c25001808817045f256"
     },
     {
       "path": "it/UO.GumpAutoCheckBox.md",
@@ -5230,6 +5290,14 @@
       "sha256": "16f36fbd5f9bb14d9374d286ed5c687f9cc8de9562697adf13a1418bbacbad1f"
     },
     {
+      "path": "ja/UO.FindTypeEx.md",
+      "sha256": "c857e28a469c2657a4433077dad65a08cb956e0e5371c61752f5cdfe8d0b5bff"
+    },
+    {
+      "path": "ja/UO.FindTypesArrayEx.md",
+      "sha256": "5da36d4c8a752b561178e97efb4f0542abbd5d78e9cb364be84acecd8c52162a"
+    },
+    {
       "path": "ja/UO.FindVertical.md",
       "sha256": "90b29f238b9a2a3a28be78a75ee19dcdaf20f41d291805e406fd0d9825e2943d"
     },
@@ -5504,6 +5572,10 @@
     {
       "path": "ja/UO.Gold.md",
       "sha256": "84f1def2252a35a8bff6f1d7ac7c049e71de3a9bf112f431698eb1379b68d50c"
+    },
+    {
+      "path": "ja/UO.Ground.md",
+      "sha256": "94624fd7f245d41b178f6899dac5293869992178672d2567e042df48d8c96ab1"
     },
     {
       "path": "ja/UO.GumpAutoCheckBox.md",
@@ -6130,6 +6202,14 @@
       "sha256": "e376c3c205667d52e8268ce878d68146b64eb7e900d3ff258e773938dee786b7"
     },
     {
+      "path": "ko/UO.FindTypeEx.md",
+      "sha256": "b82f68ff014d05e5b6612375bef026253bcd6222ec8c9ca666d87c6854895004"
+    },
+    {
+      "path": "ko/UO.FindTypesArrayEx.md",
+      "sha256": "cab75390a3fc236c9e5f4d6cf942d18a78beadbc9725419944fd875e3bf73308"
+    },
+    {
       "path": "ko/UO.FindVertical.md",
       "sha256": "8612fdcc89b1ccf2b4de41bb9c9e5bad72c58bf34427a4f1b1b1a25afd489517"
     },
@@ -6404,6 +6484,10 @@
     {
       "path": "ko/UO.Gold.md",
       "sha256": "1e1644fe8eb331fb6b71791490edff56b76df7702ade429eb409f87b58cec7f8"
+    },
+    {
+      "path": "ko/UO.Ground.md",
+      "sha256": "2ceebde6dbd5a8dd638071477083084ad2ada4f1093595e4ac54daa77adcf7e2"
     },
     {
       "path": "ko/UO.GumpAutoCheckBox.md",
@@ -7363,15 +7447,15 @@
     },
     {
       "path": "ru/UO.Count.md",
-      "sha256": "32f7adabf36755b5b92cc0db140e6cf1e9ffa810f7fa5ac022f72d0eb35db5f9"
+      "sha256": "51c7b0485f5a5871684879a9ae9af4b7adbb7774c5ff7ba7fd1548e10c2110af"
     },
     {
       "path": "ru/UO.CountEx.md",
-      "sha256": "c6b411bbdc631d11d738973547491997f156015378892145468d5e16af980556"
+      "sha256": "30dc45a5a0be82a05afb095c875e490907bdf6d25ee1619f2e1a3c2f8c5c612d"
     },
     {
       "path": "ru/UO.CountGround.md",
-      "sha256": "8368105ff356770f1f038f173b3b61394530b89bd514ca1ab5ddac3a208f6b13"
+      "sha256": "c1ec755a98cf25f6dd8ebc2cab96a5517d9b50ba6413f179ee5a49c56a92028a"
     },
     {
       "path": "ru/UO.Dead.md",
@@ -7460,6 +7544,14 @@
     {
       "path": "ru/UO.FindType.md",
       "sha256": "d94966a1b7d97da92472cadb97a5f0beb3e7b29e87416e9c30da1b93f4475c00"
+    },
+    {
+      "path": "ru/UO.FindTypeEx.md",
+      "sha256": "c76d6c56013038169153e4cf701314386a8d29602a1339ca1ae39bb572ba66ba"
+    },
+    {
+      "path": "ru/UO.FindTypesArrayEx.md",
+      "sha256": "5dc54d83d4c29e35ede20431a4d7cc34e311dfe4c55cb8ce872fb4d658f5d464"
     },
     {
       "path": "ru/UO.FindVertical.md",
@@ -8056,6 +8148,10 @@
     {
       "path": "ru/UO.Gold.md",
       "sha256": "6141c88e94e16c2eb675f9992701cbb28447def34b5989d707a24a5f13889902"
+    },
+    {
+      "path": "ru/UO.Ground.md",
+      "sha256": "4a0b8046645da0f720803b5bee4a1da0e866f15efba426b5bb598217c10d868c"
     },
     {
       "path": "ru/UO.GumpAutoCheckBox.md",
@@ -8735,7 +8831,7 @@
     },
     {
       "path": "runtime-api.json",
-      "sha256": "4099a2dd8d9ca68b523713eff5d522757e01f0b88c4cd36634d2eea05416dce7"
+      "sha256": "f9cd9395e2a4e419977e39c902e6333c00e19a12d510b8b42e46fd9e911f56d2"
     },
     {
       "path": "self.md",
@@ -9202,6 +9298,14 @@
       "sha256": "c5f481d6f388f6df8963fbd575891a9dbada64dd4685a9bdcd93e63c374b361d"
     },
     {
+      "path": "uk/UO.FindTypeEx.md",
+      "sha256": "9db56f196b91a21c822db0554d8e7e613b6ce7b453780a838d48fac61fa0c169"
+    },
+    {
+      "path": "uk/UO.FindTypesArrayEx.md",
+      "sha256": "21ab88af3e458959112fde8f7dc691d4786fdad142907be294043c69f05d7d81"
+    },
+    {
       "path": "uk/UO.FindVertical.md",
       "sha256": "f76a668c972b39bf2a80142e59476d3d173dc77c947b14fc5bf6655025611fa2"
     },
@@ -9476,6 +9580,10 @@
     {
       "path": "uk/UO.Gold.md",
       "sha256": "a8066728dc1466beb17619a047d7fb65bc433e8d2118234fdf324816ac2bdbdb"
+    },
+    {
+      "path": "uk/UO.Ground.md",
+      "sha256": "43ba1709f6cb8f3a16f4b220b45547a72ab57ccbef8429547f3ffee94720c152"
     },
     {
       "path": "uk/UO.GumpAutoCheckBox.md",
@@ -10147,15 +10255,15 @@
     },
     {
       "path": "UO.Count.md",
-      "sha256": "fbec934f52161e52870c94be020f3f83510ee5631b6f1c98108c87f27e0017ae"
+      "sha256": "ff5cf57cb74f0587d125540a93decb526134011d53c2eb7a3802927d80129de5"
     },
     {
       "path": "UO.CountEx.md",
-      "sha256": "5b51044283f9369d4e34a50687e75d8a5114d3c2fd73d6e4cd01270c377f1336"
+      "sha256": "e8d5ef52c18d77125472da692780025e1f5e6c62caf7997b9aae2bd557163606"
     },
     {
       "path": "UO.CountGround.md",
-      "sha256": "07c6ddcd5c475acac45e19613bd50e600dfcef839bab37abe6155642e4dfeab2"
+      "sha256": "70ba51273ec5ae7dea83ef842e25afcc70b43adb008d649e624e4b5365b9ff84"
     },
     {
       "path": "UO.Date.md",
@@ -10399,11 +10507,11 @@
     },
     {
       "path": "UO.FindTypeEx.md",
-      "sha256": "9268e6f78fdb721b7ebc442fd4b0037a96df181b3e0a0f9225b37acbe06f7c09"
+      "sha256": "c76d3d6f10a7ae065fa67467b93c256b5cb2896b2fc085e8222134165e93261b"
     },
     {
       "path": "UO.FindTypesArrayEx.md",
-      "sha256": "985f84b3604c705519b7a1c174a0b3fea28b48d4b40a27975a9de1483621b04b"
+      "sha256": "9557a1f099cf2cb98c1a03310a2adc4aad1b55a20f9a104a8a3e2e8a6b6c4e4a"
     },
     {
       "path": "UO.FindVertical.md",
@@ -11211,7 +11319,7 @@
     },
     {
       "path": "UO.Ground.md",
-      "sha256": "ddeccfe8e534de9e418f68b59ef53e1ce9b61af7b175f91cd55e53df47ff33bf"
+      "sha256": "53eba9501eb48f1ffd958c5415bb02f8f0bbe6cf097ba32fdc5e4c43c2f67125"
     },
     {
       "path": "UO.GumpAutoCheckBox.md",
@@ -13062,6 +13170,14 @@
       "sha256": "cb50bcf434f1432a0de819e482b4f69ecb152a6274a5e21798bd640dd7ba8a27"
     },
     {
+      "path": "zh-tw/UO.FindTypeEx.md",
+      "sha256": "186b4c4a0fc9f3f1014159d9bad62430cc9b6cbbf9cd834cf38254d75ca203ad"
+    },
+    {
+      "path": "zh-tw/UO.FindTypesArrayEx.md",
+      "sha256": "e9427ce83f5f07ea3328e425535f0ff93e88bf15b280e1c046998e3c4d83762e"
+    },
+    {
       "path": "zh-tw/UO.FindVertical.md",
       "sha256": "5108c2ecbba5bf8a561acded3d33993e30adf1c294147c0ac7431bfeb8174c46"
     },
@@ -13336,6 +13452,10 @@
     {
       "path": "zh-tw/UO.Gold.md",
       "sha256": "358e1830df366fa9c77844dbaf80e43da503fb60fc5bed92cecbd35fb07fca53"
+    },
+    {
+      "path": "zh-tw/UO.Ground.md",
+      "sha256": "01f95ad8de274e912e706cc9abe2f840d7b31458d4819f57a7f41c940f24dafa"
     },
     {
       "path": "zh-tw/UO.GumpAutoCheckBox.md",
