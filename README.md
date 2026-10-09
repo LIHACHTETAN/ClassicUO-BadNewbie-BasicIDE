@@ -1,10 +1,6 @@
 # ClassicUO - Bad Newbie & Basic IDE
 
 <p align="center">
-  <img src="docs/images/wiki-hero-kyiv-warrior.png" alt="ClassicUO Age of Power — Kyiv, warrior and Ukrainian symbolism" width="100%">
-</p>
-
-<p align="center">
   Розширений клієнт Ultima Online на основі ClassicUO з налаштуваннями Bad Newbie,<br>
   Basic IDE Runtime, вбудованою Basic IDE, AutoLoad, макросами та повним API Manual.
 </p>
@@ -47,19 +43,11 @@
 
 ## ClassicUO та ігровий інтерфейс
 
-<p align="center">
-  <img src="docs/images/classicuo-overview-ukrainian.png" alt="ClassicUO client overview" width="90%">
-</p>
-
 Клієнт використовує файли даних Ultima Online, які користувач отримує законним способом. Ігрові дані до репозиторію не входять. Адреса сервера, порт, шлях до даних і параметри входу налаштовуються у звичайному процесі запуску ClassicUO.
 
 Налаштування зберігаються у профілі. Параметри, які залежать від персонажа, можуть зберігатися окремо для кожного персонажа.
 
 ## Bad Newbie
-
-<p align="center">
-  <img src="docs/images/bad-newbie-settings-ukrainian.png" alt="Bad Newbie settings" width="90%">
-</p>
 
 Розділ **Options → Bad Newbie** розширює стандартні налаштування клієнта:
 
@@ -104,10 +92,6 @@ END SUB
 
 ## Basic IDE
 
-<p align="center">
-  <img src="docs/images/basic-ide-ukrainian.png" alt="Basic IDE" width="90%">
-</p>
-
 Basic IDE використовує Eclipse Theia та Monaco Editor. У ній доступні Explorer, редактор, Outline, Problems, Output, Debug Console, API Inspector, Variables, Watch, Call Stack та API Manual.
 
 Основні дії:
@@ -134,10 +118,6 @@ Basic IDE використовує Eclipse Theia та Monaco Editor. У ній �
 
 ## AutoLoad і макроси
 
-<p align="center">
-  <img src="docs/images/autoload-macros-ukrainian.png" alt="Basic AutoLoad and macros" width="90%">
-</p>
-
 Структура каталогу скриптів:
 
 ```text
@@ -157,10 +137,6 @@ Autoload\
 [AutoLoad і макроси](https://github.com/LIHACHTETAN/ClassicUO-BadNewbie-BasicIDE/wiki/UA-AutoLoad)
 
 ## Runtime API Manual
-
-<p align="center">
-  <img src="docs/images/api-manual-ukrainian.png" alt="Basic Runtime API Manual" width="90%">
-</p>
 
 Єдиним джерелом істини для API Manual є фактична реєстрація Basic Runtime:
 
